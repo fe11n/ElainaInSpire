@@ -9,23 +9,22 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
-public class Strike extends CustomCard {
-    public static final String ID = "Elaina:Strike";
+public class SuperStrike extends CustomCard {
+    public static final String ID = "Elaina:SuperStrike";
     private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID); // 从游戏系统读取本地化资源
     private static final String NAME = CARD_STRINGS.NAME;
-    private static final String IMG_PATH = "ElainaMod/img/cards/Strike.png";
+    private static final String IMG_PATH = "ElainaMod/img/cards/SuperStrike.png";
     private static final int COST = 1;
     private static final String DESCRIPTION = CARD_STRINGS.DESCRIPTION;
     private static final CardType TYPE = CardType.ATTACK;
     private static final CardColor COLOR = CardColor.COLORLESS;
-    private static final CardRarity RARITY = CardRarity.BASIC;
+    private static final CardRarity RARITY = CardRarity.COMMON;
     private static final CardTarget TARGET = CardTarget.ENEMY;
 
-    public Strike() {
+    public SuperStrike() {
         // 为了命名规范修改了变量名。这些参数具体的作用见下方
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        this.damage = this.baseDamage = 6;
-        this.tags.add(CardTags.STARTER_STRIKE);
+        this.damage = this.baseDamage = 100;
         this.tags.add(CardTags.STRIKE);
     }
 

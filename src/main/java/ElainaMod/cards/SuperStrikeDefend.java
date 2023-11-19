@@ -2,6 +2,7 @@ package ElainaMod.cards;
 
 import basemod.abstracts.CustomCard;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
+import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.cards.DamageInfo.DamageType;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -9,23 +10,23 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
-public class Strike extends CustomCard {
-    public static final String ID = "Elaina:Strike";
+public class SuperStrikeDefend extends CustomCard {
+    public static final String ID = "Elaina:SuperStrikeDefend";
     private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID); // 从游戏系统读取本地化资源
     private static final String NAME = CARD_STRINGS.NAME;
-    private static final String IMG_PATH = "ElainaMod/img/cards/Strike.png";
+    private static final String IMG_PATH = "ElainaMod/img/cards/SuperStrikeDefend.png";
     private static final int COST = 1;
     private static final String DESCRIPTION = CARD_STRINGS.DESCRIPTION;
     private static final CardType TYPE = CardType.ATTACK;
     private static final CardColor COLOR = CardColor.COLORLESS;
-    private static final CardRarity RARITY = CardRarity.BASIC;
+    private static final CardRarity RARITY = CardRarity.COMMON;
     private static final CardTarget TARGET = CardTarget.ENEMY;
 
-    public Strike() {
+    public SuperStrikeDefend() {
         // 为了命名规范修改了变量名。这些参数具体的作用见下方
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        this.damage = this.baseDamage = 6;
-        this.tags.add(CardTags.STARTER_STRIKE);
+        this.damage = this.baseDamage = 50;
+        this.baseBlock = 50;
         this.tags.add(CardTags.STRIKE);
     }
 
@@ -46,5 +47,6 @@ public class Strike extends CustomCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         // AbstractCard中实现了addToBot方法，它的效果和AbstractDungeon.actionManager.addToBottom相同
         this.addToBot(new DamageAction(m, new DamageInfo(p, damage, DamageType.NORMAL)));
+        this.addToBot(new GainBlockAction(p,p,this.block));
     }
 }

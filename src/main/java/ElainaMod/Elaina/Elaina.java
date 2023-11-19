@@ -1,7 +1,7 @@
 package ElainaMod.Elaina;
 
 import ElainaMod.Characters.ElainaC;
-import ElainaMod.cards.Strike;
+import ElainaMod.cards.*;
 import basemod.BaseMod;
 import basemod.interfaces.EditCardsSubscriber;
 import basemod.interfaces.EditCharactersSubscriber;
@@ -53,6 +53,10 @@ public class Elaina implements EditStringsSubscriber,EditCardsSubscriber, EditCh
    public void receiveEditCards(){
       //TODO 写添加卡牌的代码
       BaseMod.addCard(new Strike());
+      BaseMod.addCard(new Defend());
+      BaseMod.addCard(new SuperStrike());
+      BaseMod.addCard(new SuperDefend());
+      BaseMod.addCard(new SuperStrikeDefend());
    }
    @Override
    public void receiveEditCharacters(){

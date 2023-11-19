@@ -1,6 +1,7 @@
 package ElainaMod.Characters;
 
 import ElainaMod.Elaina.Elaina;
+import ElainaMod.cards.Defend;
 import ElainaMod.cards.Strike;
 import basemod.abstracts.CustomPlayer;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
@@ -85,7 +86,9 @@ public class ElainaC extends CustomPlayer {
             for(int x = 0; x<5; x++) {
                 retVal.add(Strike.ID);
             }
-            retVal.add("Elaina:Strike");
+            for(int x = 0; x<5; x++) {
+                retVal.add(Defend.ID);
+            }
             return retVal;
         }
 

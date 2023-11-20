@@ -2,9 +2,12 @@ package ElainaMod.Elaina;
 
 import ElainaMod.Characters.ElainaC;
 import ElainaMod.cards.*;
+import ElainaMod.relics.NicolesAdventures;
 import basemod.BaseMod;
+import basemod.helpers.RelicType;
 import basemod.interfaces.EditCardsSubscriber;
 import basemod.interfaces.EditCharactersSubscriber;
+import basemod.interfaces.EditRelicsSubscriber;
 import basemod.interfaces.EditStringsSubscriber;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -12,12 +15,13 @@ import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.badlogic.gdx.graphics.Color;
 import com.megacrit.cardcrawl.localization.CharacterStrings;
+import com.megacrit.cardcrawl.localization.RelicStrings;
 
 import static ElainaMod.Characters.ElainaC.Enums.EXAMPLE_CARD;
 import static ElainaMod.Characters.ElainaC.Enums.MY_CHARACTER;
 
 @SpireInitializer
-public class Elaina implements EditStringsSubscriber,EditCardsSubscriber, EditCharactersSubscriber {
+public class Elaina implements EditStringsSubscriber,EditCardsSubscriber, EditCharactersSubscriber, EditRelicsSubscriber {
    private static final String MY_CHARACTER_BUTTON = "ElainaMod/img/char/Character_Button.png";
    // 人物选择界面的立绘
    private static final String MY_CHARACTER_PORTRAIT = "ElainaMod/img/char/Character_Portrait.png";
@@ -62,6 +66,10 @@ public class Elaina implements EditStringsSubscriber,EditCardsSubscriber, EditCh
    public void receiveEditCharacters(){
       BaseMod.addCharacter(new ElainaC(CardCrawlGame.playerName),MY_CHARACTER_BUTTON,MY_CHARACTER_PORTRAIT,MY_CHARACTER);
    }
+   @Override
+   public void receiveEditRelics() {
+      BaseMod.addRelic(new NicolesAdventures(), RelicType.SHARED); // RelicType表示是所有角色都能拿到的遗物，还是一个角色的独有遗物
+   }
    public void receiveEditStrings() {
       String lang;
       if (Settings.language == Settings.GameLanguage.ZHS) {
@@ -72,5 +80,6 @@ public class Elaina implements EditStringsSubscriber,EditCardsSubscriber, EditCh
       BaseMod.loadCustomStringsFile(CardStrings.class, "ElainaMod/localization/" + lang + "/cards.json"); // 加载相应语言的卡牌本地化内容。
       // 如果是中文，加载的就是"ExampleResources/localization/ZHS/cards.json"
       BaseMod.loadCustomStringsFile(CharacterStrings.class, "ElainaMod/localization/" + lang + "/characters.json");
+      BaseMod.loadCustomStringsFile(RelicStrings.class, "ElainaMod/localization/" + lang + "/relics.json");
    }
 }

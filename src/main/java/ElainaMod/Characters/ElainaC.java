@@ -3,6 +3,7 @@ package ElainaMod.Characters;
 import ElainaMod.Elaina.Elaina;
 import ElainaMod.cards.Defend;
 import ElainaMod.cards.Strike;
+import ElainaMod.relics.NicolesAdventures;
 import basemod.abstracts.CustomPlayer;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.evacipated.cardcrawl.modthespire.lib.SpireEnum;
@@ -95,7 +96,7 @@ public class ElainaC extends CustomPlayer {
         // 初始遗物的ID，可以先写个原版遗物凑数
         public ArrayList<String> getStartingRelics(){
             ArrayList<String> retVal = new ArrayList<>();
-            retVal.add(Vajra.ID);
+            retVal.add(NicolesAdventures.ID);
             return retVal;
         }
 

@@ -9,6 +9,7 @@ import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.evacipated.cardcrawl.modthespire.lib.SpireEnum;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.EnergyManager;
@@ -52,8 +53,16 @@ public class ElainaC extends CustomPlayer {
     private static final float[] LAYER_SPEED = new float[]{-40.0F, -32.0F, 20.0F, -20.0F, 0.0F, -10.0F, -8.0F, 5.0F, -5.0F, 0.0F};
     // 人物的本地化文本，如卡牌的本地化文本一样，如何书写见下
     private static final CharacterStrings characterStrings = CardCrawlGame.languagePack.getCharacterString("Elaina:ElainaC");
+    public static ArrayList<AbstractCard> DiaryGroup = new ArrayList();
     public ElainaC(String name) {
-        super(name, MY_CHARACTER, ORB_TEXTURES, "ElainaMod/img/UI/orb/vfx.png", LAYER_SPEED, null, null);
+        super(name,
+                MY_CHARACTER,
+                ORB_TEXTURES,
+                "ElainaMod/img/UI/orb/vfx.png",
+                LAYER_SPEED,
+                null,
+                null);
+
 
 
         // 人物对话气泡的大小，如果游戏中尺寸不对在这里修改（libgdx的坐标轴左下为原点）
@@ -106,7 +115,7 @@ public class ElainaC extends CustomPlayer {
                     characterStrings.TEXT[0], // 人物介绍
                     75, // 当前血量
                     75, // 最大血量
-                    0, // 初始充能球栏位
+                    1, // 初始充能球栏位
                     99, // 初始携带金币
                     5, // 每回合抽牌数量
                     this, // 别动

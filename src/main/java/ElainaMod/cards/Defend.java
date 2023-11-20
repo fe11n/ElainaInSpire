@@ -1,8 +1,11 @@
 package ElainaMod.cards;
 
+import ElainaMod.Characters.ElainaC;
+import ElainaMod.action.GetDiaryCard;
 import basemod.abstracts.CustomCard;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.cards.DamageInfo.DamageType;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -46,5 +49,6 @@ public class Defend extends CustomCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         // AbstractCard中实现了addToBot方法，它的效果和AbstractDungeon.actionManager.addToBottom相同
         this.addToBot(new GainBlockAction(p,p,this.block));
+        this.addToBot(new GetDiaryCard(p));
     }
 }

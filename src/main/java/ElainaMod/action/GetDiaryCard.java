@@ -2,26 +2,23 @@ package ElainaMod.action;
 
 import ElainaMod.Characters.ElainaC;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import java.util.ArrayList;
 
 public class GetDiaryCard extends AbstractGameAction {
     public AbstractPlayer p;
-    public static final Logger logger = LogManager.getLogger(GetDiaryCard.class);
+    public ArrayList<AbstractCard> g;
     public GetDiaryCard(AbstractPlayer p){
         this.p = p;
     }
     @Override
     public void update(){
-
         if(this.p instanceof ElainaC){
-            logger.info(
-                    "before get num: "+((ElainaC)p).DiaryGroup.size()
-            );
-            p.hand.addToTop(
-                    ((ElainaC)p).DiaryGroup.get(0)
-            );
+            g = ((ElainaC)p).DiaryGroup;
+            if(g.size()>0){
+                p.hand.addToHand(g.get(0));
+            }
         }
         this.isDone=true;
     }

@@ -1,8 +1,12 @@
 package ElainaMod.relics;
 
 import ElainaMod.Characters.ElainaC;
+import ElainaMod.action.RecordCard;
 import ElainaMod.cards.Strike;
 import basemod.abstracts.CustomRelic;
+import com.megacrit.cardcrawl.actions.defect.ChannelAction;
+import com.megacrit.cardcrawl.actions.utility.NewQueueCardAction;
+import com.megacrit.cardcrawl.actions.utility.QueueCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -26,28 +30,30 @@ public class NicolesAdventures extends CustomRelic {
         return this.DESCRIPTIONS[0];
     }
     public void atPreBattle(){
-        logger.info("Start judge");
-        if(p instanceof ElainaC){
-            logger.info("Judge end");
-            g = ((ElainaC) p).DiaryGroup;
-            g.add(new Strike());
-            logger.info("Now Diary size: "+g.size());
-        }
+        g = ((ElainaC) p).DiaryGroup;
+        g.add(new Strike());
+        logger.info("Now Diary size: "+g.size());
     }
 
     public void onPlayerEndTurn(){
-        if(p instanceof ElainaC){
-            g = ((ElainaC) p).DiaryGroup;
-            l = AbstractDungeon.actionManager.cardsPlayedThisTurn;
-            logger.info("This turn cards num:"+l.size());
-            if(l.size()!=0){
-                logger.info("Put in Diary: "+l.get(l.size()-1).name);
-                g.add(l.get(l.size()-1).makeCopy());
-                logger.info("Now Diary size: "+g.size());
-            }
+        g = ((ElainaC) p).DiaryGroup;
+        l = AbstractDungeon.actionManager.cardsPlayedThisTurn;
+        logger.info("This turn cards num: "+l.size());
+        if(l.size()!=0){
+            this.addToTop(new RecordCard(p,l.get(l.size()-1)));
         }
     }
 
+    @Override
+    public void atTurnStart() {
+        g = ((ElainaC) p).DiaryGroup;
+        if(g.size()!=0){
+            AbstractCard c = g.get(g.size()-1);
+            if(c.hasTag(ElainaC.Enums.INSTANT)){
+                this.addToTop(new NewQueueCardAction(c, true, true,true));
+            }
+        }
+    }
 
     public AbstractRelic makeCopy(){
         return new NicolesAdventures();

@@ -21,11 +21,11 @@ public class GetDiaryCard extends AbstractGameAction {
     public void update(){
         if(this.p instanceof ElainaC){
             g = ((ElainaC)p).DiaryGroup;
-            logger.info("Now Diary size: "+g.size());
             if(g.size()>0){
                 p.hand.addToHand(g.get(g.size()-1));
                 g.remove(g.size()-1);
             }
+            logger.info("Now Diary size: "+g.size());
         }
         this.isDone=true;
     }

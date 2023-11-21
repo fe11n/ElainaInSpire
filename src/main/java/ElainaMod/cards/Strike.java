@@ -1,5 +1,6 @@
 package ElainaMod.cards;
 
+import ElainaMod.Characters.ElainaC;
 import basemod.abstracts.CustomCard;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
@@ -27,6 +28,7 @@ public class Strike extends CustomCard {
         this.damage = this.baseDamage = 6;
         this.tags.add(CardTags.STARTER_STRIKE);
         this.tags.add(CardTags.STRIKE);
+        this.tags.add(ElainaC.Enums.INSTANT);
     }
 
     @Override

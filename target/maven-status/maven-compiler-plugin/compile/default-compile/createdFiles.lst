@@ -12,3 +12,4 @@ ElainaMod\patch\DiaryOrbSlotPatch$DiarySlot.class
 ElainaMod\patch\DiaryOrbSlotPatch.class
 ElainaMod\cards\Strike.class
 ElainaMod\orb\ConclusionOrb.class
+ElainaMod\patch\ViewConclusionCardPatch.class

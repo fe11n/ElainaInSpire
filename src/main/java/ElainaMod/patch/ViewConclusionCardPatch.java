@@ -22,7 +22,7 @@ public class ViewConclusionCardPatch {
         Iterator it = p.orbs.iterator();
         while(it.hasNext()){
             AbstractOrb o = (AbstractOrb) it.next();
-            o.render(sb);
+            o.render(sb);//这个patch令卡牌显示在人物上面
         }
     }
 }

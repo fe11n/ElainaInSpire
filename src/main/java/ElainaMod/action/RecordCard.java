@@ -1,6 +1,7 @@
 package ElainaMod.action;
 
 import ElainaMod.Characters.ElainaC;
+import ElainaMod.cards.Strike;
 import ElainaMod.orb.ConclusionOrb;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -13,13 +14,12 @@ import java.util.ArrayList;
 import java.util.Iterator;
 
 public class RecordCard extends AbstractGameAction {
-    public AbstractPlayer p;
+    public AbstractPlayer p=AbstractDungeon.player;
     public AbstractCard c;
     public ArrayList<AbstractCard> g;
     public static final Logger logger = LogManager.getLogger(RecordCard.class);
-    public RecordCard(AbstractPlayer p,AbstractCard c){
-        this.p = p;
-        this.c = c;
+    public RecordCard(AbstractCard c){
+        this.c = c.makeCopy();
     }
     @Override
     public void update(){

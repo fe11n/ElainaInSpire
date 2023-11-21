@@ -30,9 +30,7 @@ public class NicolesAdventures extends CustomRelic {
         return this.DESCRIPTIONS[0];
     }
     public void atPreBattle(){
-        g = ((ElainaC) p).DiaryGroup;
-        g.add(new Strike());
-        logger.info("Now Diary size: "+g.size());
+        this.addToTop(new RecordCard(new Strike()));
     }
 
     public void onPlayerEndTurn(){
@@ -40,21 +38,9 @@ public class NicolesAdventures extends CustomRelic {
         l = AbstractDungeon.actionManager.cardsPlayedThisTurn;
         logger.info("This turn cards num: "+l.size());
         if(l.size()!=0){
-            this.addToTop(new RecordCard(p,l.get(l.size()-1)));
+            this.addToTop(new RecordCard(l.get(l.size()-1)));
         }
     }
-
-    @Override
-    public void atTurnStart() {
-        g = ((ElainaC) p).DiaryGroup;
-        if(g.size()!=0){
-            AbstractCard c = g.get(g.size()-1);
-            if(c.hasTag(ElainaC.Enums.INSTANT)){
-                this.addToTop(new NewQueueCardAction(c, true, true,true));
-            }
-        }
-    }
-
     public AbstractRelic makeCopy(){
         return new NicolesAdventures();
     }

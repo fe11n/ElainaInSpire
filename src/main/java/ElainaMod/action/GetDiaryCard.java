@@ -1,7 +1,7 @@
 package ElainaMod.action;
 
 import ElainaMod.Characters.ElainaC;
-import ElainaMod.relics.NicolesAdventures;
+import ElainaMod.orb.ConclusionOrb;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -18,15 +18,19 @@ public class GetDiaryCard extends AbstractGameAction {
         this.p = p;
     }
     @Override
-    public void update(){
-        if(this.p instanceof ElainaC){
-            g = ((ElainaC)p).DiaryGroup;
+    public void update(){//将结语获取到手中，同时更新结语
+        g = ((ElainaC)p).DiaryGroup;
+        if(g.size()>0){
+            p.hand.addToHand(g.get(g.size()-1));
+            g.remove(g.size()-1);
             if(g.size()>0){
-                p.hand.addToHand(g.get(g.size()-1));
-                g.remove(g.size()-1);
+                p.channelOrb(new ConclusionOrb(g.get(g.size()-1)));
             }
-            logger.info("Now Diary size: "+g.size());
+            else{
+                p.removeNextOrb();
+            }
         }
+        logger.info("Now Diary size: "+g.size());
         this.isDone=true;
     }
 }

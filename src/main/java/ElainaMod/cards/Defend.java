@@ -13,21 +13,18 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
-public class Defend extends CustomCard {
+public class Defend extends AbstractElainaCard {
     public static final String ID = "Elaina:Defend";
     private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID); // 从游戏系统读取本地化资源
-    private static final String NAME = CARD_STRINGS.NAME;
     private static final String IMG_PATH = "ElainaMod/img/cards/Defend.png";
     private static final int COST = 1;
-    private static final String DESCRIPTION = CARD_STRINGS.DESCRIPTION;
     private static final CardType TYPE = CardType.SKILL;
-    private static final CardColor COLOR = CardColor.COLORLESS;
     private static final CardRarity RARITY = CardRarity.BASIC;
     private static final CardTarget TARGET = CardTarget.SELF;
 
     public Defend() {
         // 为了命名规范修改了变量名。这些参数具体的作用见下方
-        super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
+        super(ID, CARD_STRINGS, IMG_PATH, COST, TYPE, RARITY, TARGET);
         this.baseBlock = 5;
         this.tags.add(CardTags.STARTER_DEFEND);
     }
@@ -46,7 +43,7 @@ public class Defend extends CustomCard {
      * @param m 指向的怪物类。（无指向时为null，包括攻击所有敌人时）
      */
     @Override
-    public void use(AbstractPlayer p, AbstractMonster m) {
+    public void BasicEffect(AbstractPlayer p, AbstractMonster m) {
         // AbstractCard中实现了addToBot方法，它的效果和AbstractDungeon.actionManager.addToBottom相同
         this.addToBot(new GainBlockAction(p,p,this.block));
         this.addToBot(new GetDiaryCard(p));

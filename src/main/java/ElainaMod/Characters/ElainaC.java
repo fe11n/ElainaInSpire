@@ -244,6 +244,8 @@ public class ElainaC extends CustomPlayer {
 
         @SpireEnum
         public static AbstractCard.CardTags INSTANT;
+        @SpireEnum
+        public static AbstractCard.CardTags SHORTHAND;
     }
 
 }

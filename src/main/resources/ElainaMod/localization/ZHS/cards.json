@@ -1,7 +1,7 @@
 {
   "Elaina:Strike": {
     "NAME": "打击",
-    "DESCRIPTION": "造成 !D! 点伤害。 NL *瞬发 "
+    "DESCRIPTION": "造成 !D! 点伤害，时节向前3。 NL *瞬发 "
   },
   "Elaina:Defend": {
     "NAME": "防御",
@@ -21,6 +21,12 @@
   },
   "Elaina:IceConeMagic": {
     "NAME": "冰锥魔法",
-    "DESCRIPTION": "造成 !D! 点伤害。 #b时令 · #b冬 "
+    "DESCRIPTION": "造成 !D! 点伤害。 *时令 · *冬 ",
+    "EXTENDED_DESCRIPTION": [
+      "造成 !D! 点伤害。 *时令 · *冬 ",
+      "造成 !D! 点伤害。 *时令 · *冬 ",
+      "造成 !D! 点伤害。 *时令 · *冬 NL *消耗 ",
+      "造成 !D! 点伤害。 *时令 · *冬 "
+    ]
   }
 }

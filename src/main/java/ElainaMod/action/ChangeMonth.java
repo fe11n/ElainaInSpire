@@ -42,7 +42,7 @@ public class ChangeMonth extends AbstractGameAction {
                 p.ChangeMonth(12);
             }
             else{
-                p.ChangeMonth((p.Month-num)%12);
+                p.ChangeMonth((p.Month+num)%12);
             }
         }
         logger.info("Month after change: "+p.Month);

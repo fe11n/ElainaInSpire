@@ -1,6 +1,7 @@
 package ElainaMod.Characters;
 
 import ElainaMod.Elaina.Elaina;
+import ElainaMod.cards.AbstractElainaCard;
 import ElainaMod.cards.Defend;
 import ElainaMod.cards.IceConeMagic;
 import ElainaMod.cards.Strike;
@@ -10,6 +11,7 @@ import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.evacipated.cardcrawl.modthespire.lib.SpireEnum;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.EnergyManager;
@@ -22,12 +24,14 @@ import com.megacrit.cardcrawl.helpers.ScreenShake;
 import com.megacrit.cardcrawl.localization.CharacterStrings;
 import com.megacrit.cardcrawl.screens.CharSelectInfo;
 import com.badlogic.gdx.graphics.Color;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.Random;
 
-import static ElainaMod.Characters.ElainaC.Enums.EXAMPLE_CARD;
-import static ElainaMod.Characters.ElainaC.Enums.MY_CHARACTER;
+import static ElainaMod.Characters.ElainaC.Enums.*;
 
 public class ElainaC extends CustomPlayer {
     private static final String MY_CHARACTER_SHOULDER_1 = "ElainaMod/img/char/shoulder1.png";
@@ -55,8 +59,8 @@ public class ElainaC extends CustomPlayer {
     private static final CharacterStrings characterStrings = CardCrawlGame.languagePack.getCharacterString("Elaina:ElainaC");
     public static ArrayList<AbstractCard> DiaryGroup = new ArrayList();//存储日记的抽象数组
     public static int Month;
-
     public static int Year;
+    public static final Logger logger = LogManager.getLogger(ElainaC.class);
     public ElainaC(String name) {
         super(name,
                 MY_CHARACTER,
@@ -105,8 +109,26 @@ public class ElainaC extends CustomPlayer {
 
     public void ChangeMonth(int num){
         Month = num;
-        WanderingWitch c = (WanderingWitch) this.relics.get(0);//直接索引魔女之旅遗物，所以这个mod估计没办法换四了
-        c.UpdateCounter();
+        logger.info("Change to: "+num);
+        if( this.relics.get(0) instanceof WanderingWitch){
+            logger.info("Changing...");
+            ((WanderingWitch) this.relics.get(0)).UpdateCounter();
+        }
+        UpdateAllSeasonalDescription();
+    }
+    public void UpdateAllSeasonalDescription(){
+        UpdateSeasonalDescription(this.discardPile);
+        UpdateSeasonalDescription(this.drawPile);
+        UpdateSeasonalDescription(this.hand);
+    }
+    private void UpdateSeasonalDescription(CardGroup cg){
+        Iterator it = cg.group.iterator();
+        while (it.hasNext()){
+            AbstractElainaCard c = (AbstractElainaCard) it.next();
+            if(c.hasTag(SEASONAL)){
+                c.UpdateSeasonalDescription();
+            }
+        }
     }
 
     public ArrayList<String> getStartingDeck() {
@@ -263,6 +285,8 @@ public class ElainaC extends CustomPlayer {
         public static AbstractCard.CardTags SHORTHAND;//速记
         @SpireEnum
         public static AbstractCard.CardTags MAGIC;//速记
+        @SpireEnum
+        public static AbstractCard.CardTags SEASONAL;//速记
     }
 
 }

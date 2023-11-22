@@ -2,7 +2,6 @@ ElainaMod\action\GetDiaryCard.class
 ElainaMod\cards\SuperStrikeDefend.class
 ElainaMod\Characters\ElainaC.class
 ElainaMod\Characters\ElainaC$Enums.class
-ElainaMod\relics\NicolesAdventures.class
 ElainaMod\action\RecordCard.class
 ElainaMod\cards\Defend.class
 ElainaMod\cards\SuperStrike.class
@@ -11,6 +10,8 @@ ElainaMod\Elaina\Elaina.class
 ElainaMod\cards\SuperDefend.class
 ElainaMod\patch\DiaryOrbSlotPatch$DiarySlot.class
 ElainaMod\patch\DiaryOrbSlotPatch.class
+ElainaMod\relics\WanderingWitch.class
 ElainaMod\cards\Strike.class
 ElainaMod\orb\ConclusionOrb.class
 ElainaMod\patch\ViewConclusionCardPatch.class
+ElainaMod\action\ChangeMonth.class

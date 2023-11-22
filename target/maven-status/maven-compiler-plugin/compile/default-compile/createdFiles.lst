@@ -7,6 +7,7 @@ ElainaMod\cards\Defend.class
 ElainaMod\cards\SuperStrike.class
 ElainaMod\cards\AbstractElainaCard.class
 ElainaMod\Elaina\Elaina.class
+ElainaMod\cards\IceConeMagic.class
 ElainaMod\cards\SuperDefend.class
 ElainaMod\patch\DiaryOrbSlotPatch$DiarySlot.class
 ElainaMod\patch\DiaryOrbSlotPatch.class

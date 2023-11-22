@@ -2,14 +2,14 @@ package ElainaMod.Characters;
 
 import ElainaMod.Elaina.Elaina;
 import ElainaMod.cards.Defend;
+import ElainaMod.cards.IceConeMagic;
 import ElainaMod.cards.Strike;
-import ElainaMod.relics.NicolesAdventures;
+import ElainaMod.relics.WanderingWitch;
 import basemod.abstracts.CustomPlayer;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.evacipated.cardcrawl.modthespire.lib.SpireEnum;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.EnergyManager;
@@ -18,14 +18,13 @@ import com.megacrit.cardcrawl.cutscenes.CutscenePanel;
 import com.megacrit.cardcrawl.events.city.Vampires;
 import com.megacrit.cardcrawl.helpers.CardLibrary;
 import com.megacrit.cardcrawl.helpers.FontHelper;
-import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.helpers.ScreenShake;
 import com.megacrit.cardcrawl.localization.CharacterStrings;
-import com.megacrit.cardcrawl.relics.Vajra;
 import com.megacrit.cardcrawl.screens.CharSelectInfo;
 import com.badlogic.gdx.graphics.Color;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 import static ElainaMod.Characters.ElainaC.Enums.EXAMPLE_CARD;
 import static ElainaMod.Characters.ElainaC.Enums.MY_CHARACTER;
@@ -54,7 +53,10 @@ public class ElainaC extends CustomPlayer {
     private static final float[] LAYER_SPEED = new float[]{-40.0F, -32.0F, 20.0F, -20.0F, 0.0F, -10.0F, -8.0F, 5.0F, -5.0F, 0.0F};
     // 人物的本地化文本，如卡牌的本地化文本一样，如何书写见下
     private static final CharacterStrings characterStrings = CardCrawlGame.languagePack.getCharacterString("Elaina:ElainaC");
-    public static ArrayList<AbstractCard> DiaryGroup = new ArrayList();
+    public static ArrayList<AbstractCard> DiaryGroup = new ArrayList();//存储日记的抽象数组
+    public static int Month;
+
+    public static int Year;
     public ElainaC(String name) {
         super(name,
                 MY_CHARACTER,
@@ -71,6 +73,8 @@ public class ElainaC extends CustomPlayer {
         this.dialogY = (this.drawY + 150.0F * Settings.scale);
 
         this.maxOrbs=1;
+        Month = new Random().nextInt(12)+1;
+        Year = 0;
 
 
         // 初始化你的人物，如果你的人物只有一张图，那么第一个参数填写你人物图片的路径。
@@ -95,6 +99,16 @@ public class ElainaC extends CustomPlayer {
 
     }
 
+    public int getSeason(){
+        return (Month%12)/3;
+    }//0，1，2，3分别表示冬，春，夏，秋
+
+    public void ChangeMonth(int num){
+        Month = num;
+        WanderingWitch c = (WanderingWitch) this.relics.get(0);//直接索引魔女之旅遗物，所以这个mod估计没办法换四了
+        c.UpdateCounter();
+    }
+
     public ArrayList<String> getStartingDeck() {
         ArrayList<String> retVal = new ArrayList<>();
         for(int x = 0; x<5; x++) {
@@ -103,13 +117,14 @@ public class ElainaC extends CustomPlayer {
         for(int x = 0; x<5; x++) {
             retVal.add(Defend.ID);
         }
+        retVal.add(IceConeMagic.ID);
         return retVal;
     }
 
     // 初始遗物的ID，可以先写个原版遗物凑数
     public ArrayList<String> getStartingRelics(){
         ArrayList<String> retVal = new ArrayList<>();
-        retVal.add(NicolesAdventures.ID);
+        retVal.add(WanderingWitch.ID);
         return retVal;
     }
 
@@ -120,7 +135,7 @@ public class ElainaC extends CustomPlayer {
                 75, // 当前血量
                 75, // 最大血量
                 1, // 初始充能球栏位
-                99, // 初始携带金币
+                50, // 初始携带金币
                 5, // 每回合抽牌数量
                 this, // 别动
                 this.getStartingRelics(), // 初始遗物
@@ -243,9 +258,11 @@ public class ElainaC extends CustomPlayer {
         public static CardLibrary.LibraryType EXAMPLE_LIBRARY;
 
         @SpireEnum
-        public static AbstractCard.CardTags INSTANT;
+        public static AbstractCard.CardTags INSTANT;//瞬发
         @SpireEnum
-        public static AbstractCard.CardTags SHORTHAND;
+        public static AbstractCard.CardTags SHORTHAND;//速记
+        @SpireEnum
+        public static AbstractCard.CardTags MAGIC;//速记
     }
 
 }

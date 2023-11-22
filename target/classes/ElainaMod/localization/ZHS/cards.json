@@ -18,5 +18,9 @@
   "Elaina:SuperStrikeDefend": {
     "NAME": "超级打击防御",
     "DESCRIPTION": "获得 !B! 点格挡，造成 !D! 点伤害。"
+  },
+  "Elaina:IceConeMagic": {
+    "NAME": "冰锥魔法",
+    "DESCRIPTION": "造成 !D! 点伤害。 #b时令 · #b冬 "
   }
 }

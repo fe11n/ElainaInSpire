@@ -28,7 +28,6 @@ public class RecordCard extends AbstractGameAction {
             logger.info("Record in Diary: "+c.name);
             g.add(c.makeCopy());
             logger.info("Diary size after record: "+g.size());
-            logger.info("Max orbs: "+p.maxOrbs);
             Iterator it = g.iterator();
             while(it.hasNext()){
                 logger.info(((AbstractCard)it.next()).name);

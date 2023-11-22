@@ -2,32 +2,28 @@ package ElainaMod.cards;
 
 import ElainaMod.Characters.ElainaC;
 import ElainaMod.action.ChangeMonth;
-import basemod.abstracts.CustomCard;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.cards.DamageInfo.DamageType;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
-public class Strike extends AbstractElainaCard {
-    public static final String ID = "Elaina:Strike";
+public class IceConeMagic extends AbstractElainaCard {
+    public static final String ID = "Elaina:IceConeMagic";
     private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID); // 从游戏系统读取本地化资源
-    private static final String IMG_PATH = "ElainaMod/img/cards/Strike.png";
+    private static final String IMG_PATH = "ElainaMod/img/cards/IceConeMagic.png";
     private static final int COST = 1;
     private static final CardType TYPE = CardType.ATTACK;
     private static final CardRarity RARITY = CardRarity.BASIC;
     private static final CardTarget TARGET = CardTarget.ENEMY;
 
-    public Strike() {
+    public IceConeMagic() {
         // 为了命名规范修改了变量名。这些参数具体的作用见下方
         super(ID, CARD_STRINGS, IMG_PATH, COST, TYPE, RARITY, TARGET);
-        this.damage = this.baseDamage = 6;
-        this.tags.add(CardTags.STARTER_STRIKE);
-        this.tags.add(CardTags.STRIKE);
-        this.tags.add(ElainaC.Enums.INSTANT);
+        this.damage = this.baseDamage = 15;
+        this.tags.add(ElainaC.Enums.MAGIC);
     }
 
     @Override
@@ -44,10 +40,16 @@ public class Strike extends AbstractElainaCard {
      * @param m 指向的怪物类。（无指向时为null，包括攻击所有敌人时）
      */
     public void BasicEffect(AbstractPlayer p, AbstractMonster m){
+        switch (((ElainaC)p).getSeason()){
+            case 0:
+                break;
+            case 1:
+            case 3:
+                this.baseDamage=9;
+            case 2:
+                this.exhaust=true;
+                break;
+        }
         this.addToBot(new DamageAction(m, new DamageInfo(p, damage, DamageType.NORMAL)));
     }//基础效果，可以被使用和瞬发
-    public void use(AbstractPlayer p,AbstractMonster m){
-        super.use(p,m);
-        this.addToTop(new ChangeMonth(p,1,true));
-    }
 }

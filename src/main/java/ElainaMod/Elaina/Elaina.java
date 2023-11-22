@@ -2,17 +2,14 @@ package ElainaMod.Elaina;
 
 import ElainaMod.Characters.ElainaC;
 import ElainaMod.cards.*;
-import ElainaMod.relics.NicolesAdventures;
+import ElainaMod.relics.WanderingWitch;
 import basemod.BaseMod;
 import basemod.helpers.RelicType;
 import basemod.interfaces.EditCardsSubscriber;
 import basemod.interfaces.EditCharactersSubscriber;
 import basemod.interfaces.EditRelicsSubscriber;
 import basemod.interfaces.EditStringsSubscriber;
-import com.evacipated.cardcrawl.modthespire.lib.SpireEnum;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
-import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.localization.CardStrings;
@@ -64,6 +61,7 @@ public class Elaina implements EditStringsSubscriber,EditCardsSubscriber, EditCh
       BaseMod.addCard(new SuperStrike());
       BaseMod.addCard(new SuperDefend());
       BaseMod.addCard(new SuperStrikeDefend());
+      BaseMod.addCard(new IceConeMagic());
    }
    @Override
    public void receiveEditCharacters(){
@@ -71,7 +69,7 @@ public class Elaina implements EditStringsSubscriber,EditCardsSubscriber, EditCh
    }
    @Override
    public void receiveEditRelics() {
-      BaseMod.addRelic(new NicolesAdventures(), RelicType.SHARED); // RelicType表示是所有角色都能拿到的遗物，还是一个角色的独有遗物
+      BaseMod.addRelic(new WanderingWitch(), RelicType.SHARED); // RelicType表示是所有角色都能拿到的遗物，还是一个角色的独有遗物
    }
    public void receiveEditStrings() {
       String lang;

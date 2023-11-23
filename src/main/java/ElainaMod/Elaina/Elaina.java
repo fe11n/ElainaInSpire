@@ -16,6 +16,7 @@ import com.megacrit.cardcrawl.localization.CardStrings;
 import com.badlogic.gdx.graphics.Color;
 import com.megacrit.cardcrawl.localization.CharacterStrings;
 import com.megacrit.cardcrawl.localization.RelicStrings;
+import com.megacrit.cardcrawl.localization.UIStrings;
 
 import static ElainaMod.Characters.ElainaC.Enums.EXAMPLE_CARD;
 import static ElainaMod.Characters.ElainaC.Enums.MY_CHARACTER;
@@ -82,5 +83,6 @@ public class Elaina implements EditStringsSubscriber,EditCardsSubscriber, EditCh
       // 如果是中文，加载的就是"ExampleResources/localization/ZHS/cards.json"
       BaseMod.loadCustomStringsFile(CharacterStrings.class, "ElainaMod/localization/" + lang + "/characters.json");
       BaseMod.loadCustomStringsFile(RelicStrings.class, "ElainaMod/localization/" + lang + "/relics.json");
+      BaseMod.loadCustomStringsFile(UIStrings.class,"ElainaMod/localization/" + lang + "/UIStrings.json");
    }
 }

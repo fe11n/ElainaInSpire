@@ -1,6 +1,5 @@
 ElainaMod\action\GetDiaryCard.class
 ElainaMod\cards\SuperStrikeDefend.class
-ElainaMod\Characters\ElainaC.class
 ElainaMod\Characters\ElainaC$Enums.class
 ElainaMod\action\RecordCard.class
 ElainaMod\cards\Defend.class
@@ -9,6 +8,7 @@ ElainaMod\cards\AbstractElainaCard.class
 ElainaMod\Elaina\Elaina.class
 ElainaMod\cards\IceConeMagic.class
 ElainaMod\cards\SuperDefend.class
+ElainaMod\cardmods\ModRecordedCard.class
 ElainaMod\patch\DiaryOrbSlotPatch$DiarySlot.class
 ElainaMod\patch\DiaryOrbSlotPatch.class
 ElainaMod\relics\WanderingWitch.class

@@ -29,7 +29,7 @@ public class WanderingWitch extends CustomRelic {
     public String getUpdatedDescription(){
         return this.DESCRIPTIONS[0];
     }
-    public void onEnterRoom(AbstractRoom room){
+    public void onEnterRoom(AbstractRoom room){//进入房间后时节+1，更新计数器
         logger.info("Month before enter: "+p.Month);
         if(p.Month==12){
             AbstractDungeon.player.gainGold(50);//直接p调用函数不生效，疑似p也只是临时变量
@@ -40,11 +40,11 @@ public class WanderingWitch extends CustomRelic {
         p.Month++;
         UpdateCounter();
     }
-    public void atPreBattle(){
+    public void atPreBattle(){//战斗开始时记录卡牌（这个是遗物描述的），TODO 并且按季节更新所有卡牌描述（这个最好写到能力里）
         this.addToTop(new RecordCard(new Strike()));
         p.UpdateAllSeasonalDescription();
     }
-    public void onPlayerEndTurn(){
+    public void onPlayerEndTurn(){//回合结束时记录打出的最后一张卡牌
         l = AbstractDungeon.actionManager.cardsPlayedThisTurn;
         logger.info("This turn cards num: "+l.size());
         if(l.size()!=0){
@@ -53,8 +53,8 @@ public class WanderingWitch extends CustomRelic {
     }
     public void onVictory(){
         g.removeAll(g);
-    }
-    public void UpdateCounter(){
+    }//TODO 战斗结束时清空日记，这个也最好写到能力里
+    public void UpdateCounter(){//更新计数器
         p =(ElainaC) AbstractDungeon.player;//角色死亡后遗物不会重新构造，因此需要重新给p赋值
         NotedMonth = p.Month;
         this.flash();

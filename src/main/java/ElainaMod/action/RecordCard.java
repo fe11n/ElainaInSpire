@@ -1,6 +1,7 @@
 package ElainaMod.action;
 
 import ElainaMod.Characters.ElainaC;
+import ElainaMod.cards.AbstractElainaCard;
 import ElainaMod.cards.Strike;
 import ElainaMod.orb.ConclusionOrb;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
@@ -15,24 +16,30 @@ import java.util.Iterator;
 
 public class RecordCard extends AbstractGameAction {
     public AbstractPlayer p=AbstractDungeon.player;
-    public AbstractCard c;
+    public AbstractElainaCard c;
     public ArrayList<AbstractCard> g;
     public static final Logger logger = LogManager.getLogger(RecordCard.class);
     public RecordCard(AbstractCard c){
-        this.c = c.makeCopy();
+       this.c = (AbstractElainaCard) (c.makeCopy());
     }
     @Override
     public void update(){
         if(p instanceof ElainaC){
-            g = ((ElainaC) p).DiaryGroup;
-            logger.info("Record in Diary: "+c.name);
-            g.add(c.makeCopy());
-            logger.info("Diary size after record: "+g.size());
-            Iterator it = g.iterator();
-            while(it.hasNext()){
-                logger.info(((AbstractCard)it.next()).name);
+            if(c.hasTag(ElainaC.Enums.SEASONAL)){
+                c.UpdateSeasonalDescription();
             }
-            p.channelOrb(new ConclusionOrb(c));
+            if(c.exhaust==false && c.type!= AbstractCard.CardType.POWER && !c.hasTag(ElainaC.Enums.UNNOTABLE)){
+                //未被消耗，不是能力牌，无不可被记录标记时记录
+                g = ((ElainaC) p).DiaryGroup;
+                logger.info("Record in Diary: "+c.name);
+                g.add(c);
+                logger.info("Diary size after record: "+g.size());
+                Iterator it = g.iterator();
+                while(it.hasNext()){
+                    logger.info(((AbstractCard)it.next()).name);
+                }
+                p.channelOrb(new ConclusionOrb(c));
+            }
         }
         this.isDone=true;
     }

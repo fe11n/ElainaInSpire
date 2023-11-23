@@ -5,6 +5,7 @@ import ElainaMod.cards.AbstractElainaCard;
 import ElainaMod.cards.Defend;
 import ElainaMod.cards.IceConeMagic;
 import ElainaMod.cards.Strike;
+import ElainaMod.orb.ConclusionOrb;
 import ElainaMod.relics.WanderingWitch;
 import basemod.abstracts.CustomPlayer;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
@@ -58,8 +59,8 @@ public class ElainaC extends CustomPlayer {
     // 人物的本地化文本，如卡牌的本地化文本一样，如何书写见下
     private static final CharacterStrings characterStrings = CardCrawlGame.languagePack.getCharacterString("Elaina:ElainaC");
     public static ArrayList<AbstractCard> DiaryGroup = new ArrayList();//存储日记的抽象数组
-    public static int Month;
-    public static int Year;
+    public static int Month;//时节变量
+    public static int Year;//记录经历的循环数
     public static final Logger logger = LogManager.getLogger(ElainaC.class);
     public ElainaC(String name) {
         super(name,
@@ -69,8 +70,6 @@ public class ElainaC extends CustomPlayer {
                 LAYER_SPEED,
                 null,
                 null);
-
-
 
         // 人物对话气泡的大小，如果游戏中尺寸不对在这里修改（libgdx的坐标轴左下为原点）
         this.dialogX = (this.drawX + 0.0F * Settings.scale);
@@ -107,7 +106,7 @@ public class ElainaC extends CustomPlayer {
         return (Month%12)/3;
     }//0，1，2，3分别表示冬，春，夏，秋
 
-    public void ChangeMonth(int num){
+    public void ChangeMonth(int num){//更改月份调用该函数，更新遗物并更新卡牌描述
         Month = num;
         logger.info("Change to: "+num);
         if( this.relics.get(0) instanceof WanderingWitch){
@@ -117,16 +116,24 @@ public class ElainaC extends CustomPlayer {
         UpdateAllSeasonalDescription();
     }
     public void UpdateAllSeasonalDescription(){
-        UpdateSeasonalDescription(this.discardPile);
-        UpdateSeasonalDescription(this.drawPile);
-        UpdateSeasonalDescription(this.hand);
+        UpdateSeasonalDescription(this.discardPile.group);
+        UpdateSeasonalDescription(this.drawPile.group);
+        UpdateSeasonalDescription(this.hand.group);
+        UpdateSeasonalDescription(DiaryGroup,true);
     }
-    private void UpdateSeasonalDescription(CardGroup cg){
-        Iterator it = cg.group.iterator();
+    private void UpdateSeasonalDescription(ArrayList g){
+        UpdateSeasonalDescription(g,false);
+    }
+    private void UpdateSeasonalDescription(ArrayList g,boolean isDiary){
+        Iterator it = g.iterator();
         while (it.hasNext()){
             AbstractElainaCard c = (AbstractElainaCard) it.next();
             if(c.hasTag(SEASONAL)){
-                c.UpdateSeasonalDescription();
+                if(c.UpdateSeasonalDescription() && isDiary && !(it.hasNext())){//在Diary结语位置且需要更新时
+                    logger.info("Updating Orb...");
+                    this.channelOrb(new ConclusionOrb(c));
+                    logger.info("Updated");
+                }
             }
         }
     }
@@ -287,6 +294,8 @@ public class ElainaC extends CustomPlayer {
         public static AbstractCard.CardTags MAGIC;//速记
         @SpireEnum
         public static AbstractCard.CardTags SEASONAL;//速记
+        @SpireEnum
+        public static AbstractCard.CardTags UNNOTABLE;//速记
     }
 
 }

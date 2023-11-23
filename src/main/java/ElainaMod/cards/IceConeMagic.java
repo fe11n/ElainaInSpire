@@ -40,6 +40,15 @@ public class IceConeMagic extends AbstractElainaCard {
             this.upgradeDamage(3); // 将该卡牌的伤害提高3点。
         }
     }
+    public boolean UpdateSeasonalDescription(){
+        if(getSeasonNum()==2){
+            this.exhaust=true;
+        }
+        else {
+            this.exhaust=false;
+        }
+        return super.UpdateSeasonalDescription();
+    }
     /**
      * 当卡牌被使用时，调用这个方法。
      *

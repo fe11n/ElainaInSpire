@@ -20,7 +20,7 @@ public class ConclusionOrb extends AbstractOrb {
         this.name=c.name;
         this.updateDescription();
     }
-    public void onStartOfTurn(){
+    public void onStartOfTurn(){//实现瞬发机制
         if(c.hasTag(ElainaC.Enums.INSTANT)){
             ((AbstractElainaCard)c).InstantUse();
         }
@@ -30,7 +30,7 @@ public class ConclusionOrb extends AbstractOrb {
         this.description=c.name;
     }
 
-    public void update(){
+    public void update(){//更新充能球卡图
         super.update();
         this.c.target_x = this.tX;
         this.c.target_y = this.tY;

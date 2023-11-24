@@ -1,12 +1,17 @@
 {
- "Elaina:Exhaust":{
-  "TEXT": [
-    "消耗"
-  ]
-},
+  "Elaina:Exhaust":{
+    "TEXT": [
+      " *消耗"
+    ]
+  },
   "Elaina:Ethereal":{
     "TEXT": [
-      "虚无"
+      " *虚无"
+    ]
+  },
+  "Elaina:Instant":{
+    "TEXT": [
+      " *瞬发"
     ]
   }
 }

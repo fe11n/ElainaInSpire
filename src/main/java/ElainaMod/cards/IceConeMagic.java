@@ -1,12 +1,10 @@
 package ElainaMod.cards;
 
 import ElainaMod.Characters.ElainaC;
-import ElainaMod.action.ChangeMonth;
 import ElainaMod.relics.WanderingWitch;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.cards.DamageInfo.DamageType;
-import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
@@ -19,7 +17,7 @@ public class IceConeMagic extends AbstractElainaCard {
     private static final String IMG_PATH = "ElainaMod/img/cards/IceConeMagic.png";
     private static final int COST = 1;
     private static final CardType TYPE = CardType.ATTACK;
-    private static final CardRarity RARITY = CardRarity.BASIC;
+    private static final CardRarity RARITY = CardRarity.COMMON;
     private static final CardTarget TARGET = CardTarget.ENEMY;
     public static final Logger logger = LogManager.getLogger(WanderingWitch.class);
 
@@ -40,24 +38,15 @@ public class IceConeMagic extends AbstractElainaCard {
             this.upgradeDamage(3); // 将该卡牌的伤害提高3点。
         }
     }
-    public boolean UpdateSeasonalDescription(){
-        if(getSeasonNum()==2){
-            this.exhaust=true;
-        }
-        else {
-            this.exhaust=false;
-        }
-        return super.UpdateSeasonalDescription();
-    }
     /**
      * 当卡牌被使用时，调用这个方法。
      *
      * @param p 你的玩家实体类。
      * @param m 指向的怪物类。（无指向时为null，包括攻击所有敌人时）
      */
-    public void BasicEffect(AbstractPlayer p, AbstractMonster m){
-        logger.info("Season Num: "+((ElainaC)p).getSeason());
-        switch (((ElainaC)p).getSeason()){
+    public void BasicEffect(ElainaC p, AbstractMonster m){
+        logger.info("Season Num: "+p.getSeason());
+        switch (this.getSeasonNum()){
             case 0:
             case 1:
             case 3:

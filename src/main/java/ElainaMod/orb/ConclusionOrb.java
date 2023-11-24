@@ -1,28 +1,26 @@
 package ElainaMod.orb;
 
-import ElainaMod.Characters.ElainaC;
 import ElainaMod.cards.AbstractElainaCard;
-import ElainaMod.cards.Strike;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.megacrit.cardcrawl.actions.utility.NewQueueCardAction;
-import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.orbs.AbstractOrb;
-import com.megacrit.cardcrawl.vfx.AbstractGameEffect;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.util.ArrayList;
 
 public class ConclusionOrb extends AbstractOrb {
     public static final String ID = "Elaina:ConclusionOrb";
-    public AbstractCard c;
-    public ConclusionOrb(AbstractCard c){
+    public AbstractElainaCard c;
+    int lognum = 20;
+    public static final Logger logger = LogManager.getLogger(ConclusionOrb.class);
+    public ConclusionOrb(AbstractElainaCard c){
         this.c = c;
         this.name=c.name;
         this.updateDescription();
     }
     public void onStartOfTurn(){//实现瞬发机制
-        if(c.hasTag(ElainaC.Enums.INSTANT)){
-            ((AbstractElainaCard)c).InstantUse();
+        if(c.isInstant){//如果使用tag判断INSTANT会导致更改INSTANT时同类卡牌全部INSTANT被修改
+            c.InstantUse();
         }
     }
     @Override
@@ -39,6 +37,10 @@ public class ConclusionOrb extends AbstractOrb {
         } else {
             this.c.targetDrawScale = Float.valueOf(0.5F);
         }
+        if(lognum>0){
+            logger.info("Orb Description(2): " + c.rawDescription);
+            lognum--;
+        }
         this.c.update();
     }
 
@@ -51,6 +53,10 @@ public class ConclusionOrb extends AbstractOrb {
     }
     @Override
     public void render(SpriteBatch sb) {
+        if(lognum>0){
+            logger.info("Orb Description(2): " + c.rawDescription);
+            lognum--;
+        }
         this.c.render(sb);
     }
     @Override

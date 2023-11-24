@@ -7,17 +7,17 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-public class ChangeMonth extends AbstractGameAction {
-    public static final Logger logger = LogManager.getLogger(ChangeMonth.class);
+public class ChangeMonthAction extends AbstractGameAction {
+    public static final Logger logger = LogManager.getLogger(ChangeMonthAction.class);
     public ElainaC p;
     public int num;
     boolean isBack;
-    public ChangeMonth(AbstractPlayer p,int num,boolean isBack){
+    public ChangeMonthAction(AbstractPlayer p, int num, boolean isBack){
         this.p = (ElainaC) p;
         this.num = num;
         this.isBack = isBack;
     }
-    public ChangeMonth(AbstractPlayer p,int num){//默认向前
+    public ChangeMonthAction(AbstractPlayer p, int num){//默认向前
         this.p = (ElainaC) p;
         this.num = num;
         this.isBack = false;

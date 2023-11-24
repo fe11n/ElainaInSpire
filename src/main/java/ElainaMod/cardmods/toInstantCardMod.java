@@ -1,31 +1,31 @@
 package ElainaMod.cardmods;
 
+import ElainaMod.Characters.ElainaC;
+import ElainaMod.cards.AbstractElainaCard;
 import basemod.abstracts.AbstractCardModifier;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 
-public class ModRecordedCard extends AbstractCardModifier {
-    public ModRecordedCard(){
+public class toInstantCardMod extends AbstractCardModifier {
+    public toInstantCardMod(){
     }
 
     @Override
     public String modifyDescription(String rawDescription, AbstractCard card) {
         return rawDescription
                 + " NL "
-                + CardCrawlGame.languagePack.getUIString("Elaina:Ethereal").TEXT[0]
-                +" NL "
-                + CardCrawlGame.languagePack.getUIString("Elaina:Exhaust").TEXT[0];
+                + CardCrawlGame.languagePack.getUIString("Elaina:Instant").TEXT[0];
     }
+
 
     @Override
     public void onInitialApplication(AbstractCard card) {
-        card.exhaust = true;
-        card.isEthereal = true;
+        ((AbstractElainaCard)card).isInstant = true;
     }
 
     @Override
     public AbstractCardModifier makeCopy() {
-        return new ModRecordedCard();
+        return new toInstantCardMod();
     }
 
 }

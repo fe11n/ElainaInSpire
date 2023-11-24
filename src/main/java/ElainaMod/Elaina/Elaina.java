@@ -57,12 +57,15 @@ public class Elaina implements EditStringsSubscriber,EditCardsSubscriber, EditCh
    @Override
    public void receiveEditCards(){
       //TODO 写添加卡牌的代码
-      BaseMod.addCard(new Strike());
+      BaseMod.addCard(new CharmMagic());
       BaseMod.addCard(new Defend());
-      BaseMod.addCard(new SuperStrike());
-      BaseMod.addCard(new SuperDefend());
-      BaseMod.addCard(new SuperStrikeDefend());
+      BaseMod.addCard(new DestructionMagic());
       BaseMod.addCard(new IceConeMagic());
+      BaseMod.addCard(new Recall());
+      BaseMod.addCard(new Recollect());
+      BaseMod.addCard(new RecreateMagic());
+      BaseMod.addCard(new Strike());
+      BaseMod.addCard(new WitnessOfFriendship());
    }
    @Override
    public void receiveEditCharacters(){

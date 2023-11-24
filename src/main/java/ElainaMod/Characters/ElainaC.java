@@ -1,10 +1,7 @@
 package ElainaMod.Characters;
 
 import ElainaMod.Elaina.Elaina;
-import ElainaMod.cards.AbstractElainaCard;
-import ElainaMod.cards.Defend;
-import ElainaMod.cards.IceConeMagic;
-import ElainaMod.cards.Strike;
+import ElainaMod.cards.*;
 import ElainaMod.orb.ConclusionOrb;
 import ElainaMod.relics.WanderingWitch;
 import basemod.abstracts.CustomPlayer;
@@ -58,7 +55,7 @@ public class ElainaC extends CustomPlayer {
     private static final float[] LAYER_SPEED = new float[]{-40.0F, -32.0F, 20.0F, -20.0F, 0.0F, -10.0F, -8.0F, 5.0F, -5.0F, 0.0F};
     // 人物的本地化文本，如卡牌的本地化文本一样，如何书写见下
     private static final CharacterStrings characterStrings = CardCrawlGame.languagePack.getCharacterString("Elaina:ElainaC");
-    public static ArrayList<AbstractCard> DiaryGroup = new ArrayList();//存储日记的抽象数组
+    public static ArrayList<AbstractElainaCard> DiaryGroup = new ArrayList();//存储日记的抽象数组
     public static int Month;//时节变量
     public static int Year;//记录经历的循环数
     public static final Logger logger = LogManager.getLogger(ElainaC.class);
@@ -138,6 +135,21 @@ public class ElainaC extends CustomPlayer {
         }
     }
 
+    public AbstractElainaCard getConclusion(){
+        if(DiaryGroup.size()!=0){
+            return DiaryGroup.get(DiaryGroup.size()-1);
+        }
+        else return null;
+    }
+    public ConclusionOrb getConclusionOrb(){
+        if(this.orbs.size()!=0){
+            return (ConclusionOrb) this.orbs.get(0);
+        }
+        else return null;
+    }
+    public int getDiarySize(){
+        return DiaryGroup.size();
+    }
     public ArrayList<String> getStartingDeck() {
         ArrayList<String> retVal = new ArrayList<>();
         for(int x = 0; x<5; x++) {
@@ -146,7 +158,8 @@ public class ElainaC extends CustomPlayer {
         for(int x = 0; x<5; x++) {
             retVal.add(Defend.ID);
         }
-        retVal.add(IceConeMagic.ID);
+        retVal.add(RecreateMagic.ID);
+        retVal.add(Recall.ID);
         return retVal;
     }
 
@@ -286,8 +299,8 @@ public class ElainaC extends CustomPlayer {
         @SpireEnum(name = "EXAMPLE_GREEN")
         public static CardLibrary.LibraryType EXAMPLE_LIBRARY;
 
-        @SpireEnum
-        public static AbstractCard.CardTags INSTANT;//瞬发
+        //@SpireEnum
+        //public static AbstractCard.CardTags INSTANT;//瞬发
         @SpireEnum
         public static AbstractCard.CardTags SHORTHAND;//速记
         @SpireEnum

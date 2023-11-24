@@ -1,32 +1,49 @@
 {
   "Elaina:Strike": {
     "NAME": "打击",
-    "DESCRIPTION": "造成 !D! 点伤害，时节向前3。 NL *瞬发 "
+    "DESCRIPTION": "造成 !D! 点伤害，时节向前3。 NL *瞬发"
   },
   "Elaina:Defend": {
     "NAME": "防御",
-    "DESCRIPTION": "获得 !B! 点格挡。 *再现结语 。"
+    "DESCRIPTION": "获得 !B! 点格挡， *再现结语 。"
   },
-  "Elaina:SuperStrike": {
-    "NAME": "超级打击",
-    "DESCRIPTION": "造成 !D! 点伤害。"
+  "Elaina:Recall": {
+    "NAME": "追忆",
+    "DESCRIPTION": "获得 !B! 点格挡。使当前结语获得 *瞬发 效果。"
   },
-  "Elaina:SuperDefend": {
-    "NAME": "超级防御",
-    "DESCRIPTION": "获得 !B! 点格挡。"
+  "Elaina:RecreateMagic": {
+    "NAME": "再现魔法",
+    "DESCRIPTION": "造成 !D! 点伤害， *再现结语 。"
   },
-  "Elaina:SuperStrikeDefend": {
-    "NAME": "超级打击防御",
-    "DESCRIPTION": "获得 !B! 点格挡，造成 !D! 点伤害。"
+  "Elaina:DestructionMagic": {
+    "NAME": "崩坏魔法",
+    "DESCRIPTION": "对所有敌人造成 !D! 点伤害。失去当前结语。"
+  },
+  "Elaina:CharmMagic": {
+    "NAME": "魅力魔法",
+    "DESCRIPTION": "对所有敌人造成 !D! 点伤害。如果当前结语有瞬发效果，则给予全体敌人 !M! 层易伤。"
   },
   "Elaina:IceConeMagic": {
     "NAME": "冰锥魔法",
-    "DESCRIPTION": "造成 !D! 点伤害。 *时令 · *冬 ",
+    "DESCRIPTION": "造成 !D! 点伤害。 *时令",
     "EXTENDED_DESCRIPTION": [
-      "造成 !D! 点伤害。 *时令 · *冬 ",
-      "造成 !D! 点伤害。 *时令 · *冬 ",
-      "造成 !D! 点伤害。 *时令 · *冬 NL *消耗 ",
-      "造成 !D! 点伤害。 *时令 · *冬 "
+      "造成 !D! 点伤害。 NL *冬",
+      "造成 !D! 点伤害。 NL *春",
+      "造成 !D! 点伤害。 NL *夏 NL *消耗",
+      "造成 !D! 点伤害。 NL *秋"
+    ]
+  },
+  "Elaina:Recollect": {
+    "NAME": "回想",
+    "DESCRIPTION": "失去当前结语，获得 [E] ，抽1张牌。若结语有瞬发效果，额外抽2张牌。",
+    "UPGRADE_DESCRIPTION": "失去当前结语，获得 [E] [E] ，抽1张牌。若结语有瞬发效果，额外抽2张牌。"
+  },
+  "Elaina:WitnessOfFriendship": {
+    "NAME": "友谊的见证",
+    "DESCRIPTION": "获得 !M! 金币。",
+    "EXTENDED_DESCRIPTION": [
+      "获得1个普通遗物。",
+      "获得 !M! 金币。"
     ]
   }
 }

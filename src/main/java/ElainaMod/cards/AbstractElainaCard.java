@@ -1,7 +1,7 @@
 package ElainaMod.cards;
 
 import ElainaMod.Characters.ElainaC;
-import ElainaMod.action.RecordCard;
+import ElainaMod.action.RecordCardAction;
 import basemod.abstracts.CustomCard;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -12,7 +12,6 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import java.util.ArrayList;
 
 public class AbstractElainaCard extends CustomCard {
     public int NotedSeasonNum;
@@ -21,6 +20,7 @@ public class AbstractElainaCard extends CustomCard {
     public int ExtendDamage[]={-1,-1,-1,-1};
     public int ExtendBlock[]={-1,-1,-1,-1};//为时令卡准备，时节变化时实现数值变化
     public boolean ExtendExhaust[]={false,false,true,false};
+    public boolean isInstant = false;
     public static final Logger logger = LogManager.getLogger(AbstractElainaCard.class);
     public AbstractElainaCard(String ID, CardStrings strings, String IMG_PATH, int COST, CardType TYPE,
                               CardRarity RARITY, CardTarget TARGET){
@@ -33,22 +33,23 @@ public class AbstractElainaCard extends CustomCard {
     @Override
     public void upgrade() {
     }
-    public void BasicEffect(AbstractPlayer p, AbstractMonster m){
+    public void BasicEffect(ElainaC p, AbstractMonster m){
     }//基础效果，可以被使用和瞬发
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         if(this.hasTag(ElainaC.Enums.SHORTHAND)){
-            this.addToBot(new RecordCard(this));
+            this.addToBot(new RecordCardAction(this));
         }
-        BasicEffect(p,m);
+        logger.info("is Instant: " + this.isInstant);
+        BasicEffect((ElainaC) p,m);
     }//使用
     public void InstantUse(){
-        BasicEffect(AbstractDungeon.player,AbstractDungeon.getRandomMonster());
+        BasicEffect((ElainaC) AbstractDungeon.player,AbstractDungeon.getRandomMonster());
     }//瞬发
     public int getSeasonNum(){
         return ((ElainaC)(AbstractDungeon.player)).getSeason();
     }
-    public boolean UpdateSeasonalDescription(){
+    public boolean UpdateSeasonalDescription(){//对于时令牌，时节变化时只更新数值和描述。打出效果只有一种：参数为当前时节的switch语句。
         if (NotedSeasonNum!=getSeasonNum()){
             NotedSeasonNum = getSeasonNum();
             this.exhaust = this.ExtendExhaust[NotedSeasonNum];
@@ -56,15 +57,43 @@ public class AbstractElainaCard extends CustomCard {
             this.baseBlock = this.ExtendBlock[NotedSeasonNum];
             this.applyPowers();
             this.rawDescription = strings.EXTENDED_DESCRIPTION[NotedSeasonNum];
+
             this.initializeDescription();
             return true;
         }
         else return false;
     }
+    public void toHandfromDiary(){
+        if(!this.exhaust){
+            this.exhaust = true;
+            this.rawDescription = this.rawDescription
+                    +" NL "
+                    + CardCrawlGame.languagePack.getUIString("Elaina:Exhaust").TEXT[0];
+        }
+        if(!this.isEthereal){
+            this.isEthereal = true;
+            this.rawDescription = this.rawDescription
+                    +" NL "
+                    + CardCrawlGame.languagePack.getUIString("Elaina:Ethereal").TEXT[0];
+        }
+        this.initializeDescription();
+    }
 
     @Override
     public AbstractCard makeCopy() {
-        AbstractElainaCard c = (AbstractElainaCard) super.makeCopy();
+        return super.makeCopy();
+    }
+
+    public AbstractElainaCard makeInstanceCopy(){
+        AbstractElainaCard c = (AbstractElainaCard) this.makeCopy();
+        c.NotedSeasonNum=this.NotedSeasonNum;
+        c.rawDescription=this.rawDescription;
+        c.exhaust = this.exhaust;
+        c.isEthereal = this.isEthereal;
+        c.tags = this.tags;
+        c.baseDamage = this.baseDamage;
+        c.baseBlock = this.baseBlock;
+        c.applyPowers();
         return c;
     }
 }

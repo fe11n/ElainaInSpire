@@ -1,7 +1,8 @@
 package ElainaMod.relics;
 
 import ElainaMod.Characters.ElainaC;
-import ElainaMod.action.RecordCard;
+import ElainaMod.action.RecordCardAction;
+import ElainaMod.cards.AbstractElainaCard;
 import ElainaMod.cards.Strike;
 import basemod.abstracts.CustomRelic;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -20,7 +21,7 @@ public class WanderingWitch extends CustomRelic {
     public static final Logger logger = LogManager.getLogger(WanderingWitch.class);
     ElainaC p;
     public ArrayList<AbstractCard> l;
-    public ArrayList<AbstractCard> g = p.DiaryGroup;
+    public ArrayList<AbstractElainaCard> g = p.DiaryGroup;
     public int NotedMonth;
     public WanderingWitch() {
         super(ID, ImageMaster.loadImage("ElainaMod/img/relics/NicolesAdventures.png"), RelicTier.STARTER, LandingSound.FLAT);
@@ -40,15 +41,15 @@ public class WanderingWitch extends CustomRelic {
         p.Month++;
         UpdateCounter();
     }
-    public void atPreBattle(){//战斗开始时记录卡牌（这个是遗物描述的），TODO 并且按季节更新所有卡牌描述（这个最好写到能力里）
-        this.addToTop(new RecordCard(new Strike()));
+    public void atBattleStartPreDraw(){//战斗开始时记录卡牌（这个是遗物描述的），TODO 并且按季节更新所有卡牌描述（这个最好写到能力里）
+        this.addToTop(new RecordCardAction(new Strike()));
         p.UpdateAllSeasonalDescription();
     }
     public void onPlayerEndTurn(){//回合结束时记录打出的最后一张卡牌
         l = AbstractDungeon.actionManager.cardsPlayedThisTurn;
         logger.info("This turn cards num: "+l.size());
         if(l.size()!=0){
-            this.addToTop(new RecordCard(l.get(l.size()-1)));
+            this.addToTop(new RecordCardAction((AbstractElainaCard) l.get(l.size()-1)));
         }
     }
     public void onVictory(){

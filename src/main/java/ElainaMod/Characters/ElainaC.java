@@ -160,6 +160,11 @@ public class ElainaC extends CustomPlayer {
         }
         retVal.add(RecreateMagic.ID);
         retVal.add(Recall.ID);
+        retVal.add(CharmMagic.ID);
+        retVal.add(DestructionMagic.ID);
+        retVal.add(IceConeMagic.ID);
+        retVal.add(Recollect.ID);
+        retVal.add(WitnessOfFriendship.ID);
         return retVal;
     }
 

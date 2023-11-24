@@ -1,4 +1,3 @@
-D:\Self\Stsmod\Elaina\src\main\java\ElainaMod\cards\SuperStrikeDefend.java
 D:\Self\Stsmod\Elaina\src\main\java\ElainaMod\cards\Strike.java
 D:\Self\Stsmod\Elaina\src\main\java\ElainaMod\action\ChangeMonthAction.java
 D:\Self\Stsmod\Elaina\src\main\java\ElainaMod\action\GetDiaryCardAction.java
@@ -8,12 +7,15 @@ D:\Self\Stsmod\Elaina\src\main\java\ElainaMod\cards\Defend.java
 D:\Self\Stsmod\Elaina\src\main\java\ElainaMod\cards\IceConeMagic.java
 D:\Self\Stsmod\Elaina\src\main\java\ElainaMod\patch\DiaryOrbSlotPatch.java
 D:\Self\Stsmod\Elaina\src\main\java\ElainaMod\action\AddInstantAction.java
+D:\Self\Stsmod\Elaina\src\main\java\ElainaMod\cards\WitnessOfFriendship.java
 D:\Self\Stsmod\Elaina\src\main\java\ElainaMod\orb\ConclusionOrb.java
-D:\Self\Stsmod\Elaina\src\main\java\ElainaMod\cards\SuperDefend.java
 D:\Self\Stsmod\Elaina\src\main\java\ElainaMod\cards\DestructionMagic.java
 D:\Self\Stsmod\Elaina\src\main\java\ElainaMod\action\RecordCardAction.java
 D:\Self\Stsmod\Elaina\src\main\java\ElainaMod\patch\ViewConclusionCardPatch.java
+D:\Self\Stsmod\Elaina\src\main\java\ElainaMod\cards\CharmMagic.java
 D:\Self\Stsmod\Elaina\src\main\java\ElainaMod\cards\AbstractElainaCard.java
+D:\Self\Stsmod\Elaina\src\main\java\ElainaMod\cards\RecreateMagic.java
 D:\Self\Stsmod\Elaina\src\main\java\ElainaMod\cardmods\toInstantCardMod.java
 D:\Self\Stsmod\Elaina\src\main\java\ElainaMod\cards\Recall.java
+D:\Self\Stsmod\Elaina\src\main\java\ElainaMod\cards\Recollect.java
 D:\Self\Stsmod\Elaina\src\main\java\ElainaMod\relics\WanderingWitch.java

@@ -5,7 +5,7 @@
   },
   "Elaina:Defend": {
     "NAME": "防御",
-    "DESCRIPTION": "获得 !B! 点格挡， *再现结语 。"
+    "DESCRIPTION": "获得 !B! 点格挡，随机1个敌人获得1点力量， *再现结语 。"
   },
   "Elaina:Recall": {
     "NAME": "追忆",
@@ -44,10 +44,22 @@
   },
   "Elaina:WitnessOfFriendship": {
     "NAME": "友谊的见证",
-    "DESCRIPTION": "获得 !M! 金币。",
+    "DESCRIPTION": "获得 !M! 金币。 NL *消耗",
     "EXTENDED_DESCRIPTION": [
       "获得1个普通遗物。 NL *消耗",
       "获得 !M! 金币。 NL *消耗"
     ]
+  },
+  "Elaina:IndelibleImprint": {
+    "NAME": "不灭印记",
+    "DESCRIPTION": "*速记 。作为结语时，记录卡牌改为获得 !M! 点格挡，随机造成 !M! 点伤害，失去结语改为受到 !M! 点伤害。"
+  },
+  "Elaina:Rush": {
+    "NAME": "急行",
+    "DESCRIPTION": "时节前进 !M! ，使所有敌人力量翻倍。 NL *消耗"
+  },
+  "Elaina:IntensifyArray": {
+    "NAME": "激化法阵",
+    "DESCRIPTION": "回合开始时，获得 [E] ，额外抽1张牌，使随机1个敌人获得2点力量。"
   }
 }

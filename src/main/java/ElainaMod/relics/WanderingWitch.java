@@ -30,15 +30,9 @@ public class WanderingWitch extends CustomRelic {
     public String getUpdatedDescription(){
         return this.DESCRIPTIONS[0];
     }
-    public void onEnterRoom(AbstractRoom room){//进入房间后时节+1，更新计数器
+    public void onEnterRoom(AbstractRoom room){//进入房间后时节+1，更新计数器，此时卡牌未初始化，只能直接更新
         logger.info("Month before enter: "+p.Month);
-        if(p.Month==12){
-            AbstractDungeon.player.gainGold(50);//直接p调用函数不生效，疑似p也只是临时变量
-            p.Month = 0;
-            p.Year++;
-            logger.info("New Year: "+p.Year);
-        }
-        p.Month++;
+        p.ChangeMonth(p.Month+1,false);//通过这个函数调用UpgradeCounter不生效，神奇了
         UpdateCounter();
     }
     public void atPreBattle(){//战斗开始时记录卡牌（这个是遗物描述的），TODO 并且按季节更新所有卡牌描述（这个最好写到能力里）
@@ -57,13 +51,15 @@ public class WanderingWitch extends CustomRelic {
         g.removeAll(g);
     }//TODO 战斗结束时清空日记，这个也最好写到能力里
     public void UpdateCounter(){//更新计数器
+        logger.info("Changing RelicCounter...");
         p =(ElainaC) AbstractDungeon.player;//角色死亡后遗物不会重新构造，因此需要重新给p赋值
-        NotedMonth = p.Month;
+        NotedMonth = (p.Month%12)==0?12:(p.Month%12);
         this.flash();
-        this.counter = p.Month;
+        logger.info("Noted Month: "+NotedMonth);
+        this.counter = NotedMonth;
         this.description = DESCRIPTIONS[p.getSeason()+1];
         this.tips.clear();
-        logger.info("Month: "+p.Month);
+        logger.info("Total Month: "+p.Month);
         this.tips.add(new PowerTip(this.name, this.description));
         this.initializeTips();
     }

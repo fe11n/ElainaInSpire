@@ -35,7 +35,7 @@ public class CharmMagic extends AbstractElainaCard {
     public void upgrade() { // 升级调用的方法
         if (!this.upgraded) {
             this.upgradeName(); // 卡牌名字变为绿色并添加“+”，且标为升级过的卡牌，之后不能再升级。
-            this.upgradeDamage(7); // 将该卡牌的伤害提高3点。
+            this.upgradeDamage(2); // 将该卡牌的伤害提高2点。
             this.upgradeMagicNumber(1);
         }
     }

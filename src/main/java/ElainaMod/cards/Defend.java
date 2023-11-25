@@ -3,11 +3,13 @@ package ElainaMod.cards;
 import ElainaMod.Characters.ElainaC;
 import ElainaMod.action.GetDiaryCardAction;
 import basemod.devcommands.relic.RelicAdd;
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.powers.StrengthPower;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 
 public class Defend extends AbstractElainaCard {
@@ -44,6 +46,7 @@ public class Defend extends AbstractElainaCard {
         // AbstractCard中实现了addToBot方法，它的效果和AbstractDungeon.actionManager.addToBottom相同
         this.addToBot(new GainBlockAction(p,p,this.block));
         this.addToBot(new GetDiaryCardAction(p));
-
+        AbstractMonster mo = AbstractDungeon.getRandomMonster();
+        this.addToBot(new ApplyPowerAction(mo, p,new StrengthPower(mo, 1), 1));
     }
 }

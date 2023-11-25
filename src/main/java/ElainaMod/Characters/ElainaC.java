@@ -16,6 +16,7 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.EnergyManager;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.cutscenes.CutscenePanel;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.events.city.Vampires;
 import com.megacrit.cardcrawl.helpers.CardLibrary;
 import com.megacrit.cardcrawl.helpers.FontHelper;
@@ -32,7 +33,7 @@ import java.util.Random;
 
 import static ElainaMod.Characters.ElainaC.Enums.*;
 
-public class ElainaC extends CustomPlayer implements CustomSavable<Integer> {
+public class ElainaC extends CustomPlayer implements CustomSavable<ArrayList<Integer>> {
     private static final String MY_CHARACTER_SHOULDER_1 = "ElainaMod/img/char/shoulder1.png";
     // 火堆的人物立绘（行动后）
     private static final String MY_CHARACTER_SHOULDER_2 = "ElainaMod/img/char/shoulder2.png";
@@ -58,18 +59,21 @@ public class ElainaC extends CustomPlayer implements CustomSavable<Integer> {
     private static final CharacterStrings characterStrings = CardCrawlGame.languagePack.getCharacterString("Elaina:ElainaC");
     public static ArrayList<AbstractElainaCard> DiaryGroup = new ArrayList();//存储日记的抽象数组
     public static int Month;//时节变量
-    public static int Year;//记录经历的循环数
+    public static int FarYear;
     public static final Logger logger = LogManager.getLogger(ElainaC.class);
 
     @Override
-    public Integer onSave() {
-        return  Month;
+    public ArrayList<Integer> onSave() {
+        return  new ArrayList<Integer>(){{
+            add(Month);
+            add(FarYear);
+        }};
     }
 
     @Override
-    public void onLoad(Integer integer) {
-        logger.info("DiaryGroup Size: "+DiaryGroup.size());
-        Month = integer;
+    public void onLoad(ArrayList<Integer> integers) {
+        Month = integers.get(0);
+        FarYear = integers.get(1);
     }
 
     public ElainaC(String name) {
@@ -88,7 +92,7 @@ public class ElainaC extends CustomPlayer implements CustomSavable<Integer> {
         this.maxOrbs=1;
         //Month = new Random().nextInt(12)+1;
         Month = 12;
-        Year = 0;
+        FarYear = 0;
 
 
         // 初始化你的人物，如果你的人物只有一张图，那么第一个参数填写你人物图片的路径。
@@ -116,15 +120,21 @@ public class ElainaC extends CustomPlayer implements CustomSavable<Integer> {
     public int getSeason(){
         return (Month%12)/3;
     }//0，1，2，3分别表示冬，春，夏，秋
-
-    public void ChangeMonth(int num){//更改月份调用该函数，更新遗物并更新卡牌描述
+    public void ChangeMonth(int num, boolean upgradeDeck){
         Month = num;
         logger.info("Change to: "+num);
-        if( this.relics.get(0) instanceof WanderingWitch){
-            logger.info("Changing...");
-            ((WanderingWitch) this.relics.get(0)).UpdateCounter();
+        if((Month-1)/12>FarYear){
+            FarYear = (Month-1)/12;
+            AbstractDungeon.player.gainGold(50);
         }
-        UpdateAllSeasonalDescription();
+        if(upgradeDeck){
+            UpdateAllSeasonalDescription();if( this.relics.get(0) instanceof WanderingWitch){
+                ((WanderingWitch) this.relics.get(0)).UpdateCounter();
+            }
+        }
+    }
+    public void ChangeMonth(int num){//更改月份调用该函数，更新遗物并更新卡牌描述
+        ChangeMonth(num,true);
     }
     public void UpdateAllSeasonalDescription(){
         UpdateSeasonalDescription(this.discardPile.group);
@@ -164,19 +174,22 @@ public class ElainaC extends CustomPlayer implements CustomSavable<Integer> {
     }
     public ArrayList<String> getStartingDeck() {
         ArrayList<String> retVal = new ArrayList<>();
-        for(int x = 0; x<5; x++) {
+        for(int x = 0; x<3; x++) {
             retVal.add(Strike.ID);
         }
-        for(int x = 0; x<5; x++) {
+        for(int x = 0; x<3; x++) {
             retVal.add(Defend.ID);
         }
         retVal.add(RecreateMagic.ID);
         retVal.add(Recall.ID);
-        //retVal.add(CharmMagic.ID);
-        //retVal.add(DestructionMagic.ID);
-        //retVal.add(IceConeMagic.ID);
-        //retVal.add(Recollect.ID);
-        //retVal.add(WitnessOfFriendship.ID);
+        retVal.add(CharmMagic.ID);
+        retVal.add(DestructionMagic.ID);
+        retVal.add(IceConeMagic.ID);
+        retVal.add(IndelibleImprint.ID);
+        retVal.add(IntensifyArray.ID);
+        retVal.add(Recollect.ID);
+        retVal.add(Rush.ID);
+        retVal.add(WitnessOfFriendship.ID);
         retVal.add(GrowUp.ID);
         return retVal;
     }

@@ -12,11 +12,8 @@ import basemod.interfaces.EditStringsSubscriber;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
-import com.megacrit.cardcrawl.localization.CardStrings;
+import com.megacrit.cardcrawl.localization.*;
 import com.badlogic.gdx.graphics.Color;
-import com.megacrit.cardcrawl.localization.CharacterStrings;
-import com.megacrit.cardcrawl.localization.RelicStrings;
-import com.megacrit.cardcrawl.localization.UIStrings;
 
 import static ElainaMod.Characters.ElainaC.Enums.EXAMPLE_CARD;
 import static ElainaMod.Characters.ElainaC.Enums.MY_CHARACTER;
@@ -62,9 +59,12 @@ public class Elaina implements EditStringsSubscriber,EditCardsSubscriber, EditCh
       BaseMod.addCard(new DestructionMagic());
       BaseMod.addCard(new GrowUp());
       BaseMod.addCard(new IceConeMagic());
+      BaseMod.addCard(new IndelibleImprint());
+      BaseMod.addCard(new IntensifyArray());
       BaseMod.addCard(new Recall());
       BaseMod.addCard(new Recollect());
       BaseMod.addCard(new RecreateMagic());
+      BaseMod.addCard(new Rush());
       BaseMod.addCard(new Strike());
       BaseMod.addCard(new WitnessOfFriendship());
    }
@@ -88,5 +88,6 @@ public class Elaina implements EditStringsSubscriber,EditCardsSubscriber, EditCh
       BaseMod.loadCustomStringsFile(CharacterStrings.class, "ElainaMod/localization/" + lang + "/characters.json");
       BaseMod.loadCustomStringsFile(RelicStrings.class, "ElainaMod/localization/" + lang + "/relics.json");
       BaseMod.loadCustomStringsFile(UIStrings.class,"ElainaMod/localization/" + lang + "/UIStrings.json");
+      BaseMod.loadCustomStringsFile(PowerStrings.class,"ElainaMod/localization/" + lang + "/powers.json");
    }
 }

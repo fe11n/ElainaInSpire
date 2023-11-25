@@ -24,28 +24,14 @@ public class ChangeMonthAction extends AbstractGameAction {
     }
 
     public void update(){
-        logger.info("Month before change: "+p.Month);
+        logger.info("Total Month before change: "+p.Month);
         if(isBack){
-            p.Year += ((p.Month-num-1)/12);
-            if((p.Month-num)%12==0){
-                p.ChangeMonth(12);
-            }
-            else {
-                p.ChangeMonth((p.Month-num)%12);
-            }
+            p.ChangeMonth(p.Month-num);
         }
         else {
-            int YearInc = (p.Month+num-1)/12;
-            p.Year += YearInc;
-            AbstractDungeon.player.gainGold(50*YearInc);
-            if((p.Month+num)%12==0){
-                p.ChangeMonth(12);
-            }
-            else{
-                p.ChangeMonth((p.Month+num)%12);
-            }
+            p.ChangeMonth(p.Month+num);
         }
-        logger.info("Month after change: "+p.Month);
+        logger.info("Total Month after change: "+p.Month);
         this.isDone = true;
     }
 }

@@ -21,6 +21,7 @@ public class AbstractElainaCard extends CustomCard {
     public int ExtendBlock[]={-1,-1,-1,-1};//为时令卡准备，时节变化时实现数值变化
     public boolean ExtendExhaust[]={false,false,false,false};
     public boolean isInstant = false;
+    public boolean isShorthand  = false;
     public static final Logger logger = LogManager.getLogger(AbstractElainaCard.class);
     public AbstractElainaCard(String ID, CardStrings strings, String IMG_PATH, int COST, CardType TYPE,
                               CardRarity RARITY, CardTarget TARGET){
@@ -37,10 +38,10 @@ public class AbstractElainaCard extends CustomCard {
     }//基础效果，可以被使用和瞬发
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        if(this.hasTag(ElainaC.Enums.SHORTHAND)){
+        if(this.isShorthand){
+            logger.info("Record by shorthand: " + this.name);
             this.addToBot(new RecordCardAction(this));
         }
-        logger.info("is Instant: " + this.isInstant);
         BasicEffect((ElainaC) p,m);
     }//使用
     public void InstantUse(){

@@ -34,20 +34,19 @@ public class WitnessOfFriendship extends AbstractElainaCard {
         if (!this.upgraded) {
             this.upgradeName();
             this.upgradeMagicNumber(2);
-            this.rawDescription = strings.UPGRADE_DESCRIPTION;
-            this.initializeDescription();
         }
     }
 
     public int getSeasonNum(){
+        int m = (((ElainaC)(AbstractDungeon.player)).Month)%12;
         if(!this.upgraded){
-            if(((ElainaC)(AbstractDungeon.player)).Month==1){
+            if( m == 1){
                 return 0;
             }
             else return 1;
         }
         else {
-            if(((ElainaC)(AbstractDungeon.player)).Month==1 || ((ElainaC)(AbstractDungeon.player)).Month==2 ){
+            if(m ==1 || m==0 ){
                 return 0;
             }
             else return 1;

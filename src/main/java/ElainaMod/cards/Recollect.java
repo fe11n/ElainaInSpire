@@ -24,7 +24,7 @@ public class Recollect extends AbstractElainaCard {
     public Recollect() {
         // 为了命名规范修改了变量名。这些参数具体的作用见下方
         super(ID, CARD_STRINGS, IMG_PATH, COST, TYPE, RARITY, TARGET);
-        this.baseMagicNumber = 1;
+        this.magicNumber = this.baseMagicNumber = 1;//要给base值和原值同时赋值
     }
 
     @Override

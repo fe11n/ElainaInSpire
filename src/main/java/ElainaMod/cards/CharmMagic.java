@@ -26,7 +26,7 @@ public class CharmMagic extends AbstractElainaCard {
         // 为了命名规范修改了变量名。这些参数具体的作用见下方
         super(ID,CARD_STRINGS, IMG_PATH, COST, TYPE, RARITY, TARGET);
         this.damage = this.baseDamage = 5;
-        this.magicNumber = 1;
+        this.baseMagicNumber = 1;
         this.isMultiDamage = true;
         this.tags.add(ElainaC.Enums.MAGIC);
     }

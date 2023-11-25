@@ -2,6 +2,7 @@ ElainaMod\action\GetDiaryCardAction.class
 ElainaMod\cards\WitnessOfFriendship$1.class
 ElainaMod\action\AddInstantAction.class
 ElainaMod\action\ChangeMonthAction.class
+ElainaMod\Characters\ElainaC.class
 ElainaMod\cards\Recollect.class
 ElainaMod\Characters\ElainaC$Enums.class
 ElainaMod\cards\WitnessOfFriendship.class
@@ -9,6 +10,7 @@ ElainaMod\cards\RecreateMagic.class
 ElainaMod\cards\WitnessOfFriendship$2.class
 ElainaMod\cards\Recall.class
 ElainaMod\cards\Defend.class
+ElainaMod\cards\GrowUp.class
 ElainaMod\action\RecordCardAction.class
 ElainaMod\cards\DestructionMagic.class
 ElainaMod\cards\AbstractElainaCard.class

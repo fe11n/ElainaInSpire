@@ -38,12 +38,16 @@
     "DESCRIPTION": "失去当前结语，获得 [E] ，抽1张牌。若结语有瞬发效果，额外抽2张牌。",
     "UPGRADE_DESCRIPTION": "失去当前结语，获得 [E] [E] ，抽1张牌。若结语有瞬发效果，额外抽2张牌。"
   },
+  "Elaina:GrowUp": {
+    "NAME": "成长",
+    "DESCRIPTION": "获得 !M! 点临时力量和临时敏捷。时节每循环一次，该数值加1。"
+  },
   "Elaina:WitnessOfFriendship": {
     "NAME": "友谊的见证",
     "DESCRIPTION": "获得 !M! 金币。",
     "EXTENDED_DESCRIPTION": [
-      "获得1个普通遗物。",
-      "获得 !M! 金币。"
+      "获得1个普通遗物。 NL *消耗",
+      "获得 !M! 金币。 NL *消耗"
     ]
   }
 }

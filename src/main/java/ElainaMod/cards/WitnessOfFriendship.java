@@ -2,6 +2,7 @@ package ElainaMod.cards;
 
 import ElainaMod.Characters.ElainaC;
 import ElainaMod.action.GetDiaryCardAction;
+import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -22,8 +23,10 @@ public class WitnessOfFriendship extends AbstractElainaCard {
     public WitnessOfFriendship() {
         // 为了命名规范修改了变量名。这些参数具体的作用见下方
         super(ID, CARD_STRINGS, IMG_PATH, COST, TYPE, RARITY, TARGET);
-        this.baseMagicNumber = 8;
+        this.magicNumber = this.baseMagicNumber = 8;
         this.tags.add(ElainaC.Enums.SEASONAL);
+        this.exhaust = true;
+        this.ExtendExhaust[0]=this.ExtendExhaust[1]=true;
     }
 
     @Override
@@ -63,7 +66,10 @@ public class WitnessOfFriendship extends AbstractElainaCard {
                 this.addToBot(new AbstractGameAction() {
                     @Override
                     public void update() {
-                        p.getRelic(AbstractDungeon.returnRandomRelic(AbstractRelic.RelicTier.COMMON).relicId);
+                        AbstractRelic r = AbstractDungeon.returnRandomRelic(AbstractRelic.RelicTier.COMMON);
+                        logger.info("P get relic: "+ r.name);
+                        AbstractDungeon.getCurrRoom().spawnRelicAndObtain((float)Settings.WIDTH / 2.0F, (float)Settings.HEIGHT / 2.0F, r);
+                        r.atBattleStart();
                         this.isDone = true;
                     }
                 });

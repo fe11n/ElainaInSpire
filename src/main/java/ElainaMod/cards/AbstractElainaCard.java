@@ -19,14 +19,14 @@ public class AbstractElainaCard extends CustomCard {
     public CardStrings strings;
     public int ExtendDamage[]={-1,-1,-1,-1};
     public int ExtendBlock[]={-1,-1,-1,-1};//为时令卡准备，时节变化时实现数值变化
-    public boolean ExtendExhaust[]={false,false,true,false};
+    public boolean ExtendExhaust[]={false,false,false,false};
     public boolean isInstant = false;
     public static final Logger logger = LogManager.getLogger(AbstractElainaCard.class);
     public AbstractElainaCard(String ID, CardStrings strings, String IMG_PATH, int COST, CardType TYPE,
                               CardRarity RARITY, CardTarget TARGET){
         super(ID, strings.NAME, IMG_PATH, COST, strings.DESCRIPTION, TYPE,
                 CardColor.COLORLESS, RARITY, TARGET);
-        NotedSeasonNum = 0;
+        NotedSeasonNum = -1;//初始设置一定与当前seasonnum不同的值，保证初始一定会调用upgrade函数
         this.strings = strings;
     }
 
@@ -49,8 +49,13 @@ public class AbstractElainaCard extends CustomCard {
     public int getSeasonNum(){
         return ((ElainaC)(AbstractDungeon.player)).getSeason();
     }
-    public boolean UpdateSeasonalDescription(){//对于时令牌，时节变化时只更新数值和描述。打出效果只有一种：参数为当前时节的switch语句。
-        if (NotedSeasonNum!=getSeasonNum()){
+    public boolean UpdateSeasonalDescription(){
+        return UpdateSeasonalDescription(false);
+    }
+
+    public boolean UpdateSeasonalDescription(boolean forceChange){//对于时令牌，时节变化时只更新数值和描述。打出效果只有一种：参数为当前时节的switch语句。
+        if (NotedSeasonNum!=getSeasonNum() || forceChange){
+            logger.info(this.name + ": is updating...");
             NotedSeasonNum = getSeasonNum();
             this.exhaust = this.ExtendExhaust[NotedSeasonNum];
             this.baseDamage = this.ExtendDamage[NotedSeasonNum];

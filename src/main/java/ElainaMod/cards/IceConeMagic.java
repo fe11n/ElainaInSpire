@@ -29,6 +29,8 @@ public class IceConeMagic extends AbstractElainaCard {
         this.tags.add(ElainaC.Enums.SEASONAL);
         this.ExtendDamage[0]=15;
         this.ExtendDamage[1]=this.ExtendDamage[2]=this.ExtendDamage[3]=9;
+        this.ExtendExhaust[2]=true;
+        this.ExtendExhaust[0]=this.ExtendExhaust[1]=this.ExtendExhaust[3]=false;
     }
 
     @Override

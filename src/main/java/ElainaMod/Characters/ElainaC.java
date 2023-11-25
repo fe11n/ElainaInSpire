@@ -5,6 +5,7 @@ import ElainaMod.cards.*;
 import ElainaMod.orb.ConclusionOrb;
 import ElainaMod.relics.WanderingWitch;
 import basemod.abstracts.CustomPlayer;
+import basemod.abstracts.CustomSavable;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.evacipated.cardcrawl.modthespire.lib.SpireEnum;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
@@ -31,7 +32,7 @@ import java.util.Random;
 
 import static ElainaMod.Characters.ElainaC.Enums.*;
 
-public class ElainaC extends CustomPlayer {
+public class ElainaC extends CustomPlayer implements CustomSavable<Integer> {
     private static final String MY_CHARACTER_SHOULDER_1 = "ElainaMod/img/char/shoulder1.png";
     // 火堆的人物立绘（行动后）
     private static final String MY_CHARACTER_SHOULDER_2 = "ElainaMod/img/char/shoulder2.png";
@@ -59,6 +60,18 @@ public class ElainaC extends CustomPlayer {
     public static int Month;//时节变量
     public static int Year;//记录经历的循环数
     public static final Logger logger = LogManager.getLogger(ElainaC.class);
+
+    @Override
+    public Integer onSave() {
+        return  Month;
+    }
+
+    @Override
+    public void onLoad(Integer integer) {
+        logger.info("DiaryGroup Size: "+DiaryGroup.size());
+        Month = integer;
+    }
+
     public ElainaC(String name) {
         super(name,
                 MY_CHARACTER,
@@ -73,7 +86,8 @@ public class ElainaC extends CustomPlayer {
         this.dialogY = (this.drawY + 150.0F * Settings.scale);
 
         this.maxOrbs=1;
-        Month = new Random().nextInt(12)+1;
+        //Month = new Random().nextInt(12)+1;
+        Month = 12;
         Year = 0;
 
 
@@ -127,9 +141,7 @@ public class ElainaC extends CustomPlayer {
             AbstractElainaCard c = (AbstractElainaCard) it.next();
             if(c.hasTag(SEASONAL)){
                 if(c.UpdateSeasonalDescription() && isDiary && !(it.hasNext())){//在Diary结语位置且需要更新时
-                    logger.info("Updating Orb...");
                     this.channelOrb(new ConclusionOrb(c));
-                    logger.info("Updated");
                 }
             }
         }
@@ -160,11 +172,12 @@ public class ElainaC extends CustomPlayer {
         }
         retVal.add(RecreateMagic.ID);
         retVal.add(Recall.ID);
-        retVal.add(CharmMagic.ID);
-        retVal.add(DestructionMagic.ID);
-        retVal.add(IceConeMagic.ID);
-        retVal.add(Recollect.ID);
-        retVal.add(WitnessOfFriendship.ID);
+        //retVal.add(CharmMagic.ID);
+        //retVal.add(DestructionMagic.ID);
+        //retVal.add(IceConeMagic.ID);
+        //retVal.add(Recollect.ID);
+        //retVal.add(WitnessOfFriendship.ID);
+        retVal.add(GrowUp.ID);
         return retVal;
     }
 

@@ -41,9 +41,10 @@ public class WanderingWitch extends CustomRelic {
         p.Month++;
         UpdateCounter();
     }
-    public void atBattleStartPreDraw(){//战斗开始时记录卡牌（这个是遗物描述的），TODO 并且按季节更新所有卡牌描述（这个最好写到能力里）
+    public void atPreBattle(){//战斗开始时记录卡牌（这个是遗物描述的），TODO 并且按季节更新所有卡牌描述（这个最好写到能力里）
+        ((ElainaC)AbstractDungeon.player).DiaryGroup.clear();//战斗开始时清空，不管sl了
         this.addToTop(new RecordCardAction(new Strike()));
-        p.UpdateAllSeasonalDescription();
+        ((ElainaC)AbstractDungeon.player).UpdateAllSeasonalDescription();
     }
     public void onPlayerEndTurn(){//回合结束时记录打出的最后一张卡牌
         l = AbstractDungeon.actionManager.cardsPlayedThisTurn;
@@ -64,7 +65,6 @@ public class WanderingWitch extends CustomRelic {
         this.tips.clear();
         logger.info("Month: "+p.Month);
         this.tips.add(new PowerTip(this.name, this.description));
-        logger.info("6");
         this.initializeTips();
     }
     public AbstractRelic makeCopy(){

@@ -11,7 +11,6 @@ import java.util.ArrayList;
 public class ConclusionOrb extends AbstractOrb {
     public static final String ID = "Elaina:ConclusionOrb";
     public AbstractElainaCard c;
-    int lognum = 20;
     public static final Logger logger = LogManager.getLogger(ConclusionOrb.class);
     public ConclusionOrb(AbstractElainaCard c){
         this.c = c;
@@ -37,10 +36,6 @@ public class ConclusionOrb extends AbstractOrb {
         } else {
             this.c.targetDrawScale = Float.valueOf(0.5F);
         }
-        if(lognum>0){
-            logger.info("Orb Description(2): " + c.rawDescription);
-            lognum--;
-        }
         this.c.update();
     }
 
@@ -53,10 +48,6 @@ public class ConclusionOrb extends AbstractOrb {
     }
     @Override
     public void render(SpriteBatch sb) {
-        if(lognum>0){
-            logger.info("Orb Description(2): " + c.rawDescription);
-            lognum--;
-        }
         this.c.render(sb);
     }
     @Override

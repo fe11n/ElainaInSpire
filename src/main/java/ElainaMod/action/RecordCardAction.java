@@ -33,7 +33,9 @@ public class RecordCardAction extends AbstractGameAction {
             while(it.hasNext()){
                 logger.info(((AbstractCard)it.next()).name);
             }
-            logger.info("Orb Description(1): " + c.rawDescription);
+            if(c.hasTag(ElainaC.Enums.SEASONAL)){
+                c.UpdateSeasonalDescription(true);//复制的instance没有initialize，描述没有改变，也可以直接initialize
+            }
             p.channelOrb(new ConclusionOrb(c));//尽管c描述已更改，但这里依然渲染的是初始描述
         }
         this.isDone=true;

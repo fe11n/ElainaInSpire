@@ -36,6 +36,7 @@ public class ConclusionOrb extends AbstractOrb {
         } else {
             this.c.targetDrawScale = Float.valueOf(0.5F);
         }
+        this.c.applyPowers();
         this.c.update();
     }
 

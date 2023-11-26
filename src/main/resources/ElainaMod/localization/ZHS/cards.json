@@ -61,5 +61,13 @@
   "Elaina:IntensifyArray": {
     "NAME": "激化法阵",
     "DESCRIPTION": "回合开始时，获得 [E] ，额外抽1张牌，使随机1个敌人获得2点力量。"
+  },
+  "Elaina:WitchRobe": {
+    "NAME": "魔女长袍",
+    "DESCRIPTION": "获得 !B! 点格挡。若本回合没有打出其它卡牌，获得 [E] 。 NL *瞬发"
+  },
+  "Elaina:BombardmentMagic": {
+    "NAME": "轰击魔法",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL *瞬发"
   }
 }

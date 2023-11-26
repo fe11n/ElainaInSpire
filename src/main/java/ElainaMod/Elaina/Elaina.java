@@ -15,8 +15,7 @@ import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.localization.*;
 import com.badlogic.gdx.graphics.Color;
 
-import static ElainaMod.Characters.ElainaC.Enums.EXAMPLE_CARD;
-import static ElainaMod.Characters.ElainaC.Enums.MY_CHARACTER;
+import static ElainaMod.Characters.ElainaC.Enums.*;
 
 @SpireInitializer
 public class Elaina implements EditStringsSubscriber,EditCardsSubscriber, EditCharactersSubscriber, EditRelicsSubscriber {
@@ -45,7 +44,7 @@ public class Elaina implements EditStringsSubscriber,EditCardsSubscriber, EditCh
    public Elaina(){
       BaseMod.subscribe(this);
       // 这里注册颜色
-      BaseMod.addColor(EXAMPLE_CARD, MY_COLOR, MY_COLOR, MY_COLOR, MY_COLOR, MY_COLOR, MY_COLOR, MY_COLOR,BG_ATTACK_512,BG_SKILL_512,BG_POWER_512,ENEYGY_ORB,BG_ATTACK_1024,BG_SKILL_1024,BG_POWER_1024,BIG_ORB,SMALL_ORB);
+      BaseMod.addColor(EXAMPLE_COLOR, MY_COLOR, MY_COLOR, MY_COLOR, MY_COLOR, MY_COLOR, MY_COLOR, MY_COLOR,BG_ATTACK_512,BG_SKILL_512,BG_POWER_512,ENEYGY_ORB,BG_ATTACK_1024,BG_SKILL_1024,BG_POWER_1024,BIG_ORB,SMALL_ORB);
    }
    public static void initialize(){
       new Elaina();
@@ -54,6 +53,7 @@ public class Elaina implements EditStringsSubscriber,EditCardsSubscriber, EditCh
    @Override
    public void receiveEditCards(){
       //TODO 写添加卡牌的代码
+      BaseMod.addCard(new BombardmentMagic());
       BaseMod.addCard(new CharmMagic());
       BaseMod.addCard(new Defend());
       BaseMod.addCard(new DestructionMagic());
@@ -66,6 +66,7 @@ public class Elaina implements EditStringsSubscriber,EditCardsSubscriber, EditCh
       BaseMod.addCard(new RecreateMagic());
       BaseMod.addCard(new Rush());
       BaseMod.addCard(new Strike());
+      BaseMod.addCard(new WitchRobe());
       BaseMod.addCard(new WitnessOfFriendship());
    }
    @Override

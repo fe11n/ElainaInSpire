@@ -174,23 +174,25 @@ public class ElainaC extends CustomPlayer implements CustomSavable<ArrayList<Int
     }
     public ArrayList<String> getStartingDeck() {
         ArrayList<String> retVal = new ArrayList<>();
-        for(int x = 0; x<3; x++) {
+        for(int x = 0; x<5; x++) {
             retVal.add(Strike.ID);
         }
-        for(int x = 0; x<3; x++) {
+        for(int x = 0; x<5; x++) {
             retVal.add(Defend.ID);
         }
         retVal.add(RecreateMagic.ID);
         retVal.add(Recall.ID);
-        retVal.add(CharmMagic.ID);
-        retVal.add(DestructionMagic.ID);
-        retVal.add(IceConeMagic.ID);
-        retVal.add(IndelibleImprint.ID);
-        retVal.add(IntensifyArray.ID);
-        retVal.add(Recollect.ID);
-        retVal.add(Rush.ID);
-        retVal.add(WitnessOfFriendship.ID);
-        retVal.add(GrowUp.ID);
+        retVal.add(BombardmentMagic.ID);
+        //retVal.add(CharmMagic.ID);
+        //retVal.add(DestructionMagic.ID);
+        //retVal.add(IceConeMagic.ID);
+        //retVal.add(IndelibleImprint.ID);
+        //retVal.add(IntensifyArray.ID);
+        //retVal.add(Recollect.ID);
+        //retVal.add(Rush.ID);
+        //retVal.add(WitnessOfFriendship.ID);
+        //retVal.add(GrowUp.ID);
+        //retVal.add(WitchRobe.ID);
         return retVal;
     }
 
@@ -226,7 +228,7 @@ public class ElainaC extends CustomPlayer implements CustomSavable<ArrayList<Int
     // 你的卡牌颜色（这个枚举在最下方创建）
     @Override
     public AbstractCard.CardColor getCardColor() {
-        return EXAMPLE_CARD;
+        return EXAMPLE_COLOR;
     }
 
     // 翻牌事件出现的你的职业牌（一般设为打击）
@@ -325,21 +327,16 @@ public class ElainaC extends CustomPlayer implements CustomSavable<ArrayList<Int
         public static PlayerClass MY_CHARACTER;
 
         @SpireEnum(name = "EXAMPLE_GREEN")
-        public static AbstractCard.CardColor EXAMPLE_CARD;
+        public static AbstractCard.CardColor EXAMPLE_COLOR;
 
         @SpireEnum(name = "EXAMPLE_GREEN")
         public static CardLibrary.LibraryType EXAMPLE_LIBRARY;
-
-        //@SpireEnum
-        //public static AbstractCard.CardTags INSTANT;//瞬发
         @SpireEnum
-        public static AbstractCard.CardTags SHORTHAND;//速记
+        public static AbstractCard.CardTags MAGIC;//魔法
         @SpireEnum
-        public static AbstractCard.CardTags MAGIC;//速记
+        public static AbstractCard.CardTags SEASONAL;//时令
         @SpireEnum
-        public static AbstractCard.CardTags SEASONAL;//速记
-        @SpireEnum
-        public static AbstractCard.CardTags UNNOTABLE;//速记
+        public static AbstractCard.CardTags UNNOTABLE;//不可被记录
     }
 
 }

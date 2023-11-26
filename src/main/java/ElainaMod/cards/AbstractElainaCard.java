@@ -26,7 +26,7 @@ public class AbstractElainaCard extends CustomCard {
     public AbstractElainaCard(String ID, CardStrings strings, String IMG_PATH, int COST, CardType TYPE,
                               CardRarity RARITY, CardTarget TARGET){
         super(ID, strings.NAME, IMG_PATH, COST, strings.DESCRIPTION, TYPE,
-                CardColor.COLORLESS, RARITY, TARGET);
+                ElainaC.Enums.EXAMPLE_COLOR, RARITY, TARGET);
         NotedSeasonNum = -1;//初始设置一定与当前seasonnum不同的值，保证初始一定会调用upgrade函数
         this.strings = strings;
     }
@@ -92,6 +92,9 @@ public class AbstractElainaCard extends CustomCard {
 
     public AbstractElainaCard makeInstanceCopy(){
         AbstractElainaCard c = (AbstractElainaCard) this.makeCopy();
+        if(this.upgraded){
+            c.upgrade();
+        }
         c.NotedSeasonNum=this.NotedSeasonNum;
         c.rawDescription=this.rawDescription;
         c.exhaust = this.exhaust;

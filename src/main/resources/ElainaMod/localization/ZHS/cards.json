@@ -17,7 +17,7 @@
   },
   "Elaina:DestructionMagic": {
     "NAME": "崩坏魔法",
-    "DESCRIPTION": "对所有敌人造成 !D! 点伤害。失去当前结语。"
+    "DESCRIPTION": "无结语时无法打出。对所有敌人造成 !D! 点伤害。失去当前结语。"
   },
   "Elaina:CharmMagic": {
     "NAME": "魅力魔法",
@@ -25,7 +25,7 @@
   },
   "Elaina:IceConeMagic": {
     "NAME": "冰锥魔法",
-    "DESCRIPTION": "造成 !D! 点伤害。 *时令",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL *时令",
     "EXTENDED_DESCRIPTION": [
       "造成 !D! 点伤害。 NL *冬",
       "造成 !D! 点伤害。 NL *春",
@@ -35,8 +35,8 @@
   },
   "Elaina:Recollect": {
     "NAME": "回想",
-    "DESCRIPTION": "失去当前结语，获得 [E] ，抽1张牌。若结语有瞬发效果，额外抽2张牌。",
-    "UPGRADE_DESCRIPTION": "失去当前结语，获得 [E] [E] ，抽1张牌。若结语有瞬发效果，额外抽2张牌。"
+    "DESCRIPTION": "无结语时无法打出。失去当前结语，获得 [E] ，抽1张牌。若结语有瞬发效果，额外抽2张牌。",
+    "UPGRADE_DESCRIPTION": "无结语时无法打出。失去当前结语，获得 [E] [E] ，抽1张牌。若结语有瞬发效果，额外抽2张牌。"
   },
   "Elaina:GrowUp": {
     "NAME": "成长",
@@ -69,5 +69,19 @@
   "Elaina:BombardmentMagic": {
     "NAME": "轰击魔法",
     "DESCRIPTION": "造成 !D! 点伤害。 NL *瞬发"
+  },
+  "Elaina:Rummage": {
+    "NAME": "翻找",
+    "DESCRIPTION": "*速记 。抽 !M! 张牌。"
+  },
+  "Elaina:LeavesMagic": {
+    "NAME": "落叶魔法",
+    "DESCRIPTION": "对所有敌人造成 !D! 点伤害3次。 NL *时令",
+    "EXTENDED_DESCRIPTION": [
+      "对随机敌人造成 !D! 点伤害3次。 NL *冬",
+      "对随机敌人造成 !D! 点伤害2次。 NL *春",
+      "对随机敌人造成 !D! 点伤害2次。 NL *夏",
+      "对所有敌人造成 !D! 点伤害3次。 NL *秋"
+    ]
   }
 }

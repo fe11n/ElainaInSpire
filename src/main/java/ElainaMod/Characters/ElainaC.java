@@ -128,7 +128,8 @@ public class ElainaC extends CustomPlayer implements CustomSavable<ArrayList<Int
             AbstractDungeon.player.gainGold(50);
         }
         if(upgradeDeck){
-            UpdateAllSeasonalDescription();if( this.relics.get(0) instanceof WanderingWitch){
+            UpdateAllSeasonalDescription();
+            if( this.relics.get(0) instanceof WanderingWitch){
                 ((WanderingWitch) this.relics.get(0)).UpdateCounter();
             }
         }
@@ -148,10 +149,13 @@ public class ElainaC extends CustomPlayer implements CustomSavable<ArrayList<Int
     private void UpdateSeasonalDescription(ArrayList g,boolean isDiary){
         Iterator it = g.iterator();
         while (it.hasNext()){
-            AbstractElainaCard c = (AbstractElainaCard) it.next();
-            if(c.hasTag(SEASONAL)){
-                if(c.UpdateSeasonalDescription() && isDiary && !(it.hasNext())){//在Diary结语位置且需要更新时
-                    this.channelOrb(new ConclusionOrb(c));
+            AbstractCard ca = (AbstractCard) it.next();
+            if(ca instanceof AbstractElainaCard){ //防止状态、诅咒牌引起报错
+                AbstractElainaCard c = (AbstractElainaCard) ca;
+                if(c.hasTag(SEASONAL)){
+                    if(c.UpdateSeasonalDescription() && isDiary && !(it.hasNext())){//在Diary结语位置且需要更新时
+                        this.channelOrb(new ConclusionOrb(c));
+                    }
                 }
             }
         }
@@ -182,13 +186,15 @@ public class ElainaC extends CustomPlayer implements CustomSavable<ArrayList<Int
         }
         retVal.add(RecreateMagic.ID);
         retVal.add(Recall.ID);
-        retVal.add(BombardmentMagic.ID);
+        //retVal.add(BombardmentMagic.ID);
         //retVal.add(CharmMagic.ID);
         //retVal.add(DestructionMagic.ID);
         //retVal.add(IceConeMagic.ID);
         //retVal.add(IndelibleImprint.ID);
         //retVal.add(IntensifyArray.ID);
+        retVal.add(LeavesMagic.ID);
         //retVal.add(Recollect.ID);
+        //retVal.add(Rummage.ID);
         //retVal.add(Rush.ID);
         //retVal.add(WitnessOfFriendship.ID);
         //retVal.add(GrowUp.ID);

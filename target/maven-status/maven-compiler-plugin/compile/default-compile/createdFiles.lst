@@ -1,4 +1,5 @@
 ElainaMod\action\GetDiaryCardAction.class
+ElainaMod\cardmods\toRecordedCardMod.class
 ElainaMod\cards\WitnessOfFriendship$1.class
 ElainaMod\action\AddInstantAction.class
 ElainaMod\cards\IntensifyArray.class
@@ -7,15 +8,20 @@ ElainaMod\Characters\ElainaC.class
 ElainaMod\cards\Recollect.class
 ElainaMod\Characters\ElainaC$Enums.class
 ElainaMod\cards\WitnessOfFriendship.class
+ElainaMod\cards\WitchRobe.class
 ElainaMod\cards\RecreateMagic.class
 ElainaMod\cards\IndelibleImprint.class
 ElainaMod\cards\WitnessOfFriendship$2.class
 ElainaMod\cards\Recall.class
+ElainaMod\cards\LeavesMagic.class
 ElainaMod\cards\Defend.class
+ElainaMod\cards\Rummage.class
 ElainaMod\cards\GrowUp.class
+ElainaMod\cards\BombardmentMagic.class
 ElainaMod\action\RecordCardAction.class
 ElainaMod\cards\DestructionMagic.class
 ElainaMod\cards\AbstractElainaCard.class
+ElainaMod\cards\ItsMe.class
 ElainaMod\Elaina\Elaina.class
 ElainaMod\cards\CharmMagic.class
 ElainaMod\Characters\ElainaC$1.class
@@ -29,3 +35,4 @@ ElainaMod\cards\Rush.class
 ElainaMod\cards\Strike.class
 ElainaMod\orb\ConclusionOrb.class
 ElainaMod\patch\ViewConclusionCardPatch.class
+ElainaMod\cardmods\toSeasonCardMod.class

@@ -2,7 +2,11 @@ package ElainaMod.cards;
 
 import ElainaMod.Characters.ElainaC;
 import ElainaMod.action.RecordCardAction;
+import ElainaMod.cardmods.toRecordedCardMod;
+import ElainaMod.cardmods.toSeasonCardMod;
+import basemod.abstracts.AbstractCardModifier;
 import basemod.abstracts.CustomCard;
+import basemod.helpers.CardModifierManager;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -12,13 +16,18 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import java.util.ArrayList;
+import java.util.Iterator;
+
 
 public class AbstractElainaCard extends CustomCard {
     public int NotedSeasonNum;
 
     public CardStrings strings;
+    public ArrayList<String> ModStrings = new ArrayList<>();
     public int ExtendDamage[]={-1,-1,-1,-1};
     public int ExtendBlock[]={-1,-1,-1,-1};//为时令卡准备，时节变化时实现数值变化
+    public int ExtendMagicNum[] = {-1,-1,-1,-1};
     public boolean ExtendExhaust[]={false,false,false,false};
     public boolean isInstant = false;
     public boolean isShorthand  = false;
@@ -58,36 +67,45 @@ public class AbstractElainaCard extends CustomCard {
         if (NotedSeasonNum!=getSeasonNum() || forceChange){
             logger.info(this.name + ": is updating...");
             NotedSeasonNum = getSeasonNum();
-            this.exhaust = this.ExtendExhaust[NotedSeasonNum];
-            this.baseDamage = this.ExtendDamage[NotedSeasonNum];
-            this.baseBlock = this.ExtendBlock[NotedSeasonNum];
-            this.applyPowers();
-            this.rawDescription = strings.EXTENDED_DESCRIPTION[NotedSeasonNum];
-
-            this.initializeDescription();
+            logger.info("SeasonNum: " + NotedSeasonNum);
+            ArrayList<AbstractCardModifier> mods = new ArrayList<>();
+            Iterator<AbstractCardModifier> it1 = CardModifierManager.modifiers(this).iterator();
+            logger.info(CardModifierManager.modifiers(this));
+            while(it1.hasNext()){
+                AbstractCardModifier mod = it1.next();
+                logger.info("mod name to add(1): " + mod.identifier(this));
+                if(!mod.identifier(this).equals("toSeasonCardMod")){
+                    logger.info("mod name to add(over): " + mod.identifier(this));
+                    mods.add(mod.makeCopy());
+                }
+            }
+            logger.info("mods size: " + mods.size());
+            CardModifierManager.removeAllModifiers(this,true);
+            logger.info("Is ethereal after remove modifiers: " + this.isEthereal);
+            CardModifierManager.addModifier(this,new toSeasonCardMod());
+            logger.info(this.name + ": " + this.rawDescription);
+            Iterator<AbstractCardModifier> it2 = mods.iterator();
+            while(it2.hasNext()){
+                AbstractCardModifier m = it2.next();
+                CardModifierManager.addModifier(this,m);
+                logger.info("Moding: "+m.identifier(this));
+            }
             return true;
         }
         else return false;
     }
     public void toHandfromDiary(){
-        if(!this.exhaust){
-            this.exhaust = true;
-            this.rawDescription = this.rawDescription
-                    +" NL "
-                    + CardCrawlGame.languagePack.getUIString("Elaina:Exhaust").TEXT[0];
-        }
-        if(!this.isEthereal){
-            this.isEthereal = true;
-            this.rawDescription = this.rawDescription
-                    +" NL "
-                    + CardCrawlGame.languagePack.getUIString("Elaina:Ethereal").TEXT[0];
-        }
-        this.initializeDescription();
+        CardModifierManager.addModifier(this,new toRecordedCardMod());
     }
 
     @Override
     public AbstractCard makeCopy() {
-        return super.makeCopy();
+        AbstractElainaCard c = (AbstractElainaCard) super.makeCopy();
+        c.NotedSeasonNum=this.NotedSeasonNum;
+        // 很奇怪，prebattle更新时令卡牌后，时令卡牌还会再实例化一次，
+        // 这个时候新的卡牌notedseasonnum没更改，导致CardModifier的oninitialapp钩子更新数组越界，
+        // 只好在实例化的时候复制notedseasonnum
+        return c;
     }
 
     public AbstractElainaCard makeInstanceCopy(){

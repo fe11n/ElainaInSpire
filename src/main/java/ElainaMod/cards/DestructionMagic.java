@@ -4,9 +4,12 @@ import ElainaMod.Characters.ElainaC;
 import ElainaMod.action.GetDiaryCardAction;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
+import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+
+import java.util.ArrayList;
 
 public class DestructionMagic extends AbstractElainaCard {
     public static final String ID = "Elaina:DestructionMagic";
@@ -43,4 +46,14 @@ public class DestructionMagic extends AbstractElainaCard {
         this.addToBot(new DamageAllEnemiesAction(p, this.multiDamage, this.damageTypeForTurn, AbstractGameAction.AttackEffect.NONE));
         this.addToBot(new GetDiaryCardAction(p,false));
     }//基础效果，可以被使用和瞬发
+
+    @Override
+    public boolean canUse(AbstractPlayer p, AbstractMonster m) {
+        ArrayList<AbstractElainaCard> g;
+        g = ((ElainaC)p).DiaryGroup;
+        if(g.isEmpty()){
+            return false;
+        }
+        else return true;
+    }
 }

@@ -10,7 +10,6 @@ import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.evacipated.cardcrawl.modthespire.lib.SpireEnum;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.EnergyManager;
@@ -186,19 +185,24 @@ public class ElainaC extends CustomPlayer implements CustomSavable<ArrayList<Int
         }
         retVal.add(RecreateMagic.ID);
         retVal.add(Recall.ID);
-        //retVal.add(BombardmentMagic.ID);
-        //retVal.add(CharmMagic.ID);
-        //retVal.add(DestructionMagic.ID);
-        //retVal.add(IceConeMagic.ID);
-        //retVal.add(IndelibleImprint.ID);
-        //retVal.add(IntensifyArray.ID);
-        retVal.add(LeavesMagic.ID);
-        //retVal.add(Recollect.ID);
-        //retVal.add(Rummage.ID);
-        //retVal.add(Rush.ID);
-        //retVal.add(WitnessOfFriendship.ID);
-        //retVal.add(GrowUp.ID);
-        //retVal.add(WitchRobe.ID);
+//        retVal.add(BombardmentMagic.ID);
+//        retVal.add(CharmMagic.ID);
+        retVal.add(CounterMagic.ID);
+//        retVal.add(DestructionMagic.ID);
+//        retVal.add(Eh.ID);
+//        retVal.add(IceConeMagic.ID);
+//        retVal.add(IndelibleImprint.ID);
+//        retVal.add(IntensifyArray.ID);
+//        retVal.add(ItsMe.ID);
+//        retVal.add(LeavesMagic.ID);
+//        retVal.add(MagicSurging.ID);
+//        retVal.add(Ponder.ID);
+//        retVal.add(Recollect.ID);
+//        retVal.add(Rummage.ID);
+//        retVal.add(Rush.ID);
+//        retVal.add(WitnessOfFriendship.ID);
+//        retVal.add(GrowUp.ID);
+//        retVal.add(WitchRobe.ID);
         return retVal;
     }
 

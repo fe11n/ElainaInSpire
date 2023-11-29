@@ -21,10 +21,12 @@ public class GetDiaryCardAction extends AbstractGameAction {
     public GetDiaryCardAction(ElainaC p){
         this.p = p;
         toHand = true;
+        this.actionType = ActionType.CARD_MANIPULATION;
     }
     public GetDiaryCardAction(ElainaC p, boolean toHand){
         this.p = p;
         this.toHand = toHand;
+        this.actionType = ActionType.CARD_MANIPULATION;
     }
     @Override
     public void update(){//将结语获取到手中，同时更新结语

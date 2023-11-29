@@ -23,7 +23,8 @@ public class RecordCardAction extends AbstractGameAction {
     public ArrayList<AbstractElainaCard> g;
     public static final Logger logger = LogManager.getLogger(RecordCardAction.class);
     public RecordCardAction(AbstractElainaCard c){
-       this.c = c.makeInstanceCopy();
+        this.actionType = ActionType.CARD_MANIPULATION;
+        this.c = c.makeInstanceCopy();
     }
     @Override
     public void update(){

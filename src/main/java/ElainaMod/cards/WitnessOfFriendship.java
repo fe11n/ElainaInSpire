@@ -10,6 +10,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
+import com.megacrit.cardcrawl.vfx.GainPennyEffect;
 
 public class WitnessOfFriendship extends AbstractElainaCard {
     public static final String ID = "Elaina:WitnessOfFriendship";
@@ -27,6 +28,7 @@ public class WitnessOfFriendship extends AbstractElainaCard {
         this.tags.add(ElainaC.Enums.SEASONAL);
         this.exhaust = true;
         this.ExtendExhaust[0]=this.ExtendExhaust[1]=true;
+        this.ExtendMagicNum[0]=this.ExtendMagicNum[1]=8;
     }
 
     @Override
@@ -78,6 +80,9 @@ public class WitnessOfFriendship extends AbstractElainaCard {
                     @Override
                     public void update() {
                         p.gainGold(magicNumber);
+                        for(int i = 0; i < magicNumber; ++i) {
+                            AbstractDungeon.effectList.add(new GainPennyEffect(this.source, this.target.hb.cX, this.target.hb.cY, this.source.hb.cX, this.source.hb.cY, true));
+                        }
                         this.isDone = true;
                     }
                 });

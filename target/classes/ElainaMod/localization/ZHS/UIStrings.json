@@ -29,5 +29,16 @@
       "对随机敌人造成 !D! 点伤害2次。 NL *夏",
       "对所有敌人造成 !D! 点伤害3次。 NL *秋"
     ]
+  },
+  "Elaina:WitnessOfFriendship":{
+    "TEXT": [
+      "获得1个普通遗物。 NL *消耗",
+      "获得 !M! 金币。 NL *消耗"
+    ]
+  },
+  "Elaina:ItsMeAction":{
+    "TEXT": [
+      "丢弃并记录"
+    ]
   }
 }

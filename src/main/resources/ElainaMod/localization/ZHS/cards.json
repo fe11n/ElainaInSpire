@@ -9,7 +9,7 @@
   },
   "Elaina:Recall": {
     "NAME": "追忆",
-    "DESCRIPTION": "获得 !B! 点格挡。使当前结语获得 *瞬发 效果。"
+    "DESCRIPTION": "获得 !B! 点格挡。使当前结语获得 *瞬发 效果。不可被记录。"
   },
   "Elaina:RecreateMagic": {
     "NAME": "再现魔法",
@@ -83,5 +83,29 @@
       "对随机敌人造成 !D! 点伤害2次。 NL *夏",
       "对所有敌人造成 !D! 点伤害3次。 NL *秋"
     ]
+  },
+  "Elaina:ItsMe": {
+    "NAME": "没错，就是我",
+    "DESCRIPTION": "记录1张手牌，使随机敌人获得等同于被记录卡牌费用的力量。不可被记录。"
+  },
+  "Elaina:PenOff": {
+    "NAME": "停笔",
+    "DESCRIPTION": "获得 !B! 点格挡。 NL *保留 NL *消耗"
+  },
+  "Elaina:Ponder": {
+    "NAME": "思索",
+    "DESCRIPTION": "获得 !B! 点格挡。增加 !M! 张停笔到手牌中。"
+  },
+  "Elaina:Eh": {
+    "NAME": "咦！？",
+    "DESCRIPTION": "获得等同于所有敌人力量之和的临时敏捷。"
+  },
+  "Elaina:MagicSurging": {
+    "NAME": "魔力涌动",
+    "DESCRIPTION": "打出日记里最近被记录的 !M! 张牌。能被多次升级。不可被记录。"
+  },
+  "Elaina:CounterMagic": {
+    "NAME": "反制魔法",
+    "DESCRIPTION": "应用目标敌人的力量加成。造成 !D! 点伤害3次。斩杀时，使所有敌人失去 !M! 点临时力量。"
   }
 }

@@ -18,6 +18,7 @@ public class AddInstantAction extends AbstractGameAction {
     public static final Logger logger = LogManager.getLogger(AddInstantAction.class);
     public AddInstantAction(ElainaC p){
        this.p = p;
+        this.actionType = ActionType.CARD_MANIPULATION;
     }
     @Override
     public void update(){

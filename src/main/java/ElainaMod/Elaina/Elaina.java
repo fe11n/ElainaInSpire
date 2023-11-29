@@ -55,13 +55,19 @@ public class Elaina implements EditStringsSubscriber,EditCardsSubscriber, EditCh
       //TODO 写添加卡牌的代码
       BaseMod.addCard(new BombardmentMagic());
       BaseMod.addCard(new CharmMagic());
+      BaseMod.addCard(new CounterMagic());
       BaseMod.addCard(new Defend());
       BaseMod.addCard(new DestructionMagic());
+      BaseMod.addCard(new Eh());
       BaseMod.addCard(new GrowUp());
       BaseMod.addCard(new IceConeMagic());
       BaseMod.addCard(new IndelibleImprint());
       BaseMod.addCard(new IntensifyArray());
+      BaseMod.addCard(new ItsMe());
       BaseMod.addCard(new LeavesMagic());
+      BaseMod.addCard(new MagicSurging());
+      BaseMod.addCard(new PenOff());
+      BaseMod.addCard(new Ponder());
       BaseMod.addCard(new Recall());
       BaseMod.addCard(new Recollect());
       BaseMod.addCard(new RecreateMagic());

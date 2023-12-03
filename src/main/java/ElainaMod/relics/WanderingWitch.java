@@ -33,6 +33,7 @@ public class WanderingWitch extends CustomRelic {
     public void onEnterRoom(AbstractRoom room){//进入房间后时节+1，更新计数器，此时卡牌未初始化，只能直接更新
         logger.info("Month before enter: "+p.Month);
         p.ChangeMonth(p.Month+1,false);//通过这个函数调用UpgradeCounter不生效，神奇了
+        logger.info("Month before enter: "+p.Month);
         UpdateCounter();
     }
     public void atPreBattle(){//战斗开始时记录卡牌（这个是遗物描述的），TODO 并且按季节更新所有卡牌描述（这个最好写到能力里）

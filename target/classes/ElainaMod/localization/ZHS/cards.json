@@ -88,7 +88,7 @@
     "NAME": "没错，就是我",
     "DESCRIPTION": "记录1张手牌，使随机敌人获得等同于被记录卡牌费用的力量。不可被记录。"
   },
-  "Elaina:PenOff": {
+  "Elaina:Penoff": {
     "NAME": "停笔",
     "DESCRIPTION": "获得 !B! 点格挡。 NL *保留 NL *消耗"
   },
@@ -107,5 +107,13 @@
   "Elaina:CounterMagic": {
     "NAME": "反制魔法",
     "DESCRIPTION": "应用目标敌人的力量加成。造成 !D! 点伤害3次。斩杀时，使所有敌人失去 !M! 点临时力量。"
+  },
+  "Elaina:Echo": {
+    "NAME": "呼应",
+    "DESCRIPTION": "获得 !B! 点格挡。记录本回合已打出的所有卡牌。不可被记录。保留。"
+  },
+  "Elaina:Drawup": {
+    "NAME": "起笔",
+    "DESCRIPTION": "造成 !D! 点伤害，增加一张呼应到手牌中，使其本回合费用变为0。"
   }
 }

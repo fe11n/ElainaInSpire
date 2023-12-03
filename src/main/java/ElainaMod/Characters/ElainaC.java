@@ -125,6 +125,7 @@ public class ElainaC extends CustomPlayer implements CustomSavable<ArrayList<Int
         if((Month-1)/12>FarYear){
             FarYear = (Month-1)/12;
             AbstractDungeon.player.gainGold(50);
+            logger.info("Get 50 gold.");
         }
         if(upgradeDeck){
             UpdateAllSeasonalDescription();
@@ -187,8 +188,10 @@ public class ElainaC extends CustomPlayer implements CustomSavable<ArrayList<Int
         retVal.add(Recall.ID);
 //        retVal.add(BombardmentMagic.ID);
 //        retVal.add(CharmMagic.ID);
-        retVal.add(CounterMagic.ID);
+//        retVal.add(CounterMagic.ID);
 //        retVal.add(DestructionMagic.ID);
+        retVal.add(Drawup.ID);
+//        retVal.add(Echo.ID);
 //        retVal.add(Eh.ID);
 //        retVal.add(IceConeMagic.ID);
 //        retVal.add(IndelibleImprint.ID);

@@ -44,7 +44,7 @@ public class WanderingWitch extends CustomRelic {
     public void onPlayerEndTurn(){//回合结束时记录打出的最后一张卡牌
         l = AbstractDungeon.actionManager.cardsPlayedThisTurn;
         logger.info("This turn cards num: "+l.size());
-        if(l.size()!=0){
+        if(l.size()!=0 && l.get(l.size()-1) instanceof AbstractElainaCard){
             this.addToTop(new RecordCardAction((AbstractElainaCard) l.get(l.size()-1)));
         }
     }

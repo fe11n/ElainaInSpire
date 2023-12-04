@@ -4,5 +4,12 @@
     "DESCRIPTIONS": [
       "回合开始时，获得 [E] ，额外抽1张牌，使随机1个敌人获得2点力量。"
     ]
+  },
+  "Elaina:BottledHappiness": {
+    "NAME": "瓶装的幸福",
+    "DESCRIPTIONS": [
+      "回合结束时，使所有敌人失去等于其力量",
+      "倍的生命值。"
+    ]
   }
 }

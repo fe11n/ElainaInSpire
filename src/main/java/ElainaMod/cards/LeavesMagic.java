@@ -41,6 +41,7 @@ public class LeavesMagic extends AbstractElainaCard {
         if (!this.upgraded) {
             this.upgradeName(); // 卡牌名字变为绿色并添加“+”，且标为升级过的卡牌，之后不能再升级。
             this.upgradeDamage(1); // 将该卡牌的伤害提高1点。
+            this.ExtendDamage[0]=this.ExtendDamage[1]=this.ExtendDamage[2]=this.ExtendDamage[3]=6;
         }
     }
     /**

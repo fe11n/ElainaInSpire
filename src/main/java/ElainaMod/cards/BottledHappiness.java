@@ -1,37 +1,33 @@
 package ElainaMod.cards;
 
 import ElainaMod.Characters.ElainaC;
-import ElainaMod.action.ChangeMonthAction;
+import ElainaMod.powers.BottledHappinessPower;
 import ElainaMod.powers.IntensifyArrayPower;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.powers.BerserkPower;
-import com.megacrit.cardcrawl.powers.StrengthPower;
 
-import java.util.Iterator;
-
-public class IntensifyArray extends AbstractElainaCard {
-    public static final String ID = "Elaina:IntensifyArray";
+public class BottledHappiness extends AbstractElainaCard {
+    public static final String ID = "Elaina:BottledHappiness";
     private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID); // 从游戏系统读取本地化资源
-    private static final String IMG_PATH = "ElainaMod/img/cards/IntensifyArray.png";
-    private static final int COST = 1;
+    private static final String IMG_PATH = "ElainaMod/img/cards/BottledHappiness.png";
+    private static final int COST = 2;
     private static final CardType TYPE = CardType.POWER;
-    private static final CardRarity RARITY = CardRarity.RARE;
+    private static final CardRarity RARITY = CardRarity.UNCOMMON;
     private static final CardTarget TARGET = CardTarget.SELF;
 
-    public IntensifyArray() {
+    public BottledHappiness() {
         // 为了命名规范修改了变量名。这些参数具体的作用见下方
         super(ID, CARD_STRINGS, IMG_PATH, COST, TYPE, RARITY, TARGET);
+        this.baseMagicNumber = this.magicNumber = 4;
     }
 
     @Override
     public void upgrade() { // 升级调用的方法
         if (!this.upgraded) {
             this.upgradeName();
-            this.upgradeBaseCost(0);
+            this.upgradeMagicNumber(1);
         }
     }
     /**
@@ -42,6 +38,6 @@ public class IntensifyArray extends AbstractElainaCard {
      */
     @Override
     public void BasicEffect(ElainaC p, AbstractMonster m) {
-        this.addToBot(new ApplyPowerAction(p, p, new IntensifyArrayPower(p)));
+        this.addToBot(new ApplyPowerAction(p, p, new BottledHappinessPower(p,this.magicNumber)));
     }
 }

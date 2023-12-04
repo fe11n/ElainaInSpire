@@ -187,12 +187,15 @@ public class ElainaC extends CustomPlayer implements CustomSavable<ArrayList<Int
         retVal.add(RecreateMagic.ID);
         retVal.add(Recall.ID);
 //        retVal.add(BombardmentMagic.ID);
+//        retVal.add(BottledHappiness.ID);
 //        retVal.add(CharmMagic.ID);
 //        retVal.add(CounterMagic.ID);
 //        retVal.add(DestructionMagic.ID);
-        retVal.add(Drawup.ID);
+//        retVal.add(Drawup.ID);
 //        retVal.add(Echo.ID);
 //        retVal.add(Eh.ID);
+//        retVal.add(FlashMagic.ID);
+        retVal.add(FragrantWind.ID);
 //        retVal.add(IceConeMagic.ID);
 //        retVal.add(IndelibleImprint.ID);
 //        retVal.add(IntensifyArray.ID);

@@ -32,6 +32,7 @@ public class toSeasonCardMod extends AbstractCardModifier {
 
         String d = CardCrawlGame.languagePack.getUIString(card.cardID).TEXT[((AbstractElainaCard)card).NotedSeasonNum];
         card.rawDescription = d;
+        card.applyPowers();
         card.initializeDescription();//写在modifyDescription里会和别的modifier冲突
     }
 

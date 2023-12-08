@@ -28,12 +28,10 @@ public class IntensifyArrayPower extends AbstractPower {
         this.img = new Texture("ElainaMod/img/powers/IntensifyArrayPower.png");
     }
     public void updateDescription(){this.description = DESCRIPTIONS[0];}
-
     public void atStartOfTurn(){
         this.addToBot(new GainEnergyAction(1));
         this.addToBot(new DrawCardAction(1));
         AbstractMonster mo = AbstractDungeon.getRandomMonster();
         this.addToBot(new ApplyPowerAction(mo,owner,new StrengthPower(mo, 2), 2));
-
     }
 }

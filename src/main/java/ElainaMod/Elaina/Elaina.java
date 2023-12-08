@@ -53,6 +53,8 @@ public class Elaina implements EditStringsSubscriber,EditCardsSubscriber, EditCh
    @Override
    public void receiveEditCards(){
       //TODO 写添加卡牌的代码
+      BaseMod.addCard(new Accelerate());
+      BaseMod.addCard(new AdjustPace());
       BaseMod.addCard(new BombardmentMagic());
       BaseMod.addCard(new BottledHappiness());
       BaseMod.addCard(new CharmMagic());
@@ -62,7 +64,9 @@ public class Elaina implements EditStringsSubscriber,EditCardsSubscriber, EditCh
       BaseMod.addCard(new Drawup());
       BaseMod.addCard(new Echo());
       BaseMod.addCard(new Eh());
+      BaseMod.addCard(new EmergencyTreatment());
       BaseMod.addCard(new FlashMagic());
+      BaseMod.addCard(new FragmentMagic());
       BaseMod.addCard(new FragrantWind());
       BaseMod.addCard(new GrowUp());
       BaseMod.addCard(new IceConeMagic());
@@ -70,15 +74,22 @@ public class Elaina implements EditStringsSubscriber,EditCardsSubscriber, EditCh
       BaseMod.addCard(new IntensifyArray());
       BaseMod.addCard(new ItsMe());
       BaseMod.addCard(new LeavesMagic());
+      BaseMod.addCard(new MagicEcho());
       BaseMod.addCard(new MagicSurging());
       BaseMod.addCard(new Penoff());
       BaseMod.addCard(new Ponder());
+      BaseMod.addCard(new Reappear());
       BaseMod.addCard(new Recall());
       BaseMod.addCard(new Recollect());
       BaseMod.addCard(new RecreateMagic());
       BaseMod.addCard(new Rummage());
       BaseMod.addCard(new Rush());
+      BaseMod.addCard(new SilentChant());
+      BaseMod.addCard(new Spell());
+      BaseMod.addCard(new SpellReorganization());
       BaseMod.addCard(new Strike());
+      BaseMod.addCard(new Thunder());
+      BaseMod.addCard(new Vibration());
       BaseMod.addCard(new WitchRobe());
       BaseMod.addCard(new WitnessOfFriendship());
    }

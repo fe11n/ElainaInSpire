@@ -22,10 +22,10 @@ public class Strike extends AbstractElainaCard {
     public Strike() {
         // 为了命名规范修改了变量名。这些参数具体的作用见下方
         super(ID, CARD_STRINGS, IMG_PATH, COST, TYPE, RARITY, TARGET);
-        this.damage = this.baseDamage = 1;
+        this.damage = this.baseDamage = 6;
         this.tags.add(CardTags.STARTER_STRIKE);
         this.tags.add(CardTags.STRIKE);
-        this.isInstant = true;
+        //this.isInstant = true;
     }
 
     @Override
@@ -46,6 +46,6 @@ public class Strike extends AbstractElainaCard {
     }//基础效果，可以被使用和瞬发
     public void use(AbstractPlayer p,AbstractMonster m){
         super.use(p,m);
-        this.addToTop(new ChangeMonthAction(p,3));
+        //this.addToTop(new ChangeMonthAction(p,3));
     }
 }

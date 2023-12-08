@@ -4,10 +4,12 @@ import ElainaMod.Elaina.Elaina;
 import ElainaMod.cards.*;
 import ElainaMod.orb.ConclusionOrb;
 import ElainaMod.relics.WanderingWitch;
+import basemod.BaseMod;
 import basemod.abstracts.CustomPlayer;
 import basemod.abstracts.CustomSavable;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.evacipated.cardcrawl.modthespire.lib.SpireEnum;
+import com.google.gson.reflect.TypeToken;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -32,8 +34,8 @@ import java.util.Random;
 
 import static ElainaMod.Characters.ElainaC.Enums.*;
 
-public class ElainaC extends CustomPlayer implements CustomSavable<ArrayList<Integer>> {
-    private static final String MY_CHARACTER_SHOULDER_1 = "ElainaMod/img/char/shoulder1.png";
+public class ElainaC extends CustomPlayer{
+    private static final String MY_CHARACTER_SHOULDER_1 = "ElainaMod/img/char/shoulder.png";
     // 火堆的人物立绘（行动后）
     private static final String MY_CHARACTER_SHOULDER_2 = "ElainaMod/img/char/shoulder2.png";
     // 人物死亡图像
@@ -57,23 +59,10 @@ public class ElainaC extends CustomPlayer implements CustomSavable<ArrayList<Int
     // 人物的本地化文本，如卡牌的本地化文本一样，如何书写见下
     private static final CharacterStrings characterStrings = CardCrawlGame.languagePack.getCharacterString("Elaina:ElainaC");
     public static ArrayList<AbstractElainaCard> DiaryGroup = new ArrayList();//存储日记的抽象数组
-    public static int Month;//时节变量
-    public static int FarYear;
+    //public static int Month;// = new Random().nextInt(12)+1;//时节变量
+    public static int Month = 12;//时节变量
+    public static int FarYear = 0;
     public static final Logger logger = LogManager.getLogger(ElainaC.class);
-
-    @Override
-    public ArrayList<Integer> onSave() {
-        return  new ArrayList<Integer>(){{
-            add(Month);
-            add(FarYear);
-        }};
-    }
-
-    @Override
-    public void onLoad(ArrayList<Integer> integers) {
-        Month = integers.get(0);
-        FarYear = integers.get(1);
-    }
 
     public ElainaC(String name) {
         super(name,
@@ -87,11 +76,6 @@ public class ElainaC extends CustomPlayer implements CustomSavable<ArrayList<Int
         // 人物对话气泡的大小，如果游戏中尺寸不对在这里修改（libgdx的坐标轴左下为原点）
         this.dialogX = (this.drawX + 0.0F * Settings.scale);
         this.dialogY = (this.drawY + 150.0F * Settings.scale);
-
-        this.maxOrbs=1;
-        //Month = new Random().nextInt(12)+1;
-        Month = 12;
-        FarYear = 0;
 
 
         // 初始化你的人物，如果你的人物只有一张图，那么第一个参数填写你人物图片的路径。
@@ -186,6 +170,7 @@ public class ElainaC extends CustomPlayer implements CustomSavable<ArrayList<Int
         }
         retVal.add(RecreateMagic.ID);
         retVal.add(Recall.ID);
+//        retVal.add(AdjustPace.ID);
 //        retVal.add(BombardmentMagic.ID);
 //        retVal.add(BottledHappiness.ID);
 //        retVal.add(CharmMagic.ID);
@@ -194,20 +179,27 @@ public class ElainaC extends CustomPlayer implements CustomSavable<ArrayList<Int
 //        retVal.add(Drawup.ID);
 //        retVal.add(Echo.ID);
 //        retVal.add(Eh.ID);
+//        retVal.add(EmergencyTreatment.ID);
 //        retVal.add(FlashMagic.ID);
-        retVal.add(FragrantWind.ID);
+//        retVal.add(FragrantWind.ID);
+//        retVal.add(GrowUp.ID);
 //        retVal.add(IceConeMagic.ID);
 //        retVal.add(IndelibleImprint.ID);
 //        retVal.add(IntensifyArray.ID);
 //        retVal.add(ItsMe.ID);
 //        retVal.add(LeavesMagic.ID);
+//        retVal.add(MagicEcho.ID);
 //        retVal.add(MagicSurging.ID);
 //        retVal.add(Ponder.ID);
+//        retVal.add(Reappear.ID);
 //        retVal.add(Recollect.ID);
 //        retVal.add(Rummage.ID);
 //        retVal.add(Rush.ID);
+//        retVal.add(SilentChant.ID);
+//        retVal.add(SpellReorganization.ID);
+//        retVal.add(Thunder.ID);
+//        retVal.add(Vibration.ID);
 //        retVal.add(WitnessOfFriendship.ID);
-//        retVal.add(GrowUp.ID);
 //        retVal.add(WitchRobe.ID);
         return retVal;
     }

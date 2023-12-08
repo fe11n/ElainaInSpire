@@ -11,5 +11,18 @@
       "回合结束时，使所有敌人失去等于其力量",
       "倍的生命值。"
     ]
+  },
+  "Elaina:MagicEcho": {
+    "NAME": "魔力回响",
+    "DESCRIPTIONS": [
+      "在战斗中临时增加卡牌时会额外增加一张。"
+    ]
+  },
+  "Elaina:SpellReorganization": {
+    "NAME": "法术重组",
+    "DESCRIPTIONS": [
+      "回合开始时，手牌中每有1张保留牌，获得",
+      "点格挡。"
+    ]
   }
 }

@@ -45,8 +45,8 @@ public class Defend extends AbstractElainaCard {
     public void BasicEffect(ElainaC p, AbstractMonster m) {
         // AbstractCard中实现了addToBot方法，它的效果和AbstractDungeon.actionManager.addToBottom相同
         this.addToBot(new GainBlockAction(p,p,this.block));
-        this.addToBot(new GetDiaryCardAction(p));
-        AbstractMonster mo = AbstractDungeon.getRandomMonster();
-        this.addToBot(new ApplyPowerAction(mo, p,new StrengthPower(mo, 1), 1));
+        //this.addToBot(new GetDiaryCardAction(p));
+        //AbstractMonster mo = AbstractDungeon.getRandomMonster();
+        //this.addToBot(new ApplyPowerAction(mo, p,new StrengthPower(mo, 1), 1));
     }
 }

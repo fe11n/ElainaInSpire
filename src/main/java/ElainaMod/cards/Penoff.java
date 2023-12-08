@@ -7,9 +7,9 @@ import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 public class Penoff extends AbstractElainaCard {
-    public static final String ID = "Elaina:PenOff";
+    public static final String ID = "Elaina:Penoff";
     private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID); // 从游戏系统读取本地化资源
-    private static final String IMG_PATH = "ElainaMod/img/cards/PenOff.png";
+    private static final String IMG_PATH = "ElainaMod/img/cards/Penoff.png";
     private static final int COST = 0;
     private static final CardType TYPE = CardType.SKILL;
     private static final CardRarity RARITY = CardRarity.SPECIAL;

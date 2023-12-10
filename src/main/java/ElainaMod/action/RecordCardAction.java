@@ -20,22 +20,30 @@ import java.util.Iterator;
 public class RecordCardAction extends AbstractGameAction {
     public ElainaC p=(ElainaC)AbstractDungeon.player;
     public AbstractElainaCard c;
+    private boolean isNotable = false;
     public ArrayList<AbstractElainaCard> g;
     public static final Logger logger = LogManager.getLogger(RecordCardAction.class);
-    public RecordCardAction(AbstractElainaCard c){
+    public RecordCardAction(AbstractCard c){
         this.actionType = ActionType.CARD_MANIPULATION;
-        this.c = c.makeInstanceCopy();
+        if(c instanceof AbstractElainaCard){
+            isNotable = ((AbstractElainaCard) c).isNotable();
+        }
+        else {
+            isNotable = false;
+        }
+        if(isNotable){
+            this.c = ((AbstractElainaCard) c).makeInstanceCopy();
+        }
     }
     @Override
     public void update(){
-        if(c.exhaust==false && c.type!= AbstractCard.CardType.POWER && !c.hasTag(ElainaC.Enums.UNNOTABLE)){
-            //未被消耗，不是能力牌，无不可被记录标记时记录
+        if(isNotable){
             g = p.DiaryGroup;
 
             if(g.size()!= 0 && p.getConclusion() instanceof IndelibleImprint){
                 c = p.getConclusion();
                 this.addToBot(new GainBlockAction(p,p,c.magicNumber));
-                this.addToBot(new DamageAction(AbstractDungeon.getRandomMonster(), new DamageInfo(p,c.magicNumber, DamageInfo.DamageType.NORMAL)));
+                this.addToBot(new DamageAction(AbstractDungeon.getRandomMonster(), new DamageInfo(p,c.magicNumber, DamageInfo.DamageType.THORNS)));
                 this.isDone=true;
                 return;
             }

@@ -41,18 +41,10 @@ public class WitnessOfFriendship extends AbstractElainaCard {
 
     public int getSeasonNum(){
         int m = (((ElainaC)(AbstractDungeon.player)).Month)%12;
-        if(!this.upgraded){
-            if( m == 1){
-                return 0;
-            }
-            else return 1;
+        if(m == 1 || m == -11){
+            return 0;
         }
-        else {
-            if(m ==1 || m==0 ){
-                return 0;
-            }
-            else return 1;
-        }
+        else return 1;
     }
     /**
      * 当卡牌被使用时，调用这个方法。
@@ -81,7 +73,7 @@ public class WitnessOfFriendship extends AbstractElainaCard {
                     public void update() {
                         p.gainGold(magicNumber);
                         for(int i = 0; i < magicNumber; ++i) {
-                            AbstractDungeon.effectList.add(new GainPennyEffect(this.source, this.target.hb.cX, this.target.hb.cY, this.source.hb.cX, this.source.hb.cY, true));
+                            //AbstractDungeon.effectList.add(new GainPennyEffect(this.source, this.target.hb.cX, this.target.hb.cY, this.source.hb.cX, this.source.hb.cY, true));
                         }
                         this.isDone = true;
                     }

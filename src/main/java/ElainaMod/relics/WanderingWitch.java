@@ -2,10 +2,10 @@ package ElainaMod.relics;
 
 import ElainaMod.Characters.ElainaC;
 import ElainaMod.action.RecordCardAction;
-import ElainaMod.cards.AbstractElainaCard;
-import ElainaMod.cards.Strike;
+import ElainaMod.cards.*;
 import basemod.abstracts.CustomRelic;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.helpers.PowerTip;
@@ -43,8 +43,22 @@ public class WanderingWitch extends CustomRelic {
         UpdateCounter();
     }
     public void atPreBattle(){//战斗开始时记录卡牌（这个是遗物描述的），TODO 并且按季节更新所有卡牌描述（这个最好写到能力里）
-        ((ElainaC)AbstractDungeon.player).DiaryGroup.clear();//战斗开始时清空，不管sl了
-        this.addToTop(new RecordCardAction(new Strike()));
+        ElainaC p = (ElainaC)AbstractDungeon.player;
+        p.DiaryGroup.clear();//战斗开始时清空，不管sl了
+        switch (p.getSeason()){
+            case 0:
+                this.addToTop(new RecordCardAction(new WinterPeace()));
+                break;
+            case 1:
+                this.addToTop(new RecordCardAction(new SpringJoy()));
+                break;
+            case 2:
+                this.addToTop(new RecordCardAction(new SummerExcitement()));
+                break;
+            case 3:
+                this.addToTop(new RecordCardAction(new AutumnVigilance()));
+                break;
+        }
         ((ElainaC)AbstractDungeon.player).UpdateAllSeasonalDescription();
     }
     public void onPlayerEndTurn(){//回合结束时记录打出的最后一张卡牌
@@ -60,7 +74,7 @@ public class WanderingWitch extends CustomRelic {
     public void UpdateCounter(){//更新计数器
         logger.info("Changing RelicCounter...");
         p =(ElainaC) AbstractDungeon.player;//角色死亡后遗物不会重新构造，因此需要重新给p赋值
-        NotedMonth = (p.Month%12)==0?12:(p.Month%12);
+        NotedMonth = (p.Month%12)<=0?(p.Month%12)+12:(p.Month%12);
         this.flash();
         logger.info("Noted Month: "+NotedMonth);
         this.counter = NotedMonth;

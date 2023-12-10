@@ -15,7 +15,8 @@
   "Elaina:MagicEcho": {
     "NAME": "魔力回响",
     "DESCRIPTIONS": [
-      "在战斗中临时增加卡牌时会额外增加一张。"
+      "在战斗中临时增加卡牌时会额外增加",
+      "张。"
     ]
   },
   "Elaina:SpellReorganization": {
@@ -23,6 +24,13 @@
     "DESCRIPTIONS": [
       "回合开始时，手牌中每有1张保留牌，获得",
       "点格挡。"
+    ]
+  },
+  "Elaina:SpellBoost": {
+    "NAME": "魔力增幅",
+    "DESCRIPTIONS": [
+      "魔法卡牌伤害增加",
+      "点。打出魔法卡牌后层数减少至原来的一半（向下取整）。"
     ]
   }
 }

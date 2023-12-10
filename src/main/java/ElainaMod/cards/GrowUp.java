@@ -34,6 +34,7 @@ public class GrowUp extends AbstractElainaCard {
         if (!this.upgraded) {
             this.upgradeName();
             this.upgradeMagicNumber(1);
+            this.misc+=1;
         }
     }
 
@@ -42,10 +43,6 @@ public class GrowUp extends AbstractElainaCard {
         int m = ((ElainaC)AbstractDungeon.player).Month;
         this.baseMagicNumber = this.magicNumber = this.misc + (m>0?(m/12):0);
         super.applyPowers();
-        this.initializeDescription();
-    }
-    public void onMoveToDiscard() {
-        this.rawDescription = strings.DESCRIPTION;
         this.initializeDescription();
     }
 

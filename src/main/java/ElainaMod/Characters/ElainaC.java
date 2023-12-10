@@ -59,8 +59,8 @@ public class ElainaC extends CustomPlayer{
     // 人物的本地化文本，如卡牌的本地化文本一样，如何书写见下
     private static final CharacterStrings characterStrings = CardCrawlGame.languagePack.getCharacterString("Elaina:ElainaC");
     public static ArrayList<AbstractElainaCard> DiaryGroup = new ArrayList();//存储日记的抽象数组
-    //public static int Month;// = new Random().nextInt(12)+1;//时节变量
-    public static int Month = 12;//时节变量
+    public static int Month = new Random().nextInt(12)+1;//时节变量
+    //public static int Month = 12;//时节变量
     public static int FarYear = 0;
     public static final Logger logger = LogManager.getLogger(ElainaC.class);
 
@@ -101,7 +101,7 @@ public class ElainaC extends CustomPlayer{
     }
 
     public int getSeason(){
-        return (Month%12)/3;
+        return (Month%12)>0?(Month%12)/3:(Month%12+12)/3;
     }//0，1，2，3分别表示冬，春，夏，秋
     public void ChangeMonth(int num, boolean upgradeDeck){
         Month = num;

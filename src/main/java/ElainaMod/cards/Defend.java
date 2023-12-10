@@ -2,6 +2,7 @@ package ElainaMod.cards;
 
 import ElainaMod.Characters.ElainaC;
 import ElainaMod.action.GetDiaryCardAction;
+import ElainaMod.powers.SpellBoostPower;
 import basemod.devcommands.relic.RelicAdd;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
@@ -45,6 +46,7 @@ public class Defend extends AbstractElainaCard {
     public void BasicEffect(ElainaC p, AbstractMonster m) {
         // AbstractCard中实现了addToBot方法，它的效果和AbstractDungeon.actionManager.addToBottom相同
         this.addToBot(new GainBlockAction(p,p,this.block));
+        //this.addToBot(new ApplyPowerAction(p,p,new SpellBoostPower(p,3),3));
         //this.addToBot(new GetDiaryCardAction(p));
         //AbstractMonster mo = AbstractDungeon.getRandomMonster();
         //this.addToBot(new ApplyPowerAction(mo, p,new StrengthPower(mo, 1), 1));

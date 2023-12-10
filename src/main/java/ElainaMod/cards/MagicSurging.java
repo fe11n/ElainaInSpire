@@ -11,6 +11,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.DexterityPower;
 import com.megacrit.cardcrawl.powers.LoseDexterityPower;
 
+import java.util.ArrayList;
 import java.util.Iterator;
 
 public class MagicSurging extends AbstractElainaCard {
@@ -35,7 +36,7 @@ public class MagicSurging extends AbstractElainaCard {
 
     @Override
     public void upgrade() { // 升级调用的方法
-        this.upgradeMagicNumber(1);
+        this.upgradeMagicNumber(2);
         ++this.timesUpgraded;
         this.upgraded = true;
         this.name = CARD_STRINGS.NAME + "+" + this.timesUpgraded;
@@ -58,13 +59,11 @@ public class MagicSurging extends AbstractElainaCard {
         addToBot(new AbstractGameAction() {
             @Override
             public void update() {
-                Iterator it = ((ElainaC)p).DiaryGroup.iterator();
-                int i = 0;
-                while (it.hasNext() && i< magicNumber){
-                    AbstractElainaCard c = (AbstractElainaCard)it.next();
+                ArrayList<AbstractElainaCard> g = p.DiaryGroup;
+                for(int i = g.size()-magicNumber;i<g.size();i++){
+                    AbstractElainaCard c = g.get(i);
                     logger.info("Magic Surging ("+i+") : "+c.name);
                     c.InstantUse();
-                    i++;
                 }
                 this.isDone =true;
             }

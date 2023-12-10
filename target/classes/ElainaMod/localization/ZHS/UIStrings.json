@@ -38,7 +38,7 @@
   },
   "Elaina:ItsMeAction":{
     "TEXT": [
-      "丢弃并记录"
+      "记录"
     ]
   },
   "Elaina:FragrantWind":{
@@ -47,6 +47,11 @@
       "给予所有敌人 !M! 层虚弱和易伤。 NL *消耗 NL *春",
       "给予所有敌人 !M! 层虚弱和易伤，令所有敌人失去 !D! 点生命。 NL *消耗 NL *夏",
       "给予所有敌人 !M! 层虚弱。 NL *消耗 NL *秋"
+    ]
+  },
+  "Elaina:FirstImpressionAction":{
+    "TEXT": [
+      "丢弃并记录"
     ]
   }
 }

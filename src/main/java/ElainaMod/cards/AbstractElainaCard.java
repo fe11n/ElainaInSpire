@@ -13,6 +13,8 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.powers.AbstractPower;
+import com.megacrit.cardcrawl.powers.StrengthPower;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -59,10 +61,32 @@ public class AbstractElainaCard extends CustomCard {
     public int getSeasonNum(){
         return ((ElainaC)(AbstractDungeon.player)).getSeason();
     }
+    public boolean isNotable(){return !(this.hasTag(ElainaC.Enums.UNNOTABLE) || this.type == CardType.POWER || this.exhaust == true);}
     public boolean UpdateSeasonalDescription(){
         return UpdateSeasonalDescription(false);
     }
-
+//    public void applyPowers(){
+//        AbstractPower strength = AbstractDungeon.player.getPower("Strength");
+//        AbstractPlayer p = AbstractDungeon.player;
+//        if(this.hasTag(ElainaC.Enums.MAGIC) && p.hasPower("Elaina:SpellBoost")){
+//            int strAmt = p.getPower("Elaina:SpellBoost").amount;
+//            if(strength == null){
+//                p.powers.add(new StrengthPower(p,strAmt));
+//            }
+//            else {
+//                strength.amount += strAmt;//这个函数在指向敌人时持续更新，如果直接让baseDamage自增，则会让它持续增加
+//            }
+//        }
+//        super.applyPowers();
+//        if(this.hasTag(ElainaC.Enums.MAGIC) && p.hasPower("Elaina:SpellBoost")){
+//            strength = AbstractDungeon.player.getPower("Strength");
+//            int strAmt = p.getPower("Elaina:SpellBoost").amount;
+//            strength.amount -= strAmt;
+//            if(strength.amount == 0){
+//                p.powers.remove(p.getPower("Strength"));
+//            }
+//        }
+//    }
     public boolean UpdateSeasonalDescription(boolean forceChange){//对于时令牌，时节变化时只更新数值和描述。打出效果只有一种：参数为当前时节的switch语句。
         if (NotedSeasonNum!=getSeasonNum() || forceChange){
             logger.info(this.name + ": is updating...");

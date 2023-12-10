@@ -8,6 +8,7 @@ import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.DiscardAction;
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
@@ -42,9 +43,11 @@ public class ItsMeAction extends AbstractGameAction {
             it = p.hand.group.iterator();
             if(p.hand.group.size()==1){
                 while(it.hasNext()){
-                    AbstractElainaCard c = (AbstractElainaCard) it.next();
+                    AbstractCard c = (AbstractCard) it.next();
                     AbstractMonster mo = AbstractDungeon.getRandomMonster();
-                    this.addToBot(new ApplyPowerAction(mo, p,new StrengthPower(mo, c.cost), c.cost));
+                    if(c.cost>0){
+                        this.addToBot(new ApplyPowerAction(mo, p,new StrengthPower(mo, c.cost), c.cost));
+                    }
                     this.addToBot(new RecordCardAction(c));
                     //p.hand.moveToDiscardPile(c);
                 }
@@ -59,10 +62,13 @@ public class ItsMeAction extends AbstractGameAction {
         if (!AbstractDungeon.handCardSelectScreen.wereCardsRetrieved) {
             it = AbstractDungeon.handCardSelectScreen.selectedCards.group.iterator();
             while(it.hasNext()){
-                AbstractElainaCard c = (AbstractElainaCard) it.next();
+                AbstractCard c = (AbstractCard) it.next();
                 AbstractMonster mo = AbstractDungeon.getRandomMonster();
-                this.addToBot(new ApplyPowerAction(mo, p,new StrengthPower(mo, c.cost), c.cost));
+                if(c.cost>0){
+                    this.addToBot(new ApplyPowerAction(mo, p,new StrengthPower(mo, c.cost), c.cost));
+                }
                 this.addToBot(new RecordCardAction(c));
+                p.hand.addToHand(c);
                 //p.hand.moveToDiscardPile(c);
             }
             AbstractDungeon.handCardSelectScreen.wereCardsRetrieved = true;

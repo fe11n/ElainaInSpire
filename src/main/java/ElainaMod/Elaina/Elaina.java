@@ -10,6 +10,7 @@ import basemod.interfaces.EditCharactersSubscriber;
 import basemod.interfaces.EditRelicsSubscriber;
 import basemod.interfaces.EditStringsSubscriber;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
+import com.megacrit.cardcrawl.cards.tempCards.Miracle;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.localization.*;
@@ -54,6 +55,7 @@ public class Elaina implements EditStringsSubscriber,EditCardsSubscriber, EditCh
    public void receiveEditCards(){
       //TODO 写添加卡牌的代码
       BaseMod.addCard(new Accelerate());
+      BaseMod.addCard(new Accumulation());
       BaseMod.addCard(new AdjustPace());
       BaseMod.addCard(new AutumnVigilance());
       BaseMod.addCard(new BombardmentMagic());
@@ -78,6 +80,8 @@ public class Elaina implements EditStringsSubscriber,EditCardsSubscriber, EditCh
       BaseMod.addCard(new LeavesMagic());
       BaseMod.addCard(new MagicEcho());
       BaseMod.addCard(new MagicSurging());
+      BaseMod.addCard(new Mutation());
+      BaseMod.addCard(new Miracle());
       BaseMod.addCard(new Penoff());
       BaseMod.addCard(new Ponder());
       BaseMod.addCard(new Reappear());
@@ -97,6 +101,7 @@ public class Elaina implements EditStringsSubscriber,EditCardsSubscriber, EditCh
       BaseMod.addCard(new Vibration());
       BaseMod.addCard(new WinterPeace());
       BaseMod.addCard(new WitchRobe());
+      BaseMod.addCard(new WitchsCauldron());
       BaseMod.addCard(new WitnessOfFriendship());
    }
    @Override

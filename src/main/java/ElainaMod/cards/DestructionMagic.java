@@ -2,13 +2,10 @@ package ElainaMod.cards;
 
 import ElainaMod.Characters.ElainaC;
 import ElainaMod.action.GetDiaryCardAction;
-import ElainaMod.cardmods.SpellBoostMod;
-import basemod.helpers.CardModifierManager;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
@@ -36,7 +33,6 @@ public class DestructionMagic extends AbstractElainaCard {
         if (!this.upgraded) {
             this.upgradeName(); // 卡牌名字变为绿色并添加“+”，且标为升级过的卡牌，之后不能再升级。
             this.upgradeDamage(3); // 将该卡牌的伤害提高3点。
-
         }
     }
     /**

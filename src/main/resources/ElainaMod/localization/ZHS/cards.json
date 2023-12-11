@@ -43,8 +43,7 @@
   },
   "Elaina:Recollect": {
     "NAME": "回想",
-    "DESCRIPTION": "无结语时无法打出。失去当前结语，获得 [E] ，抽1张牌。若结语有瞬发效果，额外抽2张牌。",
-    "UPGRADE_DESCRIPTION": "无结语时无法打出。失去当前结语，获得 [E] [E] ，抽1张牌。若结语有瞬发效果，额外抽2张牌。"
+    "DESCRIPTION": "无结语时无法打出。失去当前结语，获得 [E] ，抽1张牌。若结语有瞬发效果，额外抽 !M! 张牌。"
   },
   "Elaina:GrowUp": {
     "NAME": "成长",
@@ -147,8 +146,7 @@
   },
   "Elaina:MagicEcho": {
     "NAME": "魔力回响",
-    "DESCRIPTION": "在战斗中临时增加卡牌时会额外增加一张。",
-    "UPGRADE_DESCRIPTION": "固有。在战斗中临时增加卡牌时会额外增加一张。"
+    "DESCRIPTION": "在战斗中临时增加卡牌时会额外增加1张。"
   },
   "Elaina:ThunderMagic": {
     "NAME": "雷霆魔法",
@@ -205,5 +203,18 @@
   "Elaina:WinterPeace": {
     "NAME": "冬之安详",
     "DESCRIPTION": "若没有多层护甲，获得 !M! 层多层护甲。时节每循环一次，该数值加1。 NL *瞬发"
+  },
+  "Elaina:Accumulation": {
+    "NAME": "蓄能",
+    "DESCRIPTION": "获得 !M! 层魔力增幅。 NL *瞬发"
+  },
+  "Elaina:Mutation": {
+    "NAME": "蝶变",
+    "DESCRIPTION": "*保留 NL 保留时，消耗随机1张手牌，增加1张奇迹到手牌中。",
+    "UPGRADE_DESCRIPTION": "*保留 NL 保留时，消耗随机1张手牌，增加1张奇迹到手牌中。这张卡牌被消耗时，增加1张奇迹到手牌中。"
+  },
+  "Elaina:WitchsCauldron": {
+    "NAME": "魔女的坩埚",
+    "DESCRIPTION": "随机增加 !M! 张有保留效果的卡牌到手牌中。消耗。"
   }
 }

@@ -101,7 +101,7 @@ public class ElainaC extends CustomPlayer{
     }
 
     public int getSeason(){
-        return (Month%12)>0?(Month%12)/3:(Month%12+12)/3;
+        return (Month%12)>=0?(Month%12)/3:(Month%12+12)/3;
     }//0，1，2，3分别表示冬，春，夏，秋
     public void ChangeMonth(int num, boolean upgradeDeck){
         Month = num;

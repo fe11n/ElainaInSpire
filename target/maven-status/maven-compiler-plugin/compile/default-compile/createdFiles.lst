@@ -17,6 +17,7 @@ ElainaMod\cards\WitchRobe.class
 ElainaMod\cards\RecreateMagic.class
 ElainaMod\cards\BottledHappiness.class
 ElainaMod\cards\ThunderMagic.class
+ElainaMod\cards\Accumulation.class
 ElainaMod\patch\SaveLoadPatch$ElainaSaveFile.class
 ElainaMod\cards\Vibration.class
 ElainaMod\cards\EmergencyTreatment.class
@@ -39,12 +40,12 @@ ElainaMod\relics\WanderingWitch.class
 ElainaMod\cards\SilentChant.class
 ElainaMod\cards\Strike.class
 ElainaMod\orb\ConclusionOrb.class
-ElainaMod\cardmods\SpellBoostMod.class
 ElainaMod\cards\AutumnVigilance.class
 ElainaMod\patch\SaveLoadPatch$SaveDataToFile$Locator.class
 ElainaMod\cardmods\toSeasonCardMod.class
 ElainaMod\patch\MagicEchoPatch.class
 ElainaMod\cards\Echo.class
+ElainaMod\cards\WitchsCauldron.class
 ElainaMod\cards\MagicSurging.class
 ElainaMod\patch\SaveLoadPatch$LoadDataFromFile$Locator.class
 ElainaMod\action\ChangeMonthAction.class
@@ -60,6 +61,7 @@ ElainaMod\patch\SaveLoadPatch$SaveTheSaveData.class
 ElainaMod\cards\IndelibleImprint.class
 ElainaMod\cards\Reappear.class
 ElainaMod\cards\WitnessOfFriendship$2.class
+ElainaMod\cards\Mutation.class
 ElainaMod\powers\BottledHappinessPower.class
 ElainaMod\powers\MagicEchoPower.class
 ElainaMod\cards\Drawup.class

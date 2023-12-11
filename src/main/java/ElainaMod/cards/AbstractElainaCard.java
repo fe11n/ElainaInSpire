@@ -61,7 +61,7 @@ public class AbstractElainaCard extends CustomCard {
     public int getSeasonNum(){
         return ((ElainaC)(AbstractDungeon.player)).getSeason();
     }
-    public boolean isNotable(){return !(this.hasTag(ElainaC.Enums.UNNOTABLE) || this.type == CardType.POWER || this.exhaust == true);}
+    public boolean isNotable(){return !(this.hasTag(ElainaC.Enums.UNNOTABLE) || this.type == CardType.POWER || this.exhaust == true || this.cost<0);}
     public boolean UpdateSeasonalDescription(){
         return UpdateSeasonalDescription(false);
     }

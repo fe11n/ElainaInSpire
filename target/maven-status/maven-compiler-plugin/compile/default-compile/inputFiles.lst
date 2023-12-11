@@ -1,13 +1,16 @@
 D:\Self\Stsmod\Elaina\src\main\java\ElainaMod\cardmods\toRecordedCardMod.java
 D:\Self\Stsmod\Elaina\src\main\java\ElainaMod\cards\Drawup.java
+D:\Self\Stsmod\Elaina\src\main\java\ElainaMod\cards\WinterPeace.java
 D:\Self\Stsmod\Elaina\src\main\java\ElainaMod\Characters\ElainaC.java
 D:\Self\Stsmod\Elaina\src\main\java\ElainaMod\cards\Defend.java
 D:\Self\Stsmod\Elaina\src\main\java\ElainaMod\cards\Rummage.java
+D:\Self\Stsmod\Elaina\src\main\java\ElainaMod\cards\WitchsCauldron.java
 D:\Self\Stsmod\Elaina\src\main\java\ElainaMod\cards\FragmentMagic.java
 D:\Self\Stsmod\Elaina\src\main\java\ElainaMod\cards\IceConeMagic.java
 D:\Self\Stsmod\Elaina\src\main\java\ElainaMod\cards\Spell.java
-D:\Self\Stsmod\Elaina\src\main\java\ElainaMod\cardmods\SpellBoostMod.java
+D:\Self\Stsmod\Elaina\src\main\java\ElainaMod\cards\AutumnVigilance.java
 D:\Self\Stsmod\Elaina\src\main\java\ElainaMod\cards\AbstractElainaCard.java
+D:\Self\Stsmod\Elaina\src\main\java\ElainaMod\cards\Accumulation.java
 D:\Self\Stsmod\Elaina\src\main\java\ElainaMod\relics\WanderingWitch.java
 D:\Self\Stsmod\Elaina\src\main\java\ElainaMod\cards\IndelibleImprint.java
 D:\Self\Stsmod\Elaina\src\main\java\ElainaMod\cards\GrowUp.java
@@ -31,6 +34,8 @@ D:\Self\Stsmod\Elaina\src\main\java\ElainaMod\cards\CounterMagic.java
 D:\Self\Stsmod\Elaina\src\main\java\ElainaMod\Elaina\Elaina.java
 D:\Self\Stsmod\Elaina\src\main\java\ElainaMod\cardmods\toSeasonCardMod.java
 D:\Self\Stsmod\Elaina\src\main\java\ElainaMod\cards\Ponder.java
+D:\Self\Stsmod\Elaina\src\main\java\ElainaMod\cards\Turnback.java
+D:\Self\Stsmod\Elaina\src\main\java\ElainaMod\cards\SpringJoy.java
 D:\Self\Stsmod\Elaina\src\main\java\ElainaMod\powers\BottledHappinessPower.java
 D:\Self\Stsmod\Elaina\src\main\java\ElainaMod\powers\MagicEchoPower.java
 D:\Self\Stsmod\Elaina\src\main\java\ElainaMod\cards\MagicSurging.java
@@ -40,6 +45,7 @@ D:\Self\Stsmod\Elaina\src\main\java\ElainaMod\cards\BottledHappiness.java
 D:\Self\Stsmod\Elaina\src\main\java\ElainaMod\cards\Echo.java
 D:\Self\Stsmod\Elaina\src\main\java\ElainaMod\powers\SpellBoostPower.java
 D:\Self\Stsmod\Elaina\src\main\java\ElainaMod\action\ItsMeAction.java
+D:\Self\Stsmod\Elaina\src\main\java\ElainaMod\cards\SummerExcitement.java
 D:\Self\Stsmod\Elaina\src\main\java\ElainaMod\cards\EmergencyTreatment.java
 D:\Self\Stsmod\Elaina\src\main\java\ElainaMod\cards\Recollect.java
 D:\Self\Stsmod\Elaina\src\main\java\ElainaMod\cards\Strike.java
@@ -56,6 +62,7 @@ D:\Self\Stsmod\Elaina\src\main\java\ElainaMod\orb\ConclusionOrb.java
 D:\Self\Stsmod\Elaina\src\main\java\ElainaMod\cards\Eh.java
 D:\Self\Stsmod\Elaina\src\main\java\ElainaMod\cards\SilentChant.java
 D:\Self\Stsmod\Elaina\src\main\java\ElainaMod\cards\DestructionMagic.java
+D:\Self\Stsmod\Elaina\src\main\java\ElainaMod\cards\Mutation.java
 D:\Self\Stsmod\Elaina\src\main\java\ElainaMod\cards\ThunderMagic.java
 D:\Self\Stsmod\Elaina\src\main\java\ElainaMod\cards\AdjustPace.java
 D:\Self\Stsmod\Elaina\src\main\java\ElainaMod\cards\LeavesMagic.java

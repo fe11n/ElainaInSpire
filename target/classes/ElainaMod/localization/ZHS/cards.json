@@ -43,8 +43,7 @@
   },
   "Elaina:Recollect": {
     "NAME": "回想",
-    "DESCRIPTION": "无结语时无法打出。失去当前结语，获得 [E] ，抽1张牌。若结语有瞬发效果，额外抽2张牌。",
-    "UPGRADE_DESCRIPTION": "无结语时无法打出。失去当前结语，获得 [E] [E] ，抽1张牌。若结语有瞬发效果，额外抽2张牌。"
+    "DESCRIPTION": "无结语时无法打出。失去当前结语，获得 [E] ，抽1张牌。若结语有瞬发效果，额外抽 !M! 张牌。"
   },
   "Elaina:GrowUp": {
     "NAME": "成长",
@@ -147,8 +146,7 @@
   },
   "Elaina:MagicEcho": {
     "NAME": "魔力回响",
-    "DESCRIPTION": "在战斗中临时增加卡牌时会额外增加一张。",
-    "UPGRADE_DESCRIPTION": "固有。在战斗中临时增加卡牌时会额外增加一张。"
+    "DESCRIPTION": "在战斗中临时增加卡牌时会额外增加1张。"
   },
   "Elaina:ThunderMagic": {
     "NAME": "雷霆魔法",
@@ -164,7 +162,8 @@
   },
   "Elaina:Reappear": {
     "NAME": "重现",
-    "DESCRIPTION": "再现结语。 NL *保留。"
+    "DESCRIPTION": "再现结语。 NL *保留。 NL *消耗。",
+    "UPGRADE_DESCRIPTION": "再现结语。 NL *保留。"
   },
   "Elaina:SpellReorganization": {
     "NAME": "法术重组",
@@ -208,15 +207,46 @@
   },
   "Elaina:Accumulation": {
     "NAME": "蓄能",
-    "DESCRIPTION": "获得 !M! 层魔力增幅。 NL *瞬发"
+    "DESCRIPTION": "失去 !M! 点临时力量，获得 4 层魔力增幅。",
+    "UPGRADE_DESCRIPTION": "失去 !M! 点临时力量，获得 6 层魔力增幅。"
   },
   "Elaina:Mutation": {
     "NAME": "蝶变",
     "DESCRIPTION": "*保留 NL 保留时，消耗随机1张手牌，增加1张奇迹到手牌中。",
     "UPGRADE_DESCRIPTION": "*保留 NL 保留时，消耗随机1张手牌，增加1张奇迹到手牌中。这张卡牌被消耗时，增加1张奇迹到手牌中。"
   },
+  "Elaina:Endurance": {
+    "NAME": "岁寒",
+    "DESCRIPTION": "随机消耗1张手牌，增加1张蝶变到手牌中。",
+    "UPGRADE_DESCRIPTION": "随机消耗1张手牌，增加1张蝶变+到手牌中。"
+  },
   "Elaina:WitchsCauldron": {
     "NAME": "魔女的坩埚",
     "DESCRIPTION": "随机增加 !M! 张有保留效果的卡牌到手牌中。消耗。"
+  },
+  "Elaina:MagicDiffusion": {
+    "NAME": "魔力扩散",
+    "DESCRIPTION": "触发瞬发效果时，使随机 !M! 张手牌获得瞬发效果。"
+  },
+  "Elaina:Rhetoric": {
+    "NAME": "修辞",
+    "DESCRIPTION": "获得 !B! 点格挡，升级结语，增加 !M! 张重现到手牌中。"
+  },
+  "Elaina:Continuation": {
+    "NAME": "续行",
+    "DESCRIPTION": "再现结语。本回合使用映像时，再现结语。"
+  },
+  "Elaina:Reconsitution": {
+    "NAME": "重构",
+    "DESCRIPTION": "失去日记所有卡牌，获得个数等同于其费用之和的随机能力。 NL *消耗。 NL （当前费用和为 !M! ）"
+  },
+  "Elaina:MarblePhantasm": {
+    "NAME": "空想具现化",
+    "DESCRIPTION": "速记，记录在日记开头。再现结语。打出时，若为映像，则使所有正面能力的数值翻倍。 NL *虚无。",
+    "UPGRADE_DESCRIPTION": "速记，记录在日记开头。再现结语。打出时，若为映像，则使所有正面能力的数值翻倍。"
+  },
+  "Elaina:DeepMemory": {
+    "NAME": "深层记忆",
+    "DESCRIPTION": "你打出的映像会被额外打出1次。"
   }
 }

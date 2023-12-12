@@ -5,6 +5,7 @@ D:\Self\Stsmod\Elaina\src\main\java\ElainaMod\Characters\ElainaC.java
 D:\Self\Stsmod\Elaina\src\main\java\ElainaMod\cards\Defend.java
 D:\Self\Stsmod\Elaina\src\main\java\ElainaMod\cards\Rummage.java
 D:\Self\Stsmod\Elaina\src\main\java\ElainaMod\cards\WitchsCauldron.java
+D:\Self\Stsmod\Elaina\src\main\java\ElainaMod\powers\MagicDiffusionPower.java
 D:\Self\Stsmod\Elaina\src\main\java\ElainaMod\cards\FragmentMagic.java
 D:\Self\Stsmod\Elaina\src\main\java\ElainaMod\cards\IceConeMagic.java
 D:\Self\Stsmod\Elaina\src\main\java\ElainaMod\cards\Spell.java
@@ -22,6 +23,7 @@ D:\Self\Stsmod\Elaina\src\main\java\ElainaMod\powers\IntensifyArrayPower.java
 D:\Self\Stsmod\Elaina\src\main\java\ElainaMod\patch\MagicEchoPatch.java
 D:\Self\Stsmod\Elaina\src\main\java\ElainaMod\patch\DiaryOrbSlotPatch.java
 D:\Self\Stsmod\Elaina\src\main\java\ElainaMod\cards\Accelerate.java
+D:\Self\Stsmod\Elaina\src\main\java\ElainaMod\cards\Endurance.java
 D:\Self\Stsmod\Elaina\src\main\java\ElainaMod\patch\SaveLoadPatch.java
 D:\Self\Stsmod\Elaina\src\main\java\ElainaMod\action\RecordCardAction.java
 D:\Self\Stsmod\Elaina\src\main\java\ElainaMod\patch\ViewConclusionCardPatch.java
@@ -40,6 +42,7 @@ D:\Self\Stsmod\Elaina\src\main\java\ElainaMod\powers\BottledHappinessPower.java
 D:\Self\Stsmod\Elaina\src\main\java\ElainaMod\powers\MagicEchoPower.java
 D:\Self\Stsmod\Elaina\src\main\java\ElainaMod\cards\MagicSurging.java
 D:\Self\Stsmod\Elaina\src\main\java\ElainaMod\cards\FlashMagic.java
+D:\Self\Stsmod\Elaina\src\main\java\ElainaMod\cards\MagicDiffusion.java
 D:\Self\Stsmod\Elaina\src\main\java\ElainaMod\cards\SpellReorganization.java
 D:\Self\Stsmod\Elaina\src\main\java\ElainaMod\cards\BottledHappiness.java
 D:\Self\Stsmod\Elaina\src\main\java\ElainaMod\cards\Echo.java
@@ -65,6 +68,7 @@ D:\Self\Stsmod\Elaina\src\main\java\ElainaMod\cards\DestructionMagic.java
 D:\Self\Stsmod\Elaina\src\main\java\ElainaMod\cards\Mutation.java
 D:\Self\Stsmod\Elaina\src\main\java\ElainaMod\cards\ThunderMagic.java
 D:\Self\Stsmod\Elaina\src\main\java\ElainaMod\cards\AdjustPace.java
+D:\Self\Stsmod\Elaina\src\main\java\ElainaMod\action\MagicDiffusionAction.java
 D:\Self\Stsmod\Elaina\src\main\java\ElainaMod\cards\LeavesMagic.java
 D:\Self\Stsmod\Elaina\src\main\java\ElainaMod\cardmods\toInstantCardMod.java
 D:\Self\Stsmod\Elaina\src\main\java\ElainaMod\cards\IntensifyArray.java

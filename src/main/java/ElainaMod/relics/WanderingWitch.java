@@ -4,6 +4,7 @@ import ElainaMod.Characters.ElainaC;
 import ElainaMod.action.RecordCardAction;
 import ElainaMod.cards.*;
 import basemod.abstracts.CustomRelic;
+import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -41,6 +42,7 @@ public class WanderingWitch extends CustomRelic {
         }
         logger.info("Month after enter: "+p.Month);
         UpdateCounter();
+        this.isDone = true;
     }
     public void atPreBattle(){//战斗开始时记录卡牌（这个是遗物描述的），TODO 并且按季节更新所有卡牌描述（这个最好写到能力里）
         ElainaC p = (ElainaC)AbstractDungeon.player;

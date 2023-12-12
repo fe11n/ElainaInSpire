@@ -38,6 +38,7 @@ public class GetDiaryCardAction extends AbstractGameAction {
                 this.isDone = true;
                 return;
             }
+            logger.info("Remove from Diary: "+c.name);
             g.remove(g.size()-1);
             if(g.size()>0){
                 p.channelOrb(new ConclusionOrb(p.getConclusion()));

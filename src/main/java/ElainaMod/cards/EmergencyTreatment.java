@@ -4,6 +4,7 @@ import ElainaMod.Characters.ElainaC;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
@@ -44,7 +45,11 @@ public class EmergencyTreatment extends AbstractElainaCard {
     public void BasicEffect(ElainaC p, AbstractMonster m) {
         // AbstractCard中实现了addToBot方法，它的效果和AbstractDungeon.actionManager.addToBottom相同
         this.addToBot(new GainBlockAction(p,p,this.block));
-        this.addToBot(new MakeTempCardInHandAction(this.makeInstanceCopy()));
+        AbstractCard c = this.makeCopy();
+        if(this.upgraded){
+            c.upgrade();
+        }
+        this.addToBot(new MakeTempCardInHandAction(c));
         int count = 0;
         Iterator it = p.drawPile.group.iterator();
         while(it.hasNext()){

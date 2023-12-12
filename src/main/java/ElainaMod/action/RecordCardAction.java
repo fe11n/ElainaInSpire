@@ -3,6 +3,7 @@ package ElainaMod.action;
 import ElainaMod.Characters.ElainaC;
 import ElainaMod.cards.AbstractElainaCard;
 import ElainaMod.cards.IndelibleImprint;
+import ElainaMod.cards.MarblePhantasm;
 import ElainaMod.orb.ConclusionOrb;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
@@ -32,7 +33,7 @@ public class RecordCardAction extends AbstractGameAction {
             isNotable = false;
         }
         if(isNotable){
-            this.c = ((AbstractElainaCard) c).makeInstanceCopy();
+            this.c = (AbstractElainaCard)c.makeStatEquivalentCopy();
         }
     }
     @Override
@@ -48,6 +49,19 @@ public class RecordCardAction extends AbstractGameAction {
                 return;
             }
             logger.info("Record in Diary: "+c.name);
+            if(c instanceof MarblePhantasm){
+                g.add(0,c);
+                logger.info("Diary size after record: "+g.size());
+                Iterator it = g.iterator();
+                while(it.hasNext()){
+                    logger.info(((AbstractCard)it.next()).name);
+                }
+                if(g.size()==1){
+                    p.channelOrb(new ConclusionOrb(c));
+                }
+                this.isDone=true;
+                return;
+            }
             g.add(c);
             logger.info("Diary size after record: "+g.size());
             Iterator it = g.iterator();

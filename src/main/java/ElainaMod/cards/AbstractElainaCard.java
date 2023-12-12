@@ -2,19 +2,16 @@ package ElainaMod.cards;
 
 import ElainaMod.Characters.ElainaC;
 import ElainaMod.action.RecordCardAction;
-import ElainaMod.cardmods.toRecordedCardMod;
+import ElainaMod.cardmods.toImageCardMod;
 import ElainaMod.cardmods.toSeasonCardMod;
 import basemod.abstracts.AbstractCardModifier;
 import basemod.abstracts.CustomCard;
 import basemod.helpers.CardModifierManager;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
-import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.powers.AbstractPower;
-import com.megacrit.cardcrawl.powers.StrengthPower;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -119,7 +116,7 @@ public class AbstractElainaCard extends CustomCard {
         else return false;
     }
     public void toHandfromDiary(){
-        CardModifierManager.addModifier(this,new toRecordedCardMod());
+        CardModifierManager.addModifier(this,new toImageCardMod());
     }
 
     @Override
@@ -132,19 +129,19 @@ public class AbstractElainaCard extends CustomCard {
         return c;
     }
 
-    public AbstractElainaCard makeInstanceCopy(){
-        AbstractElainaCard c = (AbstractElainaCard) this.makeCopy();
-        if(this.upgraded){
-            c.upgrade();
-        }
-        c.NotedSeasonNum=this.NotedSeasonNum;
-        c.rawDescription=this.rawDescription;
-        c.exhaust = this.exhaust;
-        c.isEthereal = this.isEthereal;
-        c.tags = this.tags;
-        c.baseDamage = this.baseDamage;
-        c.baseBlock = this.baseBlock;
-        c.applyPowers();
-        return c;
-    }
+//    public AbstractElainaCard makeInstanceCopy(){//这个方法不能复制mod
+//        AbstractElainaCard c = (AbstractElainaCard) this.makeCopy();
+//        if(this.upgraded){
+//            c.upgrade();
+//        }
+//        c.NotedSeasonNum=this.NotedSeasonNum;
+//        c.rawDescription=this.rawDescription;
+//        c.exhaust = this.exhaust;
+//        c.isEthereal = this.isEthereal;
+//        c.tags = this.tags;
+//        c.baseDamage = this.baseDamage;
+//        c.baseBlock = this.baseBlock;
+//        c.applyPowers();
+//        return c;
+//    }
 }

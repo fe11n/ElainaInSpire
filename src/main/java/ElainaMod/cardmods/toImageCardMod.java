@@ -9,8 +9,8 @@ import org.apache.logging.log4j.Logger;
 
 import java.util.Iterator;
 
-public class toRecordedCardMod extends AbstractCardModifier {
-    public toRecordedCardMod(){
+public class toImageCardMod extends AbstractCardModifier {
+    public toImageCardMod(){
     }//为方便remove，尽量不要使用CardMod直接修改卡牌值，虚弱要修改，也要做好保留方便恢复
     private boolean isExhaustBefore = true;
     private boolean isEherealBefore = true;
@@ -31,33 +31,27 @@ public class toRecordedCardMod extends AbstractCardModifier {
 
     @Override
     public void onInitialApplication(AbstractCard card) {
-        if(!card.exhaust){
-            isExhaustBefore = false;
-            ((AbstractElainaCard)card).ModStrings.add(CardCrawlGame.languagePack.getUIString("Elaina:Exhaust").TEXT[0]);
-        }
-        if(!card.isEthereal){
-            isEherealBefore = false;
-            ((AbstractElainaCard)card).ModStrings.add(CardCrawlGame.languagePack.getUIString("Elaina:Ethereal").TEXT[0]);
-        }
+        isEherealBefore = card.isEthereal;
+        isExhaustBefore = card.exhaust;
+        ((AbstractElainaCard)card).ModStrings.add(CardCrawlGame.languagePack.getUIString("Elaina:Image").TEXT[0]);
         card.isEthereal = true;
         card.exhaust = true;
     }
 
     @Override
     public String identifier(AbstractCard card) {
-        return "toRecordedCardMod";
+        return "toImageCardMod";
     }
 
     @Override
     public AbstractCardModifier makeCopy() {
-        return new toRecordedCardMod();
+        return new toImageCardMod();
     }
 
     @Override
     public void onRemove(AbstractCard card) {
         card.exhaust = isExhaustBefore;
         card.isEthereal = isEherealBefore;
-        ((AbstractElainaCard)card).ModStrings.remove(CardCrawlGame.languagePack.getUIString("Elaina:Ethereal").TEXT[0]);
-        ((AbstractElainaCard)card).ModStrings.remove(CardCrawlGame.languagePack.getUIString("Elaina:Exhaust").TEXT[0]);
+        ((AbstractElainaCard)card).ModStrings.remove(CardCrawlGame.languagePack.getUIString("Elaina:Image").TEXT[0]);
     }
 }

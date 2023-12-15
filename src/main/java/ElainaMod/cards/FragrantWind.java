@@ -12,6 +12,7 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.powers.PoisonPower;
 import com.megacrit.cardcrawl.powers.VulnerablePower;
 import com.megacrit.cardcrawl.powers.WeakPower;
 import org.apache.logging.log4j.LogManager;
@@ -47,7 +48,7 @@ public class FragrantWind extends AbstractElainaCard {
     public void upgrade() { // 升级调用的方法
         if (!this.upgraded) {
             this.upgradeName(); // 卡牌名字变为绿色并添加“+”，且标为升级过的卡牌，之后不能再升级。
-            this.upgradeDamage(2); // 将该卡牌的伤害提高3点。
+            this.upgradeDamage(1); // 将该卡牌的伤害提高3点。
             this.upgradeMagicNumber(1);
             this.ExtendMagicNum[0]=this.ExtendMagicNum[1]=this.ExtendMagicNum[2]=this.ExtendMagicNum[3]=3;
             this.ExtendDamage[2]=7;
@@ -72,7 +73,7 @@ public class FragrantWind extends AbstractElainaCard {
             case 3:
                 break;
             case 2:
-                this.addToBot(new DamageAllEnemiesAction(p, this.multiDamage, this.damageTypeForTurn, AbstractGameAction.AttackEffect.NONE));
+                this.addToBot(new ApplyPowerAction(m,p,new PoisonPower(m,p,this.damage)));
             case 1:
                 Iterator it1 = AbstractDungeon.getCurrRoom().monsters.monsters.iterator();
                 while(it1.hasNext()) {

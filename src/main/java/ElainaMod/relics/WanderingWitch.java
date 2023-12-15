@@ -31,19 +31,41 @@ public class WanderingWitch extends CustomRelic {
     public String getUpdatedDescription(){
         return this.DESCRIPTIONS[0];
     }
-    public void onEnterRoom(AbstractRoom room){//进入房间后时节+1，更新计数器，此时卡牌未初始化，只能直接更新
-        logger.info("Month before enter: "+p.Month);
-        try {
+//    public void onEnterRoom(AbstractRoom room){//进入房间后时节+1，更新计数器，此时卡牌未初始化，只能直接更新
+//        logger.info("Month before enter: "+p.Month);
+//        try {
+//            ElainaC.class.getMethod("ChangeMonth", int.class);
+//            p.ChangeMonth(p.Month+1,false);//通过这个函数调用UpgradeCounter不生效，神奇了
+//        } catch (NoSuchMethodException e) {
+//            logger.info("No method: ElainaC.ChangeMonth");
+//            throw new RuntimeException(e);
+//        }
+//        logger.info("Month after enter: "+p.Month);
+//        UpdateCounter();
+//        this.isDone = true;
+//    }
+public void onEnterRoom(AbstractRoom room) {
+    logger.info("Month before enter: " + (p != null ? p.Month : "null"));
+
+    try {
+        if (p != null) {
             ElainaC.class.getMethod("ChangeMonth", int.class);
-            p.ChangeMonth(p.Month+1,false);//通过这个函数调用UpgradeCounter不生效，神奇了
-        } catch (NoSuchMethodException e) {
-            logger.info("No method: ElainaC.ChangeMonth");
-            throw new RuntimeException(e);
+            p.ChangeMonth(p.Month + 1, false);
+        } else {
+            logger.info("Player object (p) is null. fuckyou!!!!");
+            p=(ElainaC) AbstractDungeon.player;
+            p.ChangeMonth(p.Month + 1, false);
         }
-        logger.info("Month after enter: "+p.Month);
-        UpdateCounter();
-        this.isDone = true;
+    } catch (NoSuchMethodException e) {
+        logger.info("No method: ElainaC.ChangeMonth");
+        throw new RuntimeException(e);
     }
+
+    logger.info("Month after enter: " + (p != null ? p.Month : "null"));
+
+    UpdateCounter();
+    this.isDone = true;
+}
     public void atPreBattle(){//战斗开始时记录卡牌（这个是遗物描述的），TODO 并且按季节更新所有卡牌描述（这个最好写到能力里）
         ElainaC p = (ElainaC)AbstractDungeon.player;
         p.DiaryGroup.clear();//战斗开始时清空，不管sl了

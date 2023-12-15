@@ -19,7 +19,7 @@ public class Ponder extends AbstractElainaCard {
     public Ponder() {
         // 为了命名规范修改了变量名。这些参数具体的作用见下方
         super(ID, CARD_STRINGS, IMG_PATH, COST, TYPE, RARITY, TARGET);
-        this.baseBlock = 6;
+        this.baseBlock = 8;
         this.baseMagicNumber = this.magicNumber = 1;
         this.cardsToPreview = new Penoff();
     }

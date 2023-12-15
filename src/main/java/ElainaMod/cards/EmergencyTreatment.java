@@ -9,6 +9,7 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.powers.DexterityPower;
 import com.megacrit.cardcrawl.powers.StrengthPower;
 
 import java.util.Iterator;
@@ -25,7 +26,8 @@ public class EmergencyTreatment extends AbstractElainaCard {
     public EmergencyTreatment() {
         // 为了命名规范修改了变量名。这些参数具体的作用见下方
         super(ID, CARD_STRINGS, IMG_PATH, COST, TYPE, RARITY, TARGET);
-        this.baseBlock = 9;
+        this.baseBlock = 7;
+        this.magicNumber = this.baseMagicNumber = 1;
     }
 
     @Override
@@ -50,6 +52,7 @@ public class EmergencyTreatment extends AbstractElainaCard {
             c.upgrade();
         }
         this.addToBot(new MakeTempCardInHandAction(c));
+        this.addToBot(new ApplyPowerAction(p,p,new DexterityPower(p,magicNumber)));
         int count = 0;
         Iterator it = p.drawPile.group.iterator();
         while(it.hasNext()){

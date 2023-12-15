@@ -168,8 +168,9 @@ public class ElainaC extends CustomPlayer{
         for(int x = 0; x<4; x++) {
             retVal.add(Defend.ID);
         }
-        retVal.add(RecreateMagic.ID);
+//        retVal.add(RecreateMagic.ID);
         retVal.add(Recall.ID);
+        retVal.add(BasicMagic.ID);
 //        retVal.add(AdjustPace.ID);
 //        retVal.add(BombardmentMagic.ID);
 //        retVal.add(BottledHappiness.ID);

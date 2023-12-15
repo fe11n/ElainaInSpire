@@ -21,7 +21,7 @@ public class Rhetoric extends AbstractElainaCard {
     public Rhetoric() {
         // 为了命名规范修改了变量名。这些参数具体的作用见下方
         super(ID, CARD_STRINGS, IMG_PATH, COST, TYPE, RARITY, TARGET);
-        this.baseBlock = 5;
+        this.baseBlock = 7;
         this.baseMagicNumber = this.magicNumber = 1;
         this.cardsToPreview = new Reappear();
     }
@@ -30,7 +30,7 @@ public class Rhetoric extends AbstractElainaCard {
     public void upgrade() { // 升级调用的方法
         if (!this.upgraded) {
             this.upgradeName();
-            this.upgradeBlock(2);
+            this.upgradeBlock(3);
             this.upgradeMagicNumber(1);
         }
     }

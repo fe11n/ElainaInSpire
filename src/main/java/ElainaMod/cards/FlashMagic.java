@@ -23,7 +23,7 @@ public class FlashMagic extends AbstractElainaCard {
     public FlashMagic() {
         // 为了命名规范修改了变量名。这些参数具体的作用见下方
         super(ID,CARD_STRINGS, IMG_PATH, COST, TYPE, RARITY, TARGET);
-        this.damage = this.baseDamage = 7;
+        this.damage = this.baseDamage = 9;
         this.tags.add(ElainaC.Enums.MAGIC);
     }
 

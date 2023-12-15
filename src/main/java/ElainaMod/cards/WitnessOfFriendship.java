@@ -24,26 +24,25 @@ public class WitnessOfFriendship extends AbstractElainaCard {
     public WitnessOfFriendship() {
         // 为了命名规范修改了变量名。这些参数具体的作用见下方
         super(ID, CARD_STRINGS, IMG_PATH, COST, TYPE, RARITY, TARGET);
-        this.magicNumber = this.baseMagicNumber = 8;
+        this.magicNumber = this.baseMagicNumber = 15;
         this.tags.add(ElainaC.Enums.SEASONAL);
         this.exhaust = true;
         this.ExtendExhaust[0]=this.ExtendExhaust[1]=true;
-        this.ExtendMagicNum[0]=this.ExtendMagicNum[1]=8;
+        this.ExtendMagicNum[0]=this.ExtendMagicNum[1]=15;
     }
 
     @Override
     public void upgrade() { // 升级调用的方法
         if (!this.upgraded) {
             this.upgradeName();
-            this.upgradeMagicNumber(2);
+            this.upgradeMagicNumber(5);
+            this.ExtendMagicNum[0]=this.ExtendMagicNum[1]=20;
         }
     }
 
     public int getSeasonNum(){
-        int m = (((ElainaC)(AbstractDungeon.player)).Month)%12;
-        if(m == 1 || m == -11){
-            return 0;
-        }
+        int m = ((ElainaC)(AbstractDungeon.player)).getSeason();
+        if(m == 0) return 0;
         else return 1;
     }
     /**

@@ -11,7 +11,7 @@ public class Recall extends AbstractElainaCard {
     public static final String ID = "Elaina:Recall";
     private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID); // 从游戏系统读取本地化资源
     private static final String IMG_PATH = "ElainaMod/img/cards/Recall.png";
-    private static final int COST = 2;
+    private static final int COST = 1;
     private static final CardType TYPE = CardType.SKILL;
     private static final CardRarity RARITY = CardRarity.BASIC;
     private static final CardTarget TARGET = CardTarget.SELF;
@@ -27,7 +27,7 @@ public class Recall extends AbstractElainaCard {
     public void upgrade() { // 升级调用的方法
         if (!this.upgraded) {
             this.upgradeName();
-            this.upgradeBaseCost(1);
+            this.upgradeBlock(3);
         }
     }
     /**

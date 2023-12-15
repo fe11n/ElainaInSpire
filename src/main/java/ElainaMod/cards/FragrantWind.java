@@ -62,8 +62,8 @@ public class FragrantWind extends AbstractElainaCard {
      */
     public void BasicEffect(ElainaC p, AbstractMonster m){
         logger.info("Season Num: "+p.getSeason());
-        Iterator it = AbstractDungeon.getCurrRoom().monsters.monsters.iterator();
         AbstractMonster mo;
+        Iterator it = AbstractDungeon.getCurrRoom().monsters.monsters.iterator();
         while(it.hasNext()) {
             mo = (AbstractMonster)it.next();
             this.addToBot(new ApplyPowerAction(mo, p, new WeakPower(mo, magicNumber, false), magicNumber, true, AbstractGameAction.AttackEffect.NONE));
@@ -73,11 +73,15 @@ public class FragrantWind extends AbstractElainaCard {
             case 3:
                 break;
             case 2:
-                this.addToBot(new ApplyPowerAction(m,p,new PoisonPower(m,p,this.damage)));
+                it = AbstractDungeon.getCurrRoom().monsters.monsters.iterator();
+                while(it.hasNext()) {
+                    mo = (AbstractMonster)it.next();
+                    this.addToBot(new ApplyPowerAction(mo,p,new PoisonPower(mo,p,this.damage)));
+                }
             case 1:
-                Iterator it1 = AbstractDungeon.getCurrRoom().monsters.monsters.iterator();
-                while(it1.hasNext()) {
-                    mo = (AbstractMonster)it1.next();
+                it = AbstractDungeon.getCurrRoom().monsters.monsters.iterator();
+                while(it.hasNext()) {
+                    mo = (AbstractMonster)it.next();
                     this.addToBot(new ApplyPowerAction(mo, p, new VulnerablePower(mo, magicNumber, false), magicNumber, true, AbstractGameAction.AttackEffect.NONE));
                 }
                 break;

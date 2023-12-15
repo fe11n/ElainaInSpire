@@ -9,6 +9,7 @@ import basemod.interfaces.EditCardsSubscriber;
 import basemod.interfaces.EditCharactersSubscriber;
 import basemod.interfaces.EditRelicsSubscriber;
 import basemod.interfaces.EditStringsSubscriber;
+import com.badlogic.gdx.utils.compression.lzma.Base;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.megacrit.cardcrawl.cards.tempCards.Miracle;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -58,6 +59,7 @@ public class Elaina implements EditStringsSubscriber,EditCardsSubscriber, EditCh
       BaseMod.addCard(new Accumulation());
       BaseMod.addCard(new AdjustPace());
       BaseMod.addCard(new AutumnVigilance());
+      BaseMod.addCard(new BasicMagic());
       BaseMod.addCard(new BombardmentMagic());
       BaseMod.addCard(new BottledHappiness());
       BaseMod.addCard(new CharmMagic());

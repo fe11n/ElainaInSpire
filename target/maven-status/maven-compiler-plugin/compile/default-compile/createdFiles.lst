@@ -10,6 +10,7 @@ ElainaMod\cards\DeepMemory.class
 ElainaMod\powers\DeepMemoryPower.class
 ElainaMod\cards\SummerExcitement.class
 ElainaMod\cards\ThunderMagic.class
+ElainaMod\cards\BasicMagic.class
 ElainaMod\cards\EmergencyTreatment.class
 ElainaMod\cards\Recall.class
 ElainaMod\cards\MagicEcho.class

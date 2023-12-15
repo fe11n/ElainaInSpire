@@ -23,8 +23,8 @@ public class Accumulation extends AbstractElainaCard {
     public Accumulation() {
         // 为了命名规范修改了变量名。这些参数具体的作用见下方
         super(ID, CARD_STRINGS, IMG_PATH, COST, TYPE, RARITY, TARGET);
-        this.magicNumber = this.baseMagicNumber = 2;
-        this.isInstant = true;
+        this.magicNumber = this.baseMagicNumber = 5;
+        this.exhaust = true;
     }
 
     @Override

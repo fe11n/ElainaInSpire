@@ -26,10 +26,12 @@ public class ItsMeAction extends AbstractGameAction {
     public ArrayList<AbstractElainaCard> g;
     public static final Logger logger = LogManager.getLogger(ItsMeAction.class);
     public static final String[] TEXT = CardCrawlGame.languagePack.getUIString("Elaina:ItsMeAction").TEXT;
-    public ItsMeAction(ElainaC p){
+    public boolean upgraded;
+    public ItsMeAction(ElainaC p,boolean upgraded){
         this.p = p;
         this.duration = Settings.ACTION_DUR_FAST;
         this.actionType = ActionType.CARD_MANIPULATION;
+        this.upgraded = upgraded;
     }
 
     @Override
@@ -45,8 +47,8 @@ public class ItsMeAction extends AbstractGameAction {
                 while(it.hasNext()){
                     AbstractCard c = (AbstractCard) it.next();
                     AbstractMonster mo = AbstractDungeon.getRandomMonster();
-                    if(c.cost>0){
-                        this.addToBot(new ApplyPowerAction(mo, p,new StrengthPower(mo, c.cost), c.cost));
+                    if(c.cost>1){
+                        this.addToBot(new ApplyPowerAction(mo, p,new StrengthPower(mo, c.cost-1), c.cost-1));
                     }
                     this.addToBot(new RecordCardAction(c));
                     //p.hand.moveToDiscardPile(c);
@@ -64,8 +66,8 @@ public class ItsMeAction extends AbstractGameAction {
             while(it.hasNext()){
                 AbstractCard c = (AbstractCard) it.next();
                 AbstractMonster mo = AbstractDungeon.getRandomMonster();
-                if(c.cost>0){
-                    this.addToBot(new ApplyPowerAction(mo, p,new StrengthPower(mo, c.cost), c.cost));
+                if(c.cost>(upgraded?2:1)){
+                    this.addToBot(new ApplyPowerAction(mo, p,new StrengthPower(mo, c.cost-(upgraded?2:1)), c.cost-(upgraded?2:1)));
                 }
                 this.addToBot(new RecordCardAction(c));
                 p.hand.addToHand(c);

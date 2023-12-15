@@ -162,10 +162,10 @@ public class ElainaC extends CustomPlayer{
     }
     public ArrayList<String> getStartingDeck() {
         ArrayList<String> retVal = new ArrayList<>();
-        for(int x = 0; x<5; x++) {
+        for(int x = 0; x<4; x++) {
             retVal.add(Strike.ID);
         }
-        for(int x = 0; x<5; x++) {
+        for(int x = 0; x<4; x++) {
             retVal.add(Defend.ID);
         }
         retVal.add(RecreateMagic.ID);

@@ -51,6 +51,7 @@ public class SummerExcitement extends AbstractElainaCard {
      */
     @Override
     public void BasicEffect(ElainaC p, AbstractMonster m) {
+        applyPowers();
         if(!p.hasPower("Elaina:SpellBoost")) {
             this.addToBot(new ApplyPowerAction(p, p, new SpellBoostPower(p, this.magicNumber), this.magicNumber));
         }

@@ -49,8 +49,14 @@
   "Elaina:DeepMemory": {
     "NAME": "深层记忆",
     "DESCRIPTIONS": [
-      "你打出的映像会被额外打出",
-      "次。(上限为2次)"
+      "你打出的映像会被打出两次。"
+    ]
+  },
+  "Elaina:ConvergenceMagic": {
+    "NAME": "汇聚魔法",
+    "DESCRIPTIONS": [
+      "本回合每打出一张魔法卡牌获得",
+      "层魔力增幅。"
     ]
   }
 }

@@ -53,7 +53,10 @@ public class AbstractElainaCard extends CustomCard {
         BasicEffect((ElainaC) p,m);
     }//使用
     public void InstantUse(){
-        BasicEffect((ElainaC) AbstractDungeon.player,AbstractDungeon.getRandomMonster());
+        AbstractMonster m = AbstractDungeon.getRandomMonster();
+        this.calculateCardDamage(m);
+        BasicEffect((ElainaC) AbstractDungeon.player,m);
+        logger.info("Modifier include toInstantCardMod: "+CardModifierManager.hasModifier(this,"toInstantCardMod"));
     }//瞬发
     public int getSeasonNum(){
         return ((ElainaC)(AbstractDungeon.player)).getSeason();

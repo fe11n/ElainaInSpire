@@ -60,7 +60,7 @@ public class MagicSurging extends AbstractElainaCard {
             @Override
             public void update() {
                 ArrayList<AbstractElainaCard> g = p.DiaryGroup;
-                for(int i = g.size()-magicNumber;i<g.size();i++){
+                for(int i = g.size()-magicNumber>0?g.size()-magicNumber:0;i<g.size();i++){
                     AbstractElainaCard c = g.get(i);
                     logger.info("Magic Surging ("+i+") : "+c.name);
                     c.InstantUse();

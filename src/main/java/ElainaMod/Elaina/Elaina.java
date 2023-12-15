@@ -62,6 +62,7 @@ public class Elaina implements EditStringsSubscriber,EditCardsSubscriber, EditCh
       BaseMod.addCard(new BottledHappiness());
       BaseMod.addCard(new CharmMagic());
       BaseMod.addCard(new Continuation());
+      BaseMod.addCard(new ConvergenceMagic());
       BaseMod.addCard(new CounterMagic());
       BaseMod.addCard(new DeepMemory());
       BaseMod.addCard(new Defend());
@@ -102,6 +103,7 @@ public class Elaina implements EditStringsSubscriber,EditCardsSubscriber, EditCh
       BaseMod.addCard(new SpringJoy());
       BaseMod.addCard(new Strike());
       BaseMod.addCard(new SummerExcitement());
+      BaseMod.addCard(new ThePerfectMe());
       BaseMod.addCard(new ThunderMagic());
       BaseMod.addCard(new Turnback());
       BaseMod.addCard(new Vibration());
@@ -109,6 +111,7 @@ public class Elaina implements EditStringsSubscriber,EditCardsSubscriber, EditCh
       BaseMod.addCard(new WitchRobe());
       BaseMod.addCard(new WitchsCauldron());
       BaseMod.addCard(new WitnessOfFriendship());
+      BaseMod.addCard(new WizardsWell());
    }
    @Override
    public void receiveEditCharacters(){

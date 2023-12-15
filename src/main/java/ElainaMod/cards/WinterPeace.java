@@ -51,6 +51,7 @@ public class WinterPeace extends AbstractElainaCard {
      */
     @Override
     public void BasicEffect(ElainaC p, AbstractMonster m) {
+        applyPowers();
         if(!p.hasPower("Plated Armor")) {
             this.addToBot(new ApplyPowerAction(p, p, new PlatedArmorPower(p, this.magicNumber), this.magicNumber));
         }

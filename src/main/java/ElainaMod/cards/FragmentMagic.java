@@ -3,6 +3,7 @@ package ElainaMod.cards;
 import ElainaMod.Characters.ElainaC;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.AttackDamageRandomEnemyAction;
+import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
@@ -23,6 +24,7 @@ public class FragmentMagic extends AbstractElainaCard {
         this.tags.add(ElainaC.Enums.MAGIC);
         this.isShorthand = true;
         this.selfRetain = true;
+        this.damageType = DamageInfo.DamageType.NORMAL;
     }
 
     @Override

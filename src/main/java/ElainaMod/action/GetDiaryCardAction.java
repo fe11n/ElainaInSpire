@@ -18,19 +18,30 @@ public class GetDiaryCardAction extends AbstractGameAction {
     public ArrayList<AbstractElainaCard> g;
     private boolean toHand;
     public static final Logger logger = LogManager.getLogger(GetDiaryCardAction.class);
+    int cardIndex;
     public GetDiaryCardAction(ElainaC p){
         this.p = p;
         toHand = true;
         this.actionType = ActionType.CARD_MANIPULATION;
+        g = p.DiaryGroup;
+        this.cardIndex = -1;
     }
     public GetDiaryCardAction(ElainaC p, boolean toHand){
         this.p = p;
         this.toHand = toHand;
         this.actionType = ActionType.CARD_MANIPULATION;
+        g = p.DiaryGroup;
+        this.cardIndex = -1;//实际update时再赋值，防止同一卡牌的其它动作改变序列
+    }
+    public GetDiaryCardAction(ElainaC p, boolean toHand, int num){
+        this.p = p;
+        this.toHand = toHand;
+        this.actionType = ActionType.CARD_MANIPULATION;
+        this.cardIndex = num;
+        g = p.DiaryGroup;
     }
     @Override
     public void update(){//将结语获取到手中，同时更新结语
-        g = p.DiaryGroup;
         if(g.size()!=0){//如果调用p的方法，如p.getConclusion和p.getDiarySize就会报错Null，神奇
             AbstractElainaCard c = p.getConclusion();
             if(c instanceof IndelibleImprint && !toHand){
@@ -38,17 +49,30 @@ public class GetDiaryCardAction extends AbstractGameAction {
                 this.isDone = true;
                 return;
             }
+            if(cardIndex == -1){
+                this.cardIndex = g.size()-1;
+                g.remove(g.size()-1);
+                if(g.size()>0){
+                    p.channelOrb(new ConclusionOrb(p.getConclusion()));
+                }
+                else{
+                    p.removeNextOrb();
+                }
+            }
+            else {
+                c = g.get(cardIndex);
+                g.remove(cardIndex);
+            }
             logger.info("Remove from Diary: "+c.name);
-            g.remove(g.size()-1);
-            if(g.size()>0){
-                p.channelOrb(new ConclusionOrb(p.getConclusion()));
-            }
-            else{
-                p.removeNextOrb();
-            }
+
             if(toHand){
                 c.toHandfromDiary();
-                p.hand.addToHand(c);
+                if(p.hand.size()<10){
+                    p.hand.addToHand(c);
+                }
+                else {
+                    p.discardPile.addToTop(c);
+                }
             }
         }
         logger.info("Now Diary size: "+p.getDiarySize());

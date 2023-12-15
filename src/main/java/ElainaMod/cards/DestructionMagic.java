@@ -53,6 +53,6 @@ public class DestructionMagic extends AbstractElainaCard {
         if(g.isEmpty()){
             return false;
         }
-        else return true;
+        else return super.canUse(p,m);
     }
 }

@@ -51,6 +51,7 @@ public class AutumnVigilance extends AbstractElainaCard {
      */
     @Override
     public void BasicEffect(ElainaC p, AbstractMonster m) {
+        applyPowers();
         if(!p.hasPower("Thorns")) {
             this.addToBot(new ApplyPowerAction(p, p, new ThornsPower(p, this.magicNumber), this.magicNumber));
         }

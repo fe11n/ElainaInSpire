@@ -14,7 +14,7 @@ import org.apache.logging.log4j.Logger;
 import java.util.HashMap;
 
 public class SaveLoadPatch {
-    public static int[] DateArray;
+    public static int[] DateArray = new int[2];
 
     public SaveLoadPatch() {
     }
@@ -35,7 +35,8 @@ public class SaveLoadPatch {
 
         @SpirePostfixPatch
         public static void saveAllTheSaveData(SaveFile __instance, SaveFile.SaveType type) {
-            if(AbstractDungeon.player instanceof ElainaC){
+            if(AbstractDungeon.player != null && AbstractDungeon.player instanceof ElainaC){
+                logger.info("get data start*************");
                 ElainaC p = (ElainaC)AbstractDungeon.player;
                 DateArray[0] = p.Month;
                 DateArray[1] = p.FarYear;

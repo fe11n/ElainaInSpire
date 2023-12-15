@@ -27,10 +27,12 @@ ElainaMod\cards\WitchsCauldron.class
 ElainaMod\cards\MagicSurging.class
 ElainaMod\patch\SaveLoadPatch$LoadDataFromFile$Locator.class
 ElainaMod\Characters\ElainaC.class
+ElainaMod\cards\ThePerfectMe.class
 ElainaMod\Characters\ElainaC$Enums.class
 ElainaMod\cards\FragmentMagic.class
 ElainaMod\patch\SaveLoadPatch$SaveTheSaveData.class
 ElainaMod\cards\Endurance.class
+ElainaMod\action\ConvergenceMagicAction.class
 ElainaMod\cards\Reappear.class
 ElainaMod\powers\BottledHappinessPower.class
 ElainaMod\powers\MagicEchoPower.class
@@ -47,6 +49,7 @@ ElainaMod\patch\MagicEchoPatch$MagicEchoPatchInHandCheck1.class
 ElainaMod\cards\ThunderMagic$1.class
 ElainaMod\cards\WinterPeace.class
 ElainaMod\cardmods\toInstantCardMod.class
+ElainaMod\action\ThePerfectMeAction.class
 ElainaMod\action\GetDiaryCardAction.class
 ElainaMod\cards\WitnessOfFriendship$1.class
 ElainaMod\cards\CounterMagic.class
@@ -59,6 +62,8 @@ ElainaMod\cards\FirstImpression.class
 ElainaMod\cards\WitchRobe.class
 ElainaMod\cards\RecreateMagic.class
 ElainaMod\cards\BottledHappiness.class
+ElainaMod\powers\ConvergenceMagicPower.class
+ElainaMod\cards\WizardsWell.class
 ElainaMod\cards\Accumulation.class
 ElainaMod\patch\SaveLoadPatch$ElainaSaveFile.class
 ElainaMod\cards\Vibration.class
@@ -68,6 +73,7 @@ ElainaMod\cards\AdjustPace.class
 ElainaMod\cards\SpringJoy.class
 ElainaMod\action\RecordCardAction.class
 ElainaMod\cards\ItsMe.class
+ElainaMod\cards\ConvergenceMagic.class
 ElainaMod\cards\Turnback.class
 ElainaMod\patch\DiaryOrbSlotPatch$DiarySlot.class
 ElainaMod\cards\MagicSurging$1.class

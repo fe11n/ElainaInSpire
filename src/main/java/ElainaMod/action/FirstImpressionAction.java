@@ -37,7 +37,7 @@ public class FirstImpressionAction extends AbstractGameAction {
                 this.isDone = true;
                 return;
             }
-            AbstractDungeon.handCardSelectScreen.open(TEXT[0], num, true);
+            AbstractDungeon.handCardSelectScreen.open(TEXT[0], num, true,true);
             AbstractDungeon.player.hand.applyPowers();
             this.tickDuration();
             return;

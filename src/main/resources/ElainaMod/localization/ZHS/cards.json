@@ -226,7 +226,8 @@
   },
   "Elaina:MagicDiffusion": {
     "NAME": "魔力扩散",
-    "DESCRIPTION": "触发瞬发效果时，使随机 !M! 张手牌获得瞬发效果。"
+    "DESCRIPTION": "触发瞬发效果时，使随机 !M! 张手牌获得瞬发效果。",
+    "UPGRADE_DESCRIPTION": "*固有 。 NL 触发瞬发效果时，使随机 !M! 张手牌获得瞬发效果。"
   },
   "Elaina:Rhetoric": {
     "NAME": "修辞",
@@ -242,11 +243,23 @@
   },
   "Elaina:MarblePhantasm": {
     "NAME": "空想具现化",
-    "DESCRIPTION": "速记，记录在日记开头。再现结语。打出时，若为映像，则使所有正面能力的数值翻倍。 NL *虚无。",
-    "UPGRADE_DESCRIPTION": "速记，记录在日记开头。再现结语。打出时，若为映像，则使所有正面能力的数值翻倍。"
+    "DESCRIPTION": "*速记 ，记录在日记开头。 NL 再现结语。 NL 打出时，若为映像，则使所有正面能力的数值翻倍。 NL *虚无。",
+    "UPGRADE_DESCRIPTION": "*速记 ，记录在日记开头。 NL 再现结语。 NL 打出时，若为映像，则使所有正面能力的数值翻倍。"
   },
   "Elaina:DeepMemory": {
     "NAME": "深层记忆",
-    "DESCRIPTION": "你打出的映像会被额外打出1次。"
+    "DESCRIPTION": "你打出的映像会被打出两次。"
+  },
+  "Elaina:WizardsWell": {
+    "NAME": "魔力源泉",
+    "DESCRIPTION": "获得 !M! 层魔力增幅。 NL 作为结语时，打出魔法卡牌不减少魔力增幅层数。 NL *瞬发 。"
+  },
+  "Elaina:ThePerfectMe": {
+    "NAME": "完美的我",
+    "DESCRIPTION": "使弃牌堆所有卡牌获得瞬发。 NL 若弃牌堆无可获得瞬发的卡牌，则触发日记里的所有瞬发效果。 NL 不可被记录。"
+  },
+  "Elaina:ConvergenceMagic": {
+    "NAME": "汇聚魔法",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 再现魔法卡牌至手牌上限。 NL 本回合每打出一张魔法卡牌获得 !M! 层魔力增幅。"
   }
 }

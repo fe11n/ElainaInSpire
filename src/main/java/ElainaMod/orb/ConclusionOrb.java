@@ -1,11 +1,18 @@
 package ElainaMod.orb;
 
+import ElainaMod.Characters.ElainaC;
 import ElainaMod.cards.AbstractElainaCard;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.CardGroup;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.helpers.input.InputHelper;
 import com.megacrit.cardcrawl.orbs.AbstractOrb;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import java.util.ArrayList;
+import java.util.Iterator;
 
 public class ConclusionOrb extends AbstractOrb {
     public static final String ID = "Elaina:ConclusionOrb";
@@ -35,6 +42,15 @@ public class ConclusionOrb extends AbstractOrb {
             this.c.targetDrawScale = 1.0F;
         } else {
             this.c.targetDrawScale = 0.5F;
+        }
+        if(this.hb.hovered && InputHelper.justClickedLeft){
+            CardGroup tmp = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
+            Iterator var5 = ((ElainaC)AbstractDungeon.player).DiaryGroup.iterator();
+            while(var5.hasNext()) {
+                AbstractCard c = (AbstractCard)var5.next();
+                tmp.addToTop(c);
+            }
+            AbstractDungeon.gridSelectScreen.open(tmp, 0, "test", true);
         }
         this.c.applyPowers();
         this.c.update();

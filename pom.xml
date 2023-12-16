@@ -52,7 +52,7 @@
             <artifactId>stslib</artifactId>
             <version>2.5.0</version>
             <scope>system</scope>
-            <systemPath>${jar.path}/StsLib.jar</systemPath>
+            <systemPath>${jar.path}/StSLib.jar</systemPath>
         </dependency>
     </dependencies>
 

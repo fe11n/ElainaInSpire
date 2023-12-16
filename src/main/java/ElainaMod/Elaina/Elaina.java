@@ -87,6 +87,7 @@ public class Elaina implements EditStringsSubscriber,EditCardsSubscriber, EditCh
       BaseMod.addCard(new MagicSurging());
       BaseMod.addCard(new MarblePhantasm());
       BaseMod.addCard(new Mutation());
+      BaseMod.addCard(new NewClothes());
       BaseMod.addCard(new Penoff());
       BaseMod.addCard(new Ponder());
       BaseMod.addCard(new Reappear());
@@ -94,9 +95,11 @@ public class Elaina implements EditStringsSubscriber,EditCardsSubscriber, EditCh
       BaseMod.addCard(new Recollect());
       BaseMod.addCard(new Reconsitution());
       BaseMod.addCard(new RecreateMagic());
+      BaseMod.addCard(new Reversal());
       BaseMod.addCard(new Rhetoric());
       BaseMod.addCard(new Rummage());
       BaseMod.addCard(new Rush());
+      BaseMod.addCard(new ShowWeakness());
       BaseMod.addCard(new SilentChant());
       BaseMod.addCard(new Spell());
       BaseMod.addCard(new SpellReorganization());

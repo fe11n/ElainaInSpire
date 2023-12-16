@@ -41,6 +41,7 @@ public class RecordCardAction extends AbstractGameAction {
 
             if(g.size()!= 0 && p.getConclusion() instanceof IndelibleImprint){
                 c = p.getConclusion();
+                c.flash();
                 this.addToBot(new GainBlockAction(p,p,c.magicNumber));
                 this.addToBot(new DamageAction(AbstractDungeon.getRandomMonster(), new DamageInfo(p,c.magicNumber, DamageInfo.DamageType.THORNS)));
                 this.isDone=true;

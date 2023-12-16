@@ -3,6 +3,7 @@ package ElainaMod.cards;
 import ElainaMod.Characters.ElainaC;
 import ElainaMod.action.FirstImpressionAction;
 import ElainaMod.action.ItsMeAction;
+import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
@@ -33,6 +34,7 @@ public class FirstImpression extends AbstractElainaCard {
 
     @Override
     public void BasicEffect(ElainaC p, AbstractMonster m) {
+        this.addToBot(new DrawCardAction(1));
         this.addToBot(new FirstImpressionAction(p,magicNumber));
     }
 }

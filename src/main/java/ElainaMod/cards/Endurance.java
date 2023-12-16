@@ -43,7 +43,7 @@ public class Endurance extends AbstractElainaCard {
 //        if(this.upgraded){
 //            this.cardsToPreview.upgrade();
 //        }
-        this.addToBot(new ExhaustAction(1, true, false, false));
+        this.addToBot(new ExhaustAction(1, false));
         this.addToBot(new MakeTempCardInHandAction(this.cardsToPreview.makeStatEquivalentCopy()));
     }
 }

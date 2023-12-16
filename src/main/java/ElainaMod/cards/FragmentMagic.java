@@ -3,6 +3,7 @@ package ElainaMod.cards;
 import ElainaMod.Characters.ElainaC;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.AttackDamageRandomEnemyAction;
+import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.CardStrings;
@@ -41,6 +42,9 @@ public class FragmentMagic extends AbstractElainaCard {
      * @param m 指向的怪物类。（无指向时为null，包括攻击所有敌人时）
      */
     public void BasicEffect(ElainaC p, AbstractMonster m){
+        if(p.hasPower("Elaina:SpellBoost")){
+            this.addToBot(new DrawCardAction(1));
+        }
         this.addToBot(new AttackDamageRandomEnemyAction(this, AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
     }//基础效果，可以被使用和瞬发
 }

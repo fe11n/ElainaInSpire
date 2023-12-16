@@ -46,7 +46,7 @@ public class Rhetoric extends AbstractElainaCard {
         this.addToBot(new AbstractGameAction() {
             @Override
             public void update() {
-                if(!p.orbs.isEmpty()){
+                if(p.getConclusionOrb()!=null){
                     ((ConclusionOrb)p.orbs.get(0)).c.upgrade();
                 }
                 this.isDone = true;

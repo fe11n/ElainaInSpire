@@ -6,7 +6,6 @@ import com.megacrit.cardcrawl.orbs.AbstractOrb;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import java.util.ArrayList;
 
 public class ConclusionOrb extends AbstractOrb {
     public static final String ID = "Elaina:ConclusionOrb";
@@ -29,12 +28,13 @@ public class ConclusionOrb extends AbstractOrb {
 
     public void update(){//更新充能球卡图
         super.update();
+        this.setSlot(2,3);
         this.c.target_x = this.tX;
         this.c.target_y = this.tY;
         if (this.hb.hovered) {
             this.c.targetDrawScale = 1.0F;
         } else {
-            this.c.targetDrawScale = Float.valueOf(0.5F);
+            this.c.targetDrawScale = 0.5F;
         }
         this.c.applyPowers();
         this.c.update();

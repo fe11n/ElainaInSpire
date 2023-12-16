@@ -10,13 +10,11 @@ import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
-import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 
 public class RecordCardAction extends AbstractGameAction {
     public ElainaC p=(ElainaC)AbstractDungeon.player;
@@ -39,7 +37,7 @@ public class RecordCardAction extends AbstractGameAction {
     @Override
     public void update(){
         if(isNotable){
-            g = p.DiaryGroup;
+            g = ElainaC.DiaryGroup;
 
             if(g.size()!= 0 && p.getConclusion() instanceof IndelibleImprint){
                 c = p.getConclusion();
@@ -52,9 +50,8 @@ public class RecordCardAction extends AbstractGameAction {
             if(c instanceof MarblePhantasm){
                 g.add(0,c);
                 logger.info("Diary size after record: "+g.size());
-                Iterator it = g.iterator();
-                while(it.hasNext()){
-                    logger.info(((AbstractCard)it.next()).name);
+                for (AbstractElainaCard abstractElainaCard : g) {
+                    logger.info(((AbstractCard) abstractElainaCard).name);
                 }
                 if(g.size()==1){
                     p.channelOrb(new ConclusionOrb(c));
@@ -64,9 +61,8 @@ public class RecordCardAction extends AbstractGameAction {
             }
             g.add(c);
             logger.info("Diary size after record: "+g.size());
-            Iterator it = g.iterator();
-            while(it.hasNext()){
-                logger.info(((AbstractCard)it.next()).name);
+            for (AbstractElainaCard abstractElainaCard : g) {
+                logger.info(((AbstractCard) abstractElainaCard).name);
             }
             if(c.hasTag(ElainaC.Enums.SEASONAL)){
                 c.UpdateSeasonalDescription(true);//复制的instance没有initialize，描述没有改变，也可以直接initialize

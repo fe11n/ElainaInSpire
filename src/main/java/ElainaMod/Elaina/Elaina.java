@@ -9,9 +9,7 @@ import basemod.interfaces.EditCardsSubscriber;
 import basemod.interfaces.EditCharactersSubscriber;
 import basemod.interfaces.EditRelicsSubscriber;
 import basemod.interfaces.EditStringsSubscriber;
-import com.badlogic.gdx.utils.compression.lzma.Base;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
-import com.megacrit.cardcrawl.cards.tempCards.Miracle;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.localization.*;
@@ -125,10 +123,11 @@ public class Elaina implements EditStringsSubscriber,EditCardsSubscriber, EditCh
    }
    public void receiveEditStrings() {
       String lang;
+      // 还没做其他语言，就全默认中文。
       if (Settings.language == Settings.GameLanguage.ZHS) {
          lang = "ZHS"; // 如果语言设置为简体中文，则加载ZHS文件夹的资源
       } else {
-         lang = "ENG"; // 如果没有相应语言的版本，默认加载英语
+         lang = "ZHS"; // 如果没有相应语言的版本，默认加载中文
       }
       BaseMod.loadCustomStringsFile(CardStrings.class, "ElainaMod/localization/" + lang + "/cards.json"); // 加载相应语言的卡牌本地化内容。
       // 如果是中文，加载的就是"ExampleResources/localization/ZHS/cards.json"

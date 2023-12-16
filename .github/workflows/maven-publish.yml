@@ -1,9 +1,11 @@
 name: Maven Package and Release
 
+
 on:
   push:
-    branches:
-      - auto_build
+    branches: [ "auto_build" ]
+  pull_request:
+    branches: [ "auto_build" ]
 
 jobs:
   build:

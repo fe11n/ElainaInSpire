@@ -31,7 +31,9 @@ jobs:
         ./install_deps.sh
         
     - name: Build with Maven
-      run: mvn -B package --file pom.xml
+      run: |
+        ls jar
+        mvn -B package --file pom.xml
 
     - name: Create GitHub Release
       id: create_release

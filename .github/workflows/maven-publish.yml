@@ -53,9 +53,9 @@ jobs:
       - name: Create Release and Upload Artifacts
         uses: actions/create-release@v1
         with:
-          tag_name: ${ github.run_number }
-          release_name: Release ${ github.run_number }
-          body: Release ${ github.run_number }
+          tag_name: ${{ github.run_number }}
+          release_name: Release ${{ github.run_number }}
+          body: Release ${{ github.run_number }}
           draft: false
           prerelease: true
 

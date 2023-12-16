@@ -13,18 +13,9 @@ jobs:
     runs-on: ubuntu-latest
     permissions: write-all
 
-    outputs:
-      id: build
-      values:
-        tag_name: ${{ steps.set_tag.outputs.tag_name }}
-
     steps:
     - name: Checkout repository
       uses: actions/checkout@v3
-
-    - name: Set tag_name output
-      id: set_tag
-      run: echo "tag_name=$(git rev-parse --abbrev-ref HEAD)-$(git rev-parse --short HEAD)" >> $GITHUB_ENV
 
     - name: Set up JDK 8
       uses: actions/setup-java@v3
@@ -39,10 +30,6 @@ jobs:
         chmod +x install_deps.sh
         ./install_deps.sh
 
-    - name: Set tag_name output
-      id: set_tag
-      run: echo "tag_name=$(git describe --tags)" >> $GITHUB_ENV
-
     - name: Build with Maven
       run: mvn -B package --file pom.xml
 
@@ -51,6 +38,7 @@ jobs:
       with:
         name: release-artifacts
         path: target/*.jar
+
 
   publish_release:
     needs: build
@@ -65,7 +53,7 @@ jobs:
       - name: Create Release and Upload Artifacts
         uses: actions/create-release@v1
         with:
-          tag_name: ${{ needs.build.outputs.tag_name }}
+          tag_name: $(git rev-parse --abbrev-ref HEAD)-$(git rev-parse --short HEAD)
           release_name: Release ${{ needs.build.outputs.tag_name }}
           body: Release ${{ needs.build.outputs.tag_name }}
           draft: false

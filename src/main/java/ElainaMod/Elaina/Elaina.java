@@ -99,6 +99,7 @@ public class Elaina implements EditStringsSubscriber,EditCardsSubscriber, EditCh
       BaseMod.addCard(new Rhetoric());
       BaseMod.addCard(new Rummage());
       BaseMod.addCard(new Rush());
+      BaseMod.addCard(new SelfDefense());
       BaseMod.addCard(new ShowWeakness());
       BaseMod.addCard(new SilentChant());
       BaseMod.addCard(new Spell());

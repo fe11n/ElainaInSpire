@@ -43,14 +43,14 @@ public class ConclusionOrb extends AbstractOrb {
         } else {
             this.c.targetDrawScale = 0.5F;
         }
-        if(this.hb.hovered && InputHelper.justClickedLeft){
+        if(this.hb.hovered && (InputHelper.justClickedLeft || InputHelper.justClickedRight)){
             CardGroup tmp = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
             Iterator var5 = ((ElainaC)AbstractDungeon.player).DiaryGroup.iterator();
             while(var5.hasNext()) {
                 AbstractCard c = (AbstractCard)var5.next();
                 tmp.addToTop(c);
             }
-            AbstractDungeon.gridSelectScreen.open(tmp, 0, "test", true);
+            AbstractDungeon.gridSelectScreen.open(tmp, 0, "魔女日记", true);
         }
         this.c.applyPowers();
         this.c.update();

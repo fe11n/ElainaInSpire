@@ -7,6 +7,7 @@ import ElainaMod.orb.ConclusionOrb;
 import basemod.helpers.CardModifierManager;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import org.apache.logging.log4j.LogManager;
@@ -36,6 +37,7 @@ public class MagicDiffusionAction extends AbstractGameAction {
             c.flash();
             CardModifierManager.addModifier(c, new toInstantCardMod());
         }
+//        new DiaryGroupViewScreen().open();
         this.isDone=true;
     }
     public static ArrayList<AbstractCard> getTargetCards() {

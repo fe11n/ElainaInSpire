@@ -34,6 +34,9 @@ public class Rummage extends AbstractElainaCard {
             this.upgradeMagicNumber(1);
         }
     }
+    protected void onRightClick() {
+
+    }
     /**
      * 当卡牌被使用时，调用这个方法。
      *

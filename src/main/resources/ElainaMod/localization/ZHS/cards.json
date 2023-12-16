@@ -283,5 +283,9 @@
   "Elaina:SelfDefense": {
     "NAME": "自我保护",
     "DESCRIPTION": "回合开始时使随机1张手牌变为映像。 NL 打出映像时获得 !M! 点格挡。"
+  },
+  "Elaina:Awaken": {
+    "NAME": "初醒",
+    "DESCRIPTION": "将手牌，弃牌堆，抽牌堆中的卡牌变为映像。 NL 将日记卡牌的复制洗入抽牌堆。 NL *消耗 。"
   }
 }

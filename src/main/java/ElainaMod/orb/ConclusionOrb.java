@@ -70,4 +70,6 @@ public class ConclusionOrb extends AbstractOrb {
     @Override
     public void playChannelSFX() {
     }
+    public void applyFocus() {
+    }
 }

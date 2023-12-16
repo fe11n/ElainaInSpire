@@ -279,5 +279,9 @@
     "NAME": "示弱",
     "DESCRIPTION": "给予自己1层 *易伤 ，增加1张 *反转 到手牌中。 NL *消耗 。",
     "UPGRADE_DESCRIPTION": "给予自己1层 *易伤 ，增加1张 *反转+ 到手牌中。 NL *消耗 。"
+  },
+  "Elaina:SelfDefense": {
+    "NAME": "自我保护",
+    "DESCRIPTION": "回合开始时使随机1张手牌变为映像。 NL 打出映像时获得 !M! 点格挡。"
   }
 }

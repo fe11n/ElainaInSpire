@@ -12,6 +12,7 @@ ElainaMod\powers\DeepMemoryPower.class
 ElainaMod\cards\SummerExcitement.class
 ElainaMod\cards\ThunderMagic.class
 ElainaMod\cards\BasicMagic.class
+ElainaMod\action\SelfDefenseAction.class
 ElainaMod\cards\EmergencyTreatment.class
 ElainaMod\cards\Recall.class
 ElainaMod\cards\MagicEcho.class
@@ -53,6 +54,7 @@ ElainaMod\cards\ThunderMagic$1.class
 ElainaMod\cards\WinterPeace.class
 ElainaMod\cardmods\toInstantCardMod.class
 ElainaMod\action\ThePerfectMeAction.class
+ElainaMod\cards\SelfDefense.class
 ElainaMod\action\GetDiaryCardAction.class
 ElainaMod\cards\WitnessOfFriendship$1.class
 ElainaMod\cards\CounterMagic.class
@@ -82,6 +84,7 @@ ElainaMod\cards\Turnback.class
 ElainaMod\patch\DiaryOrbSlotPatch$DiarySlot.class
 ElainaMod\cards\MagicSurging$1.class
 ElainaMod\relics\WanderingWitch.class
+ElainaMod\powers\SelfDefensePower.class
 ElainaMod\cards\SilentChant.class
 ElainaMod\cards\Strike.class
 ElainaMod\orb\ConclusionOrb.class

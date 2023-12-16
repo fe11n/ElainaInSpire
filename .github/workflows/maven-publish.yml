@@ -34,14 +34,6 @@ jobs:
       run: |
         ls jar
         mvn -B package --file pom.xml
-
-    - name: Create GitHub Release
-      id: create_release
-      uses: softprops/action-gh-release@v1
-      with:
-        files: |
-          target/Elaina*.jar
-        token: ${{ secrets.GITHUB_TOKEN }}
         
   publish_release:
     needs: build

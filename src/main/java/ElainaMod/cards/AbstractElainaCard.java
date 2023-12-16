@@ -58,6 +58,8 @@ public class AbstractElainaCard extends CustomCard {
         BasicEffect((ElainaC) AbstractDungeon.player,m);
         logger.info("Modifier include toInstantCardMod: "+CardModifierManager.hasModifier(this,"toInstantCardMod"));
     }//瞬发
+    public void triggerOnMonthChanged() {
+    }
     public int getSeasonNum(){
         return ((ElainaC)(AbstractDungeon.player)).getSeason();
     }

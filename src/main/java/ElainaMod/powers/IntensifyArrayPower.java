@@ -32,6 +32,6 @@ public class IntensifyArrayPower extends AbstractPower {
         this.addToBot(new GainEnergyAction(1));
         this.addToBot(new DrawCardAction(1));
         AbstractMonster mo = AbstractDungeon.getRandomMonster();
-        this.addToBot(new ApplyPowerAction(mo,owner,new StrengthPower(mo, 2), 2));
+        this.addToBot(new ApplyPowerAction(mo,owner,new StrengthPower(mo, 1), 1));
     }
 }

@@ -46,6 +46,7 @@ public class GetDiaryCardAction extends AbstractGameAction {
             AbstractElainaCard c = p.getConclusion();
             if(c instanceof IndelibleImprint && !toHand){
                 this.addToBot(new DamageAction(AbstractDungeon.player, new DamageInfo(AbstractDungeon.player, c.magicNumber, DamageInfo.DamageType.THORNS), AttackEffect.FIRE));
+                c.flash();
                 this.isDone = true;
                 return;
             }

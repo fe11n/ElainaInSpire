@@ -49,7 +49,7 @@ public class ConclusionOrb extends AbstractOrb {
                 AbstractCard c = (AbstractCard)var5.next();
                 tmp.addToTop(c);
             }
-            AbstractDungeon.gridSelectScreen.open(tmp, 0, "test", true);
+            AbstractDungeon.gridSelectScreen.open(tmp, -1, "test", true);
         }
         this.c.applyPowers();
         this.c.update();

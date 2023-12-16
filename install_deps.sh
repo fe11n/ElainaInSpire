@@ -1,6 +1,4 @@
 #!/bin/bash
-# 删除旧的pom.xml并下载新的
-rm pom.xml && curl -O https://raw.githubusercontent.com/fe11n/ElainaInSpire/auto_build/pom.xml &
 # 创建jar目录并进入
 mkdir -p jar && cd jar &
 # 并发下载所需的JAR文件

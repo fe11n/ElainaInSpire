@@ -35,21 +35,22 @@ public class ConclusionOrb extends AbstractOrb {
 
     public void update(){//更新充能球卡图
         super.update();
+        this.setSlot(2,3);
         this.c.target_x = this.tX;
         this.c.target_y = this.tY;
         if (this.hb.hovered) {
             this.c.targetDrawScale = 1.0F;
         } else {
-            this.c.targetDrawScale = Float.valueOf(0.5F);
+            this.c.targetDrawScale = 0.5F;
         }
-        if(this.hb.hovered && InputHelper.justClickedLeft){
+        if(this.hb.hovered && (InputHelper.justClickedLeft || InputHelper.justClickedRight)){
             CardGroup tmp = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
             Iterator var5 = ((ElainaC)AbstractDungeon.player).DiaryGroup.iterator();
             while(var5.hasNext()) {
                 AbstractCard c = (AbstractCard)var5.next();
                 tmp.addToTop(c);
             }
-            AbstractDungeon.gridSelectScreen.open(tmp, -1, "test", true);
+            AbstractDungeon.gridSelectScreen.open(tmp, 0, "魔女日记", true);
         }
         this.c.applyPowers();
         this.c.update();

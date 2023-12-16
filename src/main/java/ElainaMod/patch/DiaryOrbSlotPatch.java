@@ -1,6 +1,5 @@
 package ElainaMod.patch;
 
-import ElainaMod.Characters.ElainaC;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
@@ -35,21 +34,26 @@ public class DiaryOrbSlotPatch {
         @SpirePrefixPatch
         public static SpireReturn ReplaceSlot(EmptyOrbSlot slot, SpriteBatch sb){
             if (AbstractDungeon.player!=null) {// && AbstractDungeon.player instanceof ElainaC
+                slot.setSlot(2,3);
+                slot.name = "结语槽位";
+                slot.description = "日记最后记录的卡牌。暂无。不为空时，点击可以查看日记内容。";
                 sb.setColor(Color.WHITE.cpy());
+                int width = DiaryOrbSlotPatch.DiarySlotImg.getWidth();
+                int height = DiaryOrbSlotPatch.DiarySlotImg.getHeight();
                 sb.draw(DiaryOrbSlotPatch.DiarySlotImg,
-                        slot.cX - 48.0F - DiaryOrbSlotPatch.bobEffect.y / 8.0F,
-                        slot.cY - 48.0F + DiaryOrbSlotPatch.bobEffect.y / 8.0F,
-                        0.0F,
-                        0.0F,
-                        (float) DiaryOrbSlotPatch.DiarySlotImg.getWidth() * Settings.scale,
-                        (float) DiaryOrbSlotPatch.DiarySlotImg.getHeight() * Settings.scale,
+                        slot.cX - (float) width / 2,
+                        slot.cY - (float) height / 2,
+                        (float) width / 2,
+                        (float) height / 2,
+                        (float) width * Settings.scale,
+                        (float) height * Settings.scale,
                         1.0F,
                         1.0F,
                         0.0F,
                         0,
                         0,
-                        DiaryOrbSlotPatch.DiarySlotImg.getWidth(),
-                        DiaryOrbSlotPatch.DiarySlotImg.getHeight(),
+                        width,
+                        height,
                         false,
                         false);
                 slot.hb.render(sb);
@@ -59,6 +63,7 @@ public class DiaryOrbSlotPatch {
                 return SpireReturn.Continue();
             }
         }
+
     }
 
 }

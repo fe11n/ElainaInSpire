@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<project name="maven-antrun-" default="main"  >
-<target name="main">
-  <copy file="target/Elaina.jar" tofile="D:/Steam/steamapps/common/SlayTheSpire/mods/Elaina.jar"/>
-</target>
-</project>

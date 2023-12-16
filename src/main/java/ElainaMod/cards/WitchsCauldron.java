@@ -42,6 +42,7 @@ public class WitchsCauldron extends AbstractElainaCard {
         ArrayList<AbstractCard> list = new ArrayList();
         list.add(new Penoff());
         list.add(new Echo());
+        list.add(new ItsMe());
         list.add(new Accelerate());
         list.add(new Spell());
         list.add(new Reappear());

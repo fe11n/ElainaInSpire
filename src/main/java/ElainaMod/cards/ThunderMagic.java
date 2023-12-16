@@ -39,7 +39,7 @@ public class ThunderMagic extends AbstractElainaCard {
         }
     }
 
-    public void applyPowers(){
+    public void applyPowers(){//TODO: 如何让其它更改卡牌费用的动作对雷霆魔法生效
         super.applyPowers();
         Iterator var2 = AbstractDungeon.actionManager.cardsPlayedThisTurn.iterator();
         int cnum = 0;
@@ -54,6 +54,16 @@ public class ThunderMagic extends AbstractElainaCard {
             this.setCostForTurn(cost);
         }
     }
+//    public void triggerOnOtherCardPlayed(AbstractCard c) {
+//        if(this.costForTurn > 0 && c.hasTag(ElainaC.Enums.MAGIC)){
+//            if(this.isCostModifiedForTurn){
+//                this.setCostForTurn(this.costForTurn-2);
+//            }
+//            else {
+//                this.setCostForTurn(this.cost-2);
+//            }
+//        }
+//    }
     /**
      * 当卡牌被使用时，调用这个方法。
      *

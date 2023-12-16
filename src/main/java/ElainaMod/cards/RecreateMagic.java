@@ -2,6 +2,7 @@ package ElainaMod.cards;
 
 import ElainaMod.Characters.ElainaC;
 import ElainaMod.action.GetDiaryCardAction;
+import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.cards.DamageInfo.DamageType;
@@ -15,13 +16,13 @@ public class RecreateMagic extends AbstractElainaCard {
     private static final String IMG_PATH = "ElainaMod/img/cards/RecreateMagic.png";
     private static final int COST = 1;
     private static final CardType TYPE = CardType.ATTACK;
-    private static final CardRarity RARITY = CardRarity.BASIC;
+    private static final CardRarity RARITY = CardRarity.COMMON;
     private static final CardTarget TARGET = CardTarget.ENEMY;
 
     public RecreateMagic() {
         // 为了命名规范修改了变量名。这些参数具体的作用见下方
         super(ID, CARD_STRINGS, IMG_PATH, COST, TYPE, RARITY, TARGET);
-        this.damage = this.baseDamage = 9;
+        this.damage = this.baseDamage = 7;
         this.tags.add(ElainaC.Enums.MAGIC);
     }
 
@@ -40,6 +41,21 @@ public class RecreateMagic extends AbstractElainaCard {
      */
     public void BasicEffect(ElainaC p, AbstractMonster m){
         this.addToBot(new DamageAction(m, new DamageInfo(p, damage, DamageType.NORMAL)));
+        this.addToBot(new AbstractGameAction() {
+            @Override
+            public void update() {
+                int co = p.getConclusion().cost;
+                if(co>0){
+                    if(isCostModifiedForTurn){
+                        p.getConclusion().setCostForTurn(costForTurn-1);
+                    }
+                    else {
+                        p.getConclusion().setCostForTurn(cost-1);
+                    }
+                }
+                this.isDone = true;
+            }
+        });
         this.addToBot(new GetDiaryCardAction(p));
     }//基础效果，可以被使用和瞬发
 }

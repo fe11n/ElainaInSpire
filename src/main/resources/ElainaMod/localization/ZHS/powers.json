@@ -65,5 +65,31 @@
       "回合开始时使随机1张手牌变为映像。打出映像时获得",
       "点格挡。"
     ]
+  },
+  "Elaina:GetSpellBoost": {
+    "NAME": "魔力增幅增加",
+    "DESCRIPTIONS": [
+      "回合开始时获得",
+      "层魔力增幅。"
+    ]
+  },
+  "Elaina:SpellResonance": {
+    "NAME": "法术共振",
+    "DESCRIPTIONS": [
+      "失去魔力增幅时，所有敌人失去等量的生命。"
+    ]
+  },
+  "Elaina:SpellLink": {
+    "NAME": "法术链接",
+    "DESCRIPTIONS": [
+      "获得魔力增幅时，获得等量的格挡。"
+    ]
+  },
+  "Elaina:TimeGoesBack": {
+    "NAME": "时光倒流",
+    "DESCRIPTIONS": [
+      "回合开始时，时节前进1，随机再现2张卡牌，使其费用变为0。剩余",
+      "回合。"
+    ]
   }
 }

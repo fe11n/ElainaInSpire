@@ -4,6 +4,9 @@ import ElainaMod.Characters.ElainaC;
 import ElainaMod.cards.WizardsWell;
 import ElainaMod.orb.ConclusionOrb;
 import com.badlogic.gdx.graphics.Texture;
+import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
+import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -31,10 +34,19 @@ public class SpellBoostPower extends AbstractPower {
         this.type = PowerType.BUFF;
         this.updateDescription();
         this.img = new Texture("ElainaMod/img/powers/SpellBoostPower.png");
+        if(owner.hasPower("Elaina:SpellLink")){
+            owner.getPower("Elaina:SpellLink").flash();
+            addToBot(new GainBlockAction(owner,num));
+        }
     }
     public void updateDescription(){this.description = DESCRIPTIONS[0]+amount+DESCRIPTIONS[1];}
     public void onUseCard(AbstractCard card, UseCardAction action){
         if(card.hasTag(ElainaC.Enums.MAGIC) && !(((ElainaC)AbstractDungeon.player).getConclusion()!=null && ((ElainaC)AbstractDungeon.player).getConclusion() instanceof WizardsWell)){
+            int los = this.amount - this.amount /2;
+            if(owner.hasPower("Elaina:SpellResonance")){
+                owner.getPower("Elaina:SpellResonance").flash();
+                addToBot(new DamageAllEnemiesAction(this.owner, DamageInfo.createDamageMatrix(los, true), DamageInfo.DamageType.HP_LOSS, AbstractGameAction.AttackEffect.NONE, true));
+            }
             this.amount /=2;
             if(this.amount<=0){
                 addToBot(new RemoveSpecificPowerAction(owner,owner,"Elaina:SpellBoost"));

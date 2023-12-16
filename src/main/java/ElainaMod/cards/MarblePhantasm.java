@@ -2,8 +2,10 @@ package ElainaMod.cards;
 
 import ElainaMod.Characters.ElainaC;
 import ElainaMod.action.GetDiaryCardAction;
+import ElainaMod.powers.SpellBoostPower;
 import basemod.helpers.CardModifierManager;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -61,7 +63,13 @@ public class MarblePhantasm extends AbstractElainaCard {
                         AbstractPower po = (AbstractPower) it.next();
                         if(po.type == AbstractPower.PowerType.BUFF){
                             po.flash();
-                            po.amount += po.amount;
+                            if(po instanceof SpellBoostPower){
+                                this.addToBot(new ApplyPowerAction(p,p,new SpellBoostPower(p,po.amount)));
+                            }
+                            else {
+                                po.amount += po.amount;
+                                po.updateDescription();
+                            }
                         }
                     }
                     this.isDone = true;

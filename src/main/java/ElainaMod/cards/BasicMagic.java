@@ -22,6 +22,7 @@ public class BasicMagic extends AbstractElainaCard {
         super(ID, CARD_STRINGS, IMG_PATH, COST, TYPE, RARITY, TARGET);
         this.damage = this.baseDamage = 9;
         this.magicNumber = this.baseMagicNumber = 1;
+        this.tags.add(ElainaC.Enums.MAGIC);
         this.cardsToPreview = new ItsMe();
     }
 

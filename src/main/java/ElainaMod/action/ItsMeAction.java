@@ -47,8 +47,8 @@ public class ItsMeAction extends AbstractGameAction {
                 while(it.hasNext()){
                     AbstractCard c = (AbstractCard) it.next();
                     AbstractMonster mo = AbstractDungeon.getRandomMonster();
-                    if(c.cost>1){
-                        this.addToBot(new ApplyPowerAction(mo, p,new StrengthPower(mo, c.cost-1), c.cost-1));
+                    if(c.cost>(upgraded?1:0)){
+                        this.addToBot(new ApplyPowerAction(mo, p,new StrengthPower(mo, c.cost-(upgraded?1:0)), c.cost-(upgraded?1:0)));
                     }
                     this.addToBot(new RecordCardAction(c));
                     //p.hand.moveToDiscardPile(c);
@@ -66,8 +66,8 @@ public class ItsMeAction extends AbstractGameAction {
             while(it.hasNext()){
                 AbstractCard c = (AbstractCard) it.next();
                 AbstractMonster mo = AbstractDungeon.getRandomMonster();
-                if(c.cost>(upgraded?2:1)){
-                    this.addToBot(new ApplyPowerAction(mo, p,new StrengthPower(mo, c.cost-(upgraded?2:1)), c.cost-(upgraded?2:1)));
+                if(c.cost>(upgraded?1:0)){
+                    this.addToBot(new ApplyPowerAction(mo, p,new StrengthPower(mo, c.cost-(upgraded?1:0)), c.cost-(upgraded?1:0)));
                 }
                 this.addToBot(new RecordCardAction(c));
                 p.hand.addToHand(c);

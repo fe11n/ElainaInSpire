@@ -104,12 +104,15 @@ public class Elaina implements EditStringsSubscriber,EditCardsSubscriber, EditCh
       BaseMod.addCard(new ShowWeakness());
       BaseMod.addCard(new SilentChant());
       BaseMod.addCard(new Spell());
+      BaseMod.addCard(new SpellLink());
       BaseMod.addCard(new SpellReorganization());
+      BaseMod.addCard(new SpellResonance());
       BaseMod.addCard(new SpringJoy());
       BaseMod.addCard(new Strike());
       BaseMod.addCard(new SummerExcitement());
       BaseMod.addCard(new ThePerfectMe());
       BaseMod.addCard(new ThunderMagic());
+      BaseMod.addCard(new TimeGoesBack());
       BaseMod.addCard(new Turnback());
       BaseMod.addCard(new Vibration());
       BaseMod.addCard(new WinterPeace());

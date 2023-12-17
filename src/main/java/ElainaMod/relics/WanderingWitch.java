@@ -30,7 +30,7 @@ public class WanderingWitch extends CustomRelic {
     private boolean RclickStart = false;
 
     public WanderingWitch() {
-        super(ID, ImageMaster.loadImage("ElainaMod/img/relics/NicolesAdventures.png"), RelicTier.STARTER, LandingSound.FLAT);
+        super(ID, ImageMaster.loadImage("ElainaMod/img/relics/WanderingWitch.png"), RelicTier.STARTER, LandingSound.FLAT);
         p =(ElainaC) AbstractDungeon.player;
     }
     public String getUpdatedDescription(){

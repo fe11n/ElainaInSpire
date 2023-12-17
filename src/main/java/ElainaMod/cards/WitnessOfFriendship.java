@@ -42,7 +42,7 @@ public class WitnessOfFriendship extends AbstractElainaCard {
 
     public int getSeasonNum(){
         int m = ((ElainaC)(AbstractDungeon.player)).getSeason();
-        if(m == 0) return 0;
+        if(m == 1) return 0;
         else return 1;
     }
     /**

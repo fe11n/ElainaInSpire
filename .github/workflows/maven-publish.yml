@@ -1,0 +1,70 @@
+name: Maven Package and Release
+
+
+on:
+  push:
+    branches: [ "auto_build" ]
+  pull_request:
+    branches: [ "auto_build" ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+    permissions: write-all
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    - name: Set up JDK 8
+      uses: actions/setup-java@v3
+      with:
+        java-version: '8'
+        distribution: 'temurin'
+        server-id: github # Value of the distributionManagement/repository/id field of the pom.xml
+        settings-path: ${{ github.workspace }} # location for the settings.xml file
+
+    - name: Install Dependencies
+      run: |
+        chmod +x install_deps.sh
+        ./install_deps.sh
+        
+    - name: Build with Maven
+      run: mvn -B package --file pom.xml
+
+    - name: Create GitHub Release
+      id: create_release
+      uses: softprops/action-gh-release@v1
+      with:
+        files: |
+          target/Elaina*.jar
+        token: ${{ secrets.GITHUB_TOKEN }}
+        
+  publish_release:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download artifacts from build job
+        uses: actions/download-artifact@v2
+        with:
+          name: release-artifacts
+          path: release-artifacts
+
+      - name: Create Release and Upload Artifacts
+        uses: actions/create-release@v1
+        with:
+          tag_name: ${{ needs.build.outputs.tag_name }}
+          release_name: Release ${{ needs.build.outputs.tag_name }}
+          body: Release ${{ needs.build.outputs.tag_name }}
+          draft: false
+          prerelease: true
+
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Upload Elaina*.jar
+        uses: actions/upload-artifact@v2
+        with:
+          name: Elaina (other versions)
+          path: release-artifacts/target/Elaina*.jar

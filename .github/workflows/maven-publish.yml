@@ -33,37 +33,20 @@ jobs:
     - name: Build with Maven
       run: mvn -B package --file pom.xml
 
-    - name: Upload Artifacts
+    - name: Create Release and Upload Artifacts
+      uses: actions/create-release@v1
+      with:
+        tag_name: ${{ github.run_number }}
+        release_name: Release ${{ github.run_number }}
+        body: Release ${{ github.run_number }}
+        draft: false
+        prerelease: true
+
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+    - name: Upload *.jar
       uses: actions/upload-artifact@v2
       with:
-        name: release-artifacts
+        name: Elaina (other versions)
         path: target/*.jar
-
-
-  publish_release:
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-      - name: Download artifacts from build job
-        uses: actions/download-artifact@v2
-        with:
-          name: release-artifacts
-          path: release-artifacts
-
-      - name: Create Release and Upload Artifacts
-        uses: actions/create-release@v1
-        with:
-          tag_name: ${{ github.run_number }}
-          release_name: Release ${{ github.run_number }}
-          body: Release ${{ github.run_number }}
-          draft: false
-          prerelease: true
-
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Upload *.jar
-        uses: actions/upload-artifact@v2
-        with:
-          name: Elaina (other versions)
-          path: release-artifacts/target/*.jar

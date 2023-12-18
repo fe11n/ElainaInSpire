@@ -24,6 +24,7 @@ public class Vibration extends AbstractElainaCard {
         this.damage = this.baseDamage = 7;
         this.magicNumber = this.baseMagicNumber = 1;
         this.cardsToPreview = new FragmentMagic();
+        this.exhaust = true;
     }
 
     @Override

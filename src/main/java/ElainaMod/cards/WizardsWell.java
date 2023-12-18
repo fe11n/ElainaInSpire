@@ -19,15 +19,15 @@ public class WizardsWell extends AbstractElainaCard {
     public WizardsWell() {
         // 为了命名规范修改了变量名。这些参数具体的作用见下方
         super(ID, CARD_STRINGS, IMG_PATH, COST, TYPE, RARITY, TARGET);
-        this.magicNumber = this.baseMagicNumber = 2;
-        this.isInstant = true;
+        this.magicNumber = this.baseMagicNumber = 4;
+        this.isShorthand = true;
     }
 
     @Override
     public void upgrade() { // 升级调用的方法
         if (!this.upgraded) {
             this.upgradeName();
-            this.upgradeMagicNumber(1);
+            this.upgradeMagicNumber(2);
         }
     }
     /**

@@ -26,6 +26,7 @@ public class Drawup extends AbstractElainaCard {
         super(ID, CARD_STRINGS, IMG_PATH, COST, TYPE, RARITY, TARGET);
         this.damage = this.baseDamage = 5;
         this.cardsToPreview = new Echo();
+        this.exhaust = true;
     }
 
     @Override

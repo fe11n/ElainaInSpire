@@ -11,10 +11,12 @@ import javassist.CtBehavior;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 public class SaveLoadPatch {
     public static int[] DateArray = new int[2];
+    public static ArrayList<Integer> UsedYear = new ArrayList<>();
 
     public SaveLoadPatch() {
     }
@@ -22,6 +24,7 @@ public class SaveLoadPatch {
 
     public class ElainaSaveFile extends SaveFile{
         public int[] DateArray = new int[2];
+        public ArrayList<Integer> UsedYear = new ArrayList<>();
     }
 
     @SpirePatch(
@@ -40,6 +43,7 @@ public class SaveLoadPatch {
                 ElainaC p = (ElainaC)AbstractDungeon.player;
                 DateArray[0] = p.Month;
                 DateArray[1] = p.FarYear;
+                UsedYear = p.UsedYear;
                 logger.info("get data over*************");
             }
         }
@@ -60,6 +64,7 @@ public class SaveLoadPatch {
         )
         public static void addCustomSaveData(SaveFile save, HashMap<Object, Object> params) {
             params.put("DateArray", DateArray);
+            params.put("UsedYear", UsedYear);
             logger.info("save data to file over*************");
         }
 
@@ -91,6 +96,7 @@ public class SaveLoadPatch {
             try {
                 ElainaSaveFile data = gson.fromJson(savestr, ElainaSaveFile.class);
                 DateArray = data.DateArray;
+                UsedYear = data.UsedYear;
                 logger.info("load data from file over*************");
             } catch (Exception var4) {
                 var4.printStackTrace();
@@ -123,6 +129,7 @@ public class SaveLoadPatch {
                 ElainaC p = (ElainaC)AbstractDungeon.player;
                 p.Month = DateArray[0];
                 p.FarYear = DateArray[1];
+                p.UsedYear = UsedYear;
                 logger.info("send data to Elaina over*************");
             }
         }

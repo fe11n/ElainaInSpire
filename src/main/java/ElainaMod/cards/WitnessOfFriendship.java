@@ -2,15 +2,20 @@ package ElainaMod.cards;
 
 import ElainaMod.Characters.ElainaC;
 import ElainaMod.action.GetDiaryCardAction;
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.helpers.GetAllInBattleInstances;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.vfx.GainPennyEffect;
+
+import java.util.ArrayList;
+import java.util.Iterator;
 
 public class WitnessOfFriendship extends AbstractElainaCard {
     public static final String ID = "Elaina:WitnessOfFriendship";
@@ -41,8 +46,10 @@ public class WitnessOfFriendship extends AbstractElainaCard {
     }
 
     public int getSeasonNum(){
-        int m = ((ElainaC)(AbstractDungeon.player)).getSeason();
-        if(m == 1) return 0;
+        ElainaC p = (ElainaC)(AbstractDungeon.player);
+        logger.info("Noted Year: "+p.UsedYear);
+        int m = p.getSeason();
+        if(m == 1 && !p.UsedYear.contains((p.Month-1)/12)) return 0;
         else return 1;
     }
     /**
@@ -61,7 +68,9 @@ public class WitnessOfFriendship extends AbstractElainaCard {
                         AbstractRelic r = AbstractDungeon.returnRandomRelic(AbstractRelic.RelicTier.COMMON);
                         logger.info("P get relic: "+ r.name);
                         AbstractDungeon.getCurrRoom().spawnRelicAndObtain((float)Settings.WIDTH / 2.0F, (float)Settings.HEIGHT / 2.0F, r);
-                        r.atBattleStart();
+                        //r.atBattleStart();
+                        p.UsedYear.add((p.Month-1)/12);
+                        p.UpdateAllSeasonalDescription();
                         this.isDone = true;
                     }
                 });

@@ -63,6 +63,7 @@ public class ElainaC extends CustomPlayer{
     //public static int Month = 12;//时节变量
     public static int FarYear = 0;
     public static final Logger logger = LogManager.getLogger(ElainaC.class);
+    public ArrayList<Integer> UsedYear = new ArrayList<>();
 
     public ElainaC(String name) {
         super(name,
@@ -88,6 +89,11 @@ public class ElainaC extends CustomPlayer{
                 200.0F, 220.0F, // 人物碰撞箱大小，越大的人物模型这个越大
                 new EnergyManager(3) // 初始每回合的能量
         );
+        if (!CardCrawlGame.loadingSave && AbstractDungeon.floorNum < 2) {
+            Month = new Random().nextInt(12)+1;
+            UsedYear = new ArrayList<>();
+            FarYear = 0;
+        }
 
 
         // 如果你的人物没有动画，那么这些不需要写

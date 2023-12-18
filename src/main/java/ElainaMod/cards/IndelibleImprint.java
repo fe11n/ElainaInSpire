@@ -20,6 +20,7 @@ public class IndelibleImprint extends AbstractElainaCard {
         // 为了命名规范修改了变量名。这些参数具体的作用见下方
         super(ID, CARD_STRINGS, IMG_PATH, COST, TYPE, RARITY, TARGET);
         this.magicNumber = this.baseMagicNumber = 5;
+        this.block = this.baseBlock = 5;
         this.isShorthand = true;
     }
 
@@ -28,6 +29,7 @@ public class IndelibleImprint extends AbstractElainaCard {
         if (!this.upgraded) {
             this.upgradeName();
             this.upgradeMagicNumber(2);
+            this.upgradeBlock(2);
         }
     }
     /**
@@ -38,6 +40,7 @@ public class IndelibleImprint extends AbstractElainaCard {
      */
     @Override
     public void BasicEffect(ElainaC p, AbstractMonster m) {
+        this.addToBot(new GainBlockAction(p,p,this.block));
         // 无效果
     }
 }

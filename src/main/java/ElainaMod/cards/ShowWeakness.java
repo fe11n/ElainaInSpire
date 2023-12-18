@@ -31,7 +31,6 @@ public class ShowWeakness extends AbstractElainaCard {
             this.upgradeName();
             this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
             this.initializeDescription();
-            this.cardsToPreview.upgrade();
         }
     }
     /**
@@ -43,7 +42,9 @@ public class ShowWeakness extends AbstractElainaCard {
     @Override
     public void BasicEffect(ElainaC p, AbstractMonster m) {
         // AbstractCard中实现了addToBot方法，它的效果和AbstractDungeon.actionManager.addToBottom相同
-        this.addToBot(new ApplyPowerAction(p,p,new VulnerablePower(p,1,false)));
+        if(!this.upgraded){
+            this.addToBot(new ApplyPowerAction(p,p,new VulnerablePower(p,1,false)));
+        }
         this.addToBot(new MakeTempCardInHandAction(this.cardsToPreview.makeStatEquivalentCopy()));
     }
 }

@@ -60,7 +60,7 @@
   },
   "Elaina:IndelibleImprint": {
     "NAME": "不灭印记",
-    "DESCRIPTION": "*速记 。作为结语时，记录卡牌改为获得 !M! 点格挡，随机造成 !M! 点伤害，失去结语改为受到 !M! 点伤害。"
+    "DESCRIPTION": "*速记 。获得 !B! 点格挡。 NL 作为结语时，记录卡牌改为随机造成 !M! 点伤害，失去结语改为受到 !M! 点伤害。"
   },
   "Elaina:Rush": {
     "NAME": "急行",
@@ -119,11 +119,11 @@
   },
   "Elaina:Echo": {
     "NAME": "呼应",
-    "DESCRIPTION": "获得 !B! 点格挡。记录本回合已打出的所有卡牌。不可被记录。 NL *保留。"
+    "DESCRIPTION": "获得 !B! 点格挡。记录本回合已打出的所有卡牌。不可被记录。 NL *保留 。"
   },
   "Elaina:Drawup": {
     "NAME": "起笔",
-    "DESCRIPTION": "造成 !D! 点伤害，增加一张呼应到手牌中，使其本回合费用变为0。"
+    "DESCRIPTION": "造成 !D! 点伤害，增加一张呼应到手牌中，使其本回合费用变为0。 NL *消耗 。"
   },
   "Elaina:BottledHappiness": {
     "NAME": "瓶装的幸福",
@@ -164,7 +164,7 @@
   },
   "Elaina:Reappear": {
     "NAME": "重现",
-    "DESCRIPTION": "再现结语。 NL *保留。 NL *消耗。",
+    "DESCRIPTION": "再现结语。 NL *保留 。 NL *消耗 。",
     "UPGRADE_DESCRIPTION": "再现结语。 NL *保留。"
   },
   "Elaina:SpellReorganization": {
@@ -173,11 +173,11 @@
   },
   "Elaina:Vibration": {
     "NAME": "震动",
-    "DESCRIPTION": "造成 !D! 点伤害。增加 !M! 张碎片魔法到手牌中。"
+    "DESCRIPTION": "造成 !D! 点伤害。增加 !M! 张碎片魔法到手牌中。 NL *消耗 。"
   },
   "Elaina:FragmentMagic": {
     "NAME": "碎片魔法",
-    "DESCRIPTION": "*速记。 NL 对随机敌人造成 !D! 点伤害，如果有 *魔力增幅 ，则抽1张卡牌。 NL *保留。"
+    "DESCRIPTION": "*速记。 NL 对随机敌人造成 !D! 点伤害，如果有 *魔力增幅 ，则抽1张卡牌。 NL *保留 。"
   },
   "Elaina:EmergencyTreatment": {
     "NAME": "应急处理",
@@ -185,7 +185,7 @@
   },
   "Elaina:FirstImpression": {
     "NAME": "第一印象",
-    "DESCRIPTION": "抽取1张卡牌。 NL 选择最多 !M! 张牌丢弃并记录。不可被记录。"
+    "DESCRIPTION": "抽取 !M! 张卡牌。 NL 选择至少1张手牌丢弃并记录。不可被记录。"
   },
   "Elaina:Turnback": {
     "NAME": "回旋",
@@ -209,8 +209,8 @@
   },
   "Elaina:Accumulation": {
     "NAME": "蓄能",
-    "DESCRIPTION": "失去 !M! 点临时力量，获得 10 层魔力增幅。 NL *消耗",
-    "UPGRADE_DESCRIPTION": "失去 !M! 点临时力量，获得 12 层魔力增幅。 NL *消耗"
+    "DESCRIPTION": "获得10层魔力增幅，本回合失去 !M! 点力量。 NL *消耗",
+    "UPGRADE_DESCRIPTION": "获得12层魔力增幅，本回合失去 !M! 点力量。 NL *消耗"
   },
   "Elaina:Mutation": {
     "NAME": "蝶变",
@@ -237,7 +237,8 @@
   },
   "Elaina:Continuation": {
     "NAME": "续行",
-    "DESCRIPTION": "再现结语。本回合使用映像时，再现结语。"
+    "DESCRIPTION": "再现结语。本回合使用映像时，再现结语。 NL *消耗 。",
+    "UPGRADE_DESCRIPTION": "再现结语。本回合使用映像时，再现结语。"
   },
   "Elaina:Reconsitution": {
     "NAME": "重构",
@@ -254,7 +255,7 @@
   },
   "Elaina:WizardsWell": {
     "NAME": "魔力源泉",
-    "DESCRIPTION": "获得 !M! 层魔力增幅。 NL 作为结语时，打出魔法卡牌不减少魔力增幅层数。 NL *瞬发 。"
+    "DESCRIPTION": "获得 !M! 层魔力增幅。 NL 作为结语时，打出魔法卡牌只减少1层魔力增幅。 NL *速记 。"
   },
   "Elaina:ThePerfectMe": {
     "NAME": "完美的我",
@@ -266,7 +267,8 @@
   },
   "Elaina:BasicMagic": {
     "NAME": "基础魔法",
-    "DESCRIPTION": "造成 !D! 点伤害。 NL 增加 !M! 张 *没错，就是我 到手牌中。"
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 增加 !M! 张 *没错，就是我 到手牌中。",
+    "UPGRADE_DESCRIPTION": "造成 !D! 点伤害。 NL 增加 !M! 张 *没错，就是我+ 到手牌中。"
   },
   "Elaina:NewClothes": {
     "NAME": "添置新装",
@@ -279,7 +281,7 @@
   "Elaina:ShowWeakness": {
     "NAME": "示弱",
     "DESCRIPTION": "给予自己1层 *易伤 ，增加1张 *反转 到手牌中。 NL *消耗 。",
-    "UPGRADE_DESCRIPTION": "给予自己1层 *易伤 ，增加1张 *反转+ 到手牌中。 NL *消耗 。"
+    "UPGRADE_DESCRIPTION": "增加1张 *反转 到手牌中。 NL *消耗 。"
   },
   "Elaina:SelfDefense": {
     "NAME": "自我保护",

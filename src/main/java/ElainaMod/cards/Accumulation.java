@@ -44,8 +44,8 @@ public class Accumulation extends AbstractElainaCard {
      */
     @Override
     public void BasicEffect(ElainaC p, AbstractMonster m) {
+        this.addToBot(new ApplyPowerAction(p,p,new SpellBoostPower(p,this.magicNumber*2),this.magicNumber*2));
         this.addToBot(new ApplyPowerAction(p, p, new StrengthPower(p, -magicNumber), -magicNumber, true, AbstractGameAction.AttackEffect.NONE));
         this.addToBot(new ApplyPowerAction(p, p, new GainStrengthPower(p, magicNumber), magicNumber, true, AbstractGameAction.AttackEffect.NONE));
-        this.addToBot(new ApplyPowerAction(p,p,new SpellBoostPower(p,this.magicNumber*2),this.magicNumber*2));
     }
 }

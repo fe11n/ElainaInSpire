@@ -30,6 +30,10 @@ public class BasicMagic extends AbstractElainaCard {
     public void upgrade() { // 升级调用的方法
         if (!this.upgraded) {
             this.upgradeName();
+            this.cardsToPreview.upgrade();
+            this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
+            this.initializeDescription();
+            this.cardsToPreview.upgrade();
         }
     }
     /**

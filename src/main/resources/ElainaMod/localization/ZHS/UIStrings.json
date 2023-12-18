@@ -32,7 +32,7 @@
   },
   "Elaina:WitnessOfFriendship":{
     "TEXT": [
-      "获得1个普通遗物。 NL *消耗",
+      "每个循环限1次：获得1个普通遗物。 NL *消耗",
       "获得 !M! 金币。 NL *消耗"
     ]
   },

@@ -21,7 +21,7 @@ public class FirstImpression extends AbstractElainaCard {
         // 为了命名规范修改了变量名。这些参数具体的作用见下方
         super(ID, CARD_STRINGS, IMG_PATH, COST, TYPE, RARITY, TARGET);
         this.tags.add(ElainaC.Enums.UNNOTABLE);
-        magicNumber = baseMagicNumber = 3;
+        magicNumber = baseMagicNumber = 2;
     }
 
     @Override
@@ -34,7 +34,7 @@ public class FirstImpression extends AbstractElainaCard {
 
     @Override
     public void BasicEffect(ElainaC p, AbstractMonster m) {
-        this.addToBot(new DrawCardAction(1));
-        this.addToBot(new FirstImpressionAction(p,magicNumber));
+        this.addToBot(new DrawCardAction(this.magicNumber));
+        this.addToBot(new FirstImpressionAction(p));
     }
 }

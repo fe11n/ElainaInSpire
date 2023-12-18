@@ -22,7 +22,7 @@ public class RecreateMagic extends AbstractElainaCard {
     public RecreateMagic() {
         // 为了命名规范修改了变量名。这些参数具体的作用见下方
         super(ID, CARD_STRINGS, IMG_PATH, COST, TYPE, RARITY, TARGET);
-        this.damage = this.baseDamage = 7;
+        this.damage = this.baseDamage = 5;
         this.tags.add(ElainaC.Enums.MAGIC);
     }
 
@@ -30,7 +30,7 @@ public class RecreateMagic extends AbstractElainaCard {
     public void upgrade() { // 升级调用的方法
         if (!this.upgraded) {
             this.upgradeName(); // 卡牌名字变为绿色并添加“+”，且标为升级过的卡牌，之后不能再升级。
-            this.upgradeDamage(3); // 将该卡牌的伤害提高3点。
+            this.upgradeDamage(2); // 将该卡牌的伤害提高3点。
         }
     }
     /**
@@ -44,16 +44,18 @@ public class RecreateMagic extends AbstractElainaCard {
         this.addToBot(new AbstractGameAction() {
             @Override
             public void update() {
-                int co = p.getConclusion().cost;
-                if(co>0){
-                    if(isCostModifiedForTurn){
-                        p.getConclusion().setCostForTurn(costForTurn-1);
+                if(p.getConclusion()!=null){
+                    int co = p.getConclusion().costForTurn;
+                    if(co>0){
+                        if(isCostModifiedForTurn){
+                            p.getConclusion().setCostForTurn(costForTurn-1);
+                        }
+                        else {
+                            p.getConclusion().setCostForTurn(cost-1);
+                        }
                     }
-                    else {
-                        p.getConclusion().setCostForTurn(cost-1);
-                    }
+                    this.isDone = true;
                 }
-                this.isDone = true;
             }
         });
         this.addToBot(new GetDiaryCardAction(p));

@@ -22,11 +22,10 @@ public class FirstImpressionAction extends AbstractGameAction {
     public static final Logger logger = LogManager.getLogger(FirstImpressionAction.class);
     public static final String[] TEXT = CardCrawlGame.languagePack.getUIString("Elaina:FirstImpressionAction").TEXT;
     private int num;
-    public FirstImpressionAction(ElainaC p, int num){
+    public FirstImpressionAction(ElainaC p){
         this.p = p;
         this.duration = Settings.ACTION_DUR_FAST;
         this.actionType = ActionType.CARD_MANIPULATION;
-        this.num = num;
     }
 
     @Override
@@ -37,7 +36,7 @@ public class FirstImpressionAction extends AbstractGameAction {
                 this.isDone = true;
                 return;
             }
-            AbstractDungeon.handCardSelectScreen.open(TEXT[0], num, true,true);
+            AbstractDungeon.handCardSelectScreen.open(TEXT[0], 10, true,false);
             AbstractDungeon.player.hand.applyPowers();
             this.tickDuration();
             return;

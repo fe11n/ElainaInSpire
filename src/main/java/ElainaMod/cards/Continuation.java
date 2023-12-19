@@ -30,7 +30,6 @@ public class Continuation extends AbstractElainaCard {
             this.exhaust = false;
             this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
             this.initializeDescription();
-            this.cardsToPreview.upgrade();
         }
     }
     /**

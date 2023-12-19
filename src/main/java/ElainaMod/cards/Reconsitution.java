@@ -2,7 +2,9 @@ package ElainaMod.cards;
 
 import ElainaMod.Characters.ElainaC;
 import ElainaMod.action.GetDiaryCardAction;
+import ElainaMod.powers.GetSpellBoostPower;
 import ElainaMod.powers.SpellBoostPower;
+import ElainaMod.powers.TimeGoesBackPower;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
@@ -22,7 +24,7 @@ public class Reconsitution extends AbstractElainaCard {
     public static final String ID = "Elaina:Reconsitution";
     private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID); // 从游戏系统读取本地化资源
     private static final String IMG_PATH = "ElainaMod/img/cards/Reconsitution.png";
-    private static final int COST = 1;
+    private static final int COST = 2;
     private static final CardType TYPE = CardType.SKILL;
     private static final CardRarity RARITY = CardRarity.UNCOMMON;
     private static final CardTarget TARGET = CardTarget.NONE;
@@ -37,19 +39,21 @@ public class Reconsitution extends AbstractElainaCard {
     @Override
     public void upgrade() { // 升级调用的方法
         if (!this.upgraded) {
-            this.upgradeName(); // 卡牌名字变为绿色并添加“+”，且标为升级过的卡牌，之后不能再升级。
-            this.upgradeBaseCost(0);
+            this.upgradeName();
+            this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
+            this.initializeDescription();
         }
     }
     @Override
     public void applyPowers() {
-        Iterator it = ((ElainaC)AbstractDungeon.player).DiaryGroup.iterator();
-        int sum = 0;
-        while(it.hasNext()){
-            sum+=((AbstractCard)it.next()).cost;
-        }
-        this.baseMagicNumber = this.magicNumber = sum;
+        this.baseMagicNumber = this.magicNumber = ((ElainaC)AbstractDungeon.player).DiaryGroup.size();
         super.applyPowers();
+        this.rawDescription = this.upgraded?CARD_STRINGS.UPGRADE_DESCRIPTION:CARD_STRINGS.DESCRIPTION
+                + CARD_STRINGS.EXTENDED_DESCRIPTION[0];
+        this.initializeDescription();
+    }
+    public void onMoveToDiscard() {
+        this.rawDescription = this.upgraded?CARD_STRINGS.UPGRADE_DESCRIPTION:CARD_STRINGS.DESCRIPTION;
         this.initializeDescription();
     }
     /**
@@ -80,7 +84,7 @@ public class Reconsitution extends AbstractElainaCard {
                 }
                 this.isDone = true;
             }
-        }.getMagicNum(magicNumber));
+        }.getMagicNum(this.upgraded?magicNumber*3:magicNumber*2));
     }//基础效果，可以被使用和瞬发
 
     ArrayList<AbstractPower> getPowers(AbstractPlayer p){
@@ -95,6 +99,10 @@ public class Reconsitution extends AbstractElainaCard {
         g.add(new RegenPower(p,1));
         g.add(new DrawCardNextTurnPower(p,1));
         g.add(new EnergizedBluePower(p,1));
+        g.add(new GetSpellBoostPower(p,1));
+        g.add(new TimeGoesBackPower(p,1));
+        g.add(new RitualPower(p,1,true));
+        g.add(new BlurPower(p,1));
         return g;
     }
 }

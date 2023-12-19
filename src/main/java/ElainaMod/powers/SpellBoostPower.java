@@ -44,13 +44,14 @@ public class SpellBoostPower extends AbstractPower {
     public void onUseCard(AbstractCard card, UseCardAction action){
         int  los;
         if(card.hasTag(ElainaC.Enums.MAGIC)){
+            this.flash();
             if(!(((ElainaC)AbstractDungeon.player).getConclusion()!=null && ((ElainaC)AbstractDungeon.player).getConclusion() instanceof WizardsWell)){
                 los = this.amount - this.amount /2;
             }
             else {
                 los = 1;
             }
-            this.addToBot(new ReducePowerAction(owner,owner,"Elaina:SpellResonance",los));
+            this.addToBot(new ReducePowerAction(owner,owner,"Elaina:SpellBoost",los));
             if(owner.hasPower("Elaina:SpellResonance")){
                 owner.getPower("Elaina:SpellResonance").flash();
                 addToBot(new DamageAllEnemiesAction(this.owner, DamageInfo.createDamageMatrix(los, true), DamageInfo.DamageType.HP_LOSS, AbstractGameAction.AttackEffect.NONE, true));

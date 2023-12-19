@@ -4,6 +4,7 @@ import ElainaMod.Characters.ElainaC;
 import ElainaMod.action.GetDiaryCardAction;
 import basemod.helpers.CardModifierManager;
 import com.badlogic.gdx.graphics.Texture;
+import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -26,17 +27,18 @@ public class ContinuationPower extends AbstractPower {
         this.name = NAME;
         this.ID = POWER_ID;
         this.owner = o;
-        this.amount = -1;
+        this.amount = 1;
         this.type = PowerType.BUFF;
         logger.info(DESCRIPTIONS[0]);
         this.updateDescription();
         this.img = new Texture("ElainaMod/img/powers/ContinuationPower.png");
     }
-    public void updateDescription(){this.description = DESCRIPTIONS[0];}
+    public void updateDescription(){this.description = DESCRIPTIONS[0]+DESCRIPTIONS[1];}
     public void onUseCard(AbstractCard card, UseCardAction action) {
         if(CardModifierManager.hasModifier(card,"toImageCardMod")){
             this.flash();
             this.addToBot(new GetDiaryCardAction((ElainaC) AbstractDungeon.player));
+            this.addToBot(new DrawCardAction(this.amount));
         }
     }
     public void atEndOfTurn(boolean isPlayer) {

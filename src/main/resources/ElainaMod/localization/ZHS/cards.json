@@ -143,8 +143,8 @@
   },
   "Elaina:AdjustPace": {
     "NAME": "调整步伐",
-    "DESCRIPTION": "时节回退 !M! ，增加2张加速到手牌中。 NL *消耗 。",
-    "UPGRADE_DESCRIPTION": "时节回退 !M! ，增加3张加速到手牌中。 NL *消耗 。"
+    "DESCRIPTION": "时节回退 !M! ，增加2张 *加速 到手牌中。 NL *消耗 。",
+    "UPGRADE_DESCRIPTION": "时节回退 !M! ，增加2张 *加速+ 到手牌中。 NL *消耗 。"
   },
   "Elaina:MagicEcho": {
     "NAME": "魔力回响",
@@ -152,7 +152,7 @@
   },
   "Elaina:ThunderMagic": {
     "NAME": "雷霆魔法",
-    "DESCRIPTION": "本回合每打出1张魔法卡，耗能减少 [E] [E] 。生命值最低的敌人受到 !D! 点伤害。击杀敌人时，伤害加 !M! ，再触发一次效果。"
+    "DESCRIPTION": "本回合每打出1张魔法卡，耗能减少 [E] [E] 。 NL 生命值最低的敌人受到 !D! 点伤害。击杀敌人时，伤害加 !M! ，再触发一次效果。 NL 消耗 。"
   },
   "Elaina:SilentChant": {
     "NAME": "无声咏唱",
@@ -237,12 +237,16 @@
   },
   "Elaina:Continuation": {
     "NAME": "续行",
-    "DESCRIPTION": "再现结语。本回合使用映像时，再现结语。 NL *消耗 。",
-    "UPGRADE_DESCRIPTION": "再现结语。本回合使用映像时，再现结语。"
+    "DESCRIPTION": "再现结语。本回合使用映像时，再现结语，抽1张牌。 NL *消耗 。",
+    "UPGRADE_DESCRIPTION": "再现结语。本回合使用映像时，再现结语，抽1张牌。"
   },
   "Elaina:Reconsitution": {
     "NAME": "重构",
-    "DESCRIPTION": "失去日记所有卡牌，获得个数等同于其费用之和的随机能力。 NL *消耗 。 NL （当前费用和为 !M! ）"
+    "DESCRIPTION": "失去日记所有卡牌。每失去1张，获得2个随机能力。 NL *消耗 。",
+    "UPGRADE_DESCRIPTION": "失去日记所有卡牌。每失去1张，获得3个随机能力。 NL *消耗 。",
+    "EXTENDED_DESCRIPTION": [
+      " NL （当前日记卡牌数： !M! ）"
+    ]
   },
   "Elaina:MarblePhantasm": {
     "NAME": "空想具现化",
@@ -289,7 +293,7 @@
   },
   "Elaina:Awaken": {
     "NAME": "初醒",
-    "DESCRIPTION": "将手牌，弃牌堆，抽牌堆中的卡牌变为映像，将日记卡牌的复制洗入抽牌堆。 NL *消耗 。"
+    "DESCRIPTION": "将手牌，弃牌堆，抽牌堆中的卡牌变为映像。将日记卡牌的复制洗入抽牌堆。 NL *消耗 。"
   },
   "Elaina:SpellLink": {
     "NAME": "法术链接",
@@ -303,5 +307,14 @@
     "NAME": "时光倒流",
     "DESCRIPTION": "打出时，时节回退X。接下来X回合，回合开始时，时节前进1，随机再现2张卡牌，使其费用变为0。",
     "UPGRADE_DESCRIPTION": "打出时，时节回退X。接下来X+1回合，回合开始时，时节前进1，随机再现2张卡牌，使其费用变为0。"
+  },
+  "Elaina:Deviation": {
+    "NAME": "偏差",
+    "DESCRIPTION": "造成 !D! 点伤害，时节前进1。 NL 时节变化时，伤害加 !M! 。 NL *保留 。 NL *消耗 。"
+  },
+  "Elaina:TimeMagic": {
+    "NAME": "时间魔法",
+    "DESCRIPTION": "造成 !D! 点伤害。时节回退1，增加1张 *偏差 到抽牌堆。",
+    "UPGRADE_DESCRIPTION": "造成 !D! 点伤害。时节回退1，增加1张 *偏差+ 到抽牌堆。"
   }
 }

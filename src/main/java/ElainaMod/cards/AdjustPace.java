@@ -30,6 +30,7 @@ public class AdjustPace extends AbstractElainaCard {
         if (!this.upgraded) {
             this.upgradeName();
             this.upgradeMagicNumber(2);
+            this.cardsToPreview.upgrade();
             this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
             this.initializeDescription();
         }
@@ -43,6 +44,6 @@ public class AdjustPace extends AbstractElainaCard {
     @Override
     public void BasicEffect(ElainaC p, AbstractMonster m) {
         this.addToBot(new ChangeMonthAction(p,this.magicNumber,true));
-        this.addToBot(new MakeTempCardInHandAction(this.cardsToPreview.makeStatEquivalentCopy(),this.magicNumber/2));
+        this.addToBot(new MakeTempCardInHandAction(this.cardsToPreview.makeStatEquivalentCopy(),2));
     }
 }

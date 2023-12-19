@@ -13,13 +13,13 @@ public class WizardsWell extends AbstractElainaCard {
     private static final String IMG_PATH = "ElainaMod/img/cards/WizardsWell.png";
     private static final int COST = 1;
     private static final CardType TYPE = CardType.SKILL;
-    private static final CardRarity RARITY = CardRarity.RARE;
+    private static final CardRarity RARITY = CardRarity.UNCOMMON;
     private static final CardTarget TARGET = CardTarget.SELF;
 
     public WizardsWell() {
         // 为了命名规范修改了变量名。这些参数具体的作用见下方
         super(ID, CARD_STRINGS, IMG_PATH, COST, TYPE, RARITY, TARGET);
-        this.magicNumber = this.baseMagicNumber = 4;
+        this.magicNumber = this.baseMagicNumber = 3;
         this.isShorthand = true;
     }
 

@@ -5,6 +5,8 @@ import com.evacipated.cardcrawl.mod.stslib.actions.common.StunMonsterAction;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
+import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
@@ -55,4 +57,25 @@ public class Reversal extends AbstractElainaCard {
             }
         }
     }//基础效果，可以被使用和瞬发
+    boolean ReversalGlowCheck(){
+        Iterator var3 = AbstractDungeon.getCurrRoom().monsters.monsters.iterator();
+        AbstractMonster mo;
+        AbstractPlayer p = AbstractDungeon.player;
+        while(var3.hasNext()) {
+            mo = (AbstractMonster)var3.next();
+            logger.info("Mo IntentDmg: "+mo.getIntentDmg());
+            logger.info("half current heath: "+p.currentHealth/2);
+            if(mo.getIntentDmg()>=p.currentHealth/2){
+                return true;
+            }
+        }
+        return false;
+    }
+    public void triggerOnGlowCheck() {
+        if(ReversalGlowCheck()){
+            this.glowColor = AbstractCard.GOLD_BORDER_GLOW_COLOR.cpy();
+        } else {
+            this.glowColor = AbstractCard.BLUE_BORDER_GLOW_COLOR.cpy();
+        }
+    }
 }

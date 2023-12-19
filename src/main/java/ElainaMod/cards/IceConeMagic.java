@@ -14,7 +14,7 @@ import com.megacrit.cardcrawl.powers.VulnerablePower;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-public class IceConeMagic extends AbstractElainaCard {
+public class IceConeMagic extends AbstractSeasonCard {
     public static final String ID = "Elaina:IceConeMagic";
     private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID); // 从游戏系统读取本地化资源
     private static final String IMG_PATH = "ElainaMod/img/cards/IceConeMagic.png";
@@ -31,10 +31,12 @@ public class IceConeMagic extends AbstractElainaCard {
         this.magicNumber = this.baseMagicNumber = 1;
         this.tags.add(ElainaC.Enums.MAGIC);
         this.tags.add(ElainaC.Enums.SEASONAL);
+        this.BestSeasonNum = 0;
         this.ExtendDamage[0]=this.ExtendDamage[1]=this.ExtendDamage[2]=this.ExtendDamage[3]=18;
         this.ExtendExhaust[2]=true;
         this.ExtendExhaust[0]=this.ExtendExhaust[1]=this.ExtendExhaust[3]=false;
         this.ExtendMagicNum[0] = 1;
+        setPreviewCard(this);
     }
 
     @Override

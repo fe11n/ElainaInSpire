@@ -46,11 +46,10 @@ public class WitnessOfFriendship extends AbstractSeasonCard {
         }
     }
 
-    public int getSeasonNum(){
-        ElainaC p = (ElainaC)(AbstractDungeon.player);
-        logger.info("Noted Year: "+p.UsedYear);
-        int m = p.getSeason();
-        if(m == 1 && !p.UsedYear.contains((p.Month-1)/12)) return 0;
+    public static int getSeasonNum(){
+        logger.info("Noted Year: "+ElainaC.UsedYear);
+        int m = ElainaC.getSeason();
+        if(m == 1 && !ElainaC.UsedYear.contains((ElainaC.Month-1)/12)) return 0;
         else return 1;
     }
     /**
@@ -61,7 +60,7 @@ public class WitnessOfFriendship extends AbstractSeasonCard {
      */
     @Override
     public void BasicEffect(ElainaC p, AbstractMonster m) {
-        switch (this.getSeasonNum()){
+        switch (getSeasonNum()){
             case 0:
                 this.addToBot(new AbstractGameAction() {
                     @Override
@@ -70,7 +69,7 @@ public class WitnessOfFriendship extends AbstractSeasonCard {
                         logger.info("P get relic: "+ r.name);
                         AbstractDungeon.getCurrRoom().spawnRelicAndObtain((float)Settings.WIDTH / 2.0F, (float)Settings.HEIGHT / 2.0F, r);
                         //r.atBattleStart();
-                        p.UsedYear.add((p.Month-1)/12);
+                        ElainaC.UsedYear.add((ElainaC.Month -1)/12);
                         p.UpdateAllSeasonalDescription();
                         this.isDone = true;
                     }

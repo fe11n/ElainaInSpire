@@ -60,8 +60,8 @@ public class AbstractElainaCard extends CustomCard {
     }//瞬发
     public void triggerOnMonthChanged() {
     }
-    public int getSeasonNum(){
-        return ((ElainaC)(AbstractDungeon.player)).getSeason();
+    public static int getSeasonNum(){
+        return ElainaC.getSeason();
     }
     public boolean isNotable(){return !(this.hasTag(ElainaC.Enums.UNNOTABLE) || this.type == CardType.POWER || this.exhaust == true || this.cost<0);}
     public boolean UpdateSeasonalDescription(){

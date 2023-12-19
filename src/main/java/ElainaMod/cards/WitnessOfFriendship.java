@@ -17,7 +17,7 @@ import com.megacrit.cardcrawl.vfx.GainPennyEffect;
 import java.util.ArrayList;
 import java.util.Iterator;
 
-public class WitnessOfFriendship extends AbstractElainaCard {
+public class WitnessOfFriendship extends AbstractSeasonCard {
     public static final String ID = "Elaina:WitnessOfFriendship";
     private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID); // 从游戏系统读取本地化资源
     private static final String IMG_PATH = "ElainaMod/img/cards/WitnessOfFriendship.png";
@@ -34,6 +34,7 @@ public class WitnessOfFriendship extends AbstractElainaCard {
         this.exhaust = true;
         this.ExtendExhaust[0]=this.ExtendExhaust[1]=true;
         this.ExtendMagicNum[0]=this.ExtendMagicNum[1]=15;
+        // setPreviewCard(this,this,null,null);
     }
 
     @Override

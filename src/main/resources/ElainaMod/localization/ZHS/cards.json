@@ -316,5 +316,10 @@
     "NAME": "时间魔法",
     "DESCRIPTION": "造成 !D! 点伤害。时节回退1，增加1张 *偏差 到抽牌堆。",
     "UPGRADE_DESCRIPTION": "造成 !D! 点伤害。时节回退1，增加1张 *偏差+ 到抽牌堆。"
+  },
+  "Elaina:Glance": {
+    "NAME": "惊鸿",
+    "DESCRIPTION": "不能被打出和记录。 NL 抽到这张牌时，记录所有的手牌，然后 *消耗 。",
+    "UPGRADE_DESCRIPTION": "不能被打出和记录。 NL 抽到这张牌时，记录所有的手牌。"
   }
 }

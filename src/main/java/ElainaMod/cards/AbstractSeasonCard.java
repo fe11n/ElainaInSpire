@@ -150,7 +150,7 @@ public abstract class AbstractSeasonCard extends AbstractElainaCard {
         }
         if (AbstractDungeon.player == null || (!AbstractDungeon.player.isDraggingCard &&
                 !AbstractDungeon.player.inSingleTargetMode)) {
-            int season = this.getSeasonNum();
+            int season = getSeasonNum();
             float [] seasonX = {
                     this.current_x, this.current_x - this.hb.width, this.current_x - this.hb.width,this.current_x,
             };

@@ -20,7 +20,7 @@ import org.apache.logging.log4j.Logger;
 
 import java.util.Iterator;
 
-public class FragrantWind extends AbstractElainaCard {
+public class FragrantWind extends AbstractSeasonCard {
     public static final String ID = "Elaina:FragrantWind";
     private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID); // 从游戏系统读取本地化资源
     private static final String IMG_PATH = "ElainaMod/img/cards/FragrantWind.png";
@@ -42,6 +42,7 @@ public class FragrantWind extends AbstractElainaCard {
         this.ExtendDamage[2]=5;
         this.ExtendMagicNum[0]=this.ExtendMagicNum[1]=this.ExtendMagicNum[2]=this.ExtendMagicNum[3]=2;
         this.ExtendExhaust[0]=this.ExtendExhaust[1]=this.ExtendExhaust[2]=this.ExtendExhaust[3]=true;
+        setPreviewCard(this);
     }
 
     @Override

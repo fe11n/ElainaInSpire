@@ -51,7 +51,7 @@ public class RecordCardAction extends AbstractGameAction {
                 g.add(0,c);
                 logger.info("Diary size after record: "+g.size());
                 for (AbstractElainaCard abstractElainaCard : g) {
-                    logger.info(((AbstractCard) abstractElainaCard).name);
+                    logger.info((abstractElainaCard).name);
                 }
                 if(g.size()==1){
                     p.channelOrb(new ConclusionOrb(c));
@@ -62,7 +62,7 @@ public class RecordCardAction extends AbstractGameAction {
             g.add(c);
             logger.info("Diary size after record: "+g.size());
             for (AbstractElainaCard abstractElainaCard : g) {
-                logger.info(((AbstractCard) abstractElainaCard).name);
+                logger.info((abstractElainaCard).name);
             }
             if(c.hasTag(ElainaC.Enums.SEASONAL)){
                 c.UpdateSeasonalDescription(true);//复制的instance没有initialize，描述没有改变，也可以直接initialize

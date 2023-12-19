@@ -28,6 +28,7 @@ public class FragrantWind extends AbstractSeasonCard {
     private static final CardType TYPE = CardType.SKILL;
     private static final CardRarity RARITY = CardRarity.UNCOMMON;
     private static final CardTarget TARGET = CardTarget.ALL_ENEMY;
+
     public static final Logger logger = LogManager.getLogger(WanderingWitch.class);
 
     public FragrantWind() {
@@ -36,6 +37,7 @@ public class FragrantWind extends AbstractSeasonCard {
         this.damage = this.baseDamage = 5;
         this.magicNumber = this.baseMagicNumber = 2;
         this.tags.add(ElainaC.Enums.SEASONAL);
+        this.BestSeasonNum = 2;
         this.isMultiDamage = true;
         this.damageTypeForTurn = DamageType.HP_LOSS;
         this.exhaust = true;

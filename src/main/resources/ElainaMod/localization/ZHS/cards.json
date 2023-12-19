@@ -1,7 +1,7 @@
 {
   "Elaina:StrikeBeta": {
     "NAME": "打击",
-    "DESCRIPTION": "造成 !D! 点伤害，时节向前3。 NL *瞬发"
+    "DESCRIPTION": "造成 !D! 点伤害，时节向前3。 NL *瞬发 。"
   },
   "Elaina:Strike": {
     "NAME": "打击",
@@ -33,7 +33,7 @@
   },
   "Elaina:IceConeMagic": {
     "NAME": "冰锥魔法",
-    "DESCRIPTION": "造成 !D! 点伤害，给予 !M! 层易伤。 NL *时令",
+    "DESCRIPTION": "造成 !D! 点伤害，给予 !M! 层易伤。 NL *时令 。",
     "EXTENDED_DESCRIPTION": [
       "造成 !D! 点伤害。 NL *冬",
       "造成 !D! 点伤害。 NL *春",
@@ -52,7 +52,7 @@
   },
   "Elaina:WitnessOfFriendship": {
     "NAME": "友谊的见证",
-    "DESCRIPTION": "获得 !M! 金币。 NL *消耗",
+    "DESCRIPTION": "获得 !M! 金币。 NL *消耗 。",
     "EXTENDED_DESCRIPTION": [
       "获得1个普通遗物。 NL *消耗",
       "获得 !M! 金币。 NL *消耗"
@@ -64,7 +64,7 @@
   },
   "Elaina:Rush": {
     "NAME": "急行",
-    "DESCRIPTION": "时节前进 !M! ，使所有敌人力量翻倍。 NL *消耗"
+    "DESCRIPTION": "时节前进 !M! ，使所有敌人力量翻倍。 NL *消耗 。"
   },
   "Elaina:IntensifyArray": {
     "NAME": "激化法阵",
@@ -72,7 +72,7 @@
   },
   "Elaina:WitchRobe": {
     "NAME": "魔女长袍",
-    "DESCRIPTION": "获得 !B! 点格挡。若本回合没有打出其它卡牌，获得 [E] 。 NL *瞬发"
+    "DESCRIPTION": "获得 !B! 点格挡。若本回合没有打出其它卡牌，获得 [E] 。 NL *瞬发 。"
   },
   "Elaina:BombardmentMagic": {
     "NAME": "轰击魔法",
@@ -80,11 +80,11 @@
   },
   "Elaina:Rummage": {
     "NAME": "翻找",
-    "DESCRIPTION": "*速记 。抽 !M! 张牌。"
+    "DESCRIPTION": "抽 !M! 张牌，并记录这些牌。"
   },
   "Elaina:LeavesMagic": {
     "NAME": "落叶魔法",
-    "DESCRIPTION": "对所有敌人造成 !D! 点伤害3次。 NL *时令",
+    "DESCRIPTION": "对所有敌人造成 !D! 点伤害3次。 NL *时令 。",
     "EXTENDED_DESCRIPTION": [
       "对随机敌人造成 !D! 点伤害3次。 NL *冬",
       "对随机敌人造成 !D! 点伤害2次。 NL *春",
@@ -99,7 +99,7 @@
   },
   "Elaina:Penoff": {
     "NAME": "停笔",
-    "DESCRIPTION": "获得 !B! 点格挡。 NL *保留 NL *消耗"
+    "DESCRIPTION": "获得 !B! 点格挡。 NL *保留 。 NL *消耗 。"
   },
   "Elaina:Ponder": {
     "NAME": "思索",
@@ -135,16 +135,16 @@
   },
   "Elaina:FragrantWind": {
     "NAME": "香风",
-    "DESCRIPTION": "给予所有敌人 !M! 层虚弱和易伤，给予所有敌人 !D! 层中毒。 NL *消耗 NL *时令"
+    "DESCRIPTION": "给予所有敌人 !M! 层虚弱和易伤，给予所有敌人 !D! 层中毒。 NL *消耗 NL *时令 。"
   },
   "Elaina:Accelerate": {
     "NAME": "加速",
-    "DESCRIPTION": "时节前进 !M! 。 NL *保留。 NL *消耗。"
+    "DESCRIPTION": "时节前进 !M! 。 NL *保留 。 NL *消耗 。"
   },
   "Elaina:AdjustPace": {
     "NAME": "调整步伐",
-    "DESCRIPTION": "时节回退 !M! ，增加2张加速到手牌中。 NL *消耗。",
-    "UPGRADE_DESCRIPTION": "时节回退 !M! ，增加3张加速到手牌中。 NL *消耗。"
+    "DESCRIPTION": "时节回退 !M! ，增加2张 *加速 到手牌中。 NL *消耗 。",
+    "UPGRADE_DESCRIPTION": "时节回退 !M! ，增加2张 *加速+ 到手牌中。 NL *消耗 。"
   },
   "Elaina:MagicEcho": {
     "NAME": "魔力回响",
@@ -152,7 +152,7 @@
   },
   "Elaina:ThunderMagic": {
     "NAME": "雷霆魔法",
-    "DESCRIPTION": "本回合每打出1张魔法卡，耗能减少 [E] [E] 。生命值最低的敌人受到 !D! 点伤害。击杀敌人时，伤害加 !M! ，再触发一次效果。"
+    "DESCRIPTION": "本回合每打出1张魔法卡，耗能减少 [E] [E] 。 NL 生命值最低的敌人受到 !D! 点伤害。击杀敌人时，伤害加 !M! ，再触发一次效果。 NL 消耗 。"
   },
   "Elaina:SilentChant": {
     "NAME": "无声咏唱",
@@ -160,12 +160,12 @@
   },
   "Elaina:Spell": {
     "NAME": "释放",
-    "DESCRIPTION": "抽取 !M! 张卡牌。保留时，该数值加1。 NL *保留。 NL *消耗"
+    "DESCRIPTION": "抽取 !M! 张卡牌。保留时，该数值加1。 NL *保留 。 NL *消耗 。"
   },
   "Elaina:Reappear": {
     "NAME": "重现",
     "DESCRIPTION": "再现结语。 NL *保留 。 NL *消耗 。",
-    "UPGRADE_DESCRIPTION": "再现结语。 NL *保留。"
+    "UPGRADE_DESCRIPTION": "再现结语。 NL *保留 。"
   },
   "Elaina:SpellReorganization": {
     "NAME": "法术重组",
@@ -193,24 +193,24 @@
   },
   "Elaina:SpringJoy": {
     "NAME": "春之欢喜",
-    "DESCRIPTION": "若没有再生，则获得 !M! 层再生。时节每循环一次，该数值加1。 NL *瞬发"
+    "DESCRIPTION": "若没有再生，则获得 !M! 层再生。时节每循环一次，该数值加1。 NL *瞬发 。"
   },
   "Elaina:SummerExcitement": {
     "NAME": "夏之振奋",
-    "DESCRIPTION": "若没有魔力增幅，获得 !M! 层魔力增幅。时节每循环一次，该数值加1。 NL *瞬发"
+    "DESCRIPTION": "若没有魔力增幅，获得 !M! 层魔力增幅。时节每循环一次，该数值加1。 NL *瞬发 。"
   },
   "Elaina:AutumnVigilance": {
     "NAME": "秋之警惕",
-    "DESCRIPTION": "若没有荆棘，获得 !M! 层荆棘。时节每循环一次，该数值加1。 NL *瞬发"
+    "DESCRIPTION": "若没有荆棘，获得 !M! 层荆棘。时节每循环一次，该数值加1。 NL *瞬发 。"
   },
   "Elaina:WinterPeace": {
     "NAME": "冬之安详",
-    "DESCRIPTION": "若没有多层护甲，获得 !M! 层多层护甲。时节每循环一次，该数值加1。 NL *瞬发"
+    "DESCRIPTION": "若没有多层护甲，获得 !M! 层多层护甲。时节每循环一次，该数值加1。 NL *瞬发 。"
   },
   "Elaina:Accumulation": {
     "NAME": "蓄能",
-    "DESCRIPTION": "获得10层魔力增幅，本回合失去 !M! 点力量。 NL *消耗",
-    "UPGRADE_DESCRIPTION": "获得12层魔力增幅，本回合失去 !M! 点力量。 NL *消耗"
+    "DESCRIPTION": "获得10层魔力增幅，本回合失去 !M! 点力量。 NL *消耗 。",
+    "UPGRADE_DESCRIPTION": "获得12层魔力增幅，本回合失去 !M! 点力量。 NL *消耗 。"
   },
   "Elaina:Mutation": {
     "NAME": "蝶变",
@@ -224,7 +224,7 @@
   },
   "Elaina:WitchsCauldron": {
     "NAME": "魔女的坩埚",
-    "DESCRIPTION": "随机增加 !M! 张有保留效果的卡牌到手牌中。消耗。"
+    "DESCRIPTION": "随机增加 !M! 张有保留效果的卡牌到手牌中。消耗 。"
   },
   "Elaina:MagicDiffusion": {
     "NAME": "魔力扩散",
@@ -237,16 +237,20 @@
   },
   "Elaina:Continuation": {
     "NAME": "续行",
-    "DESCRIPTION": "再现结语。本回合使用映像时，再现结语。 NL *消耗 。",
-    "UPGRADE_DESCRIPTION": "再现结语。本回合使用映像时，再现结语。"
+    "DESCRIPTION": "再现结语。本回合使用映像时，再现结语，抽1张牌。 NL *消耗 。",
+    "UPGRADE_DESCRIPTION": "再现结语。本回合使用映像时，再现结语，抽1张牌。"
   },
   "Elaina:Reconsitution": {
     "NAME": "重构",
-    "DESCRIPTION": "失去日记所有卡牌，获得个数等同于其费用之和的随机能力。 NL *消耗。 NL （当前费用和为 !M! ）"
+    "DESCRIPTION": "失去日记所有卡牌。每失去1张，获得2个随机能力。 NL *消耗 。",
+    "UPGRADE_DESCRIPTION": "失去日记所有卡牌。每失去1张，获得3个随机能力。 NL *消耗 。",
+    "EXTENDED_DESCRIPTION": [
+      " NL （当前日记卡牌数： !M! ）"
+    ]
   },
   "Elaina:MarblePhantasm": {
     "NAME": "空想具现化",
-    "DESCRIPTION": "*速记 ，记录在日记开头。 NL 再现结语。 NL 打出时，若为映像，则使所有正面能力的数值翻倍。 NL *虚无。",
+    "DESCRIPTION": "*速记 ，记录在日记开头。 NL 再现结语。 NL 打出时，若为映像，则使所有正面能力的数值翻倍。 NL *虚无 。",
     "UPGRADE_DESCRIPTION": "*速记 ，记录在日记开头。 NL 再现结语。 NL 打出时，若为映像，则使所有正面能力的数值翻倍。"
   },
   "Elaina:DeepMemory": {
@@ -289,7 +293,7 @@
   },
   "Elaina:Awaken": {
     "NAME": "初醒",
-    "DESCRIPTION": "将手牌，弃牌堆，抽牌堆中的卡牌变为映像，将日记卡牌的复制洗入抽牌堆。 NL *消耗 。"
+    "DESCRIPTION": "将手牌，弃牌堆，抽牌堆中的卡牌变为映像。将日记卡牌的复制洗入抽牌堆。 NL *消耗 。"
   },
   "Elaina:SpellLink": {
     "NAME": "法术链接",
@@ -303,5 +307,19 @@
     "NAME": "时光倒流",
     "DESCRIPTION": "打出时，时节回退X。接下来X回合，回合开始时，时节前进1，随机再现2张卡牌，使其费用变为0。",
     "UPGRADE_DESCRIPTION": "打出时，时节回退X。接下来X+1回合，回合开始时，时节前进1，随机再现2张卡牌，使其费用变为0。"
+  },
+  "Elaina:Deviation": {
+    "NAME": "偏差",
+    "DESCRIPTION": "造成 !D! 点伤害，时节前进1。 NL 时节变化时，伤害加 !M! 。 NL *保留 。 NL *消耗 。"
+  },
+  "Elaina:TimeMagic": {
+    "NAME": "时间魔法",
+    "DESCRIPTION": "造成 !D! 点伤害。时节回退1，增加1张 *偏差 到抽牌堆。",
+    "UPGRADE_DESCRIPTION": "造成 !D! 点伤害。时节回退1，增加1张 *偏差+ 到抽牌堆。"
+  },
+  "Elaina:Glance": {
+    "NAME": "惊鸿",
+    "DESCRIPTION": "不能被打出和记录。 NL 抽到这张牌时，记录所有的手牌，然后 *消耗 。",
+    "UPGRADE_DESCRIPTION": "不能被打出和记录。 NL 抽到这张牌时，记录所有的手牌。"
   }
 }

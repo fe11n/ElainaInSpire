@@ -30,7 +30,7 @@ public class NewClothes extends AbstractElainaCard {
             this.upgradeBlock(2);
         }
     }
-    public void triggerOnMonthChanged() {
+    public void triggerOnMonthChanged(int num,boolean isBack) {
         this.addToBot(new DiscardToHandAction(this));
     }
     /**

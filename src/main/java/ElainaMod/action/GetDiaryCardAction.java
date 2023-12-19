@@ -50,7 +50,7 @@ public class GetDiaryCardAction extends AbstractGameAction {
                 this.isDone = true;
                 return;
             }
-            if(cardIndex == -1){
+            if(cardIndex == -1 || cardIndex == g.size()-1){
                 this.cardIndex = g.size()-1;
                 g.remove(g.size()-1);
                 if(g.size()>0){

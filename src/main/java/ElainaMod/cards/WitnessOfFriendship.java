@@ -17,7 +17,7 @@ import com.megacrit.cardcrawl.vfx.GainPennyEffect;
 import java.util.ArrayList;
 import java.util.Iterator;
 
-public class WitnessOfFriendship extends AbstractElainaCard {
+public class WitnessOfFriendship extends AbstractSeasonCard {
     public static final String ID = "Elaina:WitnessOfFriendship";
     private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID); // 从游戏系统读取本地化资源
     private static final String IMG_PATH = "ElainaMod/img/cards/WitnessOfFriendship.png";
@@ -34,6 +34,7 @@ public class WitnessOfFriendship extends AbstractElainaCard {
         this.exhaust = true;
         this.ExtendExhaust[0]=this.ExtendExhaust[1]=true;
         this.ExtendMagicNum[0]=this.ExtendMagicNum[1]=15;
+        // setPreviewCard(this,this,null,null);
     }
 
     @Override
@@ -45,11 +46,10 @@ public class WitnessOfFriendship extends AbstractElainaCard {
         }
     }
 
-    public int getSeasonNum(){
-        ElainaC p = (ElainaC)(AbstractDungeon.player);
-        logger.info("Noted Year: "+p.UsedYear);
-        int m = p.getSeason();
-        if(m == 1 && !p.UsedYear.contains((p.Month-1)/12)) return 0;
+    public static int getSeasonNum(){
+        logger.info("Noted Year: "+ElainaC.UsedYear);
+        int m = ElainaC.getSeason();
+        if(m == 1 && !ElainaC.UsedYear.contains((ElainaC.Month-1)/12)) return 0;
         else return 1;
     }
     /**
@@ -60,7 +60,7 @@ public class WitnessOfFriendship extends AbstractElainaCard {
      */
     @Override
     public void BasicEffect(ElainaC p, AbstractMonster m) {
-        switch (this.getSeasonNum()){
+        switch (getSeasonNum()){
             case 0:
                 this.addToBot(new AbstractGameAction() {
                     @Override
@@ -69,7 +69,7 @@ public class WitnessOfFriendship extends AbstractElainaCard {
                         logger.info("P get relic: "+ r.name);
                         AbstractDungeon.getCurrRoom().spawnRelicAndObtain((float)Settings.WIDTH / 2.0F, (float)Settings.HEIGHT / 2.0F, r);
                         //r.atBattleStart();
-                        p.UsedYear.add((p.Month-1)/12);
+                        ElainaC.UsedYear.add((ElainaC.Month -1)/12);
                         p.UpdateAllSeasonalDescription();
                         this.isDone = true;
                     }

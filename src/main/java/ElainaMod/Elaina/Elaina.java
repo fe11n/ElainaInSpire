@@ -68,6 +68,7 @@ public class Elaina implements EditStringsSubscriber,EditCardsSubscriber, EditCh
       BaseMod.addCard(new DeepMemory());
       BaseMod.addCard(new Defend());
       BaseMod.addCard(new DestructionMagic());
+      BaseMod.addCard(new Deviation());
       BaseMod.addCard(new Drawup());
       BaseMod.addCard(new Echo());
       BaseMod.addCard(new Eh());
@@ -77,6 +78,7 @@ public class Elaina implements EditStringsSubscriber,EditCardsSubscriber, EditCh
       BaseMod.addCard(new FlashMagic());
       BaseMod.addCard(new FragmentMagic());
       BaseMod.addCard(new FragrantWind());
+      BaseMod.addCard(new Glance());
       BaseMod.addCard(new GrowUp());
       BaseMod.addCard(new IceConeMagic());
       BaseMod.addCard(new IndelibleImprint());
@@ -113,6 +115,7 @@ public class Elaina implements EditStringsSubscriber,EditCardsSubscriber, EditCh
       BaseMod.addCard(new ThePerfectMe());
       BaseMod.addCard(new ThunderMagic());
       BaseMod.addCard(new TimeGoesBack());
+      BaseMod.addCard(new TimeMagic());
       BaseMod.addCard(new Turnback());
       BaseMod.addCard(new Vibration());
       BaseMod.addCard(new WinterPeace());

@@ -8,7 +8,8 @@ import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.*;
 
-public class SpringJoy extends AbstractElainaCard {
+public class
+SpringJoy extends AbstractElainaCard {
     public static final String ID = "Elaina:SpringJoy";
     private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID); // 从游戏系统读取本地化资源
     private static final String IMG_PATH = "ElainaMod/img/cards/SpringJoy.png";
@@ -37,7 +38,7 @@ public class SpringJoy extends AbstractElainaCard {
     @Override
     public void applyPowers() {
         int m = ((ElainaC)AbstractDungeon.player).Month;
-        this.baseMagicNumber = this.magicNumber = this.misc + (m>0?(m/12):0);
+        this.baseMagicNumber = this.magicNumber = this.misc + (m>0?((m-1)/12):0);
         super.applyPowers();
         this.initializeDescription();
     }

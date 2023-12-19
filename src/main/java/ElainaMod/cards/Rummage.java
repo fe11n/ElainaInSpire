@@ -2,6 +2,8 @@ package ElainaMod.cards;
 
 import ElainaMod.Characters.ElainaC;
 import ElainaMod.action.GetDiaryCardAction;
+import ElainaMod.action.RecordCardAction;
+import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -24,7 +26,6 @@ public class Rummage extends AbstractElainaCard {
         // 为了命名规范修改了变量名。这些参数具体的作用见下方
         super(ID, CARD_STRINGS, IMG_PATH, COST, TYPE, RARITY, TARGET);
         this.magicNumber = this.baseMagicNumber = 2;//要给base值和原值同时赋值
-        this.isShorthand = true;
     }
 
     @Override
@@ -46,5 +47,14 @@ public class Rummage extends AbstractElainaCard {
     @Override
     public void BasicEffect(ElainaC p, AbstractMonster m) {
         this.addToBot(new DrawCardAction(this.magicNumber));
+        this.addToBot(new AbstractGameAction() {
+            @Override
+            public void update() {
+                for(int i = 0;i<magicNumber;i++){
+                    this.addToBot(new RecordCardAction(p.hand.group.get(p.hand.group.size()-magicNumber+i)));
+                }
+                this.isDone = true;
+            }
+        });
     }
 }

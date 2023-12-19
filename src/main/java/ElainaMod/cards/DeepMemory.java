@@ -12,7 +12,7 @@ public class DeepMemory extends AbstractElainaCard {
     public static final String ID = "Elaina:DeepMemory";
     private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID); // 从游戏系统读取本地化资源
     private static final String IMG_PATH = "ElainaMod/img/cards/DeepMemory.png";
-    private static final int COST = 3;
+    private static final int COST = 2;
     private static final CardType TYPE = CardType.POWER;
     private static final CardRarity RARITY = CardRarity.RARE;
     private static final CardTarget TARGET = CardTarget.SELF;
@@ -26,7 +26,7 @@ public class DeepMemory extends AbstractElainaCard {
     public void upgrade() { // 升级调用的方法
         if (!this.upgraded) {
             this.upgradeName();
-            this.upgradeBaseCost(2);
+            this.upgradeBaseCost(1);
         }
     }
     /**

@@ -45,7 +45,9 @@ public class TimeGoesBackAction extends AbstractGameAction {
             effect += 2;
             this.p.getRelic("Chemical X").flash();
         }
-        this.addToBot(new ChangeMonthAction(p,effect,true));
+        if(effect > 0){
+            this.addToBot(new ChangeMonthAction(p,effect,true));
+        }
 
         if (this.upgraded) {
             ++effect;

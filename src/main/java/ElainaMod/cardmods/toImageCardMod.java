@@ -14,6 +14,7 @@ public class toImageCardMod extends AbstractCardModifier {
     }//为方便remove，尽量不要使用CardMod直接修改卡牌值，虚弱要修改，也要做好保留方便恢复
     private boolean isExhaustBefore = true;
     private boolean isEherealBefore = true;
+    private boolean isSelfRetainBefore = true;
 
     public static final Logger logger = LogManager.getLogger(toSeasonCardMod.class);
 
@@ -33,9 +34,11 @@ public class toImageCardMod extends AbstractCardModifier {
     public void onInitialApplication(AbstractCard card) {
         isEherealBefore = card.isEthereal;
         isExhaustBefore = card.exhaust;
+        isSelfRetainBefore = card.selfRetain;
         ((AbstractElainaCard)card).ModStrings.add(CardCrawlGame.languagePack.getUIString("Elaina:Image").TEXT[0]);
         card.isEthereal = true;
         card.exhaust = true;
+        card.selfRetain = false;
     }
 
     @Override
@@ -52,6 +55,7 @@ public class toImageCardMod extends AbstractCardModifier {
     public void onRemove(AbstractCard card) {
         card.exhaust = isExhaustBefore;
         card.isEthereal = isEherealBefore;
+        card.selfRetain = isSelfRetainBefore;
         ((AbstractElainaCard)card).ModStrings.remove(CardCrawlGame.languagePack.getUIString("Elaina:Image").TEXT[0]);
     }
 }

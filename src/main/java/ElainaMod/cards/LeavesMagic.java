@@ -11,7 +11,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-public class LeavesMagic extends AbstractElainaCard {
+public class LeavesMagic extends AbstractSeasonCard {
     public static final String ID = "Elaina:LeavesMagic";
     private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID); // 从游戏系统读取本地化资源
     private static final String IMG_PATH = "ElainaMod/img/cards/LeavesMagic.png";
@@ -31,6 +31,7 @@ public class LeavesMagic extends AbstractElainaCard {
         this.ExtendDamage[0]=this.ExtendDamage[1]=this.ExtendDamage[2]=this.ExtendDamage[3]=5;
         this.ExtendMagicNum[0]=this.ExtendMagicNum[3]=3;
         this.ExtendMagicNum[1]=this.ExtendMagicNum[2]=2;
+        setPreviewCard(this);
     }
 
     @Override

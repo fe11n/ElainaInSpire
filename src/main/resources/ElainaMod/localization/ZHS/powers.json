@@ -43,7 +43,8 @@
   "Elaina:Continuation": {
     "NAME": "续行",
     "DESCRIPTIONS": [
-      "本回合使用映像时，再现结语。"
+      "本回合使用映像时，再现结语，抽",
+      "张牌。"
     ]
   },
   "Elaina:DeepMemory": {

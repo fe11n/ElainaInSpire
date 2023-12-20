@@ -20,7 +20,7 @@
     "DESCRIPTION": "获得 !B! 点格挡。使当前 elainamod:结语 获得 * elainamod:瞬发 效果。不可被 elainamod:记录 。"
   },
   "Elaina:RecreateMagic": {
-    "NAME": " elainamod:再现 魔法",
+    "NAME": "重现魔法",
     "DESCRIPTION": "造成 !D! 点伤害， * elainamod:再现 elainamod:结语 ,使其本回合费用-1。"
   },
   "Elaina:DestructionMagic": {

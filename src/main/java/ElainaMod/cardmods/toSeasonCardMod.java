@@ -1,6 +1,7 @@
 package ElainaMod.cardmods;
 
 import ElainaMod.cards.AbstractElainaCard;
+import ElainaMod.cards.AbstractSeasonCard;
 import basemod.abstracts.AbstractCardModifier;
 import com.badlogic.gdx.graphics.Color;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -24,13 +25,13 @@ public class toSeasonCardMod extends AbstractCardModifier {
     @Override
     public void onInitialApplication(AbstractCard card) {
         logger.info("Card Name: " + card.name);
-        logger.info("SeasonNum: " + ((AbstractElainaCard)card).NotedSeasonNum);
-        card.exhaust = ((AbstractElainaCard)card).ExtendExhaust[((AbstractElainaCard)card).NotedSeasonNum];
-        card.baseDamage = ((AbstractElainaCard)card).ExtendDamage[((AbstractElainaCard)card).NotedSeasonNum];
-        card.baseBlock = ((AbstractElainaCard)card).ExtendBlock[((AbstractElainaCard)card).NotedSeasonNum];
-        card.baseMagicNumber = ((AbstractElainaCard)card).ExtendMagicNum[((AbstractElainaCard)card).NotedSeasonNum];
+        logger.info("SeasonNum: " + ((AbstractSeasonCard)card).NotedSeasonNum);
+        card.exhaust = ((AbstractSeasonCard)card).ExtendExhaust[((AbstractSeasonCard)card).NotedSeasonNum];
+        card.baseDamage = ((AbstractSeasonCard)card).ExtendDamage[((AbstractSeasonCard)card).NotedSeasonNum];
+        card.baseBlock = ((AbstractSeasonCard)card).ExtendBlock[((AbstractSeasonCard)card).NotedSeasonNum];
+        card.baseMagicNumber = ((AbstractSeasonCard)card).ExtendMagicNum[((AbstractSeasonCard)card).NotedSeasonNum];
 
-        String d = CardCrawlGame.languagePack.getUIString(card.cardID).TEXT[((AbstractElainaCard)card).NotedSeasonNum];
+        String d = CardCrawlGame.languagePack.getUIString(card.cardID).TEXT[((AbstractSeasonCard)card).NotedSeasonNum];
         card.rawDescription = d;
         card.applyPowers();
         card.initializeDescription();//写在modifyDescription里会和别的modifier冲突

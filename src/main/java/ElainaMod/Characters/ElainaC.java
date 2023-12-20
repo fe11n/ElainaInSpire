@@ -143,7 +143,7 @@ public class ElainaC extends CustomPlayer{
             if(ca instanceof AbstractElainaCard){ //防止状态、诅咒牌引起报错
                 AbstractElainaCard c = (AbstractElainaCard) ca;
                 if(c.hasTag(SEASONAL)){
-                    if(c.UpdateSeasonalDescription() && isDiary && !(it.hasNext())){//在Diary结语位置且需要更新时
+                    if(((AbstractSeasonCard)c).UpdateSeasonalDescription() && isDiary && !(it.hasNext())){//在Diary结语位置且需要更新时
                         this.channelOrb(new ConclusionOrb(c));
                     }
                 }

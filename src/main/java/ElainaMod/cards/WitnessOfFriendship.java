@@ -48,7 +48,7 @@ public class WitnessOfFriendship extends AbstractSeasonCard {
         }
     }
 
-    public static int getSeasonNum(){
+    public int getSeasonNum(){
         if (
 //                CardCrawlGame.dungeon != null && AbstractDungeon.currMapNode != null
                 AbstractDungeon.player != null
@@ -62,24 +62,17 @@ public class WitnessOfFriendship extends AbstractSeasonCard {
     }
     @Override
     public void renderCardTip(SpriteBatch sb) {
-        AbstractCard card2;
         AbstractCard card5;
         originRenderCardTip(sb);
         if (this.isLocked) {
             return;
         }
+        NotedSeasonNum = getSeasonNum();
         if (AbstractDungeon.player == null || (!AbstractDungeon.player.isDraggingCard &&
                 !AbstractDungeon.player.inSingleTargetMode)) {
-            int season = getSeasonNum();
-            float [] seasonX = {
-                    this.current_x, this.current_x
-            };
-            float [] seasonY = {
-                    this.current_y, this.current_y + this.hb.height
-            };
             // 0,0 是C位，其他不重要
             if (!(this.springCardPreview == null || (card5 = this.springCardPreview.makeStatEquivalentCopy()) == null)) {
-                card5.rawDescription = CardCrawlGame.languagePack.getUIString(card5.cardID).TEXT[(season+1)%2];
+                card5.rawDescription = CardCrawlGame.languagePack.getUIString(card5.cardID).TEXT[(NotedSeasonNum+1)%2];
                 card5.drawScale = (float) (0.75*drawScale);
                 card5.current_x = this.current_x - (float) 0.875*this.hb.width;
                 card5.current_y = this.current_y + (float) 0.125*this.hb.height;
@@ -87,14 +80,6 @@ public class WitnessOfFriendship extends AbstractSeasonCard {
 
                 card5.render(sb);
             }
-//            if (!(this.winterCardPreview == null || (card2 = this.winterCardPreview.makeStatEquivalentCopy()) == null)) {
-//                card2.rawDescription = CardCrawlGame.languagePack.getUIString(card2.cardID).TEXT[0];
-//                card2.drawScale = drawScale;
-//                card2.current_x = seasonX[(season)%2];
-//                card2.current_y = seasonY[(season)%2];
-//                card2.initializeDescription();
-//                card2.render(sb);
-//            }
         }
     }
     /**

@@ -54,7 +54,7 @@ public class FragrantWind extends AbstractSeasonCard {
             this.upgradeDamage(1); // 将该卡牌的伤害提高3点。
             this.upgradeMagicNumber(1);
             this.ExtendMagicNum[0]=this.ExtendMagicNum[1]=this.ExtendMagicNum[2]=this.ExtendMagicNum[3]=3;
-            this.ExtendDamage[2]=7;
+            this.ExtendDamage[2]=6;
         }
     }
     /**

@@ -33,6 +33,8 @@ public class TimeMagic extends AbstractElainaCard {
             this.upgradeName(); // 卡牌名字变为绿色并添加“+”，且标为升级过的卡牌，之后不能再升级。
             this.upgradeDamage(3); // 将该卡牌的伤害提高3点。
             this.cardsToPreview.upgrade();
+            this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
+            this.initializeDescription();
         }
     }
     /**

@@ -107,7 +107,7 @@
   },
   "Elaina:Eh": {
     "NAME": "咦！？",
-    "DESCRIPTION": "获得等同于所有敌人力量之和的临时敏捷。"
+    "DESCRIPTION": "获得等同于所有敌人力量之和的临时敏捷和格挡。"
   },
   "Elaina:MagicSurging": {
     "NAME": "魔力涌动",
@@ -233,7 +233,8 @@
   },
   "Elaina:Rhetoric": {
     "NAME": "修辞",
-    "DESCRIPTION": "获得 !B! 点格挡，升级结语，增加 !M! 张重现到手牌中。"
+    "DESCRIPTION": "获得 !B! 点格挡，升级结语，再现结语。",
+    "UPGRADE_DESCRIPTION": "获得 !B! 点格挡，升级日记所有卡牌，再现结语。"
   },
   "Elaina:Continuation": {
     "NAME": "续行",
@@ -242,8 +243,7 @@
   },
   "Elaina:Reconsitution": {
     "NAME": "重构",
-    "DESCRIPTION": "失去日记所有卡牌。每失去1张，获得2个随机能力。 NL *消耗 。",
-    "UPGRADE_DESCRIPTION": "失去日记所有卡牌。每失去1张，获得3个随机能力。 NL *消耗 。",
+    "DESCRIPTION": "失去日记所有卡牌。每失去1张，获得1层随机能力。 NL *消耗 。",
     "EXTENDED_DESCRIPTION": [
       " NL （当前日记卡牌数： !M! ）"
     ]
@@ -321,5 +321,36 @@
     "NAME": "惊鸿",
     "DESCRIPTION": "不能被打出和记录。 NL 抽到这张牌时，记录所有的手牌，然后 *消耗 。",
     "UPGRADE_DESCRIPTION": "不能被打出和记录。 NL 抽到这张牌时，记录所有的手牌。"
+  },
+  "Elaina:Quotation": {
+    "NAME": "引用",
+    "DESCRIPTION": "记录随机3张牌。 NL *消耗 。",
+    "UPGRADE_DESCRIPTION": "记录随机3张牌，选择其中1张卡牌最后被记录。 NL *消耗 。",
+    "EXTENDED_DESCRIPTION": [
+      "选择1张卡牌最后被记录"
+    ]
+  },
+  "Elaina:Repetition": {
+    "NAME": "复述",
+    "DESCRIPTION": "不可被记录。 NL 当前结语有瞬发效果时可打出。触发结语的瞬发效果。 NL *保留 。"
+  },
+  "Elaina:ExplosiveMagic": {
+    "NAME": "爆裂魔法",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 应用 !M! 倍的魔力增幅效果。"
+  },
+  "Elaina:Vision": {
+    "NAME": "幻象",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 目标敌人有力量加成时获得 [E] 。 NL 有魔力增幅效果时获得 [E] 。"
+  },
+  "Elaina:EvolutionMagic": {
+    "NAME": "进化魔法",
+    "DESCRIPTION": "造成能力个数 !M! 倍的伤害。",
+    "EXTENDED_DESCRIPTION": [
+      " NL （造成 !D! 点伤害）"
+    ]
+  },
+  "Elaina:AnticipatoryMagic": {
+    "NAME": "预言魔法",
+    "DESCRIPTION": "造成 !D! 点伤害。记录抽牌堆顶的 !M! 张牌，每有1张牌不可被记录，获得 [E] 。"
   }
 }

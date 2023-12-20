@@ -11,27 +11,26 @@ import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.WeakPower;
 
-public class FlashMagic extends AbstractElainaCard {
-    public static final String ID = "Elaina:FlashMagic";
+public class Vision extends AbstractElainaCard {
+    public static final String ID = "Elaina:Vision";
     private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID); // 从游戏系统读取本地化资源
-    private static final String IMG_PATH = "ElainaMod/img/cards/FlashMagic.png";
-    private static final int COST = 1;
+    private static final String IMG_PATH = "ElainaMod/img/cards/Vision.png";
+    private static final int COST = 2;
     private static final CardType TYPE = CardType.ATTACK;
-    private static final CardRarity RARITY = CardRarity.UNCOMMON;
+    private static final CardRarity RARITY = CardRarity.COMMON;
     private static final CardTarget TARGET = CardTarget.ENEMY;
 
-    public FlashMagic() {
+    public Vision() {
         // 为了命名规范修改了变量名。这些参数具体的作用见下方
         super(ID,CARD_STRINGS, IMG_PATH, COST, TYPE, RARITY, TARGET);
-        this.damage = this.baseDamage = 9;
-        this.tags.add(ElainaC.Enums.MAGIC);
+        this.damage = this.baseDamage = 14;
     }
 
     @Override
     public void upgrade() { // 升级调用的方法
         if (!this.upgraded) {
             this.upgradeName(); // 卡牌名字变为绿色并添加“+”，且标为升级过的卡牌，之后不能再升级。
-            this.upgradeDamage(3); // 将该卡牌的伤害提高2点。
+            this.upgradeDamage(4); // 将该卡牌的伤害提高2点。
         }
     }
     /**
@@ -43,7 +42,9 @@ public class FlashMagic extends AbstractElainaCard {
     public void BasicEffect(ElainaC p, AbstractMonster m){
         this.addToBot(new DamageAction(m, new DamageInfo(p, damage, DamageInfo.DamageType.NORMAL)));
         if(m.hasPower("Strength") && m.getPower("Strength").amount > 0){
-            this.addToBot(new ApplyPowerAction(m, p, new WeakPower(m, 1, false), 1, true, AbstractGameAction.AttackEffect.NONE));
+            this.addToBot(new GainEnergyAction(1));
+        }
+        if(p.hasPower("Elaina:SpellBoost")){
             this.addToBot(new GainEnergyAction(1));
         }
 

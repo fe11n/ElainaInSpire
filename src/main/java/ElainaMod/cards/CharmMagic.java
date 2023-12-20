@@ -18,7 +18,7 @@ public class CharmMagic extends AbstractElainaCard {
     private static final String IMG_PATH = "ElainaMod/img/cards/CharmMagic.png";
     private static final int COST = 1;
     private static final CardType TYPE = CardType.ATTACK;
-    private static final CardRarity RARITY = CardRarity.COMMON;
+    private static final CardRarity RARITY = CardRarity.UNCOMMON;
     private static final CardTarget TARGET = CardTarget.ALL_ENEMY;
 
     public CharmMagic() {

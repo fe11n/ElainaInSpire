@@ -1,13 +1,17 @@
 package ElainaMod.cards;
 
 import ElainaMod.Characters.ElainaC;
+import ElainaMod.action.GetDiaryCardAction;
 import ElainaMod.orb.ConclusionOrb;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+
+import java.util.Iterator;
 
 public class Rhetoric extends AbstractElainaCard {
     public static final String ID = "Elaina:Rhetoric";
@@ -22,16 +26,14 @@ public class Rhetoric extends AbstractElainaCard {
         // 为了命名规范修改了变量名。这些参数具体的作用见下方
         super(ID, CARD_STRINGS, IMG_PATH, COST, TYPE, RARITY, TARGET);
         this.baseBlock = 7;
-        this.baseMagicNumber = this.magicNumber = 1;
-        this.cardsToPreview = new Reappear();
     }
 
     @Override
     public void upgrade() { // 升级调用的方法
         if (!this.upgraded) {
             this.upgradeName();
-            this.upgradeBlock(3);
-            this.upgradeMagicNumber(1);
+            this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
+            this.initializeDescription();
         }
     }
     /**
@@ -46,13 +48,19 @@ public class Rhetoric extends AbstractElainaCard {
         this.addToBot(new AbstractGameAction() {
             @Override
             public void update() {
-                if(p.getConclusion()!=null){
-                    ((ConclusionOrb)p.orbs.get(0)).c.upgrade();
+                if(!upgraded) {
+                    if (p.getConclusion() != null) {
+                        p.getConclusion().upgrade();
+                    }
+                } else {
+                    Iterator it = p.DiaryGroup.iterator();
+                    while (it.hasNext()){
+                        ((AbstractCard)it.next()).upgrade();
+                    }
                 }
                 this.isDone = true;
             }
         });
-        this.addToBot(new GainBlockAction(p,p,this.block));
-        this.addToBot(new MakeTempCardInHandAction(this.cardsToPreview.makeStatEquivalentCopy(),this.magicNumber));
+        this.addToBot(new GetDiaryCardAction(p));
     }
 }

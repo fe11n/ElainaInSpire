@@ -2,6 +2,7 @@ package ElainaMod.cards;
 
 import ElainaMod.Characters.ElainaC;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
@@ -55,5 +56,6 @@ public class Eh extends AbstractElainaCard {
         }
         this.addToBot(new ApplyPowerAction(p, p, new DexterityPower(p, psum), psum));
         this.addToBot(new ApplyPowerAction(p, p, new LoseDexterityPower(p, psum), psum));
+        this.addToBot(new GainBlockAction(p,psum));
     }
 }

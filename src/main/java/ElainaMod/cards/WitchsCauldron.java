@@ -43,6 +43,7 @@ public class WitchsCauldron extends AbstractElainaCard {
         list.add(new Penoff());
         list.add(new Echo());
         list.add(new ItsMe());
+        list.add(new Repetition());
         list.add(new Accelerate());
         list.add(new Deviation());
         list.add(new Spell());
@@ -73,7 +74,6 @@ public class WitchsCauldron extends AbstractElainaCard {
                 this.rotationTimer -= Gdx.graphics.getDeltaTime();
             }
         }
-
     }
     /**
      * 当卡牌被使用时，调用这个方法。

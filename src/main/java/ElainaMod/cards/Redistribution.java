@@ -1,31 +1,33 @@
 package ElainaMod.cards;
 
 import ElainaMod.Characters.ElainaC;
+import com.evacipated.cardcrawl.mod.stslib.actions.tempHp.AddTemporaryHPAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
+import com.megacrit.cardcrawl.actions.common.ReducePowerAction;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.DexterityPower;
 import com.megacrit.cardcrawl.powers.LoseDexterityPower;
-import com.megacrit.cardcrawl.powers.LoseStrengthPower;
 import com.megacrit.cardcrawl.powers.StrengthPower;
 
 import java.util.Iterator;
 
-public class Eh extends AbstractElainaCard {
-    public static final String ID = "Elaina:Eh";
+public class Redistribution extends AbstractElainaCard {
+    public static final String ID = "Elaina:Redistribution";
     private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID); // 从游戏系统读取本地化资源
-    private static final String IMG_PATH = "ElainaMod/img/cards/Eh.png";
+    private static final String IMG_PATH = "ElainaMod/img/cards/Redistribution.png";
     private static final int COST = 1;
     private static final CardType TYPE = CardType.SKILL;
-    private static final CardRarity RARITY = CardRarity.COMMON;
-    private static final CardTarget TARGET = CardTarget.SELF;
+    private static final CardRarity RARITY = CardRarity.UNCOMMON;
+    private static final CardTarget TARGET = CardTarget.ENEMY;
 
-    public Eh() {
+    public Redistribution() {
         // 为了命名规范修改了变量名。这些参数具体的作用见下方
         super(ID, CARD_STRINGS, IMG_PATH, COST, TYPE, RARITY, TARGET);
+        this.exhaust = true;
     }
 
     @Override
@@ -50,12 +52,19 @@ public class Eh extends AbstractElainaCard {
         int psum = 0;
         while(var3.hasNext()) {
             mo = (AbstractMonster)var3.next();
-            if(mo.hasPower("Strength")){
+            if(mo.hasPower("Strength") && !mo.equals(m)){
                 psum += mo.getPower("Strength").amount;
+                this.addToBot(new ReducePowerAction(mo,p,"Strength",mo.getPower("Strength").amount));
             }
         }
-        this.addToBot(new ApplyPowerAction(p, p, new DexterityPower(p, psum), psum));
-        this.addToBot(new ApplyPowerAction(p, p, new LoseDexterityPower(p, psum), psum));
-        this.addToBot(new GainBlockAction(p,psum));
+        if(psum!=0){
+            this.addToBot(new ApplyPowerAction(m,p,new StrengthPower(m,psum)));
+        }
+        if(m.hasPower("Strength")){
+            psum+=m.getPower("Strength").amount;
+        }
+        if(psum!=0){
+            this.addToBot(new AddTemporaryHPAction(p,p,psum));
+        }
     }
 }

@@ -2,6 +2,7 @@ package ElainaMod.action;
 
 import ElainaMod.Characters.ElainaC;
 import ElainaMod.cards.AbstractElainaCard;
+import ElainaMod.cards.AbstractSeasonCard;
 import ElainaMod.cards.IndelibleImprint;
 import ElainaMod.cards.MarblePhantasm;
 import ElainaMod.orb.ConclusionOrb;
@@ -65,7 +66,7 @@ public class RecordCardAction extends AbstractGameAction {
                 logger.info((abstractElainaCard).name);
             }
             if(c.hasTag(ElainaC.Enums.SEASONAL)){
-                c.UpdateSeasonalDescription(true);//复制的instance没有initialize，描述没有改变，也可以直接initialize
+                ((AbstractSeasonCard)c).UpdateSeasonalDescription(true);//复制的instance没有initialize，描述没有改变，也可以直接initialize
             }
             p.channelOrb(new ConclusionOrb(c));//尽管c描述已更改，但这里依然渲染的是初始描述
         }

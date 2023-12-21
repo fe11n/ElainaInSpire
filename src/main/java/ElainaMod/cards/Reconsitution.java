@@ -3,6 +3,7 @@ package ElainaMod.cards;
 import ElainaMod.Characters.ElainaC;
 import ElainaMod.action.GetDiaryCardAction;
 import ElainaMod.powers.GetSpellBoostPower;
+import ElainaMod.powers.MagicDiffusionPower;
 import ElainaMod.powers.SpellBoostPower;
 import ElainaMod.powers.TimeGoesBackPower;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
@@ -10,12 +11,16 @@ import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.green.WellLaidPlans;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.*;
+import com.megacrit.cardcrawl.powers.watcher.DevotionPower;
+import com.megacrit.cardcrawl.powers.watcher.ForesightPower;
+import com.megacrit.cardcrawl.powers.watcher.FreeAttackPower;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -40,20 +45,18 @@ public class Reconsitution extends AbstractElainaCard {
     public void upgrade() { // 升级调用的方法
         if (!this.upgraded) {
             this.upgradeName();
-            this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
-            this.initializeDescription();
+            this.upgradeBaseCost(1);
         }
     }
     @Override
     public void applyPowers() {
         this.baseMagicNumber = this.magicNumber = ((ElainaC)AbstractDungeon.player).DiaryGroup.size();
         super.applyPowers();
-        this.rawDescription = this.upgraded?CARD_STRINGS.UPGRADE_DESCRIPTION:CARD_STRINGS.DESCRIPTION
-                + CARD_STRINGS.EXTENDED_DESCRIPTION[0];
+        this.rawDescription = CARD_STRINGS.DESCRIPTION + CARD_STRINGS.EXTENDED_DESCRIPTION[0];
         this.initializeDescription();
     }
     public void onMoveToDiscard() {
-        this.rawDescription = this.upgraded?CARD_STRINGS.UPGRADE_DESCRIPTION:CARD_STRINGS.DESCRIPTION;
+        this.rawDescription = CARD_STRINGS.DESCRIPTION;
         this.initializeDescription();
     }
     /**
@@ -84,7 +87,10 @@ public class Reconsitution extends AbstractElainaCard {
                 }
                 this.isDone = true;
             }
-        }.getMagicNum(this.upgraded?magicNumber*3:magicNumber*2));
+        }.getMagicNum(
+                magicNumber
+                //this.upgraded?magicNumber*3:magicNumber*2
+                ));
     }//基础效果，可以被使用和瞬发
 
     ArrayList<AbstractPower> getPowers(AbstractPlayer p){
@@ -103,6 +109,20 @@ public class Reconsitution extends AbstractElainaCard {
         g.add(new TimeGoesBackPower(p,1));
         g.add(new RitualPower(p,1,true));
         g.add(new BlurPower(p,1));
+        g.add(new NoxiousFumesPower(p,1));
+        g.add(new FreeAttackPower(p,1));
+        g.add(new MayhemPower(p,1));
+        g.add(new ToolsOfTheTradePower(p,1));
+        g.add(new ForesightPower(p,1));
+        g.add(new AfterImagePower(p,1));
+        g.add(new DevotionPower(p,1));
+        g.add(new EnvenomPower(p,1));
+        g.add(new JuggernautPower(p,1));
+        g.add(new InfiniteBladesPower(p,1));
+        g.add(new ThousandCutsPower(p,1));
+        g.add(new MagicDiffusionPower(p,1));
+        g.add(new HeatsinkPower(p,1));
+        g.add(new RetainCardPower(p,1));
         return g;
     }
 }

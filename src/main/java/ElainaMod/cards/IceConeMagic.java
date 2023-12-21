@@ -27,25 +27,25 @@ public class IceConeMagic extends AbstractSeasonCard {
     public IceConeMagic() {
         // 为了命名规范修改了变量名。这些参数具体的作用见下方
         super(ID, CARD_STRINGS, IMG_PATH, COST, TYPE, RARITY, TARGET);
-        this.baseDamage = 18;
+        this.baseDamage = 15;
         this.magicNumber = this.baseMagicNumber = 1;
         this.tags.add(ElainaC.Enums.MAGIC);
         this.tags.add(ElainaC.Enums.SEASONAL);
         this.BestSeasonNum = 0;
-        this.ExtendDamage[0]=this.ExtendDamage[1]=this.ExtendDamage[2]=this.ExtendDamage[3]=18;
-        this.ExtendExhaust[2]=true;
+        this.ExtendDamage[0]=this.ExtendDamage[1]=this.ExtendDamage[2]=this.ExtendDamage[3]=15;
+        this.ExtendExhaust[1]=this.ExtendExhaust[2]=true;
         this.ExtendExhaust[0]=this.ExtendExhaust[1]=this.ExtendExhaust[3]=false;
         this.ExtendMagicNum[0] = 1;
-        setPreviewCard(this);
+//        setPreviewCard(this);
     }
 
     @Override
     public void upgrade() { // 升级调用的方法
         if (!this.upgraded) {
             this.upgradeName(); // 卡牌名字变为绿色并添加“+”，且标为升级过的卡牌，之后不能再升级。
-            this.upgradeDamage(2); // 将该卡牌的伤害提高3点。
+            this.upgradeDamage(3); // 将该卡牌的伤害提高3点。
             this.upgradeMagicNumber(1);
-            this.ExtendDamage[0]=this.ExtendDamage[1]=this.ExtendDamage[2]=this.ExtendDamage[3]=20;
+            this.ExtendDamage[0]=this.ExtendDamage[1]=this.ExtendDamage[2]=this.ExtendDamage[3]=18;
             this.ExtendMagicNum[0] = 2;
         }
     }
@@ -64,10 +64,8 @@ public class IceConeMagic extends AbstractSeasonCard {
             case 0:
                 this.addToBot(new ApplyPowerAction(m, p, new VulnerablePower(m, magicNumber, false), magicNumber, true, AbstractGameAction.AttackEffect.NONE));
             case 1:
-            case 3:
-                break;
             case 2:
-                this.exhaust=true;
+            case 3:
                 break;
         }
     }//基础效果，可以被使用和瞬发

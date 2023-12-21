@@ -1,7 +1,7 @@
 {
   "Elaina:StrikeBeta": {
     "NAME": "打击",
-    "DESCRIPTION": "造成 !D! 点伤害，时节向前3。 NL *瞬发 。"
+    "DESCRIPTION": "造成 !D! 点伤害， elainamod:时节 向前3。 NL * elainamod:瞬发 。"
   },
   "Elaina:Strike": {
     "NAME": "打击",
@@ -9,7 +9,7 @@
   },
   "Elaina:DefendBeta": {
     "NAME": "防御",
-    "DESCRIPTION": "获得 !B! 点格挡，随机1个敌人获得1点力量， *再现结语 。"
+    "DESCRIPTION": "获得 !B! 点格挡，随机1个敌人获得1点力量， * elainamod:再现 elainamod:结语 。"
   },
   "Elaina:Defend": {
     "NAME": "防御",
@@ -17,19 +17,19 @@
   },
   "Elaina:Recall": {
     "NAME": "追忆",
-    "DESCRIPTION": "获得 !B! 点格挡。使当前结语获得 *瞬发 效果。不可被记录。"
+    "DESCRIPTION": "获得 !B! 点格挡。使当前 elainamod:结语 获得 * elainamod:瞬发 效果。不可被 elainamod:记录 。"
   },
   "Elaina:RecreateMagic": {
-    "NAME": "再现魔法",
-    "DESCRIPTION": "造成 !D! 点伤害， *再现结语 ,使其本回合费用-1。"
+    "NAME": "复现魔法",
+    "DESCRIPTION": "造成 !D! 点伤害， * elainamod:再现 elainamod:结语 ,使其本回合费用-1。"
   },
   "Elaina:DestructionMagic": {
     "NAME": "崩坏魔法",
-    "DESCRIPTION": "无结语时无法打出。对所有敌人造成 !D! 点伤害。失去当前结语。"
+    "DESCRIPTION": "无 elainamod:结语 时无法打出。对所有敌人造成 !D! 点伤害。失去当前 elainamod:结语 。"
   },
   "Elaina:CharmMagic": {
     "NAME": "魅力魔法",
-    "DESCRIPTION": "对所有敌人造成 !D! 点伤害。如果当前结语有瞬发效果，则给予全体敌人 !M! 层易伤。"
+    "DESCRIPTION": "对所有敌人造成 !D! 点伤害。如果当前 elainamod:结语 有 elainamod:瞬发 效果，则给予全体敌人 !M! 层易伤。"
   },
   "Elaina:IceConeMagic": {
     "NAME": "冰锥魔法",
@@ -43,12 +43,12 @@
   },
   "Elaina:Recollect": {
     "NAME": "回想",
-    "DESCRIPTION": "无结语时无法打出。失去当前结语，获得 [E] ，抽1张牌。若结语有瞬发效果，额外抽2张牌。",
-    "UPGRADE_DESCRIPTION": "无结语时无法打出。失去当前结语，获得 [E] [E] ，抽1张牌。若结语有瞬发效果，额外抽2张牌。"
+    "DESCRIPTION": "无 elainamod:结语 时无法打出。失去当前 elainamod:结语 ，获得 [E] ，抽1张牌。若 elainamod:结语 有 elainamod:瞬发 效果，额外抽2张牌。",
+    "UPGRADE_DESCRIPTION": "无 elainamod:结语 时无法打出。失去当前 elainamod:结语 ，获得 [E] [E] ，抽1张牌。若 elainamod:结语 有 elainamod:瞬发 效果，额外抽2张牌。"
   },
   "Elaina:GrowUp": {
     "NAME": "成长",
-    "DESCRIPTION": "获得 !M! 点临时力量和临时敏捷。时节每循环一次，该数值加1。"
+    "DESCRIPTION": "获得 !M! 点临时力量和临时敏捷。 elainamod:时节 每循环一次，该数值加1。"
   },
   "Elaina:WitnessOfFriendship": {
     "NAME": "友谊的见证",
@@ -60,11 +60,11 @@
   },
   "Elaina:IndelibleImprint": {
     "NAME": "不灭印记",
-    "DESCRIPTION": "*速记 。获得 !B! 点格挡。 NL 作为结语时，记录卡牌改为随机造成 !M! 点伤害，失去结语改为受到 !M! 点伤害。"
+    "DESCRIPTION": "* elainamod:速记 。获得 !B! 点格挡。 NL 作为 elainamod:结语 时， elainamod:记录 卡牌改为随机造成 !M! 点伤害，失去 elainamod:结语 改为受到 !M! 点伤害。"
   },
   "Elaina:Rush": {
     "NAME": "急行",
-    "DESCRIPTION": "时节前进 !M! ，使所有敌人力量翻倍。 NL *消耗 。"
+    "DESCRIPTION": " elainamod:时节 前进 !M! ，使所有敌人力量翻倍。 NL *消耗 。"
   },
   "Elaina:IntensifyArray": {
     "NAME": "激化法阵",
@@ -72,15 +72,15 @@
   },
   "Elaina:WitchRobe": {
     "NAME": "魔女长袍",
-    "DESCRIPTION": "获得 !B! 点格挡。若本回合没有打出其它卡牌，获得 [E] 。 NL *瞬发 。"
+    "DESCRIPTION": "获得 !B! 点格挡。若本回合没有打出其它卡牌，获得 [E] 。 NL * elainamod:瞬发 。"
   },
   "Elaina:BombardmentMagic": {
     "NAME": "轰击魔法",
-    "DESCRIPTION": "造成 !D! 点伤害。 NL *瞬发 。 NL *速记 。"
+    "DESCRIPTION": "造成 !D! 点伤害。 NL * elainamod:瞬发 。 NL * elainamod:速记 。"
   },
   "Elaina:Rummage": {
     "NAME": "翻找",
-    "DESCRIPTION": "抽 !M! 张牌，并记录这些牌。"
+    "DESCRIPTION": "抽 !M! 张牌，并 elainamod:记录 这些牌。"
   },
   "Elaina:LeavesMagic": {
     "NAME": "落叶魔法",
@@ -94,8 +94,8 @@
   },
   "Elaina:ItsMe": {
     "NAME": "没错，就是我",
-    "DESCRIPTION": "*保留 。 NL 记录1张手牌，使随机敌人获得等同于被记录卡牌费用的力量。 NL *消耗 。",
-    "UPGRADE_DESCRIPTION": "*保留 。 NL 记录1张手牌，使随机敌人获得等同于被记录卡牌费用-1的力量。 NL *消耗 。"
+    "DESCRIPTION": "*保留 。 NL elainamod:记录 1张手牌，使随机敌人获得等同于被 elainamod:记录 卡牌费用的力量。 NL *消耗 。",
+    "UPGRADE_DESCRIPTION": "*保留 。 NL elainamod:记录 1张手牌，使随机敌人获得等同于被 elainamod:记录 卡牌费用-1的力量。 NL *消耗 。"
   },
   "Elaina:Penoff": {
     "NAME": "停笔",
@@ -107,11 +107,11 @@
   },
   "Elaina:Eh": {
     "NAME": "咦！？",
-    "DESCRIPTION": "获得等同于所有敌人力量之和的临时敏捷。"
+    "DESCRIPTION": "获得等同于所有敌人力量之和的临时敏捷和格挡。"
   },
   "Elaina:MagicSurging": {
     "NAME": "魔力涌动",
-    "DESCRIPTION": "打出日记里最近被记录的 !M! 张牌。能被多次升级。不可被记录。"
+    "DESCRIPTION": "打出日记里最近被 elainamod:记录 的 !M! 张牌。能被多次升级。不可被 elainamod:记录 。"
   },
   "Elaina:CounterMagic": {
     "NAME": "反制魔法",
@@ -119,7 +119,7 @@
   },
   "Elaina:Echo": {
     "NAME": "呼应",
-    "DESCRIPTION": "获得 !B! 点格挡。记录本回合已打出的所有卡牌。不可被记录。 NL *保留 。"
+    "DESCRIPTION": "获得 !B! 点格挡。 elainamod:记录 本回合已打出的所有卡牌。不可被 elainamod:记录 。 NL *保留 。"
   },
   "Elaina:Drawup": {
     "NAME": "起笔",
@@ -139,12 +139,12 @@
   },
   "Elaina:Accelerate": {
     "NAME": "加速",
-    "DESCRIPTION": "时节前进 !M! 。 NL *保留 。 NL *消耗 。"
+    "DESCRIPTION": " elainamod:时节 前进 !M! 。 NL *保留 。 NL *消耗 。"
   },
   "Elaina:AdjustPace": {
     "NAME": "调整步伐",
-    "DESCRIPTION": "时节回退 !M! ，增加2张 *加速 到手牌中。 NL *消耗 。",
-    "UPGRADE_DESCRIPTION": "时节回退 !M! ，增加2张 *加速+ 到手牌中。 NL *消耗 。"
+    "DESCRIPTION": " elainamod:时节 回退 !M! ，增加2张 *加速 到手牌中。 NL *消耗 。",
+    "UPGRADE_DESCRIPTION": " elainamod:时节 回退 !M! ，增加2张 *加速+ 到手牌中。 NL *消耗 。"
   },
   "Elaina:MagicEcho": {
     "NAME": "魔力回响",
@@ -164,8 +164,8 @@
   },
   "Elaina:Reappear": {
     "NAME": "重现",
-    "DESCRIPTION": "再现结语。 NL *保留 。 NL *消耗 。",
-    "UPGRADE_DESCRIPTION": "再现结语。 NL *保留 。"
+    "DESCRIPTION": " elainamod:再现 elainamod:结语 。 NL *保留 。 NL *消耗 。",
+    "UPGRADE_DESCRIPTION": " elainamod:再现 elainamod:结语 。 NL *保留 。"
   },
   "Elaina:SpellReorganization": {
     "NAME": "法术重组",
@@ -177,7 +177,7 @@
   },
   "Elaina:FragmentMagic": {
     "NAME": "碎片魔法",
-    "DESCRIPTION": "*速记。 NL 对随机敌人造成 !D! 点伤害，如果有 *魔力增幅 ，则抽1张卡牌。 NL *保留 。"
+    "DESCRIPTION": "* elainamod:速记 。 NL 对随机敌人造成 !D! 点伤害，如果有 * elainamod:魔力增幅 ，则抽1张卡牌。 NL *保留 。"
   },
   "Elaina:EmergencyTreatment": {
     "NAME": "应急处理",
@@ -185,32 +185,32 @@
   },
   "Elaina:FirstImpression": {
     "NAME": "第一印象",
-    "DESCRIPTION": "抽取 !M! 张卡牌。 NL 选择至少1张手牌丢弃并记录。不可被记录。"
+    "DESCRIPTION": "抽取 !M! 张卡牌。 NL 选择至少1张手牌丢弃并 elainamod:记录 。不可被 elainamod:记录 。"
   },
   "Elaina:Turnback": {
     "NAME": "回旋",
-    "DESCRIPTION": "获得 !B! 点格挡和 !M! 层魔力增幅。"
+    "DESCRIPTION": "获得 !B! 点格挡和 !M! 层 elainamod:魔力增幅 。"
   },
   "Elaina:SpringJoy": {
     "NAME": "春之欢喜",
-    "DESCRIPTION": "若没有再生，则获得 !M! 层再生。时节每循环一次，该数值加1。 NL *瞬发 。"
+    "DESCRIPTION": "若没有再生，则获得 !M! 层再生。 elainamod:时节 每循环一次，该数值加1。 NL * elainamod:瞬发 。"
   },
   "Elaina:SummerExcitement": {
     "NAME": "夏之振奋",
-    "DESCRIPTION": "若没有魔力增幅，获得 !M! 层魔力增幅。时节每循环一次，该数值加1。 NL *瞬发 。"
+    "DESCRIPTION": "若没有 elainamod:魔力增幅 ，获得 !M! 层 elainamod:魔力增幅 。 elainamod:时节 每循环一次，该数值加1。 NL * elainamod:瞬发 。"
   },
   "Elaina:AutumnVigilance": {
     "NAME": "秋之警惕",
-    "DESCRIPTION": "若没有荆棘，获得 !M! 层荆棘。时节每循环一次，该数值加1。 NL *瞬发 。"
+    "DESCRIPTION": "若没有荆棘，获得 !M! 层荆棘。 elainamod:时节 每循环一次，该数值加1。 NL * elainamod:瞬发 。"
   },
   "Elaina:WinterPeace": {
     "NAME": "冬之安详",
-    "DESCRIPTION": "若没有多层护甲，获得 !M! 层多层护甲。时节每循环一次，该数值加1。 NL *瞬发 。"
+    "DESCRIPTION": "若没有多层护甲，获得 !M! 层多层护甲。 elainamod:时节 每循环一次，该数值加1。 NL * elainamod:瞬发 。"
   },
   "Elaina:Accumulation": {
     "NAME": "蓄能",
-    "DESCRIPTION": "获得10层魔力增幅，本回合失去 !M! 点力量。 NL *消耗 。",
-    "UPGRADE_DESCRIPTION": "获得12层魔力增幅，本回合失去 !M! 点力量。 NL *消耗 。"
+    "DESCRIPTION": "获得10层 elainamod:魔力增幅 ，本回合失去 !M! 点力量。 NL *消耗 。",
+    "UPGRADE_DESCRIPTION": "获得12层 elainamod:魔力增幅 ，本回合失去 !M! 点力量。 NL *消耗 。"
   },
   "Elaina:Mutation": {
     "NAME": "蝶变",
@@ -228,46 +228,46 @@
   },
   "Elaina:MagicDiffusion": {
     "NAME": "魔力扩散",
-    "DESCRIPTION": "触发瞬发效果时，使随机 !M! 张手牌获得瞬发效果。",
-    "UPGRADE_DESCRIPTION": "*固有 。 NL 触发瞬发效果时，使随机 !M! 张手牌获得瞬发效果。"
+    "DESCRIPTION": "触发 elainamod:瞬发 效果时，使随机 !M! 张手牌获得 elainamod:瞬发 效果。",
+    "UPGRADE_DESCRIPTION": "*固有 。 NL 触发 elainamod:瞬发 效果时，使随机 !M! 张手牌获得 elainamod:瞬发 效果。"
   },
   "Elaina:Rhetoric": {
     "NAME": "修辞",
-    "DESCRIPTION": "获得 !B! 点格挡，升级结语，增加 !M! 张重现到手牌中。"
+    "DESCRIPTION": "获得 !B! 点格挡，升级 elainamod:结语 ， elainamod:再现 elainamod:结语 。",
+    "UPGRADE_DESCRIPTION": "获得 !B! 点格挡，升级日记所有卡牌， elainamod:再现 elainamod:结语 。"
   },
   "Elaina:Continuation": {
     "NAME": "续行",
-    "DESCRIPTION": "再现结语。本回合使用映像时，再现结语，抽1张牌。 NL *消耗 。",
-    "UPGRADE_DESCRIPTION": "再现结语。本回合使用映像时，再现结语，抽1张牌。"
+    "DESCRIPTION": " elainamod:再现 elainamod:结语 。本回合使用 elainamod:映像 时， elainamod:再现 elainamod:结语 ，抽1张牌。 NL *消耗 。",
+    "UPGRADE_DESCRIPTION": " elainamod:再现 elainamod:结语 。本回合使用 elainamod:映像 时， elainamod:再现 elainamod:结语 ，抽1张牌。"
   },
   "Elaina:Reconsitution": {
     "NAME": "重构",
-    "DESCRIPTION": "失去日记所有卡牌。每失去1张，获得2个随机能力。 NL *消耗 。",
-    "UPGRADE_DESCRIPTION": "失去日记所有卡牌。每失去1张，获得3个随机能力。 NL *消耗 。",
+    "DESCRIPTION": "失去日记所有卡牌。每失去1张，获得1层随机能力。 NL *消耗 。",
     "EXTENDED_DESCRIPTION": [
       " NL （当前日记卡牌数： !M! ）"
     ]
   },
   "Elaina:MarblePhantasm": {
     "NAME": "空想具现化",
-    "DESCRIPTION": "*速记 ，记录在日记开头。 NL 再现结语。 NL 打出时，若为映像，则使所有正面能力的数值翻倍。 NL *虚无 。",
-    "UPGRADE_DESCRIPTION": "*速记 ，记录在日记开头。 NL 再现结语。 NL 打出时，若为映像，则使所有正面能力的数值翻倍。"
+    "DESCRIPTION": "* elainamod:速记 ， elainamod:记录 在日记开头。 NL elainamod:再现 elainamod:结语 。 NL 打出时，若为 elainamod:映像 ，则使所有正面能力的数值翻倍。 NL *虚无 。",
+    "UPGRADE_DESCRIPTION": "* elainamod:速记 ， elainamod:记录 在日记开头。 NL elainamod:再现 elainamod:结语 。 NL 打出时，若为 elainamod:映像 ，则使所有正面能力的数值翻倍。"
   },
   "Elaina:DeepMemory": {
     "NAME": "深层记忆",
-    "DESCRIPTION": "你打出的映像会被打出两次。"
+    "DESCRIPTION": "你打出的 elainamod:映像 会被打出两次。"
   },
   "Elaina:WizardsWell": {
     "NAME": "魔力源泉",
-    "DESCRIPTION": "获得 !M! 层魔力增幅。 NL 作为结语时，打出魔法卡牌只减少1层魔力增幅。 NL *速记 。"
+    "DESCRIPTION": "获得 !M! 层 elainamod:魔力增幅 。 NL 作为 elainamod:结语 时，打出魔法卡牌只减少1层 elainamod:魔力增幅 。 NL * elainamod:速记 。"
   },
   "Elaina:ThePerfectMe": {
     "NAME": "完美的我",
-    "DESCRIPTION": "使弃牌堆所有卡牌获得瞬发。 NL 若弃牌堆无可获得瞬发的卡牌，则触发日记里的所有瞬发效果。 NL 不可被记录。"
+    "DESCRIPTION": "使弃牌堆所有卡牌获得 elainamod:瞬发 。 NL 若弃牌堆无可获得 elainamod:瞬发 的卡牌，则触发日记里的所有 elainamod:瞬发 效果。 NL 不可被 elainamod:记录 。"
   },
   "Elaina:ConvergenceMagic": {
     "NAME": "汇聚魔法",
-    "DESCRIPTION": "造成 !D! 点伤害。 NL 再现魔法卡牌至手牌上限。 NL 本回合每打出一张魔法卡牌获得 !M! 层魔力增幅。"
+    "DESCRIPTION": "造成 !D! 点伤害。 NL elainamod:再现 魔法卡牌至手牌上限。 NL 本回合每打出一张魔法卡牌获得 !M! 层 elainamod:魔力增幅 。"
   },
   "Elaina:BasicMagic": {
     "NAME": "基础魔法",
@@ -276,7 +276,7 @@
   },
   "Elaina:NewClothes": {
     "NAME": "添置新装",
-    "DESCRIPTION": "获得 !B! 点格挡。时节变化时，将这张牌从弃牌堆添加到手中。"
+    "DESCRIPTION": "获得 !B! 点格挡。 elainamod:时节 变化时，将这张牌从弃牌堆添加到手中。"
   },
   "Elaina:Reversal": {
     "NAME": "反转",
@@ -289,37 +289,98 @@
   },
   "Elaina:SelfDefense": {
     "NAME": "自我保护",
-    "DESCRIPTION": "回合开始时使随机1张手牌变为映像。 NL 打出映像时获得 !M! 点格挡。"
+    "DESCRIPTION": "回合开始时使随机1张手牌变为 elainamod:映像 。 NL 打出 elainamod:映像 时获得 !M! 点格挡。"
   },
   "Elaina:Awaken": {
     "NAME": "初醒",
-    "DESCRIPTION": "将手牌，弃牌堆，抽牌堆中的卡牌变为映像。将日记卡牌的复制洗入抽牌堆。 NL *消耗 。"
+    "DESCRIPTION": "将手牌，弃牌堆，抽牌堆中的卡牌变为 elainamod:映像 。将日记卡牌的复制洗入抽牌堆。 NL *消耗 。"
   },
   "Elaina:SpellLink": {
     "NAME": "法术链接",
-    "DESCRIPTION": "回合开始时获得 !M! 层魔力增幅。 NL 获得魔力增幅时，获得等量的格挡。"
+    "DESCRIPTION": "回合开始时获得 !M! 层 elainamod:魔力增幅 。 NL 获得 elainamod:魔力增幅 时，获得等量的格挡。"
   },
   "Elaina:SpellResonance": {
     "NAME": "法术共振",
-    "DESCRIPTION": "回合开始时获得 !M! 层魔力增幅。 NL 失去魔力增幅时，所有敌人失去等量的生命。"
+    "DESCRIPTION": "回合开始时获得 !M! 层 elainamod:魔力增幅 。 NL 失去 elainamod:魔力增幅 时，所有敌人失去等量的生命。"
   },
   "Elaina:TimeGoesBack": {
     "NAME": "时光倒流",
-    "DESCRIPTION": "打出时，时节回退X。接下来X回合，回合开始时，时节前进1，随机再现2张卡牌，使其费用变为0。",
-    "UPGRADE_DESCRIPTION": "打出时，时节回退X。接下来X+1回合，回合开始时，时节前进1，随机再现2张卡牌，使其费用变为0。"
+    "DESCRIPTION": "打出时， elainamod:时节 回退X。接下来X回合，回合开始时， elainamod:时节 前进1，随机 elainamod:再现 2张卡牌，使其费用变为0。",
+    "UPGRADE_DESCRIPTION": "打出时， elainamod:时节 回退X。接下来X+1回合，回合开始时， elainamod:时节 前进1，随机 elainamod:再现 2张卡牌，使其费用变为0。"
   },
   "Elaina:Deviation": {
     "NAME": "偏差",
-    "DESCRIPTION": "造成 !D! 点伤害，时节前进1。 NL 时节变化时，伤害加 !M! 。 NL *保留 。 NL *消耗 。"
+    "DESCRIPTION": "造成 !D! 点伤害， elainamod:时节 前进1。 NL elainamod:时节 变化时，伤害加 !M! 。 NL *保留 。 NL *消耗 。"
   },
   "Elaina:TimeMagic": {
     "NAME": "时间魔法",
-    "DESCRIPTION": "造成 !D! 点伤害。时节回退1，增加1张 *偏差 到抽牌堆。",
-    "UPGRADE_DESCRIPTION": "造成 !D! 点伤害。时节回退1，增加1张 *偏差+ 到抽牌堆。"
+    "DESCRIPTION": "造成 !D! 点伤害。 elainamod:时节 回退1，增加1张 *偏差 到抽牌堆。",
+    "UPGRADE_DESCRIPTION": "造成 !D! 点伤害。 elainamod:时节 回退1，增加1张 *偏差+ 到抽牌堆。"
   },
   "Elaina:Glance": {
     "NAME": "惊鸿",
-    "DESCRIPTION": "不能被打出和记录。 NL 抽到这张牌时，记录所有的手牌，然后 *消耗 。",
-    "UPGRADE_DESCRIPTION": "不能被打出和记录。 NL 抽到这张牌时，记录所有的手牌。"
+    "DESCRIPTION": "不能被打出和 elainamod:记录 。 NL 抽到这张牌时， elainamod:记录 所有的手牌，然后 *消耗 。",
+    "UPGRADE_DESCRIPTION": "不能被打出和 elainamod:记录 。 NL 抽到这张牌时， elainamod:记录 所有的手牌。"
+  },
+  "Elaina:Quotation": {
+    "NAME": "引用",
+    "DESCRIPTION": " elainamod:记录 随机3张牌。 NL *消耗 。",
+    "UPGRADE_DESCRIPTION": " elainamod:记录 随机3张牌，选择其中1张卡牌最后被 elainamod:记录 。 NL *消耗 。",
+    "EXTENDED_DESCRIPTION": [
+      "选择1张卡牌最后被 elainamod:记录 "
+    ]
+  },
+  "Elaina:Repetition": {
+    "NAME": "复述",
+    "DESCRIPTION": "不可被 elainamod:记录 。 NL 当前 elainamod:结语 有 elainamod:瞬发 效果时可打出。触发 elainamod:结语 的 elainamod:瞬发 效果。 NL *保留 。"
+  },
+  "Elaina:ExplosiveMagic": {
+    "NAME": "爆裂魔法",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 应用 !M! 倍的 elainamod:魔力增幅 效果。"
+  },
+  "Elaina:Vision": {
+    "NAME": "幻象",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 目标敌人有力量加成时获得 [E] 。 NL 有 elainamod:魔力增幅 效果时获得 [E] 。"
+  },
+  "Elaina:EvolutionMagic": {
+    "NAME": "进化魔法",
+    "DESCRIPTION": "造成能力个数 !M! 倍的伤害。",
+    "EXTENDED_DESCRIPTION": [
+      " NL （造成 !D! 点伤害）"
+    ]
+  },
+  "Elaina:AnticipatoryMagic": {
+    "NAME": "预言魔法",
+    "DESCRIPTION": "造成 !D! 点伤害。 elainamod:记录 抽牌堆顶的 !M! 张牌，每有1张牌不可被 elainamod:记录 ，获得 [E] 。"
+  },
+  "Elaina:Redistribution": {
+    "NAME": "重分配",
+    "DESCRIPTION": "使所有其他敌人的力量加成转移到目标敌人身上，获得等同于其力量的临时生命。 NL *消耗 。"
+  },
+  "Elaina:BestState": {
+    "NAME": "最佳状态",
+    "DESCRIPTION": "获得 !B! 点格挡。 NL 下一张时令卡会以最强效果被打出。"
+  },
+  "Elaina:AdvancedMagic": {
+    "NAME": "进阶魔法",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 本回合魔力增幅不再提供伤害加成，且有魔力增幅时，每打出1张魔法卡，抽1张卡牌。"
+  },
+  "Elaina:DejaVu": {
+    "NAME": "似曾相识",
+    "DESCRIPTION": "获得 !B! 点格挡。 NL 记录弃牌堆随机卡牌，增加 !M! 张重现到手牌中。"
+  },
+  "Elaina:MagicTurbulence": {
+    "NAME": "魔力乱流",
+    "DESCRIPTION": "使日记内的卡牌费用-1，打乱日记的顺序。 NL *消耗。",
+    "UPGRADE_DESCRIPTION": "使日记内的卡牌费用-1，打乱日记的顺序。 NL *再现 *结语。 NL *消耗。"
+  },
+  "Elaina:Sublimation": {
+    "NAME": "升华",
+    "DESCRIPTION": "消耗所有保留的手牌。 NL 每消耗一张，获得 [E] ，抽取弃牌堆顶的1张卡牌。 NL *消耗。",
+    "UPGRADE_DESCRIPTION": "消耗所有保留的手牌。 NL 每消耗一张，获得 [E] ，抽取并记录弃牌堆顶的1张卡牌。 NL *消耗。"
+  },
+  "Elaina:PureMagic": {
+    "NAME": "纯净魔法",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL *消耗 手牌中所有非魔法卡牌，每消耗1张时，*再现 *结语 。"
   }
 }

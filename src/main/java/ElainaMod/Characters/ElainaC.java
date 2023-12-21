@@ -57,7 +57,8 @@ public class ElainaC extends CustomPlayer{
     // 每个图层的旋转速度
     private static final float[] LAYER_SPEED = new float[]{-40.0F, -32.0F, 20.0F, -20.0F, 0.0F, -10.0F, -8.0F, 5.0F, -5.0F, 0.0F};
     // 人物的本地化文本，如卡牌的本地化文本一样，如何书写见下
-    private static final CharacterStrings characterStrings = CardCrawlGame.languagePack.getCharacterString("Elaina:ElainaC");
+    private static final CharacterStrings characterStrings =
+            CardCrawlGame.languagePack.getCharacterString("Elaina:ElainaC");
     public static ArrayList<AbstractElainaCard> DiaryGroup = new ArrayList<>();//存储日记的抽象数组
     public static int Month = new Random().nextInt(12)+1;//时节变量
     //public static int Month = 12;//时节变量
@@ -143,7 +144,7 @@ public class ElainaC extends CustomPlayer{
             if(ca instanceof AbstractElainaCard){ //防止状态、诅咒牌引起报错
                 AbstractElainaCard c = (AbstractElainaCard) ca;
                 if(c.hasTag(SEASONAL)){
-                    if(c.UpdateSeasonalDescription() && isDiary && !(it.hasNext())){//在Diary结语位置且需要更新时
+                    if(((AbstractSeasonCard)c).UpdateSeasonalDescription() && isDiary && !(it.hasNext())){//在Diary结语位置且需要更新时
                         this.channelOrb(new ConclusionOrb(c));
                     }
                 }

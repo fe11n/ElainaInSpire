@@ -2,6 +2,7 @@ package ElainaMod.cards;
 
 import ElainaMod.Characters.ElainaC;
 import ElainaMod.action.GetDiaryCardAction;
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.Settings;
@@ -36,7 +37,7 @@ public class WitnessOfFriendship extends AbstractSeasonCard {
         this.exhaust = true;
         this.ExtendExhaust[0]=this.ExtendExhaust[1]=true;
         this.ExtendMagicNum[0]=this.ExtendMagicNum[1]=15;
-        setPreviewCard(this);
+//        setPreviewCard(this);
     }
 
     @Override
@@ -48,55 +49,51 @@ public class WitnessOfFriendship extends AbstractSeasonCard {
         }
     }
 
-    public static int getSeasonNum(){
+    public int getSeasonNum(){
         if (
-//                CardCrawlGame.dungeon != null && AbstractDungeon.currMapNode != null
-                AbstractDungeon.player != null
+                CardCrawlGame.dungeon != null && AbstractDungeon.currMapNode != null
         ) {
             int m = ElainaC.getSeason();
+            if(AbstractDungeon.player.hasPower("Elaina:BestState")){
+                m = 1;
+            }
             if(m == 1 && !ElainaC.UsedYear.contains((ElainaC.Month-1)/12)) return 0;
             else return 1;
         }else {
             return BestSeasonNum;
         }
     }
-    @Override
-    public void renderCardTip(SpriteBatch sb) {
-        AbstractCard card2;
-        AbstractCard card5;
-        originRenderCardTip(sb);
-        if (this.isLocked) {
-            return;
-        }
-        if (AbstractDungeon.player == null || (!AbstractDungeon.player.isDraggingCard &&
-                !AbstractDungeon.player.inSingleTargetMode)) {
-            int season = getSeasonNum();
-            float [] seasonX = {
-                    this.current_x, this.current_x
-            };
-            float [] seasonY = {
-                    this.current_y, this.current_y + this.hb.height
-            };
-            // 0,0 是C位，其他不重要
-            if (!(this.springCardPreview == null || (card5 = this.springCardPreview.makeStatEquivalentCopy()) == null)) {
-                card5.rawDescription = CardCrawlGame.languagePack.getUIString(card5.cardID).TEXT[(season+1)%2];
-                card5.drawScale = (float) (0.75*drawScale);
-                card5.current_x = this.current_x - (float) 0.875*this.hb.width;
-                card5.current_y = this.current_y + (float) 0.125*this.hb.height;
-                card5.initializeDescription();
-
-                card5.render(sb);
-            }
-//            if (!(this.winterCardPreview == null || (card2 = this.winterCardPreview.makeStatEquivalentCopy()) == null)) {
-//                card2.rawDescription = CardCrawlGame.languagePack.getUIString(card2.cardID).TEXT[0];
-//                card2.drawScale = drawScale;
-//                card2.current_x = seasonX[(season)%2];
-//                card2.current_y = seasonY[(season)%2];
-//                card2.initializeDescription();
-//                card2.render(sb);
-//            }
-        }
+    public void update() {
+        super.originUpdate();
+        int season  = (getSeasonNum()+1)%2;
+        AbstractElainaCard c = (AbstractElainaCard) this.makeStatEquivalentCopy();
+        c.rawDescription = CardCrawlGame.languagePack.getUIString(c.cardID).TEXT[season];
+        c.magicNumber = c.baseMagicNumber = ExtendMagicNum[season];
+        c.initializeDescription();
+        this.cardsToPreview = c;
     }
+//    @Override
+//    public void renderCardTip(SpriteBatch sb) {
+//        AbstractCard card5;
+////        originRenderCardTip(sb);
+//        if (this.isLocked) {
+//            return;
+//        }
+//        NotedSeasonNum = getSeasonNum();
+//        if (AbstractDungeon.player == null || (!AbstractDungeon.player.isDraggingCard &&
+//                !AbstractDungeon.player.inSingleTargetMode)) {
+//            // 0,0 是C位，其他不重要
+//            if (!(this.springCardPreview == null || (card5 = this.springCardPreview.makeStatEquivalentCopy()) == null)) {
+//                card5.rawDescription = CardCrawlGame.languagePack.getUIString(card5.cardID).TEXT[(NotedSeasonNum+1)%2];
+//                card5.drawScale = (float) (0.75*drawScale);
+//                card5.current_x = this.current_x - (float) 0.875*this.hb.width;
+//                card5.current_y = this.current_y + (float) 0.125*this.hb.height;
+//                card5.initializeDescription();
+//
+//                card5.render(sb);
+//            }
+//        }
+//    }
     /**
      * 当卡牌被使用时，调用这个方法。
      *

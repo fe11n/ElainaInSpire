@@ -37,6 +37,7 @@ public class Deviation extends AbstractElainaCard {
         }
     }
     public void triggerOnMonthChanged(int num,boolean isBack) {//由ChangeMonthAction调用
+        this.flash();
         this.baseDamage+=this.magicNumber;
     }
     /**

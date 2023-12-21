@@ -5,20 +5,27 @@ import ElainaMod.cards.*;
 import ElainaMod.relics.WanderingWitch;
 import basemod.BaseMod;
 import basemod.helpers.RelicType;
-import basemod.interfaces.EditCardsSubscriber;
-import basemod.interfaces.EditCharactersSubscriber;
-import basemod.interfaces.EditRelicsSubscriber;
-import basemod.interfaces.EditStringsSubscriber;
+import basemod.interfaces.*;
+import com.badlogic.gdx.Gdx;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
+import com.google.gson.Gson;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.localization.*;
 import com.badlogic.gdx.graphics.Color;
 
+import java.io.IOException;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+
 import static ElainaMod.Characters.ElainaC.Enums.*;
+import static com.megacrit.cardcrawl.core.Settings.language;
 
 @SpireInitializer
-public class Elaina implements EditStringsSubscriber,EditCardsSubscriber, EditCharactersSubscriber, EditRelicsSubscriber {
+public class Elaina implements EditStringsSubscriber,EditCardsSubscriber, EditCharactersSubscriber, EditRelicsSubscriber
+, EditKeywordsSubscriber {
    private static final String MY_CHARACTER_BUTTON = "ElainaMod/img/char/Character_Button.png";
    // 人物选择界面的立绘
    private static final String MY_CHARACTER_PORTRAIT = "ElainaMod/img/char/Character_Portrait.png";
@@ -39,12 +46,14 @@ public class Elaina implements EditStringsSubscriber,EditCardsSubscriber, EditCh
    // 在卡牌预览界面的能量图标
    private static final String BIG_ORB = "ElainaMod/img/char/card_orb.png";
    // 小尺寸的能量图标（战斗中，牌堆预览）
-   private static final String ENEYGY_ORB = "ElainaMod/img/char/cost_orb.png";
+   private static final String ENERGY_ORB = "ElainaMod/img/char/cost_orb.png";
    public static final Color MY_COLOR = new Color(79.0F / 255.0F, 185.0F / 255.0F, 9.0F / 255.0F, 1.0F);
    public Elaina(){
       BaseMod.subscribe(this);
       // 这里注册颜色
-      BaseMod.addColor(EXAMPLE_COLOR, MY_COLOR, MY_COLOR, MY_COLOR, MY_COLOR, MY_COLOR, MY_COLOR, MY_COLOR,BG_ATTACK_512,BG_SKILL_512,BG_POWER_512,ENEYGY_ORB,BG_ATTACK_1024,BG_SKILL_1024,BG_POWER_1024,BIG_ORB,SMALL_ORB);
+      BaseMod.addColor(EXAMPLE_COLOR, MY_COLOR, MY_COLOR, MY_COLOR, MY_COLOR, MY_COLOR, MY_COLOR, MY_COLOR,
+              BG_ATTACK_512,BG_SKILL_512,BG_POWER_512, ENERGY_ORB,BG_ATTACK_1024,BG_SKILL_1024,BG_POWER_1024,
+              BIG_ORB,SMALL_ORB);
    }
    public static void initialize(){
       new Elaina();
@@ -141,7 +150,7 @@ public class Elaina implements EditStringsSubscriber,EditCardsSubscriber, EditCh
    public void receiveEditStrings() {
       String lang;
       // 还没做其他语言，就全默认中文。
-      if (Settings.language == Settings.GameLanguage.ZHS) {
+      if (language == Settings.GameLanguage.ZHS) {
          lang = "ZHS"; // 如果语言设置为简体中文，则加载ZHS文件夹的资源
       } else {
          lang = "ZHS"; // 如果没有相应语言的版本，默认加载中文
@@ -152,5 +161,30 @@ public class Elaina implements EditStringsSubscriber,EditCardsSubscriber, EditCh
       BaseMod.loadCustomStringsFile(RelicStrings.class, "ElainaMod/localization/" + lang + "/relics.json");
       BaseMod.loadCustomStringsFile(UIStrings.class,"ElainaMod/localization/" + lang + "/UIStrings.json");
       BaseMod.loadCustomStringsFile(PowerStrings.class,"ElainaMod/localization/" + lang + "/powers.json");
+
    }
+
+   @Override
+   public void receiveEditKeywords() {
+      Gson gson = new Gson();
+      String lang = "ZHS";
+      if (language == Settings.GameLanguage.ZHS) {
+         lang = "ZHS";
+      }
+
+      String json = Gdx.files.internal("ElainaMod/localization/" + lang + "/keywords.json")
+              .readString(String.valueOf(StandardCharsets.UTF_8));
+      Keyword[] keywords = gson.fromJson(json, Keyword[].class);
+      if (keywords != null) {
+         for (Keyword keyword : keywords) {
+            // 这个id要全小写
+            BaseMod.addKeyword("elainamod",
+                    keyword.NAMES[0],
+                    keyword.NAMES,
+                    keyword.DESCRIPTION);
+         }
+      }
+
+   }
+
 }

@@ -360,5 +360,27 @@
   "Elaina:BestState": {
     "NAME": "最佳状态",
     "DESCRIPTION": "获得 !B! 点格挡。 NL 下一张时令卡会以最强效果被打出。"
+  },
+  "Elaina:AdvancedMagic": {
+    "NAME": "进阶魔法",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 本回合魔力增幅不再提供伤害加成，且有魔力增幅时，每打出1张魔法卡，抽1张卡牌。"
+  },
+  "Elaina:DejaVu": {
+    "NAME": "似曾相识",
+    "DESCRIPTION": "获得 !B! 点格挡。 NL 记录弃牌堆随机卡牌，增加 !M! 张重现到手牌中。"
+  },
+  "Elaina:MagicTurbulence": {
+    "NAME": "魔力乱流",
+    "DESCRIPTION": "使日记内的卡牌费用-1，打乱日记的顺序。 NL *消耗。",
+    "UPGRADE_DESCRIPTION": "使日记内的卡牌费用-1，打乱日记的顺序。 NL *再现 *结语。 NL *消耗。"
+  },
+  "Elaina:Sublimation": {
+    "NAME": "升华",
+    "DESCRIPTION": "消耗所有保留的手牌。 NL 每消耗一张，获得 [E] ，抽取弃牌堆顶的1张卡牌。 NL *消耗。",
+    "UPGRADE_DESCRIPTION": "消耗所有保留的手牌。 NL 每消耗一张，获得 [E] ，抽取并记录弃牌堆顶的1张卡牌。 NL *消耗。"
+  },
+  "Elaina:PureMagic": {
+    "NAME": "纯净魔法",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL *消耗 手牌中所有非魔法卡牌，每消耗1张时，*再现 *结语 。"
   }
 }

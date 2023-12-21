@@ -46,7 +46,7 @@ public class AnticipatoryMagic extends AbstractElainaCard {
     public void BasicEffect(ElainaC p, AbstractMonster m){
         this.addToBot(new DamageAction(m, new DamageInfo(p, damage, DamageType.NORMAL)));
         for(int i = 0;i<magicNumber;i++){
-            if(p.drawPile.size()>i+1){
+            if(p.drawPile.size()>i){
                 AbstractCard c = p.drawPile.group.get(p.drawPile.size()-1-i);
                 if(c instanceof AbstractElainaCard && ((AbstractElainaCard)c).isNotable()){
                     this.addToBot(new RecordCardAction(c));

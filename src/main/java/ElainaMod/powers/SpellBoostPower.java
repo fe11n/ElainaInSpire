@@ -60,6 +60,6 @@ public class SpellBoostPower extends AbstractPower {
     }
 
     public float atDamageGive(float damage, DamageInfo.DamageType type, AbstractCard card) {
-        return card.hasTag(ElainaC.Enums.MAGIC)?damage+amount:damage;
+        return (card.hasTag(ElainaC.Enums.MAGIC) && !owner.hasPower("Elaina:AdvancedMagic"))?damage+amount:damage;
     }
 }

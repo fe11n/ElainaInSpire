@@ -33,7 +33,7 @@ public class ContinuationPower extends AbstractPower {
         this.updateDescription();
         this.img = new Texture("ElainaMod/img/powers/ContinuationPower.png");
     }
-    public void updateDescription(){this.description = DESCRIPTIONS[0]+DESCRIPTIONS[1];}
+    public void updateDescription(){this.description = DESCRIPTIONS[0]+ amount +DESCRIPTIONS[1];}
     public void onUseCard(AbstractCard card, UseCardAction action) {
         if(CardModifierManager.hasModifier(card,"toImageCardMod")){
             this.flash();

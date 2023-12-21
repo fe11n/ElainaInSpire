@@ -33,10 +33,10 @@ public class IceConeMagic extends AbstractSeasonCard {
         this.tags.add(ElainaC.Enums.SEASONAL);
         this.BestSeasonNum = 0;
         this.ExtendDamage[0]=this.ExtendDamage[1]=this.ExtendDamage[2]=this.ExtendDamage[3]=15;
-        this.ExtendExhaust[2]=true;
+        this.ExtendExhaust[1]=this.ExtendExhaust[2]=true;
         this.ExtendExhaust[0]=this.ExtendExhaust[1]=this.ExtendExhaust[3]=false;
         this.ExtendMagicNum[0] = 1;
-        setPreviewCard(this);
+//        setPreviewCard(this);
     }
 
     @Override
@@ -64,10 +64,8 @@ public class IceConeMagic extends AbstractSeasonCard {
             case 0:
                 this.addToBot(new ApplyPowerAction(m, p, new VulnerablePower(m, magicNumber, false), magicNumber, true, AbstractGameAction.AttackEffect.NONE));
             case 1:
-            case 3:
-                break;
             case 2:
-                this.exhaust=true;
+            case 3:
                 break;
         }
     }//基础效果，可以被使用和瞬发

@@ -74,7 +74,6 @@ public class WitchsCauldron extends AbstractElainaCard {
                 this.rotationTimer -= Gdx.graphics.getDeltaTime();
             }
         }
-
     }
     /**
      * 当卡牌被使用时，调用这个方法。

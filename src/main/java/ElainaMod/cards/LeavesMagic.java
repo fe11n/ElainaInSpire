@@ -27,12 +27,12 @@ public class LeavesMagic extends AbstractSeasonCard {
         this.damage = this.baseDamage = 5;
         this.tags.add(ElainaC.Enums.MAGIC);
         this.tags.add(ElainaC.Enums.SEASONAL);
-        this.BestSeasonNum = 3;
+        this.NotedSeasonNum = this.BestSeasonNum = 3;
         this.isMultiDamage = true;
         this.ExtendDamage[0]=this.ExtendDamage[1]=this.ExtendDamage[2]=this.ExtendDamage[3]=5;
         this.ExtendMagicNum[0]=this.ExtendMagicNum[3]=3;
         this.ExtendMagicNum[1]=this.ExtendMagicNum[2]=2;
-        setPreviewCard(this);
+//        setPreviewCard(this);
     }
 
     @Override

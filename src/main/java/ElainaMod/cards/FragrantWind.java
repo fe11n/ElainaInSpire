@@ -44,7 +44,7 @@ public class FragrantWind extends AbstractSeasonCard {
         this.ExtendDamage[2]=5;
         this.ExtendMagicNum[0]=this.ExtendMagicNum[1]=this.ExtendMagicNum[2]=this.ExtendMagicNum[3]=2;
         this.ExtendExhaust[0]=this.ExtendExhaust[1]=this.ExtendExhaust[2]=this.ExtendExhaust[3]=true;
-        setPreviewCard(this);
+//        setPreviewCard(this);
     }
 
     @Override

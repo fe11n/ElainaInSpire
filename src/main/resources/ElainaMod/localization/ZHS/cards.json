@@ -20,7 +20,7 @@
     "DESCRIPTION": "获得 !B! 点格挡。使当前 elainamod:结语 获得 * elainamod:瞬发 效果。不可被 elainamod:记录 。"
   },
   "Elaina:RecreateMagic": {
-    "NAME": "重现魔法",
+    "NAME": "复现魔法",
     "DESCRIPTION": "造成 !D! 点伤害， * elainamod:再现 elainamod:结语 ,使其本回合费用-1。"
   },
   "Elaina:DestructionMagic": {
@@ -352,5 +352,13 @@
   "Elaina:AnticipatoryMagic": {
     "NAME": "预言魔法",
     "DESCRIPTION": "造成 !D! 点伤害。 elainamod:记录 抽牌堆顶的 !M! 张牌，每有1张牌不可被 elainamod:记录 ，获得 [E] 。"
+  },
+  "Elaina:Redistribution": {
+    "NAME": "重分配",
+    "DESCRIPTION": "使所有其他敌人的力量加成转移到目标敌人身上，获得等同于其力量的临时生命。 NL *消耗 。"
+  },
+  "Elaina:BestState": {
+    "NAME": "最佳状态",
+    "DESCRIPTION": "获得 !B! 点格挡。 NL 下一张时令卡会以最强效果被打出。"
   }
 }

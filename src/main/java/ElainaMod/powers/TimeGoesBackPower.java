@@ -50,10 +50,10 @@ public class TimeGoesBackPower extends AbstractPower {
             int a1 = AbstractDungeon.cardRandomRng.random(p.DiaryGroup.size()-1);
             int r = AbstractDungeon.cardRandomRng.random(p.DiaryGroup.size()-2);
             int a2 = (a1 + r + 1) % p.DiaryGroup.size();
-            p.DiaryGroup.get(a1).setCostForTurn(0);
-            p.DiaryGroup.get(a2).setCostForTurn(0);
-            addToBot(new GetDiaryCardAction(p,true,(a1>a2?a1:a2)));
-            addToBot(new GetDiaryCardAction(p,true,(a1<a2?a1:a2)));
+            p.DiaryGroup.group.get(a1).setCostForTurn(0);
+            p.DiaryGroup.group.get(a2).setCostForTurn(0);
+            addToBot(new GetDiaryCardAction(p,true,p.DiaryGroup.group.get(a1)));
+            addToBot(new GetDiaryCardAction(p,true,p.DiaryGroup.group.get(a2)));
         }
         if (this.amount <= 1) {
             this.addToBot(new RemoveSpecificPowerAction(this.owner, this.owner, "Elaina:TimeGoesBack"));

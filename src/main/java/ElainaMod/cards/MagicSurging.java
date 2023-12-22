@@ -59,9 +59,9 @@ public class MagicSurging extends AbstractElainaCard {
         addToBot(new AbstractGameAction() {
             @Override
             public void update() {
-                ArrayList<AbstractElainaCard> g = p.DiaryGroup;
+                ArrayList<AbstractCard> g = p.DiaryGroup.group;
                 for(int i = g.size()-magicNumber>0?g.size()-magicNumber:0;i<g.size();i++){
-                    AbstractElainaCard c = g.get(i);
+                    AbstractElainaCard c = (AbstractElainaCard) g.get(i);
                     logger.info("Magic Surging ("+i+") : "+c.name);
                     c.InstantUse();
                 }

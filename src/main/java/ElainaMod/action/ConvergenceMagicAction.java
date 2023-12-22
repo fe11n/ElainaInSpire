@@ -6,6 +6,7 @@ import ElainaMod.cards.AbstractElainaCard;
 import basemod.helpers.CardModifierManager;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import org.apache.logging.log4j.LogManager;
@@ -23,12 +24,12 @@ public class ConvergenceMagicAction extends AbstractGameAction {
     }
     @Override
     public void update(){
-        ArrayList<AbstractElainaCard> g = p.DiaryGroup;
+        CardGroup g = p.DiaryGroup;
         int sum = 0;
         for(int i = g.size()-1;i>=0 && sum<10-p.hand.size();i--){
-            if(g.get(i).hasTag(ElainaC.Enums.MAGIC)){
+            if(g.group.get(i).hasTag(ElainaC.Enums.MAGIC)){
                 sum+=1;
-                addToBot(new GetDiaryCardAction(p,true,i));//从下向上再现，防止序列改变
+                addToBot(new GetDiaryCardAction(p,true,g.group.get(i)));//从下向上再现，防止序列改变
             }
         }
         this.isDone = true;

@@ -19,7 +19,7 @@ public class ConclusionOrb extends AbstractOrb {
     public AbstractElainaCard c;
     public static final Logger logger = LogManager.getLogger(ConclusionOrb.class);
     public ConclusionOrb(AbstractElainaCard c){
-        this.c = c;
+        this.c = (AbstractElainaCard) c.makeStatEquivalentCopy();
         this.name=c.name;
         this.updateDescription();
     }
@@ -44,13 +44,9 @@ public class ConclusionOrb extends AbstractOrb {
             this.c.targetDrawScale = 0.5F;
         }
         if(this.hb.hovered && (InputHelper.justClickedLeft || InputHelper.justClickedRight)){
-            CardGroup tmp = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
-            Iterator var5 = ((ElainaC)AbstractDungeon.player).DiaryGroup.iterator();
-            while(var5.hasNext()) {
-                AbstractCard c = (AbstractCard)var5.next();
-                tmp.addToTop(c);
-            }
-            AbstractDungeon.gridSelectScreen.open(tmp, 0, "魔女日记", true);
+            AbstractDungeon.gridSelectScreen.open(
+                    ((ElainaC)AbstractDungeon.player).DiaryGroup,
+                    0, "魔女日记", true);
         }
         this.c.applyPowers();
         this.c.update();

@@ -48,9 +48,7 @@ public class DestructionMagic extends AbstractElainaCard {
 
     @Override
     public boolean canUse(AbstractPlayer p, AbstractMonster m) {
-        ArrayList<AbstractElainaCard> g;
-        g = ((ElainaC)p).DiaryGroup;
-        if(g.isEmpty()){
+        if(((ElainaC)p).getConclusion()==null){
             return false;
         }
         else return super.canUse(p,m);

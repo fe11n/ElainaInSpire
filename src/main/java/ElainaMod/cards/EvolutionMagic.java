@@ -27,6 +27,7 @@ public class EvolutionMagic extends AbstractElainaCard {
         super(ID, CARD_STRINGS, IMG_PATH, COST, TYPE, RARITY, TARGET);
         this.damage = this.baseDamage = 0;
         this.magicNumber = this.baseMagicNumber = 3;
+        this.tags.add(ElainaC.Enums.MAGIC);
     }
 
     @Override

@@ -10,6 +10,7 @@ import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import org.apache.logging.log4j.LogManager;
@@ -21,7 +22,7 @@ public class RecordCardAction extends AbstractGameAction {
     public ElainaC p=(ElainaC)AbstractDungeon.player;
     public AbstractElainaCard c;
     private boolean isNotable = false;
-    public ArrayList<AbstractElainaCard> g;
+    public CardGroup g;
     public static final Logger logger = LogManager.getLogger(RecordCardAction.class);
     public RecordCardAction(AbstractCard c){
         this.actionType = ActionType.CARD_MANIPULATION;
@@ -43,32 +44,28 @@ public class RecordCardAction extends AbstractGameAction {
             if(g.size()!= 0 && p.getConclusion() instanceof IndelibleImprint){
                 c = p.getConclusion();
                 c.flash();
-                this.addToBot(new DamageAction(AbstractDungeon.getRandomMonster(), new DamageInfo(p,c.magicNumber, DamageInfo.DamageType.THORNS)));
+                this.addToBot(
+                        new DamageAction(
+                                AbstractDungeon.getRandomMonster(),
+                                new DamageInfo(p,c.magicNumber, DamageInfo.DamageType.THORNS)
+                        )
+                );
                 this.isDone=true;
                 return;
             }
             logger.info("Record in Diary: "+c.name);
             if(c instanceof MarblePhantasm){
-                g.add(0,c);
+                g.addToTop(c);
                 logger.info("Diary size after record: "+g.size());
-                for (AbstractElainaCard abstractElainaCard : g) {
-                    logger.info((abstractElainaCard).name);
-                }
                 if(g.size()==1){
                     p.channelOrb(new ConclusionOrb(c));
                 }
                 this.isDone=true;
                 return;
             }
-            g.add(c);
+            g.addToBottom(c);
             logger.info("Diary size after record: "+g.size());
-            for (AbstractElainaCard abstractElainaCard : g) {
-                logger.info((abstractElainaCard).name);
-            }
-            if(c.hasTag(ElainaC.Enums.SEASONAL)){
-                ((AbstractSeasonCard)c).UpdateSeasonalDescription(true);//复制的instance没有initialize，描述没有改变，也可以直接initialize
-            }
-            p.channelOrb(new ConclusionOrb(c));//尽管c描述已更改，但这里依然渲染的是初始描述
+            p.channelOrb(new ConclusionOrb(c));
         }
         this.isDone=true;
     }

@@ -1,6 +1,7 @@
 package ElainaMod.cards;
 
 import ElainaMod.Characters.ElainaC;
+import ElainaMod.action.GetCertainDiaryCardAction;
 import ElainaMod.action.GetDiaryCardAction;
 import ElainaMod.orb.ConclusionOrb;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
@@ -53,7 +54,7 @@ public class Rhetoric extends AbstractElainaCard {
                         p.getConclusion().upgrade();
                     }
                 } else {
-                    Iterator it = p.DiaryGroup.iterator();
+                    Iterator it = p.DiaryGroup.group.iterator();
                     while (it.hasNext()){
                         ((AbstractCard)it.next()).upgrade();
                     }
@@ -61,6 +62,12 @@ public class Rhetoric extends AbstractElainaCard {
                 this.isDone = true;
             }
         });
+        if(!upgraded){
+            this.addToBot(new GetDiaryCardAction(p));
+        }else {
+            this.addToBot(new GetCertainDiaryCardAction(p));
+        }
         this.addToBot(new GetDiaryCardAction(p));
+        this.addToBot(new GainBlockAction(p,p,this.block));
     }
 }

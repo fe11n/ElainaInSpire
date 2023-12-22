@@ -50,7 +50,7 @@ public class ItsMeAction extends AbstractGameAction {
                     AbstractMonster mo = AbstractDungeon.getRandomMonster();
                     if(c.costForTurn>(upgraded?1:0)){
                         this.addToBot(new ApplyPowerAction(mo, p,new StrengthPower(mo, c.costForTurn-(upgraded?1:0)), c.costForTurn-(upgraded?1:0)));
-                        this.addToBot(new ApplyPowerAction(p, p, new LoseStrengthPower(mo, c.costForTurn-(upgraded?1:0)), c.costForTurn-(upgraded?1:0)));
+                        this.addToBot(new ApplyPowerAction(mo, p, new LoseStrengthPower(mo, c.costForTurn-(upgraded?1:0)), c.costForTurn-(upgraded?1:0)));
                     }
                     this.addToBot(new RecordCardAction(c));
                     //p.hand.moveToDiscardPile(c);
@@ -70,7 +70,7 @@ public class ItsMeAction extends AbstractGameAction {
                 AbstractMonster mo = AbstractDungeon.getRandomMonster();
                 if(c.costForTurn>(upgraded?1:0)){
                     this.addToBot(new ApplyPowerAction(mo, p,new StrengthPower(mo, c.costForTurn-(upgraded?1:0)), c.costForTurn-(upgraded?1:0)));
-                    this.addToBot(new ApplyPowerAction(p, p, new LoseStrengthPower(mo, c.costForTurn-(upgraded?1:0)), c.costForTurn-(upgraded?1:0)));
+                    this.addToBot(new ApplyPowerAction(mo, p, new LoseStrengthPower(mo, c.costForTurn-(upgraded?1:0)), c.costForTurn-(upgraded?1:0)));
                 }
                 this.addToBot(new RecordCardAction(c));
                 p.hand.addToHand(c);

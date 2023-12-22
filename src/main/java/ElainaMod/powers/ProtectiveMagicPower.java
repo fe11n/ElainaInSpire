@@ -15,7 +15,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 public class ProtectiveMagicPower extends AbstractPower {
-    public static final String POWER_ID = "Elaina:ConvergenceMagic";
+    public static final String POWER_ID = "Elaina:ProtectiveMagic";
     private static final PowerStrings powerstrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);;
     public static final String NAME = powerstrings.NAME;
 

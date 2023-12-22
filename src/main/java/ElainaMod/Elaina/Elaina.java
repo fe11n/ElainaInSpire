@@ -74,7 +74,7 @@ public class Elaina implements EditStringsSubscriber,EditCardsSubscriber, EditCh
       BaseMod.addCard(new BombardmentMagic());
       BaseMod.addCard(new BottledHappiness());
       BaseMod.addCard(new CharmMagic());
-      BaseMod.addCard(new Continuation());
+//      BaseMod.addCard(new Continuation());
       BaseMod.addCard(new ConvergenceMagic());
       BaseMod.addCard(new CounterMagic());
       BaseMod.addCard(new DeepMemory());

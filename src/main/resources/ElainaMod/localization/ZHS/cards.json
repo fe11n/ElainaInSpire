@@ -164,8 +164,8 @@
   },
   "Elaina:Reappear": {
     "NAME": "重现",
-    "DESCRIPTION": " elainamod:再现 elainamod:结语 。 NL *保留 。 NL *消耗 。",
-    "UPGRADE_DESCRIPTION": " elainamod:再现 elainamod:结语 。 NL *保留 。"
+    "DESCRIPTION": " elainamod:再现 1张卡牌 。 NL *保留 。 NL *消耗 。",
+    "UPGRADE_DESCRIPTION": " elainamod:再现 1张卡牌 。 NL *保留 。"
   },
   "Elaina:SpellReorganization": {
     "NAME": "法术重组",
@@ -234,11 +234,11 @@
   "Elaina:Rhetoric": {
     "NAME": "修辞",
     "DESCRIPTION": "获得 !B! 点格挡，升级 elainamod:结语 ， elainamod:再现 elainamod:结语 。",
-    "UPGRADE_DESCRIPTION": "获得 !B! 点格挡，升级日记所有卡牌， elainamod:再现 elainamod:结语 。"
+    "UPGRADE_DESCRIPTION": "获得 !B! 点格挡，升级日记所有卡牌， elainamod:再现 1张卡牌。"
   },
   "Elaina:Continuation": {
     "NAME": "续行",
-    "DESCRIPTION": " elainamod:再现 elainamod:结语 。本回合使用 elainamod:映像 时， elainamod:再现 elainamod:结语。 NL 回合结束时，手牌中每有1张映像，暂时升级 !M! 张卡牌。"
+    "DESCRIPTION": " elainamod:再现 elainamod:结语 。本回合使用 elainamod:映像 时， elainamod:再现 elainamod:结语 。 NL 回合结束时，手牌中每有1张映像，暂时升级 !M! 张卡牌。"
   },
   "Elaina:Reconsitution": {
     "NAME": "重构",
@@ -366,7 +366,7 @@
   },
   "Elaina:DejaVu": {
     "NAME": "似曾相识",
-    "DESCRIPTION": "获得 !B! 点格挡。 NL elainamod:记录 弃牌堆随机卡牌3次，增加 !M! 张重现到手牌中。"
+    "DESCRIPTION": "获得 !B! 点格挡。 NL elainamod:记录 弃牌堆随机卡牌 !M! 次，增加1张重现到手牌中。"
   },
   "Elaina:MagicTurbulence": {
     "NAME": "魔力乱流",

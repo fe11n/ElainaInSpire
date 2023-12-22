@@ -6,6 +6,8 @@ import ElainaMod.cards.IndelibleImprint;
 import ElainaMod.orb.ConclusionOrb;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
+import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import org.apache.logging.log4j.LogManager;
@@ -15,9 +17,10 @@ import java.util.ArrayList;
 
 public class GetDiaryCardAction extends AbstractGameAction {
     public ElainaC p;
-    public ArrayList<AbstractElainaCard> g;
+    public CardGroup g;
     private boolean toHand;
     public static final Logger logger = LogManager.getLogger(GetDiaryCardAction.class);
+    public AbstractCard targetCard = null;
     int cardIndex;
     public GetDiaryCardAction(ElainaC p){
         this.p = p;
@@ -33,26 +36,32 @@ public class GetDiaryCardAction extends AbstractGameAction {
         g = p.DiaryGroup;
         this.cardIndex = -1;//实际update时再赋值，防止同一卡牌的其它动作改变序列
     }
-    public GetDiaryCardAction(ElainaC p, boolean toHand, int num){
+    public GetDiaryCardAction(ElainaC p, boolean toHand, AbstractCard c){
         this.p = p;
         this.toHand = toHand;
         this.actionType = ActionType.CARD_MANIPULATION;
-        this.cardIndex = num;
+        this.targetCard = c;
         g = p.DiaryGroup;
     }
     @Override
     public void update(){//将结语获取到手中，同时更新结语
         if(g.size()!=0){//如果调用p的方法，如p.getConclusion和p.getDiarySize就会报错Null，神奇
-            AbstractElainaCard c = p.getConclusion();
-            if(c instanceof IndelibleImprint && !toHand){
-                this.addToBot(new DamageAction(AbstractDungeon.player, new DamageInfo(AbstractDungeon.player, c.magicNumber, DamageInfo.DamageType.THORNS), AttackEffect.FIRE));
-                c.flash();
+            if(p.getConclusion() instanceof IndelibleImprint && !toHand){
+                this.addToBot(
+                        new DamageAction(AbstractDungeon.player,
+                        new DamageInfo(AbstractDungeon.player,
+                                p.getConclusion().magicNumber,
+                                DamageInfo.DamageType.THORNS
+                        ),
+                        AttackEffect.FIRE));
+                p.getConclusion().flash();
                 this.isDone = true;
                 return;
             }
-            if(cardIndex == -1 || cardIndex == g.size()-1){
+            if(targetCard == null || targetCard.equals(p.getConclusion())){
+                targetCard = p.getConclusion();
                 this.cardIndex = g.size()-1;
-                g.remove(g.size()-1);
+                g.removeCard(g.getBottomCard());
                 if(g.size()>0){
                     p.channelOrb(new ConclusionOrb(p.getConclusion()));
                 }
@@ -61,18 +70,17 @@ public class GetDiaryCardAction extends AbstractGameAction {
                 }
             }
             else {
-                c = g.get(cardIndex);
-                g.remove(cardIndex);
+                g.removeCard(targetCard);
+                logger.info("Remove from Diary: "+targetCard.name);
             }
-            logger.info("Remove from Diary: "+c.name);
 
             if(toHand){
-                c.toHandfromDiary();
+                ((AbstractElainaCard)targetCard).toHandfromDiary();
                 if(p.hand.size()<10){
-                    p.hand.addToHand(c);
+                    p.hand.addToHand(targetCard);
                 }
                 else {
-                    p.discardPile.addToTop(c);
+                    p.discardPile.addToTop(targetCard);
                 }
             }
         }

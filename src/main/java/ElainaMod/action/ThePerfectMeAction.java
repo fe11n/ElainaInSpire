@@ -33,7 +33,7 @@ public class ThePerfectMeAction extends AbstractGameAction {
             }
         }
         else {
-            Iterator it = p.DiaryGroup.iterator();
+            Iterator it = p.DiaryGroup.group.iterator();
             while(it.hasNext()){
                 AbstractElainaCard c = (AbstractElainaCard) it.next();
                 if(c.isInstant == true){

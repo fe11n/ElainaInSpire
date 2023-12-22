@@ -4,6 +4,7 @@ import ElainaMod.Characters.ElainaC;
 import ElainaMod.action.GetDiaryCardAction;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.CardStrings;
@@ -54,9 +55,8 @@ public class Repetition extends AbstractElainaCard {
 
     @Override
     public boolean canUse(AbstractPlayer p, AbstractMonster m) {
-        ArrayList<AbstractElainaCard> g;
-        g = ((ElainaC)p).DiaryGroup;
-        if(g.isEmpty() || !g.get(g.size()-1).isInstant){
+        AbstractCard c = ((ElainaC)p).getConclusion();
+        if(((ElainaC)p).getConclusion() == null || !((AbstractElainaCard)c).isInstant){
             return false;
         }
         else return super.canUse(p,m);

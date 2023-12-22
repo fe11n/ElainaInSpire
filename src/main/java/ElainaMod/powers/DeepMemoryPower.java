@@ -1,5 +1,7 @@
 package ElainaMod.powers;
 
+import ElainaMod.action.RecordCardAction;
+import ElainaMod.cards.AbstractElainaCard;
 import basemod.helpers.CardModifierManager;
 import com.badlogic.gdx.graphics.Texture;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
@@ -24,16 +26,27 @@ public class DeepMemoryPower extends AbstractPower {
 
     public static final String[] DESCRIPTIONS = powerstrings.DESCRIPTIONS;
     public static final Logger logger = LogManager.getLogger(DeepMemoryPower.class);
-    public DeepMemoryPower(AbstractCreature o){
+    public DeepMemoryPower(AbstractCreature o,int num){
         this.name = NAME;
         this.ID = POWER_ID;
         this.owner = o;
-        this.amount = -1;
+        this.amount = num;
         this.type = PowerType.BUFF;
         this.updateDescription();
         this.img = new Texture("ElainaMod/img/powers/DeepMemoryPower.png");
     }
-    public void updateDescription(){this.description = DESCRIPTIONS[0];}
+    public void updateDescription(){this.description = DESCRIPTIONS[0]+amount+DESCRIPTIONS[1];}
+
+    public void atStartOfTurn() {
+        for(int i = 0;i<amount;){
+            AbstractElainaCard c = (AbstractElainaCard)AbstractDungeon.returnTrulyRandomCardInCombat().makeCopy();
+            logger.info("Show Card Name: "+c.name);
+            if(c.isNotable()){
+                this.addToBot(new RecordCardAction(c));
+                i++;
+            }
+        }
+    }
     public void onUseCard(AbstractCard card, UseCardAction action) {
         if (CardModifierManager.hasModifier(card,"toImageCardMod") && !card.purgeOnUse) {
             this.flash();
@@ -52,8 +65,6 @@ public class DeepMemoryPower extends AbstractPower {
             }
             tmp.purgeOnUse = true;
             AbstractDungeon.actionManager.addCardQueueItem(new CardQueueItem(tmp, m, card.energyOnUse, true, true), true);
-
         }
-
     }
 }

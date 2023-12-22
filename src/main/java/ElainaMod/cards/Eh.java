@@ -54,8 +54,10 @@ public class Eh extends AbstractElainaCard {
                 psum += mo.getPower("Strength").amount;
             }
         }
-        this.addToBot(new ApplyPowerAction(p, p, new DexterityPower(p, psum), psum));
-        this.addToBot(new ApplyPowerAction(p, p, new LoseDexterityPower(p, psum), psum));
-        this.addToBot(new GainBlockAction(p,psum));
+        if(psum>0){
+            this.addToBot(new ApplyPowerAction(p, p, new DexterityPower(p, psum), psum));
+            this.addToBot(new ApplyPowerAction(p, p, new LoseDexterityPower(p, psum), psum));
+            this.addToBot(new GainBlockAction(p,psum));
+        }
     }
 }

@@ -33,7 +33,7 @@ public class WitnessOfFriendship extends AbstractSeasonCard {
         super(ID, CARD_STRINGS, IMG_PATH, COST, TYPE, RARITY, TARGET);
         this.magicNumber = this.baseMagicNumber = 15;
         this.tags.add(ElainaC.Enums.SEASONAL);
-        this.BestSeasonNum = 0;
+        this.NotedSeasonNum = this.BestSeasonNum = 0;
         this.exhaust = true;
         this.ExtendExhaust[0]=this.ExtendExhaust[1]=true;
         this.ExtendMagicNum[0]=this.ExtendMagicNum[1]=15;
@@ -44,28 +44,34 @@ public class WitnessOfFriendship extends AbstractSeasonCard {
     public void upgrade() { // 升级调用的方法
         if (!this.upgraded) {
             this.upgradeName();
-            this.upgradeMagicNumber(5);
-            this.ExtendMagicNum[0]=this.ExtendMagicNum[1]=20;
+            this.upgradeMagicNumber(10);
+            this.ExtendMagicNum[0]=this.ExtendMagicNum[1]=25;
         }
     }
 
     public int getSeasonNum(){
-        if (
-                CardCrawlGame.dungeon != null && AbstractDungeon.currMapNode != null
-        ) {
-            int m = ElainaC.getSeason();
-            if(AbstractDungeon.player.hasPower("Elaina:BestState")){
-                m = 1;
-            }
-            if(m == 1 && !ElainaC.UsedYear.contains((ElainaC.Month-1)/12)) return 0;
-            else return 1;
-        }else {
-            return BestSeasonNum;
+//        if (
+//                CardCrawlGame.dungeon != null && AbstractDungeon.currMapNode != null
+//        ) {
+//            int m = ElainaC.getSeason();
+//            if(AbstractDungeon.player.hasPower("Elaina:BestState")){
+//                m = 1;
+//            }
+//            if(m == 1 && !ElainaC.UsedYear.contains((ElainaC.Month-1)/12)) return 0;
+//            else return 1;
+//        }else {
+//            return BestSeasonNum;
+//        }
+        int m = ElainaC.getSeason();
+        if(AbstractDungeon.player.hasPower("Elaina:BestState")){
+            m = 1;
         }
+        if(m == 1 && !ElainaC.UsedYear.contains((ElainaC.Month-1)/12)) return 0;
+        else return 1;
     }
     public void update() {
         super.originUpdate();
-        int season  = (getSeasonNum()+1)%2;
+        int season  = (NotedSeasonNum+1)%2;
         AbstractElainaCard c = (AbstractElainaCard) this.makeStatEquivalentCopy();
         c.rawDescription = CardCrawlGame.languagePack.getUIString(c.cardID).TEXT[season];
         c.magicNumber = c.baseMagicNumber = ExtendMagicNum[season];

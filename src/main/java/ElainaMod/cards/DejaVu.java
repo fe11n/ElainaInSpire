@@ -48,7 +48,9 @@ public class DejaVu extends AbstractElainaCard {
             @Override
             public void update() {
                 if(!p.discardPile.group.isEmpty()){
-                    this.addToBot(new RecordCardAction(p.discardPile.getRandomCard(true)));
+                    for(int i = 0;i<3;i++){
+                        this.addToBot(new RecordCardAction(p.discardPile.getRandomCard(true)));
+                    }
                 }
                 this.isDone = true;
             }

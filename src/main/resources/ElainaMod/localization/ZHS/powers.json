@@ -50,7 +50,8 @@
   "Elaina:DeepMemory": {
     "NAME": "深层记忆",
     "DESCRIPTIONS": [
-      "你打出的映像会被打出两次。"
+      "你打出的映像会被打出两次。回合开始时随机记录",
+      "张牌。"
     ]
   },
   "Elaina:ConvergenceMagic": {
@@ -105,6 +106,13 @@
     "DESCRIPTIONS": [
       "本回合魔力增幅不再提供伤害加成，且有魔力增幅时，每打出1张魔法卡，抽",
       "张牌。"
+    ]
+  },
+  "Elaina:ProtectiveMagic": {
+    "NAME": "防护魔法",
+    "DESCRIPTIONS": [
+      "本回合每打出1张魔法卡，获得",
+      "点格挡。"
     ]
   }
 }

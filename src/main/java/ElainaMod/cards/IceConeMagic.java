@@ -34,7 +34,7 @@ public class IceConeMagic extends AbstractSeasonCard {
         this.BestSeasonNum = 0;
         this.ExtendDamage[0]=this.ExtendDamage[1]=this.ExtendDamage[2]=this.ExtendDamage[3]=15;
         this.ExtendExhaust[1]=this.ExtendExhaust[2]=true;
-        this.ExtendExhaust[0]=this.ExtendExhaust[1]=this.ExtendExhaust[3]=false;
+        this.ExtendExhaust[0]=this.ExtendExhaust[3]=false;
         this.ExtendMagicNum[0] = 1;
 //        setPreviewCard(this);
     }
@@ -58,7 +58,6 @@ public class IceConeMagic extends AbstractSeasonCard {
     public void BasicEffect(ElainaC p, AbstractMonster m){
         logger.info("Season Num: "+p.getSeason());
         logger.info("Base Damage: "+this.baseDamage);
-        applyPowers();
         this.addToBot(new DamageAction(m, new DamageInfo(p, damage, DamageType.NORMAL)));
         switch (this.getSeasonNum()){
             case 0:

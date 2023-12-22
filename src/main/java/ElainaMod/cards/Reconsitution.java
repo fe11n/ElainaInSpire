@@ -29,7 +29,7 @@ public class Reconsitution extends AbstractElainaCard {
     public static final String ID = "Elaina:Reconsitution";
     private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID); // 从游戏系统读取本地化资源
     private static final String IMG_PATH = "ElainaMod/img/cards/Reconsitution.png";
-    private static final int COST = 2;
+    private static final int COST = 1;
     private static final CardType TYPE = CardType.SKILL;
     private static final CardRarity RARITY = CardRarity.UNCOMMON;
     private static final CardTarget TARGET = CardTarget.NONE;
@@ -45,18 +45,20 @@ public class Reconsitution extends AbstractElainaCard {
     public void upgrade() { // 升级调用的方法
         if (!this.upgraded) {
             this.upgradeName();
-            this.upgradeBaseCost(1);
+            this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
+            this.initializeDescription();
         }
     }
     @Override
     public void applyPowers() {
         this.baseMagicNumber = this.magicNumber = ((ElainaC)AbstractDungeon.player).DiaryGroup.size();
         super.applyPowers();
-        this.rawDescription = CARD_STRINGS.DESCRIPTION + CARD_STRINGS.EXTENDED_DESCRIPTION[0];
+        this.rawDescription = this.upgraded?CARD_STRINGS.UPGRADE_DESCRIPTION:CARD_STRINGS.DESCRIPTION
+                + CARD_STRINGS.EXTENDED_DESCRIPTION[0];
         this.initializeDescription();
     }
     public void onMoveToDiscard() {
-        this.rawDescription = CARD_STRINGS.DESCRIPTION;
+        this.rawDescription = this.upgraded?CARD_STRINGS.UPGRADE_DESCRIPTION:CARD_STRINGS.DESCRIPTION;
         this.initializeDescription();
     }
     /**
@@ -88,8 +90,7 @@ public class Reconsitution extends AbstractElainaCard {
                 this.isDone = true;
             }
         }.getMagicNum(
-                magicNumber
-                //this.upgraded?magicNumber*3:magicNumber*2
+                this.upgraded?magicNumber*2:magicNumber*1
                 ));
     }//基础效果，可以被使用和瞬发
 

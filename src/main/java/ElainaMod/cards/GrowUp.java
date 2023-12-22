@@ -34,14 +34,13 @@ public class GrowUp extends AbstractElainaCard {
         if (!this.upgraded) {
             this.upgradeName();
             this.upgradeBaseCost(0);
-            this.misc+=1;
         }
     }
 
     @Override
     public void applyPowers() {
         int m = ((ElainaC)AbstractDungeon.player).Month;
-        this.baseMagicNumber = this.magicNumber = this.misc + (m>0?(m/12):0);
+        this.baseMagicNumber = this.magicNumber = this.misc + (m>0?((m-1)/12):0);
         super.applyPowers();
         this.initializeDescription();
     }

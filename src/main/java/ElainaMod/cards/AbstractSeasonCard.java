@@ -60,39 +60,45 @@ public abstract class AbstractSeasonCard extends AbstractElainaCard {
         }
     }
     public int getSeasonNum(){
-        logger.info("Changing Season Num...");
-        if (
-                    CardCrawlGame.dungeon != null//一局游戏已打开或可继续
-                && AbstractDungeon.currMapNode != null//在一局游戏中
-                && AbstractDungeon.getMonsters()!=null//在战斗房
-                && !AbstractDungeon.getMonsters().monsters.isEmpty()//在战斗中
-                //TODO:战斗中打开卡组，循环预览对应的时节和主要卡面不同（循环预览显示的和手牌相同）
-        ) {
-            Iterator it = AbstractDungeon.getMonsters().monsters.iterator();
-            while (it.hasNext()){
-                AbstractMonster m = (AbstractMonster)it.next();
-                logger.info("Check MonsterHealth: "+m.name);
-                if(m.currentHealth!=0){
-                    if(AbstractDungeon.player.hasPower("Elaina:BestState")){
-                        logger.info("return BestSeasonNum 1: "+BestSeasonNum);
-                        return BestSeasonNum;
-                    }
-                    logger.info("return ElainaSeason: "+ElainaC.getSeason());
-                    return ElainaC.getSeason();
-                }
-            }
-            logger.info("return BestSeasonNum 2: "+BestSeasonNum);
-            return BestSeasonNum;
-//            if(AbstractDungeon.player.hasPower("Elaina:BestState")){
-//                logger.info("return BestSeasonNum 1: "+BestSeasonNum);
-//                return BestSeasonNum;
+//        logger.info("Changing Season Num...");
+//        if (
+//                    CardCrawlGame.dungeon != null//一局游戏已打开或可继续
+//                && AbstractDungeon.currMapNode != null//在一局游戏中
+//                && AbstractDungeon.getMonsters()!=null//在战斗房
+//                && !AbstractDungeon.getMonsters().monsters.isEmpty()//在战斗中
+//                //TODO:战斗中打开卡组，循环预览对应的时节和主要卡面不同（循环预览显示的和手牌相同）
+//        ) {
+//            Iterator it = AbstractDungeon.getMonsters().monsters.iterator();
+//            while (it.hasNext()){
+//                AbstractMonster m = (AbstractMonster)it.next();
+////                logger.info("Check MonsterHealth: "+m.name);
+//                if(m.currentHealth!=0){
+//                    if(AbstractDungeon.player.hasPower("Elaina:BestState")){
+////                        logger.info("return BestSeasonNum 1: "+BestSeasonNum);
+//                        return BestSeasonNum;
+//                    }
+//                    logger.info("return ElainaSeason: "+ElainaC.getSeason());
+//                    return ElainaC.getSeason();
+//                }
 //            }
-//            logger.info("return ElainaSeason: "+ElainaC.getSeason());
-//            return ElainaC.getSeason();
-        } else {
-            logger.info("return BestSeasonNum 2: "+BestSeasonNum);
+////            logger.info("return BestSeasonNum 2: "+BestSeasonNum);
+//            return BestSeasonNum;
+////            if(AbstractDungeon.player.hasPower("Elaina:BestState")){
+////                logger.info("return BestSeasonNum 1: "+BestSeasonNum);
+////                return BestSeasonNum;
+////            }
+////            logger.info("return ElainaSeason: "+ElainaC.getSeason());
+////            return ElainaC.getSeason();
+//        } else {
+////            logger.info("return BestSeasonNum 2: "+BestSeasonNum);
+//            return BestSeasonNum;
+//        }
+        if(AbstractDungeon.player.hasPower("Elaina:BestState")){
+//                        logger.info("return BestSeasonNum 1: "+BestSeasonNum);
             return BestSeasonNum;
         }
+        logger.info("return ElainaSeason: "+ElainaC.getSeason());
+        return ElainaC.getSeason();
     }
 //    public void setPreviewCard(AbstractElainaCard c){
 //        springCard = c;
@@ -138,8 +144,8 @@ public abstract class AbstractSeasonCard extends AbstractElainaCard {
     }
     public ArrayList<AbstractCard> returnProphecy() {
         ArrayList<AbstractCard> list = new ArrayList();
-        int season  = getSeasonNum();
-        for(int i=1;i<4;i++){
+        int season  = BestSeasonNum;
+        for(int i=1;i<5;i++){//显示全部4张
             AbstractElainaCard c = (AbstractElainaCard) this.makeStatEquivalentCopy();
             c.rawDescription = CardCrawlGame.languagePack.getUIString(c.cardID).TEXT[(season+i)%4];
             c.damage = c.baseDamage = ExtendDamage[(season+i)%4];

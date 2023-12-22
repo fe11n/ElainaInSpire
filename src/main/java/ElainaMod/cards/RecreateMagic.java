@@ -22,7 +22,7 @@ public class RecreateMagic extends AbstractElainaCard {
     public RecreateMagic() {
         // 为了命名规范修改了变量名。这些参数具体的作用见下方
         super(ID, CARD_STRINGS, IMG_PATH, COST, TYPE, RARITY, TARGET);
-        this.damage = this.baseDamage = 4;
+        this.damage = this.baseDamage = 7;
         this.tags.add(ElainaC.Enums.MAGIC);
     }
 

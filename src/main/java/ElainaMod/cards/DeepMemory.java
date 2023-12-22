@@ -20,13 +20,14 @@ public class DeepMemory extends AbstractElainaCard {
     public DeepMemory() {
         // 为了命名规范修改了变量名。这些参数具体的作用见下方
         super(ID, CARD_STRINGS, IMG_PATH, COST, TYPE, RARITY, TARGET);
+        this.magicNumber = this.baseMagicNumber = 1;
     }
 
     @Override
     public void upgrade() { // 升级调用的方法
         if (!this.upgraded) {
             this.upgradeName();
-            this.upgradeBaseCost(1);
+            this.upgradeMagicNumber(1);
         }
     }
     /**
@@ -37,6 +38,6 @@ public class DeepMemory extends AbstractElainaCard {
      */
     @Override
     public void BasicEffect(ElainaC p, AbstractMonster m) {
-        this.addToBot(new ApplyPowerAction(p, p, new DeepMemoryPower(p)));
+        this.addToBot(new ApplyPowerAction(p, p, new DeepMemoryPower(p,magicNumber)));
     }
 }

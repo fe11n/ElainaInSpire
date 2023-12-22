@@ -20,16 +20,15 @@ public class Continuation extends AbstractElainaCard {
     public Continuation() {
         // 为了命名规范修改了变量名。这些参数具体的作用见下方
         super(ID, CARD_STRINGS, IMG_PATH, COST, TYPE, RARITY, TARGET);
-        this.exhaust = true;
+        this.exhaust = false;
+        this.magicNumber = this.baseMagicNumber = 1;
     }
 
     @Override
     public void upgrade() { // 升级调用的方法
         if (!this.upgraded) {
             this.upgradeName(); // 卡牌名字变为绿色并添加“+”，且标为升级过的卡牌，之后不能再升级。
-            this.exhaust = false;
-            this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
-            this.initializeDescription();
+            this.upgradeMagicNumber(1);
         }
     }
     /**
@@ -40,6 +39,6 @@ public class Continuation extends AbstractElainaCard {
      */
     public void BasicEffect(ElainaC p, AbstractMonster m){
         this.addToBot(new GetDiaryCardAction(p));
-        this.addToBot(new ApplyPowerAction(p,p,new ContinuationPower(p)));
+        this.addToBot(new ApplyPowerAction(p,p,new ContinuationPower(p,magicNumber)));
     }//基础效果，可以被使用和瞬发
 }

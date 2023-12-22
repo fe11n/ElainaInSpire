@@ -17,7 +17,7 @@ public class IntensifyArray extends AbstractElainaCard {
     public static final String ID = "Elaina:IntensifyArray";
     private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID); // 从游戏系统读取本地化资源
     private static final String IMG_PATH = "ElainaMod/img/cards/IntensifyArray.png";
-    private static final int COST = 1;
+    private static final int COST = 0;
     private static final CardType TYPE = CardType.POWER;
     private static final CardRarity RARITY = CardRarity.RARE;
     private static final CardTarget TARGET = CardTarget.SELF;
@@ -25,13 +25,14 @@ public class IntensifyArray extends AbstractElainaCard {
     public IntensifyArray() {
         // 为了命名规范修改了变量名。这些参数具体的作用见下方
         super(ID, CARD_STRINGS, IMG_PATH, COST, TYPE, RARITY, TARGET);
+        this.magicNumber = this.baseMagicNumber = 1;
     }
 
     @Override
     public void upgrade() { // 升级调用的方法
         if (!this.upgraded) {
             this.upgradeName();
-            this.upgradeBaseCost(0);
+            this.upgradeMagicNumber(1);
         }
     }
     /**
@@ -42,6 +43,6 @@ public class IntensifyArray extends AbstractElainaCard {
      */
     @Override
     public void BasicEffect(ElainaC p, AbstractMonster m) {
-        this.addToBot(new ApplyPowerAction(p, p, new IntensifyArrayPower(p)));
+        this.addToBot(new ApplyPowerAction(p, p, new IntensifyArrayPower(p,magicNumber)));
     }
 }

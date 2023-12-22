@@ -30,6 +30,7 @@ public class Repetition extends AbstractElainaCard {
     @Override
     public void upgrade() { // 升级调用的方法
         if (!this.upgraded) {
+            this.upgradeName();
             this.upgradeBaseCost(0); // 将该卡牌的伤害提高3点。
         }
     }

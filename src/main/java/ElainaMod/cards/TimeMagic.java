@@ -25,6 +25,7 @@ public class TimeMagic extends AbstractElainaCard {
         super(ID, CARD_STRINGS, IMG_PATH, COST, TYPE, RARITY, TARGET);
         this.damage = this.baseDamage = 9;
         this.cardsToPreview = new Deviation();
+        this.tags.add(ElainaC.Enums.MAGIC);
     }
 
     @Override

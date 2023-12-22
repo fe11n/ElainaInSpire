@@ -14,6 +14,7 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.powers.LoseStrengthPower;
 import com.megacrit.cardcrawl.powers.StrengthPower;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -49,6 +50,7 @@ public class ItsMeAction extends AbstractGameAction {
                     AbstractMonster mo = AbstractDungeon.getRandomMonster();
                     if(c.costForTurn>(upgraded?1:0)){
                         this.addToBot(new ApplyPowerAction(mo, p,new StrengthPower(mo, c.costForTurn-(upgraded?1:0)), c.costForTurn-(upgraded?1:0)));
+                        this.addToBot(new ApplyPowerAction(p, p, new LoseStrengthPower(mo, c.costForTurn-(upgraded?1:0)), c.costForTurn-(upgraded?1:0)));
                     }
                     this.addToBot(new RecordCardAction(c));
                     //p.hand.moveToDiscardPile(c);
@@ -68,6 +70,7 @@ public class ItsMeAction extends AbstractGameAction {
                 AbstractMonster mo = AbstractDungeon.getRandomMonster();
                 if(c.costForTurn>(upgraded?1:0)){
                     this.addToBot(new ApplyPowerAction(mo, p,new StrengthPower(mo, c.costForTurn-(upgraded?1:0)), c.costForTurn-(upgraded?1:0)));
+                    this.addToBot(new ApplyPowerAction(p, p, new LoseStrengthPower(mo, c.costForTurn-(upgraded?1:0)), c.costForTurn-(upgraded?1:0)));
                 }
                 this.addToBot(new RecordCardAction(c));
                 p.hand.addToHand(c);

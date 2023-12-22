@@ -31,20 +31,20 @@ public class Quotation extends AbstractElainaCard {
         // 为了命名规范修改了变量名。这些参数具体的作用见下方
         super(ID, CARD_STRINGS, IMG_PATH, COST, TYPE, RARITY, TARGET);
         this.exhaust = true;
+        this.magicNumber = this.baseMagicNumber = 3;
     }
 
     @Override
     public void upgrade() { // 升级调用的方法
         if (!this.upgraded) {
             this.upgradeName();
-            this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
-            this.initializeDescription();
+            this.upgradeMagicNumber(2);
         }
     }
 
-    public static ArrayList<AbstractCard> returnProphecy() {
+    public ArrayList<AbstractCard> returnProphecy() {
         ArrayList<AbstractCard> list = new ArrayList();
-        for(int i = 0;i<3;){
+        for(int i = 0;i<this.magicNumber;){
             AbstractElainaCard c = (AbstractElainaCard)AbstractDungeon.returnTrulyRandomCardInCombat().makeCopy();
             logger.info("Show Card Name: "+c.name);
             if(c.isNotable()){
@@ -77,13 +77,6 @@ public class Quotation extends AbstractElainaCard {
                 addToBot(new RecordCardAction(abstractCards.get(0)));
             }
         };
-        if(upgraded){
-            this.addToBot(new SelectCardsAction(list,CARD_STRINGS.EXTENDED_DESCRIPTION[0],callback));
-        }else {
-            Iterator it = list.iterator();
-            while (it.hasNext()){
-                this.addToBot(new RecordCardAction((AbstractCard)it.next()));
-            }
-        }
+        this.addToBot(new SelectCardsAction(list,CARD_STRINGS.EXTENDED_DESCRIPTION[0],callback));
     }
 }

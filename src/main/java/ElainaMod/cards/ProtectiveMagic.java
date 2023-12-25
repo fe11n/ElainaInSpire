@@ -24,7 +24,7 @@ public class ProtectiveMagic extends AbstractElainaCard {
         super(ID, CARD_STRINGS, IMG_PATH, COST, TYPE, RARITY, TARGET);
         this.block = this.baseBlock = 5;
         this.damage = this.baseDamage = 5;
-        this.magicNumber = this.baseMagicNumber = 5;
+        this.magicNumber = this.baseMagicNumber = 3;
         this.tags.add(ElainaC.Enums.MAGIC);
     }
 
@@ -32,9 +32,9 @@ public class ProtectiveMagic extends AbstractElainaCard {
     public void upgrade() { // 升级调用的方法
         if (!this.upgraded) {
             this.upgradeName();
-            this.upgradeBlock(1);
-            this.upgradeMagicNumber(1);
-            this.upgradeDamage(1);
+            this.upgradeBlock(2);
+            this.upgradeMagicNumber(2);
+            this.upgradeDamage(2);
         }
     }
     /**

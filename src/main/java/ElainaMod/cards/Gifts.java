@@ -2,32 +2,27 @@ package ElainaMod.cards;
 
 import ElainaMod.Characters.ElainaC;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
-import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.cards.DamageInfo.DamageType;
-import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
-import java.util.Iterator;
-
-public class EvolutionMagic extends AbstractElainaCard {
-    public static final String ID = "Elaina:EvolutionMagic";
+public class Gifts extends AbstractElainaCard {
+    public static final String ID = "Elaina:Gifts";
     private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID); // 从游戏系统读取本地化资源
-    private static final String IMG_PATH = "ElainaMod/img/cards/EvolutionMagic.png";
+    private static final String IMG_PATH = "ElainaMod/img/cards/Gifts.png";
     private static final int COST = 0;
     private static final CardType TYPE = CardType.ATTACK;
     private static final CardRarity RARITY = CardRarity.UNCOMMON;
     private static final CardTarget TARGET = CardTarget.ENEMY;
 
-    public EvolutionMagic() {
+    public Gifts() {
         // 为了命名规范修改了变量名。这些参数具体的作用见下方
         super(ID, CARD_STRINGS, IMG_PATH, COST, TYPE, RARITY, TARGET);
         this.damage = this.baseDamage = 0;
         this.magicNumber = this.baseMagicNumber = 3;
-        this.tags.add(ElainaC.Enums.MAGIC);
     }
 
     @Override

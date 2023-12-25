@@ -14,11 +14,7 @@ import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.localization.*;
 import com.badlogic.gdx.graphics.Color;
 
-import java.io.IOException;
 import java.nio.charset.StandardCharsets;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 
 import static ElainaMod.Characters.ElainaC.Enums.*;
 import static com.megacrit.cardcrawl.core.Settings.language;
@@ -66,11 +62,11 @@ public class Elaina implements EditStringsSubscriber,EditCardsSubscriber, EditCh
       BaseMod.addCard(new Accumulation());
       BaseMod.addCard(new AdjustPace());
       BaseMod.addCard(new AdvancedMagic());
-      BaseMod.addCard(new AnticipatoryMagic());
+      BaseMod.addCard(new Anticipatory());
       BaseMod.addCard(new AutumnVigilance());
       BaseMod.addCard(new Awaken());
       BaseMod.addCard(new BasicMagic());
-      BaseMod.addCard(new BestState());
+//      BaseMod.addCard(new BestState());
       BaseMod.addCard(new BombardmentMagic());
       BaseMod.addCard(new BottledHappiness());
       BaseMod.addCard(new CharmMagic());
@@ -87,7 +83,7 @@ public class Elaina implements EditStringsSubscriber,EditCardsSubscriber, EditCh
       BaseMod.addCard(new Eh());
       BaseMod.addCard(new EmergencyTreatment());
       BaseMod.addCard(new Endurance());
-      BaseMod.addCard(new EvolutionMagic());
+      BaseMod.addCard(new Gifts());
       BaseMod.addCard(new ExplosiveMagic());
       BaseMod.addCard(new FirstImpression());
       BaseMod.addCard(new FlashMagic());

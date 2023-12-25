@@ -3,10 +3,8 @@ package ElainaMod.cards;
 import ElainaMod.Characters.ElainaC;
 import ElainaMod.action.GetDiaryCardAction;
 import ElainaMod.action.RecordCardAction;
-import com.megacrit.cardcrawl.actions.common.DamageAction;
-import com.megacrit.cardcrawl.actions.common.ExhaustSpecificCardAction;
-import com.megacrit.cardcrawl.actions.common.GainBlockAction;
-import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
+import ElainaMod.powers.SpellBoostPower;
+import com.megacrit.cardcrawl.actions.common.*;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.cards.DamageInfo.DamageType;
@@ -38,7 +36,7 @@ public class PureMagic extends AbstractElainaCard {
         if (!this.upgraded) {
             this.upgradeName(); // 卡牌名字变为绿色并添加“+”，且标为升级过的卡牌，之后不能再升级。
             this.upgradeDamage(4);
-            this.upgradeMagicNumber(2);
+            this.upgradeMagicNumber(1);
         }
     }
 
@@ -56,7 +54,7 @@ public class PureMagic extends AbstractElainaCard {
             if(!c.hasTag(ElainaC.Enums.MAGIC)){
                 this.addToBot(new RecordCardAction(c));
                 this.addToBot(new ExhaustSpecificCardAction(c,p.hand));
-                this.addToBot(new GainBlockAction(p,this.magicNumber));
+                this.addToBot(new ApplyPowerAction(p,p,new SpellBoostPower(p,magicNumber)));
             }
         }
     }

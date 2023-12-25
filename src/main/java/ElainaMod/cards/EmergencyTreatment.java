@@ -34,7 +34,8 @@ public class EmergencyTreatment extends AbstractElainaCard {
     public void upgrade() { // 升级调用的方法
         if (!this.upgraded) {
             this.upgradeName();
-            this.upgradeBlock(2);
+            this.upgradeBlock(1);
+            this.upgradeMagicNumber(1);
         }
     }
     /**
@@ -54,13 +55,7 @@ public class EmergencyTreatment extends AbstractElainaCard {
         this.addToBot(new MakeTempCardInHandAction(c));
         this.addToBot(new ApplyPowerAction(p,p,new DexterityPower(p,magicNumber)));
         int count = 0;
-        Iterator it = p.drawPile.group.iterator();
-        while(it.hasNext()){
-            if(it.next() instanceof EmergencyTreatment){
-                count++;
-            }
-        }
-        it = p.discardPile.group.iterator();
+        Iterator it = p.discardPile.group.iterator();
         while(it.hasNext()){
             if(it.next() instanceof EmergencyTreatment){
                 count++;

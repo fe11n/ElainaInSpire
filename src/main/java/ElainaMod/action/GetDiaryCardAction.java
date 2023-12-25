@@ -48,12 +48,11 @@ public class GetDiaryCardAction extends AbstractGameAction {
         if(g.size()!=0){//如果调用p的方法，如p.getConclusion和p.getDiarySize就会报错Null，神奇
             if(p.getConclusion() instanceof IndelibleImprint && !toHand){
                 this.addToBot(
-                        new DamageAction(AbstractDungeon.player,
-                        new DamageInfo(AbstractDungeon.player,
-                                p.getConclusion().magicNumber,
-                                DamageInfo.DamageType.THORNS
-                        ),
-                        AttackEffect.FIRE));
+                        new DamageAction(
+                                AbstractDungeon.getRandomMonster(),
+                                new DamageInfo(p,p.getConclusion().magicNumber, DamageInfo.DamageType.THORNS)
+                        )
+                );
                 p.getConclusion().flash();
                 this.isDone = true;
                 return;

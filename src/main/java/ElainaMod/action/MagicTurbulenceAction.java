@@ -29,14 +29,14 @@ public class MagicTurbulenceAction extends AbstractGameAction {
     }
     @Override
     public void update(){
-        Iterator it = p.DiaryGroup.iterator();
+        Iterator it = p.DiaryGroup.group.iterator();
         while (it.hasNext()){
             AbstractCard c = (AbstractCard)it.next();
             c.updateCost(-1);
             logger.info(c.name+" cost:"+c.costForTurn);
         }
-        Collections.shuffle(p.DiaryGroup,AbstractDungeon.miscRng.random);
-        if(p.DiaryGroup.size()>0){
+        Collections.shuffle(p.DiaryGroup.group,AbstractDungeon.miscRng.random);
+        if(p.DiaryGroup.group.size()>0){
             p.channelOrb(new ConclusionOrb(p.getConclusion()));
         }
         this.isDone=true;

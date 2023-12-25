@@ -23,7 +23,7 @@ public class WanderingWitch extends CustomRelic {
     public static final Logger logger = LogManager.getLogger(WanderingWitch.class);
     ElainaC p;
     public ArrayList<AbstractCard> l;
-    public ArrayList<AbstractElainaCard> g = ElainaC.DiaryGroup;
+    public ArrayList<AbstractCard> g = ElainaC.DiaryGroup.group;
     public int NotedMonth;
 
     private boolean Rclick = false;

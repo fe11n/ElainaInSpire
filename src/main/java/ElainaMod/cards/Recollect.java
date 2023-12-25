@@ -46,7 +46,6 @@ public class Recollect extends AbstractElainaCard {
     public void BasicEffect(ElainaC p, AbstractMonster m) {
         // AbstractCard中实现了addToBot方法，它的效果和AbstractDungeon.actionManager.addToBottom相同
         this.addToBot(new GainEnergyAction(this.magicNumber));
-        this.addToBot(new DrawCardAction(1));
         if(!p.DiaryGroup.isEmpty()){
             if(p.getConclusion().isInstant){
                 this.addToBot(new DrawCardAction(2));
@@ -57,9 +56,7 @@ public class Recollect extends AbstractElainaCard {
 
     @Override
     public boolean canUse(AbstractPlayer p, AbstractMonster m) {
-        ArrayList<AbstractElainaCard> g;
-        g = ((ElainaC)p).DiaryGroup;
-        if(g.isEmpty()){
+        if(((ElainaC)p).getConclusion()==null){
            return false;
         }
         else return true;

@@ -12,6 +12,7 @@ import com.evacipated.cardcrawl.modthespire.lib.SpireEnum;
 import com.google.gson.reflect.TypeToken;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.EnergyManager;
@@ -59,7 +60,7 @@ public class ElainaC extends CustomPlayer{
     // 人物的本地化文本，如卡牌的本地化文本一样，如何书写见下
     private static final CharacterStrings characterStrings =
             CardCrawlGame.languagePack.getCharacterString("Elaina:ElainaC");
-    public static ArrayList<AbstractElainaCard> DiaryGroup = new ArrayList<>();//存储日记的抽象数组
+    public static CardGroup DiaryGroup = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);//存储日记的抽象数组
     public static int Month = new Random().nextInt(12)+1;//时节变量
     //public static int Month = 12;//时节变量
     public static int FarYear = 0;
@@ -129,16 +130,16 @@ public class ElainaC extends CustomPlayer{
         ChangeMonth(num,true);
     }
     public void UpdateAllSeasonalDescription(){
-        UpdateSeasonalDescription(this.discardPile.group);
-        UpdateSeasonalDescription(this.drawPile.group);
-        UpdateSeasonalDescription(this.hand.group);
+        UpdateSeasonalDescription(this.discardPile);
+        UpdateSeasonalDescription(this.drawPile);
+        UpdateSeasonalDescription(this.hand);
         UpdateSeasonalDescription(DiaryGroup,true);
     }
-    private void UpdateSeasonalDescription(ArrayList g){
+    private void UpdateSeasonalDescription(CardGroup g){
         UpdateSeasonalDescription(g,false);
     }
-    private void UpdateSeasonalDescription(ArrayList g,boolean isDiary){
-        Iterator it = g.iterator();
+    private void UpdateSeasonalDescription(CardGroup g,boolean isDiary){
+        Iterator it = g.group.iterator();
         while (it.hasNext()){
             AbstractCard ca = (AbstractCard) it.next();
             if(ca instanceof AbstractElainaCard){ //防止状态、诅咒牌引起报错
@@ -154,13 +155,7 @@ public class ElainaC extends CustomPlayer{
 
     public AbstractElainaCard getConclusion(){
         if(DiaryGroup.size()!=0){
-            return DiaryGroup.get(DiaryGroup.size()-1);
-        }
-        else return null;
-    }
-    public ConclusionOrb getConclusionOrb(){
-        if(this.orbs.size()!=0){
-            return (ConclusionOrb) this.orbs.get(0);
+            return (AbstractElainaCard) DiaryGroup.getBottomCard();
         }
         else return null;
     }
@@ -175,40 +170,8 @@ public class ElainaC extends CustomPlayer{
         for(int x = 0; x<4; x++) {
             retVal.add(Defend.ID);
         }
-//        retVal.add(RecreateMagic.ID);
         retVal.add(Recall.ID);
         retVal.add(BasicMagic.ID);
-//        retVal.add(AdjustPace.ID);
-//        retVal.add(BombardmentMagic.ID);
-//        retVal.add(BottledHappiness.ID);
-//        retVal.add(CharmMagic.ID);
-//        retVal.add(CounterMagic.ID);
-//        retVal.add(DestructionMagic.ID);
-//        retVal.add(Drawup.ID);
-//        retVal.add(Echo.ID);
-//        retVal.add(Eh.ID);
-//        retVal.add(EmergencyTreatment.ID);
-//        retVal.add(FlashMagic.ID);
-//        retVal.add(FragrantWind.ID);
-//        retVal.add(GrowUp.ID);
-//        retVal.add(IceConeMagic.ID);
-//        retVal.add(IndelibleImprint.ID);
-//        retVal.add(IntensifyArray.ID);
-//        retVal.add(ItsMe.ID);
-//        retVal.add(LeavesMagic.ID);
-//        retVal.add(MagicEcho.ID);
-//        retVal.add(MagicSurging.ID);
-//        retVal.add(Ponder.ID);
-//        retVal.add(Reappear.ID);
-//        retVal.add(Recollect.ID);
-//        retVal.add(Rummage.ID);
-//        retVal.add(Rush.ID);
-//        retVal.add(SilentChant.ID);
-//        retVal.add(SpellReorganization.ID);
-//        retVal.add(Thunder.ID);
-//        retVal.add(Vibration.ID);
-//        retVal.add(WitnessOfFriendship.ID);
-//        retVal.add(WitchRobe.ID);
         return retVal;
     }
 

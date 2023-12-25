@@ -23,7 +23,7 @@ public class Accumulation extends AbstractElainaCard {
     public Accumulation() {
         // 为了命名规范修改了变量名。这些参数具体的作用见下方
         super(ID, CARD_STRINGS, IMG_PATH, COST, TYPE, RARITY, TARGET);
-        this.magicNumber = this.baseMagicNumber = 5;
+        this.magicNumber = this.baseMagicNumber = 10;
         this.exhaust = true;
     }
 
@@ -31,9 +31,7 @@ public class Accumulation extends AbstractElainaCard {
     public void upgrade() { // 升级调用的方法
         if (!this.upgraded) {
             this.upgradeName();
-            this.upgradeMagicNumber(1);
-            this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
-            this.initializeDescription();
+            this.upgradeMagicNumber(5);
         }
     }
     /**
@@ -44,8 +42,8 @@ public class Accumulation extends AbstractElainaCard {
      */
     @Override
     public void BasicEffect(ElainaC p, AbstractMonster m) {
-        this.addToBot(new ApplyPowerAction(p,p,new SpellBoostPower(p,this.magicNumber*2),this.magicNumber*2));
-        this.addToBot(new ApplyPowerAction(p, p, new StrengthPower(p, -magicNumber), -magicNumber, true, AbstractGameAction.AttackEffect.NONE));
-        this.addToBot(new ApplyPowerAction(p, p, new GainStrengthPower(p, magicNumber), magicNumber, true, AbstractGameAction.AttackEffect.NONE));
+        this.addToBot(new ApplyPowerAction(p,p,new SpellBoostPower(p,this.magicNumber),this.magicNumber));
+        this.addToBot(new ApplyPowerAction(p, p, new StrengthPower(p, -5), -5, true, AbstractGameAction.AttackEffect.NONE));
+        this.addToBot(new ApplyPowerAction(p, p, new GainStrengthPower(p, 5), 5, true, AbstractGameAction.AttackEffect.NONE));
     }
 }

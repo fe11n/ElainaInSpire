@@ -84,7 +84,7 @@ public class Awaken extends AbstractElainaCard {
                         CardModifierManager.addModifier(c,new toImageCardMod());
                     }
                 }
-                it = p.DiaryGroup.iterator();
+                it = p.DiaryGroup.group.iterator();
                 while(it.hasNext()){
                     AbstractCard c = ((AbstractCard) it.next()).makeStatEquivalentCopy();
                     logger.info("Adding card: " + c.name);

@@ -12,13 +12,13 @@ import java.util.ArrayList;
 
 public class ShowDiaryAction extends AbstractGameAction{
     public ElainaC p = (ElainaC) AbstractDungeon.player;
-    public ArrayList<AbstractElainaCard> g = ElainaC.DiaryGroup;
+    public CardGroup g = ElainaC.DiaryGroup;
     public CardGroup diaryShow = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
 
     public static final Logger logger = LogManager.getLogger(ShowDiaryAction.class);
     public ShowDiaryAction(){
         logger.info("ShowDiaryAction()");
-        diaryShow.group.addAll(g);
+        diaryShow.group.addAll(g.group);
         this.actionType = AbstractGameAction.ActionType.CARD_MANIPULATION;
     }
     @Override

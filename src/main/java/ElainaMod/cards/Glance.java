@@ -45,6 +45,7 @@ public class Glance extends AbstractElainaCard {
         this.addToBot(new AbstractGameAction() {
             @Override
             public void update() {
+                this.addToBot(new DrawCardAction(1));
                 Iterator it = AbstractDungeon.player.hand.group.iterator();
                 while (it.hasNext()){
                     AbstractCard c = (AbstractCard) it.next();

@@ -6,6 +6,7 @@ import ElainaMod.cards.AbstractElainaCard;
 import ElainaMod.orb.ConclusionOrb;
 import basemod.helpers.CardModifierManager;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.cards.CardGroup;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -14,7 +15,7 @@ import java.util.ArrayList;
 public class AddInstantAction extends AbstractGameAction {
     public ElainaC p;
     public AbstractElainaCard c;
-    public ArrayList<AbstractElainaCard> g;
+    public CardGroup g;
     public static final Logger logger = LogManager.getLogger(AddInstantAction.class);
     public AddInstantAction(ElainaC p){
        this.p = p;

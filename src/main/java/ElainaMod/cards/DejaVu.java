@@ -22,7 +22,7 @@ public class DejaVu extends AbstractElainaCard {
         // 为了命名规范修改了变量名。这些参数具体的作用见下方
         super(ID, CARD_STRINGS, IMG_PATH, COST, TYPE, RARITY, TARGET);
         this.baseBlock = 7;
-        this.baseMagicNumber = this.magicNumber = 1;
+        this.baseMagicNumber = this.magicNumber = 2;
         this.cardsToPreview = new Reappear();
     }
 
@@ -48,13 +48,13 @@ public class DejaVu extends AbstractElainaCard {
             @Override
             public void update() {
                 if(!p.discardPile.group.isEmpty()){
-                    for(int i = 0;i<3;i++){
+                    for(int i = 0;i<magicNumber;i++){
                         this.addToBot(new RecordCardAction(p.discardPile.getRandomCard(true)));
                     }
                 }
                 this.isDone = true;
             }
         });
-        this.addToBot(new MakeTempCardInHandAction(this.cardsToPreview.makeStatEquivalentCopy(),this.magicNumber));
+        this.addToBot(new MakeTempCardInHandAction(this.cardsToPreview.makeStatEquivalentCopy()));
     }
 }

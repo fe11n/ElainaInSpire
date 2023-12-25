@@ -24,8 +24,8 @@ public class toSeasonCardMod extends AbstractCardModifier {
 
     @Override
     public void onInitialApplication(AbstractCard card) {
-        logger.info("Card Name: " + card.name);
-        logger.info("SeasonNum: " + ((AbstractSeasonCard)card).NotedSeasonNum);
+//        logger.info("Card Name: " + card.name);
+//        logger.info("SeasonNum: " + ((AbstractSeasonCard)card).NotedSeasonNum);
         card.exhaust = ((AbstractSeasonCard)card).ExtendExhaust[((AbstractSeasonCard)card).NotedSeasonNum];
         card.baseDamage = ((AbstractSeasonCard)card).ExtendDamage[((AbstractSeasonCard)card).NotedSeasonNum];
         card.baseBlock = ((AbstractSeasonCard)card).ExtendBlock[((AbstractSeasonCard)card).NotedSeasonNum];

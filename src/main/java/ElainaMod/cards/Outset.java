@@ -19,14 +19,14 @@ public class Outset extends AbstractElainaCard {
     private static final String IMG_PATH = "ElainaMod/img/cards/Outset.png";
     private static final int COST = 2;
     private static final CardType TYPE = CardType.ATTACK;
-    private static final CardRarity RARITY = CardRarity.UNCOMMON;
+    private static final CardRarity RARITY = CardRarity.RARE;
     private static final CardTarget TARGET = CardTarget.ENEMY;
 
     public Outset() {
         // 为了命名规范修改了变量名。这些参数具体的作用见下方
         super(ID, CARD_STRINGS, IMG_PATH, COST, TYPE, RARITY, TARGET);
-        this.damage = this.baseDamage = 10;
-        this.magicNumber = this.baseMagicNumber = 10;
+        this.damage = this.baseDamage = 12;
+        this.magicNumber = this.baseMagicNumber = 12;
     }
 
     @Override

@@ -2,6 +2,7 @@ package ElainaMod.powers;
 
 import ElainaMod.Characters.ElainaC;
 import ElainaMod.action.GetDiaryCardAction;
+import ElainaMod.cards.AbstractSeasonCard;
 import ElainaMod.cards.WizardsWell;
 import basemod.helpers.CardModifierManager;
 import com.badlogic.gdx.graphics.Texture;
@@ -41,13 +42,8 @@ public class BestStatePower extends AbstractPower {
     public void onUseCard(AbstractCard card, UseCardAction action){
         if(card.hasTag(ElainaC.Enums.SEASONAL)){
             this.addToBot(new ReducePowerAction(owner,owner,"Elaina:BestState",1));
-            this.addToBot(new AbstractGameAction() {
-                @Override
-                public void update() {
-                    ((ElainaC)owner).UpdateAllSeasonalDescription();
-                    this.isDone = true;
-                }
-            });
+            ((AbstractSeasonCard)card).UpdateSeasonalDescription();
+            ((ElainaC)owner).UpdateAllSeasonalDescription();
         }
     }
 }

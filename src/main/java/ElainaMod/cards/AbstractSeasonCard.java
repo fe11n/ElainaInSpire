@@ -48,15 +48,15 @@ public abstract class AbstractSeasonCard extends AbstractElainaCard {
                 && AbstractDungeon.getMonsters()!=null//在战斗房
                 && !AbstractDungeon.getMonsters().monsters.isEmpty()//在战斗中
         ) {
-//            Iterator it = AbstractDungeon.getMonsters().monsters.iterator();
-//            while (it.hasNext()){
+            Iterator it = AbstractDungeon.getMonsters().monsters.iterator();
+            while (it.hasNext()){
 //                logger.info("Check MonsterHealth...");
-//                if(((AbstractMonster)it.next()).currentHealth!=0){
-//                    this.UpdateSeasonalDescription();//战斗外获得卡时，对卡组中的时令卡也生效。理想情况：战斗外获得卡不调用这个函数
-//                    break;
-//                }
-//            }
-            this.UpdateSeasonalDescription();//理想情况：战斗外创建卡不调用这个函数
+                if(((AbstractMonster)it.next()).currentHealth!=0){
+                    this.UpdateSeasonalDescription();//战斗外获得卡时，对卡组中的时令卡也生效。理想情况：战斗外获得卡不调用这个函数
+                    break;
+                }
+            }
+//            this.UpdateSeasonalDescription();//理想情况：战斗外创建卡不调用这个函数
         }
     }
     public int getSeasonNum(){
@@ -97,7 +97,7 @@ public abstract class AbstractSeasonCard extends AbstractElainaCard {
 //                        logger.info("return BestSeasonNum 1: "+BestSeasonNum);
             return BestSeasonNum;
         }
-        logger.info("return ElainaSeason: "+ElainaC.getSeason());
+//        logger.info("return ElainaSeason: "+ElainaC.getSeason());
         return ElainaC.getSeason();
     }
 //    public void setPreviewCard(AbstractElainaCard c){
@@ -111,32 +111,32 @@ public abstract class AbstractSeasonCard extends AbstractElainaCard {
     }
 
     public boolean UpdateSeasonalDescription(boolean forceChange){//对于时令牌，时节变化时只更新数值和描述。打出效果只有一种：参数为当前时节的switch语句。
-        logger.info("SeasonNum before change: " + NotedSeasonNum);
+//        logger.info("SeasonNum before change: " + NotedSeasonNum);
         if (NotedSeasonNum!=getSeasonNum() || forceChange){
-            this.flash();
-            logger.info(this.name + ": is updating...");
+//            this.flash();
+//            logger.info(this.name + ": is updating...");
             NotedSeasonNum = getSeasonNum();
-            logger.info("SeasonNum: " + NotedSeasonNum);
+//            logger.info("SeasonNum: " + NotedSeasonNum);
             ArrayList<AbstractCardModifier> mods = new ArrayList<>();
             Iterator<AbstractCardModifier> it1 = CardModifierManager.modifiers(this).iterator();
-            logger.info(CardModifierManager.modifiers(this));
+//            logger.info(CardModifierManager.modifiers(this));
             while(it1.hasNext()){
                 AbstractCardModifier mod = it1.next();
-                logger.info("mod name to add(1): " + mod.identifier(this));
+//                logger.info("mod name to add(1): " + mod.identifier(this));
                 if(!mod.identifier(this).equals("toSeasonCardMod")){
-                    logger.info("mod name to add(over): " + mod.identifier(this));
+//                    logger.info("mod name to add(over): " + mod.identifier(this));
                     mods.add(mod.makeCopy());
                 }
             }
-            logger.info("mods size: " + mods.size());
+//            logger.info("mods size: " + mods.size());
             CardModifierManager.removeAllModifiers(this,true);
             CardModifierManager.addModifier(this,new toSeasonCardMod());
-            logger.info(this.name + ": " + this.rawDescription);
+//            logger.info(this.name + ": " + this.rawDescription);
             Iterator<AbstractCardModifier> it2 = mods.iterator();
             while(it2.hasNext()){
                 AbstractCardModifier m = it2.next();
                 CardModifierManager.addModifier(this,m);
-                logger.info("Moding: "+m.identifier(this));
+//                logger.info("Moding: "+m.identifier(this));
             }
             return true;
         }

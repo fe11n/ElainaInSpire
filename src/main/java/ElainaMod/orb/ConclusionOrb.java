@@ -45,11 +45,7 @@ public class ConclusionOrb extends AbstractOrb {
 
     @Override
     public void updateDescription() {
-        if (c!=null) {
-            this.description=c.name;
-        } else {
-            this.description="记录当前结语。左边显示回合结束时会记录的结语。";
-        }
+        this.description="记录当前结语。左边显示回合结束时会记录的结语。";
     }
     private void updatePrev(){
         if (prev_c==null) {

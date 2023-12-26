@@ -153,7 +153,7 @@ public class ElainaC extends CustomPlayer{
 
     public AbstractElainaCard getConclusion(){
         if(!DiaryGroup.isEmpty()){
-            return (AbstractElainaCard) DiaryGroup.getBottomCard().makeStatEquivalentCopy(); // 避免抢渲染，返回拷贝。
+            return ((AbstractElainaCard) DiaryGroup.getBottomCard()).makeStatEquivalentCopy(); // 避免抢渲染，返回拷贝。
         }
         else return null;
     }

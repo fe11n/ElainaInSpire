@@ -31,8 +31,7 @@ public class MagicTurbulenceAction extends AbstractGameAction {
         }
         Collections.shuffle(ElainaC.DiaryGroup.group,AbstractDungeon.miscRng.random);
         if(!ElainaC.DiaryGroup.group.isEmpty()){
-            ConclusionOrb orb = (ConclusionOrb) p.orbs.get(0);
-            orb.setCurConclusion(p.getConclusion());
+            p.getConclusionOrb().syncConclusonWithDiary();
         }
         this.isDone=true;
     }

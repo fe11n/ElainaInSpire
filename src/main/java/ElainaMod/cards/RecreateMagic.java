@@ -44,13 +44,11 @@ public class RecreateMagic extends AbstractElainaCard {
         this.addToBot(new AbstractGameAction() {
             @Override
             public void update() {
-                if(p.getConclusion()!=null){
-                    int co = p.getConclusion().costForTurn;
-                    p.getConclusion().setCostForTurn(co-1);
-                }
+                p.doDeltaConclusionCostForTurn(-1);
                 this.isDone = true;
+
             }
         });
-//        this.addToBot(new GetDiaryCardAction(p));
+        this.addToBot(new GetDiaryCardAction(p));
     }//基础效果，可以被使用和瞬发
 }

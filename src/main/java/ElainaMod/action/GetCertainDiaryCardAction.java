@@ -23,21 +23,24 @@ public class GetCertainDiaryCardAction extends AbstractGameAction {
     }
     @Override
     public void update(){//将结语获取到手中，同时更新结语
+        CardGroup g = ElainaC.DiaryGroup;
         Consumer<List<AbstractCard>> toHand = new Consumer<List<AbstractCard>>() {
             @Override
             public void accept(List<AbstractCard> abstractCards) {
                 ((AbstractElainaCard)abstractCards.get(0)).toHandfromDiary();
+
+                if (g.isEmpty()) {
+                    logger.info("g is empty");
+                    ConclusionOrb.removeConclusion();
+                }else if(!g.getBottomCard().equals(p.getConclusionOrb().c)){
+                    logger.info("syncConclusion");
+                    p.getConclusionOrb().syncConclusonWithDiary();
+                }
             }
         };
-        CardGroup g = ElainaC.DiaryGroup;
+
         if(!g.isEmpty()){//如果调用p的方法，如p.getConclusion和p.getDiarySize就会报错Null，神奇
             addToBot(new FetchAction(g,toHand));
-            if(g.isEmpty()){
-                ConclusionOrb.removeConclusion();
-            }else if(!g.getBottomCard().equals(p.getConclusion())){
-                ConclusionOrb orb = p.getConclusionOrb();
-                orb.setCurConclusion(p.getConclusion());
-            }
         }
         logger.info("Now Diary size: "+p.getDiarySize());
         this.isDone=true;

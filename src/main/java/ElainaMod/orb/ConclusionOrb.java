@@ -2,6 +2,7 @@ package ElainaMod.orb;
 
 import ElainaMod.Characters.ElainaC;
 import ElainaMod.cards.AbstractElainaCard;
+import ElainaMod.cards.AbstractSeasonCard;
 import ElainaMod.relics.WanderingWitch;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
@@ -13,6 +14,8 @@ import com.megacrit.cardcrawl.helpers.input.InputHelper;
 import com.megacrit.cardcrawl.orbs.AbstractOrb;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+
+import static ElainaMod.Characters.ElainaC.Enums.SEASONAL;
 
 public class ConclusionOrb extends AbstractOrb {
     public static final String ID = "Elaina:ConclusionOrb";
@@ -32,6 +35,10 @@ public class ConclusionOrb extends AbstractOrb {
     }
     public void setCurConclusion(AbstractElainaCard c_){
         c = c_;
+    }
+
+    public void syncConclusonWithDiary(){
+        c = ((ElainaC)AbstractDungeon.player).getConclusion();
     }
 
     @Override
@@ -163,6 +170,18 @@ public class ConclusionOrb extends AbstractOrb {
         // TODO: 给点 exhuast 特效啊，不灭印记应该给个exhuast。但空想往前面插入。这两特殊情况都用这个来remove
         if (cardToRecord != null) {
             cardToRecord = null;
+        }
+    }
+
+    public void updateSeasonalDecription() {
+        if(c!=null && c.hasTag(SEASONAL)){
+            ((AbstractSeasonCard)c).UpdateSeasonalDescription();
+        }
+        if(cardToRecord!=null && cardToRecord.hasTag(SEASONAL)){
+            ((AbstractSeasonCard)cardToRecord).UpdateSeasonalDescription();
+        }
+        if(prev_c!=null && prev_c.hasTag(SEASONAL)){
+            ((AbstractSeasonCard)prev_c).UpdateSeasonalDescription();
         }
     }
 }

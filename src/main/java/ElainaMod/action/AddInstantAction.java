@@ -10,8 +10,6 @@ import com.megacrit.cardcrawl.cards.CardGroup;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import java.util.ArrayList;
-
 public class AddInstantAction extends AbstractGameAction {
     public ElainaC p;
     public AbstractElainaCard c;
@@ -23,12 +21,13 @@ public class AddInstantAction extends AbstractGameAction {
     }
     @Override
     public void update(){
-        g = p.DiaryGroup;
-        if(g.size()!=0){
+        g = ElainaC.DiaryGroup;
+        if(!g.isEmpty()){
             if(!p.getConclusion().isInstant){
                 c = p.getConclusion();
-                CardModifierManager.addModifier(c,new toInstantCardMod());//直接操作日记内的卡牌
-                p.channelOrb(new ConclusionOrb(c));
+                CardModifierManager.addModifier(c, new toInstantCardMod());//直接操作日记内的卡牌
+                ConclusionOrb orb = (ConclusionOrb) p.orbs.get(0);
+                orb.setCurConclusion(c);
             }
         }
         this.isDone=true;

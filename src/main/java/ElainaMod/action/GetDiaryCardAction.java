@@ -13,8 +13,6 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import java.util.ArrayList;
-
 public class GetDiaryCardAction extends AbstractGameAction {
     public ElainaC p;
     public CardGroup g;
@@ -45,7 +43,7 @@ public class GetDiaryCardAction extends AbstractGameAction {
     }
     @Override
     public void update(){//将结语获取到手中，同时更新结语
-        if(g.size()!=0){//如果调用p的方法，如p.getConclusion和p.getDiarySize就会报错Null，神奇
+        if(!g.isEmpty()){//如果调用p的方法，如p.getConclusion和p.getDiarySize就会报错Null，神奇
             if(p.getConclusion() instanceof IndelibleImprint && !toHand){
                 this.addToBot(
                         new DamageAction(
@@ -61,11 +59,12 @@ public class GetDiaryCardAction extends AbstractGameAction {
                 targetCard = p.getConclusion();
                 this.cardIndex = g.size()-1;
                 g.removeCard(g.getBottomCard());
-                if(g.size()>0){
-                    p.channelOrb(new ConclusionOrb(p.getConclusion()));
+                if(!g.isEmpty()){
+                    ConclusionOrb orb = (ConclusionOrb) p.orbs.get(0);
+                    orb.setCurConclusion(p.getConclusion());
                 }
                 else{
-                    p.removeNextOrb();
+                    ConclusionOrb.removeConclusion();
                 }
             }
             else {

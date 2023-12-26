@@ -3,7 +3,6 @@ package ElainaMod.action;
 import ElainaMod.Characters.ElainaC;
 import ElainaMod.cards.AbstractElainaCard;
 import ElainaMod.cards.IndelibleImprint;
-import ElainaMod.orb.ConclusionOrb;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -44,6 +43,7 @@ public class GetDiaryCardAction extends AbstractGameAction {
     @Override
     public void update(){//将结语获取到手中，同时更新结语
         if(!g.isEmpty()){//如果调用p的方法，如p.getConclusion和p.getDiarySize就会报错Null，神奇
+            // 不灭印记的特殊情况
             if(p.getConclusion() instanceof IndelibleImprint && !toHand){
                 this.addToBot(
                         new DamageAction(
@@ -55,17 +55,13 @@ public class GetDiaryCardAction extends AbstractGameAction {
                 this.isDone = true;
                 return;
             }
+
+            // 拿结语
             if(targetCard == null || targetCard.equals(p.getConclusion())){
                 targetCard = p.getConclusion();
                 this.cardIndex = g.size()-1;
                 g.removeCard(g.getBottomCard());
-                if(!g.isEmpty()){
-                    ConclusionOrb orb = p.getConclusionOrb();
-                    orb.setCurConclusion(p.getConclusion());
-                }
-                else{
-                    ConclusionOrb.removeConclusion();
-                }
+                p.getConclusionOrb().syncConclusonWithDiary();
             }
             else {
                 g.removeCard(targetCard);

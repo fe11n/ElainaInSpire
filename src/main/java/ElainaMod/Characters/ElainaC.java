@@ -131,9 +131,8 @@ public class ElainaC extends CustomPlayer{
         UpdateSeasonalDescription(this.drawPile);
         UpdateSeasonalDescription(this.hand);
         UpdateSeasonalDescription(DiaryGroup,true);
-        if(this.getConclusionOrb().c!=null && this.getConclusionOrb().c.hasTag(SEASONAL)){
-            ((AbstractSeasonCard)this.getConclusionOrb().c).UpdateSeasonalDescription();
-        }
+        this.getConclusionOrb().updateSeasonalDecription();
+
     }
     private void UpdateSeasonalDescription(CardGroup g){
         UpdateSeasonalDescription(g,false);
@@ -301,6 +300,13 @@ public class ElainaC extends CustomPlayer{
     @Override
     public AbstractGameAction.AttackEffect[] getSpireHeartSlashEffect() {
         return new AbstractGameAction.AttackEffect[]{AbstractGameAction.AttackEffect.SLASH_HEAVY, AbstractGameAction.AttackEffect.FIRE, AbstractGameAction.AttackEffect.SLASH_DIAGONAL, AbstractGameAction.AttackEffect.SLASH_HEAVY, AbstractGameAction.AttackEffect.FIRE, AbstractGameAction.AttackEffect.SLASH_DIAGONAL};
+    }
+
+    public void doDeltaConclusionCostForTurn(int i) {
+        if(!DiaryGroup.isEmpty()) {
+            AbstractCard c = DiaryGroup.getBottomCard();
+            c.setCostForTurn(c.costForTurn + i);
+        }
     }
 
     // 为原版人物枚举、卡牌颜色枚举扩展的枚举，需要写，接下来要用

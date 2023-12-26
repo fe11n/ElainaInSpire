@@ -61,7 +61,6 @@ public class AbstractElainaCard extends CustomCard {
         AbstractElainaCard c = (AbstractElainaCard) super.makeStatEquivalentCopy();
         c.isInstant = this.isInstant;
         c.isShorthand = this.isShorthand;
-        // TODO 还可能有一些东西要覆写
         return c;
     }
 

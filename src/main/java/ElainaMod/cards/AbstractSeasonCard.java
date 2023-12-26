@@ -5,18 +5,13 @@ import ElainaMod.cardmods.toSeasonCardMod;
 import basemod.abstracts.AbstractCardModifier;
 import basemod.helpers.CardModifierManager;
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.megacrit.cardcrawl.actions.common.ReducePowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.cards.tempCards.*;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
-import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import basemod.abstracts.CustomCard;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -124,12 +119,10 @@ public abstract class AbstractSeasonCard extends AbstractElainaCard {
             NotedSeasonNum = getSeasonNum();
 //            logger.info("SeasonNum: " + NotedSeasonNum);
             ArrayList<AbstractCardModifier> mods = new ArrayList<>();
-            Iterator<AbstractCardModifier> it1 = CardModifierManager.modifiers(this).iterator();
-//            logger.info(CardModifierManager.modifiers(this));
-            while(it1.hasNext()){
-                AbstractCardModifier mod = it1.next();
-//                logger.info("mod name to add(1): " + mod.identifier(this));
-                if(!mod.identifier(this).equals("toSeasonCardMod")){
+            //            logger.info(CardModifierManager.modifiers(this));
+            for (AbstractCardModifier mod : CardModifierManager.modifiers(this)) {
+                //                logger.info("mod name to add(1): " + mod.identifier(this));
+                if (!mod.identifier(this).equals("toSeasonCardMod")) {
 //                    logger.info("mod name to add(over): " + mod.identifier(this));
                     mods.add(mod.makeCopy());
                 }
@@ -138,10 +131,8 @@ public abstract class AbstractSeasonCard extends AbstractElainaCard {
             CardModifierManager.removeAllModifiers(this,true);
             CardModifierManager.addModifier(this,new toSeasonCardMod());
 //            logger.info(this.name + ": " + this.rawDescription);
-            Iterator<AbstractCardModifier> it2 = mods.iterator();
-            while(it2.hasNext()){
-                AbstractCardModifier m = it2.next();
-                CardModifierManager.addModifier(this,m);
+            for (AbstractCardModifier m : mods) {
+                CardModifierManager.addModifier(this, m);
 //                logger.info("Moding: "+m.identifier(this));
             }
 //            this.applyPowers();

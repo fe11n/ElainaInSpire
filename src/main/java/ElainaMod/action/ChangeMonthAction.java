@@ -4,6 +4,7 @@ import ElainaMod.Characters.ElainaC;
 import ElainaMod.cards.AbstractElainaCard;
 import ElainaMod.orb.ConclusionOrb;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -41,6 +42,14 @@ public class ChangeMonthAction extends AbstractGameAction {
             p.ChangeMonth(p.Month+num);
         }
         logger.info("Total Month after change: "+p.Month);
+        if(p.hasRelic("Elaina:TimeEngraving")){
+            p.getRelic("Elaina:TimeEngraving").flash();
+            if(isBack == true){
+                this.addToBot(new ChangeMonthAction(p,1));
+            }else {
+                this.addToBot(new GainEnergyAction(1));
+            }
+        }
         Iterator it = p.hand.group.iterator();
         while (it.hasNext()){
             AbstractCard ca = (AbstractCard) it.next();

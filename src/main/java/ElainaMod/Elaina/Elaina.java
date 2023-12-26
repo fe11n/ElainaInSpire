@@ -2,7 +2,7 @@ package ElainaMod.Elaina;
 
 import ElainaMod.Characters.ElainaC;
 import ElainaMod.cards.*;
-import ElainaMod.relics.WanderingWitch;
+import ElainaMod.relics.*;
 import basemod.BaseMod;
 import basemod.helpers.RelicType;
 import basemod.interfaces.*;
@@ -151,7 +151,11 @@ public class Elaina implements EditStringsSubscriber,EditCardsSubscriber, EditCh
    }
    @Override
    public void receiveEditRelics() {
-      BaseMod.addRelic(new WanderingWitch(), RelicType.SHARED); // RelicType表示是所有角色都能拿到的遗物，还是一个角色的独有遗物
+      BaseMod.addRelicToCustomPool(new WanderingWitch(), EXAMPLE_COLOR); // RelicType表示是所有角色都能拿到的遗物，还是一个角色的独有遗物
+      BaseMod.addRelicToCustomPool(new PortableWand(), EXAMPLE_COLOR);
+      BaseMod.addRelicToCustomPool(new StoveFire(), EXAMPLE_COLOR);
+      BaseMod.addRelicToCustomPool(new TimeEngraving(), EXAMPLE_COLOR);
+      BaseMod.addRelicToCustomPool(new AssociationEmblem(), EXAMPLE_COLOR);
    }
    public void receiveEditStrings() {
       String lang;

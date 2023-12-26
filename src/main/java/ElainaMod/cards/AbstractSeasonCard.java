@@ -38,6 +38,7 @@ public abstract class AbstractSeasonCard extends AbstractElainaCard {
 
     public int NotedSeasonNum = -1;//初始设置一定与当前seasonnum不同的值，保证初始一定会调用upgrade函数
 
+
     public AbstractSeasonCard(String ID, CardStrings strings, String IMG_PATH, int COST, CardType TYPE,
                               CardRarity RARITY, CardTarget TARGET) {
         super(ID, strings, IMG_PATH, COST, TYPE, RARITY, TARGET);
@@ -51,12 +52,13 @@ public abstract class AbstractSeasonCard extends AbstractElainaCard {
             while (it.hasNext()){
 //                logger.info("Check MonsterHealth...");
                 if(((AbstractMonster)it.next()).currentHealth!=0){
-                    this.UpdateSeasonalDescription();//战斗外获得卡时，对卡组中的时令卡也生效。理想情况：战斗外获得卡不调用这个函数
+                    this.UpdateSeasonalDescription();//理想情况：战斗外获得卡不调用这个函数
                     break;
                 }
             }
 //            this.UpdateSeasonalDescription();//理想情况：战斗外创建卡不调用这个函数
         }
+
     }
     public int getSeasonNum(){
 //        logger.info("Changing Season Num...");
@@ -92,7 +94,7 @@ public abstract class AbstractSeasonCard extends AbstractElainaCard {
 ////            logger.info("return BestSeasonNum 2: "+BestSeasonNum);
 //            return BestSeasonNum;
 //        }
-        if(AbstractDungeon.player.hasPower("Elaina:BestState")){
+        if(AbstractDungeon.player.hasPower("Elaina:BestState")||AbstractDungeon.player.hasRelic("Elaina:StoveFire")){
                         logger.info("return BestSeasonNum 1: "+BestSeasonNum);
             return BestSeasonNum;
         }
@@ -120,7 +122,7 @@ public abstract class AbstractSeasonCard extends AbstractElainaCard {
         ){
 //            this.flash();
             NotedSeasonNum = getSeasonNum();
-            logger.info("SeasonNum: " + NotedSeasonNum);
+//            logger.info("SeasonNum: " + NotedSeasonNum);
             ArrayList<AbstractCardModifier> mods = new ArrayList<>();
             Iterator<AbstractCardModifier> it1 = CardModifierManager.modifiers(this).iterator();
 //            logger.info(CardModifierManager.modifiers(this));
@@ -142,6 +144,8 @@ public abstract class AbstractSeasonCard extends AbstractElainaCard {
                 CardModifierManager.addModifier(this,m);
 //                logger.info("Moding: "+m.identifier(this));
             }
+//            this.applyPowers();
+//            this.initializeDescription();
             return true;
         }
         else return false;
@@ -150,7 +154,7 @@ public abstract class AbstractSeasonCard extends AbstractElainaCard {
         ArrayList<AbstractCard> list = new ArrayList();
         int season  = BestSeasonNum;
         for(int i=1;i<5;i++){//显示全部4张
-            AbstractElainaCard c = (AbstractElainaCard) this.makeStatEquivalentCopy();
+            AbstractElainaCard c = (AbstractElainaCard) this.makeCopy();
             c.rawDescription = CardCrawlGame.languagePack.getUIString(c.cardID).TEXT[(season+i)%4];
             c.damage = c.baseDamage = ExtendDamage[(season+i)%4];
             c.magicNumber = c.baseMagicNumber = ExtendMagicNum[(season+i)%4];

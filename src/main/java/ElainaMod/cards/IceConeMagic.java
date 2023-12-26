@@ -31,7 +31,7 @@ public class IceConeMagic extends AbstractSeasonCard {
         this.magicNumber = this.baseMagicNumber = 1;
         this.tags.add(ElainaC.Enums.MAGIC);
         this.tags.add(ElainaC.Enums.SEASONAL);
-        this.BestSeasonNum = 0;
+        this.NotedSeasonNum = this.BestSeasonNum = 0;
         this.ExtendDamage[0]=this.ExtendDamage[1]=this.ExtendDamage[2]=this.ExtendDamage[3]=15;
         this.ExtendExhaust[1]=this.ExtendExhaust[2]=true;
         this.ExtendExhaust[0]=this.ExtendExhaust[3]=false;

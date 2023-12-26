@@ -67,7 +67,6 @@ public class Rhetoric extends AbstractElainaCard {
         }else {
             this.addToBot(new GetCertainDiaryCardAction(p));
         }
-        this.addToBot(new GetDiaryCardAction(p));
         this.addToBot(new GainBlockAction(p,p,this.block));
     }
 }

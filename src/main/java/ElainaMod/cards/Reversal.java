@@ -50,8 +50,8 @@ public class Reversal extends AbstractElainaCard {
         AbstractMonster mo;
         while(var3.hasNext()) {
             mo = (AbstractMonster)var3.next();
-            logger.info("Mo IntentDmg: "+mo.getIntentDmg());
-            logger.info("half current heath: "+p.currentHealth/2);
+//            logger.info("Mo IntentDmg: "+mo.getIntentDmg());
+//            logger.info("half current heath: "+p.currentHealth/2);
             if(mo.getIntentDmg()>=p.currentHealth/2){
                 addToBot(new StunMonsterAction(mo,p));
             }
@@ -63,8 +63,8 @@ public class Reversal extends AbstractElainaCard {
         AbstractPlayer p = AbstractDungeon.player;
         while(var3.hasNext()) {
             mo = (AbstractMonster)var3.next();
-            logger.info("Mo IntentDmg: "+mo.getIntentDmg());
-            logger.info("half current heath: "+p.currentHealth/2);
+//            logger.info("Mo IntentDmg: "+mo.getIntentDmg());
+//            logger.info("half current heath: "+p.currentHealth/2);
             if(mo.getIntentDmg()>=p.currentHealth/2){
                 return true;
             }

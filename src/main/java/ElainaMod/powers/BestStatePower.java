@@ -42,8 +42,14 @@ public class BestStatePower extends AbstractPower {
     public void onUseCard(AbstractCard card, UseCardAction action){
         if(card.hasTag(ElainaC.Enums.SEASONAL)){
             this.addToBot(new ReducePowerAction(owner,owner,"Elaina:BestState",1));
-            ((AbstractSeasonCard)card).UpdateSeasonalDescription();
-            ((ElainaC)owner).UpdateAllSeasonalDescription();
+            this.addToBot(new AbstractGameAction() {
+                @Override
+                public void update() {
+                    ((AbstractSeasonCard)card).UpdateSeasonalDescription();
+                    ((ElainaC)owner).UpdateAllSeasonalDescription();
+                    this.isDone = true;
+                }
+            });
         }
     }
 }

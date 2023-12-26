@@ -16,11 +16,11 @@ public class toImageCardMod extends AbstractCardModifier {
     private boolean isEherealBefore = true;
     private boolean isSelfRetainBefore = true;
 
-    public static final Logger logger = LogManager.getLogger(toSeasonCardMod.class);
+    public static final Logger logger = LogManager.getLogger(toImageCardMod.class);
 
     @Override
     public String modifyDescription(String rawDescription, AbstractCard card) {//这里不要对rawDescription赋值，方便remove
-        logger.info(card.name + ": " + card.rawDescription);
+//        logger.info(card.name + ": " + card.rawDescription);
         String d = card.rawDescription;
         Iterator<String> it = ((AbstractElainaCard)card).ModStrings.iterator();
         while (it.hasNext()){

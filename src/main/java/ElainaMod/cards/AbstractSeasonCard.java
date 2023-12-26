@@ -36,12 +36,11 @@ public abstract class AbstractSeasonCard extends AbstractElainaCard {
     public int ExtendMagicNum[] = {-1,-1,-1,-1};
     public boolean ExtendExhaust[]={false,false,false,false};
 
-    public int NotedSeasonNum;
+    public int NotedSeasonNum = -1;//初始设置一定与当前seasonnum不同的值，保证初始一定会调用upgrade函数
 
     public AbstractSeasonCard(String ID, CardStrings strings, String IMG_PATH, int COST, CardType TYPE,
                               CardRarity RARITY, CardTarget TARGET) {
         super(ID, strings, IMG_PATH, COST, TYPE, RARITY, TARGET);
-        NotedSeasonNum = 0;//初始设置一定与当前seasonnum不同的值，保证初始一定会调用upgrade函数
         if (
                     CardCrawlGame.dungeon != null//一局游戏已打开或可继续
                 && AbstractDungeon.currMapNode != null//在一局游戏中
@@ -94,10 +93,10 @@ public abstract class AbstractSeasonCard extends AbstractElainaCard {
 //            return BestSeasonNum;
 //        }
         if(AbstractDungeon.player.hasPower("Elaina:BestState")){
-//                        logger.info("return BestSeasonNum 1: "+BestSeasonNum);
+                        logger.info("return BestSeasonNum 1: "+BestSeasonNum);
             return BestSeasonNum;
         }
-//        logger.info("return ElainaSeason: "+ElainaC.getSeason());
+        logger.info("return ElainaSeason: "+ElainaC.getSeason());
         return ElainaC.getSeason();
     }
 //    public void setPreviewCard(AbstractElainaCard c){
@@ -110,13 +109,18 @@ public abstract class AbstractSeasonCard extends AbstractElainaCard {
         return UpdateSeasonalDescription(false);
     }
 
-    public boolean UpdateSeasonalDescription(boolean forceChange){//对于时令牌，时节变化时只更新数值和描述。打出效果只有一种：参数为当前时节的switch语句。
+    public boolean UpdateSeasonalDescription(boolean forceChange){
+        //对于时令牌，时节变化时只更新数值和描述。打出效果只有一种：参数为当前时节的switch语句。
+//        logger.info(this.name + ": is updating...");
 //        logger.info("SeasonNum before change: " + NotedSeasonNum);
-        if (NotedSeasonNum!=getSeasonNum() || forceChange){
+        if (
+                true
+                        ||NotedSeasonNum!=getSeasonNum()
+                        || forceChange
+        ){
 //            this.flash();
-//            logger.info(this.name + ": is updating...");
             NotedSeasonNum = getSeasonNum();
-//            logger.info("SeasonNum: " + NotedSeasonNum);
+            logger.info("SeasonNum: " + NotedSeasonNum);
             ArrayList<AbstractCardModifier> mods = new ArrayList<>();
             Iterator<AbstractCardModifier> it1 = CardModifierManager.modifiers(this).iterator();
 //            logger.info(CardModifierManager.modifiers(this));

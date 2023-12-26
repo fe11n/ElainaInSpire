@@ -37,7 +37,7 @@ public class FragrantWind extends AbstractSeasonCard {
         this.damage = this.baseDamage = 5;
         this.magicNumber = this.baseMagicNumber = 2;
         this.tags.add(ElainaC.Enums.SEASONAL);
-        this.BestSeasonNum = 2;
+        this.NotedSeasonNum = this.BestSeasonNum = 2;
         this.isMultiDamage = true;
         this.damageTypeForTurn = DamageType.HP_LOSS;
         this.exhaust = true;

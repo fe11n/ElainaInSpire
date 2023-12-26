@@ -60,7 +60,7 @@ public class GetDiaryCardAction extends AbstractGameAction {
                 this.cardIndex = g.size()-1;
                 g.removeCard(g.getBottomCard());
                 if(!g.isEmpty()){
-                    ConclusionOrb orb = (ConclusionOrb) p.orbs.get(0);
+                    ConclusionOrb orb = p.getConclusionOrb();
                     orb.setCurConclusion(p.getConclusion());
                 }
                 else{

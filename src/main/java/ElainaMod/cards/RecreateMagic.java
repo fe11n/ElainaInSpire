@@ -51,6 +51,6 @@ public class RecreateMagic extends AbstractElainaCard {
                 this.isDone = true;
             }
         });
-        this.addToBot(new GetDiaryCardAction(p));
+//        this.addToBot(new GetDiaryCardAction(p));
     }//基础效果，可以被使用和瞬发
 }

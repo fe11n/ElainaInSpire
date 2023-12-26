@@ -24,9 +24,11 @@ public class AddInstantAction extends AbstractGameAction {
         g = ElainaC.DiaryGroup;
         if(!g.isEmpty()){
             if(!p.getConclusion().isInstant){
-                c = p.getConclusion();
+                c = (AbstractElainaCard) g.getBottomCard();
+                CardModifierManager.addModifier(c, new toInstantCardMod());
+                ConclusionOrb orb = p.getConclusionOrb();
+                c = orb.c;
                 CardModifierManager.addModifier(c, new toInstantCardMod());//直接操作日记内的卡牌
-                ConclusionOrb orb = (ConclusionOrb) p.orbs.get(0);
                 orb.setCurConclusion(c);
             }
         }

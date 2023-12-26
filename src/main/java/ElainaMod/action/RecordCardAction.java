@@ -56,7 +56,7 @@ public class RecordCardAction extends AbstractGameAction {
             // 不灭印记的特殊情况，不考虑写出去？
             if(!g.isEmpty() && p.getConclusion() instanceof IndelibleImprint){
                 c = p.getConclusion();
-                ConclusionOrb orb = (ConclusionOrb) p.orbs.get(0);
+                ConclusionOrb orb = p.getConclusionOrb();
                 orb.flashConclusion();
                 orb.removeCardToRecord();
                 this.addToBot(

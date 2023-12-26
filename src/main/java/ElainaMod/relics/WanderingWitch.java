@@ -1,6 +1,7 @@
 package ElainaMod.relics;
 
 import ElainaMod.Characters.ElainaC;
+import ElainaMod.action.AddInstantAction;
 import ElainaMod.action.RecordCardAction;
 import ElainaMod.action.ShowDiaryAction;
 import ElainaMod.cards.*;
@@ -100,14 +101,20 @@ public class WanderingWitch extends CustomRelic {
 
     @Override
     public void onPlayCard(AbstractCard c, AbstractMonster m) {
-        super.onPlayCard(c, m);
+        ElainaC p = (ElainaC)AbstractDungeon.player;
         // 在这里更新每回合结语卡。
         if (c instanceof AbstractElainaCard) {
             AbstractElainaCard ec =(AbstractElainaCard) c;
             // 考虑在这里判断一下 ec.isShortHand，不然速记一下，结语又记一下太多了。
             if (ec.isNotable()) {
                 cardToRecord =(AbstractElainaCard) ec.makeStatEquivalentCopy();
+            }else {
+                cardToRecord = null;
+                p.getConclusionOrb().removeCardToRecord();
             }
+        }else {
+            cardToRecord = null;
+            p.getConclusionOrb().removeCardToRecord();
         }
     }
     public void onPlayerEndTurn(){//回合结束时记录打出的最后一张卡牌

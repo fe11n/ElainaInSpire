@@ -131,6 +131,9 @@ public class ElainaC extends CustomPlayer{
         UpdateSeasonalDescription(this.drawPile);
         UpdateSeasonalDescription(this.hand);
         UpdateSeasonalDescription(DiaryGroup,true);
+        if(this.getConclusionOrb().c!=null && this.getConclusionOrb().c.hasTag(SEASONAL)){
+            ((AbstractSeasonCard)this.getConclusionOrb().c).UpdateSeasonalDescription();
+        }
     }
     private void UpdateSeasonalDescription(CardGroup g){
         UpdateSeasonalDescription(g,false);
@@ -156,6 +159,9 @@ public class ElainaC extends CustomPlayer{
             return ((AbstractElainaCard) DiaryGroup.getBottomCard()).makeStatEquivalentCopy(); // 避免抢渲染，返回拷贝。
         }
         else return null;
+    }
+    public ConclusionOrb getConclusionOrb(){
+        return (ConclusionOrb)this.orbs.get(0);
     }
     public int getDiarySize(){
         return DiaryGroup.size();

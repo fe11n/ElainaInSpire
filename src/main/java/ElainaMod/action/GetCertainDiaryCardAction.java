@@ -34,8 +34,8 @@ public class GetCertainDiaryCardAction extends AbstractGameAction {
             addToBot(new FetchAction(g,toHand));
             if(g.isEmpty()){
                 ConclusionOrb.removeConclusion();
-            }else if(g.getBottomCard().equals(p.getConclusion())){
-                ConclusionOrb orb = (ConclusionOrb) p.orbs.get(0);
+            }else if(!g.getBottomCard().equals(p.getConclusion())){
+                ConclusionOrb orb = p.getConclusionOrb();
                 orb.setCurConclusion(p.getConclusion());
             }
         }

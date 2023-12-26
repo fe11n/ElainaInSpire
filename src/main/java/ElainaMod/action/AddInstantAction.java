@@ -25,7 +25,7 @@ public class AddInstantAction extends AbstractGameAction {
             if(!p.getConclusion().isInstant){
                 c = (AbstractElainaCard) g.getBottomCard();
                 CardModifierManager.addModifier(c, new toInstantCardMod());
-                p.getConclusionOrb().syncConclusonWithDiary();
+                p.getConclusionOrb().syncConclusionWithDiary();
             }
         }
         this.isDone=true;

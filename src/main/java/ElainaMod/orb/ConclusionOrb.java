@@ -37,8 +37,12 @@ public class ConclusionOrb extends AbstractOrb {
         c = c_;
     }
 
-    public void syncConclusonWithDiary(){
-        c = ((ElainaC)AbstractDungeon.player).getConclusion();
+    public void syncConclusionWithDiary(){
+        // well, some kind of `popConclusion`
+        AbstractElainaCard c_ = ((ElainaC)AbstractDungeon.player).getConclusion();
+        c_.current_x = c.current_x;
+        c_.current_y = c.current_y;
+        c = c_;
     }
 
     @Override

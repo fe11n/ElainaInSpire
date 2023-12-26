@@ -34,7 +34,7 @@ public class GetCertainDiaryCardAction extends AbstractGameAction {
                     ConclusionOrb.removeConclusion();
                 }else if(!g.getBottomCard().equals(p.getConclusionOrb().c)){
                     logger.info("syncConclusion");
-                    p.getConclusionOrb().syncConclusonWithDiary();
+                    p.getConclusionOrb().syncConclusionWithDiary();
                 }
             }
         };

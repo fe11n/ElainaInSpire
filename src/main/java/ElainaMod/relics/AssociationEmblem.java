@@ -4,6 +4,7 @@ import ElainaMod.Characters.ElainaC;
 import basemod.abstracts.CustomRelic;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.ReducePowerAction;
+import com.megacrit.cardcrawl.actions.common.RelicAboveCreatureAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
@@ -17,17 +18,14 @@ import java.util.Iterator;
 
 public class AssociationEmblem extends CustomRelic {
     public static final String ID = "Elaina:AssociationEmblem";
-    public static final Logger logger = LogManager.getLogger(AssociationEmblem.class);
-    ElainaC p;
-    public ArrayList<AbstractCard> g = ElainaC.DiaryGroup.group;
     public AssociationEmblem() {
         super(ID, ImageMaster.loadImage("ElainaMod/img/relics/AssociationEmblem.png"), RelicTier.UNCOMMON, LandingSound.FLAT);
-        p =(ElainaC) AbstractDungeon.player;
     }
     public String getUpdatedDescription(){
         return this.DESCRIPTIONS[0];
     }
     public void atTurnStart() {
+        ElainaC p =(ElainaC) AbstractDungeon.player;
         int num = 1;
         Iterator it = AbstractDungeon.getMonsters().monsters.iterator();
         while (it.hasNext()){
@@ -54,11 +52,13 @@ public class AssociationEmblem extends CustomRelic {
         }
         if(strenSum>0){
             this.addToBot(new ApplyPowerAction(p,p,new StrengthPower(p,strenSum/num)));
+            this.addToTop(new RelicAboveCreatureAction(p, this));
             it = AbstractDungeon.getMonsters().monsters.iterator();
             while (it.hasNext()){
                 AbstractMonster m = (AbstractMonster)it.next();
                 if(m.currentHealth!=0){
                     this.addToBot(new ApplyPowerAction(m,p,new StrengthPower(m,strenSum/num)));
+                    this.addToTop(new RelicAboveCreatureAction(m, this));
                 }
             }
         }

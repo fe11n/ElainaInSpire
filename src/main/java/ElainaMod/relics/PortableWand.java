@@ -13,17 +13,14 @@ import java.util.ArrayList;
 
 public class PortableWand extends CustomRelic {
     public static final String ID = "Elaina:PortableWand";
-    public static final Logger logger = LogManager.getLogger(PortableWand.class);
-    ElainaC p;
-    public ArrayList<AbstractCard> g = ElainaC.DiaryGroup.group;
     public PortableWand() {
         super(ID, ImageMaster.loadImage("ElainaMod/img/relics/PortableWand.png"), RelicTier.COMMON, LandingSound.FLAT);
-        p =(ElainaC) AbstractDungeon.player;
     }
     public String getUpdatedDescription(){
         return this.DESCRIPTIONS[0];
     }
     public void atTurnStart() {
+        ElainaC p = (ElainaC) AbstractDungeon.player;;
         if(p.getConclusion().isInstant){//如果使用tag判断INSTANT会导致更改INSTANT时同类卡牌全部INSTANT被修改
             this.flash();
             p.getConclusion().InstantUse();

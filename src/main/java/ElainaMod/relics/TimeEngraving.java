@@ -12,12 +12,8 @@ import java.util.ArrayList;
 
 public class TimeEngraving extends CustomRelic {
     public static final String ID = "Elaina:TimeEngraving";
-    public static final Logger logger = LogManager.getLogger(TimeEngraving.class);
-    ElainaC p;
-    public ArrayList<AbstractCard> g = ElainaC.DiaryGroup.group;
     public TimeEngraving() {
-        super(ID, ImageMaster.loadImage("ElainaMod/img/relics/TimeEngraving.png"), RelicTier.UNCOMMON, LandingSound.FLAT);
-        p =(ElainaC) AbstractDungeon.player;
+        super(ID, ImageMaster.loadImage("ElainaMod/img/relics/TimeEngraving.png"), RelicTier.RARE, LandingSound.FLAT);
     }
     public String getUpdatedDescription(){
         return this.DESCRIPTIONS[0];

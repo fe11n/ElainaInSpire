@@ -157,6 +157,7 @@ public class Elaina implements EditStringsSubscriber,EditCardsSubscriber, EditCh
       BaseMod.addRelicToCustomPool(new TimeEngraving(), EXAMPLE_COLOR);
       BaseMod.addRelicToCustomPool(new AssociationEmblem(), EXAMPLE_COLOR);
       BaseMod.addRelicToCustomPool(new WitchBracelet(), EXAMPLE_COLOR);
+      BaseMod.addRelicToCustomPool(new InscriptedRuins(), EXAMPLE_COLOR);
    }
    public void receiveEditStrings() {
       String lang;

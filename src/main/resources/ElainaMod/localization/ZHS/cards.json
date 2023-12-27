@@ -250,8 +250,7 @@
   },
   "Elaina:MarblePhantasm": {
     "NAME": "空想具现化",
-    "DESCRIPTION": " elainamod:速记 ， elainamod:记录 在日记开头。 NL elainamod:再现 elainamod:结语 。 NL 打出时，若为 elainamod:映像 ，则使所有正面能力的数值翻倍。 NL 虚无 。",
-    "UPGRADE_DESCRIPTION": " elainamod:速记 ， elainamod:记录 在日记开头。 NL elainamod:再现 elainamod:结语 。 NL 打出时，若为 elainamod:映像 ，则使所有正面能力的数值翻倍。"
+    "DESCRIPTION": " elainamod:速记 ， elainamod:记录 在日记开头。 NL elainamod:再现 elainamod:结语 。 NL 打出时，若为 elainamod:映像 ，则使所有正面能力的数值加 !M! 。"
   },
   "Elaina:DeepMemory": {
     "NAME": "深层记忆",

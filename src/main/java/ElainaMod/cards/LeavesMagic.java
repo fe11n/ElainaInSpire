@@ -66,7 +66,7 @@ public class LeavesMagic extends AbstractSeasonCard {
                 break;
             case 3:
                 for(int i = 0; i < 3; ++i) {
-                    this.addToBot(new DamageAllEnemiesAction(p, this.multiDamage, this.damageTypeForTurn, AbstractGameAction.AttackEffect.NONE));
+                    this.addToBot(new DamageAllEnemiesAction(p, this.multiDamage, this.damageTypeForTurn, AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
                 }
                 break;
         }

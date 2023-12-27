@@ -40,7 +40,7 @@ public class RecreateMagic extends AbstractElainaCard {
      * @param m 指向的怪物类。（无指向时为null，包括攻击所有敌人时）
      */
     public void BasicEffect(ElainaC p, AbstractMonster m){
-        this.addToBot(new DamageAction(m, new DamageInfo(p, damage, DamageType.NORMAL)));
+        this.addToBot(new DamageAction(m, new DamageInfo(p, damage, DamageType.NORMAL),AbstractGameAction.AttackEffect.SMASH));
         this.addToBot(new AbstractGameAction() {
             @Override
             public void update() {

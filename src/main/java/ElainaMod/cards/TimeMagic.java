@@ -2,11 +2,11 @@ package ElainaMod.cards;
 
 import ElainaMod.Characters.ElainaC;
 import ElainaMod.action.ChangeMonthAction;
+import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInDrawPileAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.cards.DamageInfo.DamageType;
-import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
@@ -46,7 +46,7 @@ public class TimeMagic extends AbstractElainaCard {
      */
     public void BasicEffect(ElainaC p, AbstractMonster m){
         this.addToBot(new ChangeMonthAction(p,1,true));
-        this.addToBot(new DamageAction(m, new DamageInfo(p, damage, DamageType.NORMAL)));
+        this.addToBot(new DamageAction(m, new DamageInfo(p, damage, DamageType.NORMAL), AbstractGameAction.AttackEffect.SMASH));
         this.addToBot(new MakeTempCardInDrawPileAction(cardsToPreview,1,true,true));
     }//基础效果，可以被使用和瞬发
 }

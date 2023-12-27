@@ -44,7 +44,7 @@ public class Drawup extends AbstractElainaCard {
      */
     @Override
     public void BasicEffect(ElainaC p, AbstractMonster m) {
-        this.addToBot(new DamageAction(m, new DamageInfo(p, damage, DamageInfo.DamageType.NORMAL)));
+        this.addToBot(new DamageAction(m, new DamageInfo(p, damage, DamageInfo.DamageType.NORMAL),AbstractGameAction.AttackEffect.SMASH));
         AbstractCard c = this.cardsToPreview.makeCopy();
         c.setCostForTurn(0);//使用addtobot改费用没用
         this.addToBot(new MakeTempCardInHandAction(c));//增加临时卡牌均使用该方法，为以后写能力牌给该方法加patch做铺垫

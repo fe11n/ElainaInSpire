@@ -75,7 +75,7 @@ public class CounterMagic extends AbstractElainaCard {
      */
     public void BasicEffect(ElainaC p, AbstractMonster m){
         for(int i = 0;i<3;i++) {
-            addToBot(new DamageAction(m, new DamageInfo(p, damage, DamageInfo.DamageType.NORMAL)));
+            addToBot(new DamageAction(m, new DamageInfo(p, damage, DamageInfo.DamageType.NORMAL) ,AbstractGameAction.AttackEffect.SMASH));
         }
         this.addToBot(new AbstractGameAction() {
             boolean triggered = false;

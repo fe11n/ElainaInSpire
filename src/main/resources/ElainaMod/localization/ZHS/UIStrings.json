@@ -1,17 +1,17 @@
 {
   "Elaina:Exhaust":{
     "TEXT": [
-      " *消耗 。"
+      " 消耗 。"
     ]
   },
   "Elaina:Ethereal":{
     "TEXT": [
-      " *虚无 。"
+      " 虚无 。"
     ]
   },
   "Elaina:Instant":{
     "TEXT": [
-      " *瞬发 。"
+      " elainamod:瞬发 。"
     ]
   },
   "Elaina:IceConeMagic":{
@@ -56,7 +56,12 @@
   },
   "Elaina:Image":{
     "TEXT": [
-      " *映像 。"
+      " elainamod:映像 。"
+    ]
+  },
+  "Elaina:Retain":{
+    "TEXT": [
+      " 保留 。"
     ]
   }
 }

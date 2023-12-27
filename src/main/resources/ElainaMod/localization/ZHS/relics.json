@@ -58,5 +58,19 @@
     "DESCRIPTIONS": [
       "获得新能力时，抽牌至手牌数等同于能力的个数（不超过手牌上限）。"
     ]
+  },
+  "Elaina:TreasureWine": {
+    "NAME": "珍藏葡萄酒",
+    "FLAVOR": "似乎能从包装上少女愤怒的身影一窥其来历",
+    "DESCRIPTIONS": [
+      "失去结语时，对所有敌人造成日记剩余卡牌数的伤害。"
+    ]
+  },
+  "Elaina:GreedyDoll": {
+    "NAME": "贪念人偶",
+    "FLAVOR": "一头美丽的秀发具备着别样的魅力",
+    "DESCRIPTIONS": [
+      "前两个回合开始时，使所有手牌获得 保留 。"
+    ]
   }
 }

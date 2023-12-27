@@ -383,7 +383,8 @@
   },
   "Elaina:Outset": {
     "NAME": "起手式",
-    "DESCRIPTION": "造成 !D! 点伤害。 NL 获得 !M! 层 elainamod:魔力增幅 。 NL 获得等同于手牌中魔法卡数量的 [E] 。"
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 获得 !M! 层 elainamod:魔力增幅 。 NL 获得等同于手牌中魔法卡数量的 [E] 。 NL 消耗 。",
+    "UPGRADE_DESCRIPTION": "造成 !D! 点伤害。 NL 获得 !M! 层 elainamod:魔力增幅 。 NL 获得等同于手牌中魔法卡数量的 [E] 。"
   },
   "Elaina:ProtectiveMagic": {
     "NAME": "防护魔法",

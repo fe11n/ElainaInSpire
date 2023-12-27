@@ -2,17 +2,14 @@ package ElainaMod.cards;
 
 import ElainaMod.Characters.ElainaC;
 import com.evacipated.cardcrawl.mod.stslib.actions.common.StunMonsterAction;
-import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
-import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.powers.VulnerablePower;
 
+import java.lang.reflect.Field;
 import java.util.Iterator;
 
 public class Reversal extends AbstractElainaCard {
@@ -65,12 +62,50 @@ public class Reversal extends AbstractElainaCard {
             mo = (AbstractMonster)var3.next();
 //            logger.info("Mo IntentDmg: "+mo.getIntentDmg());
 //            logger.info("half current heath: "+p.currentHealth/2);
-            if(mo.getIntentDmg()>=p.currentHealth/2){
+            if(reversalGetMonsterDamage(mo)>=p.currentHealth/2){
                 return true;
             }
         }
         return false;
     }
+
+    private int reversalGetMonsterDamage(AbstractMonster m) {
+        int tmp = 0;
+        try {
+            // Get the Class object for AbstractMonster
+            Class<?> monsterClass = AbstractMonster.class;
+            // Get the Field objects for the private fields
+            Field isMultiDmgField = monsterClass.getDeclaredField("isMultiDmg");
+            Field intentMultiAmtField = monsterClass.getDeclaredField("intentMultiAmt");
+            Field intentDmgField = monsterClass.getDeclaredField("intentDmg");
+            // Allow access to private fields
+            isMultiDmgField.setAccessible(true);
+            intentMultiAmtField.setAccessible(true);
+            intentDmgField.setAccessible(true);
+            // Get the values of the private fields
+            boolean isMultiDmgValue = (boolean) isMultiDmgField.get(m);
+            int intentMultiAmtValue = (int) intentMultiAmtField.get(m);
+            int intentDmgValue = (int) intentDmgField.get(m);
+            // Perform the desired logic with the values
+            // logger.info(isMultiDmgValue + " " + intentDmgValue + " " + intentMultiAmtValue);
+            if (isMultiDmgValue) {
+                // logger.info("多段伤害 " +intentDmgValue+" * "+intentMultiAmtValue);
+                tmp = intentDmgValue * intentMultiAmtValue;
+            } else {
+                tmp = intentDmgValue;
+            }
+            // Reset the accessibility of the fields
+            isMultiDmgField.setAccessible(false);
+            intentMultiAmtField.setAccessible(false);
+            intentDmgField.setAccessible(false);
+
+        } catch (NoSuchFieldException | IllegalAccessException e) {
+            logger.warn("获取多段伤害失败，返回单段伤害");
+            return m.getIntentDmg();
+        }
+        return tmp;
+    }
+
     public void triggerOnGlowCheck() {
         if(ReversalGlowCheck()){
             this.glowColor = AbstractCard.GOLD_BORDER_GLOW_COLOR.cpy();

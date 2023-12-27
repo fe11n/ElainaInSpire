@@ -3,6 +3,7 @@ package ElainaMod.action;
 import ElainaMod.Characters.ElainaC;
 import ElainaMod.cards.AbstractElainaCard;
 import ElainaMod.cards.IndelibleImprint;
+import basemod.BaseMod;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -18,20 +19,17 @@ public class GetDiaryCardAction extends AbstractGameAction {
     private boolean toHand;
     public static final Logger logger = LogManager.getLogger(GetDiaryCardAction.class);
     public AbstractCard targetCard = null;
-    int cardIndex;
     public GetDiaryCardAction(ElainaC p){
         this.p = p;
         toHand = true;
         this.actionType = ActionType.CARD_MANIPULATION;
         g = p.DiaryGroup;
-        this.cardIndex = -1;
     }
     public GetDiaryCardAction(ElainaC p, boolean toHand){
         this.p = p;
         this.toHand = toHand;
         this.actionType = ActionType.CARD_MANIPULATION;
         g = p.DiaryGroup;
-        this.cardIndex = -1;//实际update时再赋值，防止同一卡牌的其它动作改变序列
     }
     public GetDiaryCardAction(ElainaC p, boolean toHand, AbstractCard c){
         this.p = p;
@@ -59,7 +57,6 @@ public class GetDiaryCardAction extends AbstractGameAction {
             // 拿结语
             if(targetCard == null || targetCard.equals(p.getConclusion())){
                 targetCard = p.getConclusion();
-                this.cardIndex = g.size()-1;
                 g.removeCard(g.getBottomCard());
                 p.getConclusionOrb().syncConclusionWithDiary();
             }
@@ -70,11 +67,21 @@ public class GetDiaryCardAction extends AbstractGameAction {
 
             if(toHand){
                 ((AbstractElainaCard)targetCard).toHandfromDiary();
-                if(p.hand.size()<10){
-                    p.hand.addToHand(targetCard);
-                }
-                else {
-                    p.discardPile.addToTop(targetCard);
+                if (p.hand.size() == BaseMod.MAX_HAND_SIZE) {
+                    g.moveToDiscardPile(targetCard);
+                    this.p.createHandIsFullDialog();
+                } else {
+                    targetCard.untip();
+                    targetCard.unhover();
+                    targetCard.lighten(true);
+                    targetCard.setAngle(0.0F);
+                    targetCard.drawScale = 0.12F;
+                    targetCard.targetDrawScale = 0.75F;
+                    targetCard.current_x = p.getConclusionOrb().tX;
+                    targetCard.current_y = p.getConclusionOrb().tY;
+                    p.hand.addToTop(targetCard);
+                    AbstractDungeon.player.hand.refreshHandLayout();
+                    AbstractDungeon.player.hand.applyPowers();
                 }
             }
         }

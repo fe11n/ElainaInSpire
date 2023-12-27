@@ -39,10 +39,14 @@ public class ConclusionOrb extends AbstractOrb {
 
     public void syncConclusionWithDiary(){
         // well, some kind of `popConclusion`
-        AbstractElainaCard c_ = ((ElainaC)AbstractDungeon.player).getConclusion();
-        c_.current_x = c.current_x;
-        c_.current_y = c.current_y;
-        c = c_;
+        if(((ElainaC)AbstractDungeon.player).getConclusion()!=null){
+            AbstractElainaCard c_ = ((ElainaC)AbstractDungeon.player).getConclusion();
+            c_.current_x = c.current_x;
+            c_.current_y = c.current_y;
+            c = c_;
+        }else {
+            c = null;
+        }
     }
 
     @Override
@@ -82,7 +86,8 @@ public class ConclusionOrb extends AbstractOrb {
             this.c.targetDrawScale = 0.5F;
         }
         if(this.hb.hovered && (InputHelper.justClickedLeft || InputHelper.justClickedRight)){
-            AbstractDungeon.gridSelectScreen.open(ElainaC.DiaryGroup,0, "魔女日记", true);
+            AbstractDungeon.gridSelectScreen.open(ElainaC.DiaryGroup,0,
+                    "魔女日记", true);
         }
         this.c.applyPowers();
         this.c.update();

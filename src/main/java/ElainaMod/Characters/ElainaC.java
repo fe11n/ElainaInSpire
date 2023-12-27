@@ -240,6 +240,7 @@ public class ElainaC extends CustomPlayer{
     // 人物选择界面点击你的人物按钮时触发的方法，这里为屏幕轻微震动
     @Override
     public void doCharSelectScreenSelectEffect() {
+        CardCrawlGame.sound.playV("ELN_WADASHI", 1);
         CardCrawlGame.screenShake.shake(ScreenShake.ShakeIntensity.MED, ScreenShake.ShakeDur.SHORT, false);
     }
 
@@ -257,7 +258,7 @@ public class ElainaC extends CustomPlayer{
     // 自定义模式选择你的人物时播放的音效
     @Override
     public String getCustomModeCharacterButtonSoundKey() {
-        return "ATTACK_HEAVY";
+        return "ELN_WADASHI";
     }
 
     // 游戏中左上角显示在你的名字之后的人物名称
@@ -327,6 +328,5 @@ public class ElainaC extends CustomPlayer{
         @SpireEnum
         public static AbstractCard.CardTags UNNOTABLE;//不可被记录
     }
-
 }
 

@@ -54,6 +54,8 @@ public class AbstractElainaCard extends CustomCard {
 
     public void toHandfromDiary(){
         CardModifierManager.addModifier(this,new toImageCardMod());
+        this.current_x = ((ElainaC) AbstractDungeon.player).getConclusionOrb().tX;
+        this.current_y = ((ElainaC) AbstractDungeon.player).getConclusionOrb().tY;
     }
 
     @Override

@@ -2,7 +2,6 @@ package ElainaMod.action;
 
 import ElainaMod.Characters.ElainaC;
 import ElainaMod.cards.AbstractElainaCard;
-import ElainaMod.orb.ConclusionOrb;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -31,7 +30,7 @@ public class MagicTurbulenceAction extends AbstractGameAction {
         }
         Collections.shuffle(ElainaC.DiaryGroup.group,AbstractDungeon.miscRng.random);
         if(!ElainaC.DiaryGroup.group.isEmpty()){
-            p.getConclusionOrb().syncConclusonWithDiary();
+            p.getConclusionOrb().syncConclusionWithDiary();
         }
         this.isDone=true;
     }

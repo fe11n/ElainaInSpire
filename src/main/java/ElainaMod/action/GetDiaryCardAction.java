@@ -61,7 +61,7 @@ public class GetDiaryCardAction extends AbstractGameAction {
                 targetCard = p.getConclusion();
                 this.cardIndex = g.size()-1;
                 g.removeCard(g.getBottomCard());
-                p.getConclusionOrb().syncConclusonWithDiary();
+                p.getConclusionOrb().syncConclusionWithDiary();
             }
             else {
                 g.removeCard(targetCard);

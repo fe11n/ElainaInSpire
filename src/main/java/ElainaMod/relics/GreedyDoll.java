@@ -1,9 +1,11 @@
 package ElainaMod.relics;
 
 import ElainaMod.cardmods.toRetainCardMod;
+import ElainaMod.cards.AbstractElainaCard;
 import basemod.abstracts.CustomRelic;
 import basemod.helpers.CardModifierManager;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.common.RelicAboveCreatureAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -25,12 +27,13 @@ public class GreedyDoll extends CustomRelic {
         if (this.counter>=0 && this.counter < 2) {
             ++this.counter;
             this.flash();
+            this.addToBot(new RelicAboveCreatureAction(AbstractDungeon.player, this));
             this.addToBot(new AbstractGameAction() {
                 @Override
                 public void update() {
                     AbstractPlayer p = AbstractDungeon.player;
                     for(AbstractCard c : p.hand.group){
-                        if(!c.selfRetain){
+                        if(!c.selfRetain && c instanceof AbstractElainaCard){
                             c.flash();
                             CardModifierManager.addModifier(c,new toRetainCardMod());
                         }

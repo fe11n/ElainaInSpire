@@ -3,6 +3,7 @@ package ElainaMod.Characters;
 import ElainaMod.Elaina.Elaina;
 import ElainaMod.cards.*;
 import ElainaMod.orb.ConclusionOrb;
+import ElainaMod.relics.AbstractBookRelic;
 import ElainaMod.relics.WanderingWitch;
 import basemod.abstracts.CustomPlayer;
 import com.badlogic.gdx.graphics.Color;
@@ -113,13 +114,18 @@ public class ElainaC extends CustomPlayer{
         logger.info("Change to: "+num);
         if((Month-1)/12>FarYear){
             FarYear = (Month-1)/12;
-            AbstractDungeon.player.gainGold(50);
-            logger.info("Get 50 gold.");
+            if(this.hasRelic("Elaina:WanderingWitch")){
+                AbstractDungeon.player.gainGold(50);
+                logger.info("Get 50 gold.");
+            }else if(this.hasRelic("Elaina:NicolesAdventure")){
+                AbstractDungeon.player.increaseMaxHp(5,true);
+                logger.info("Get 5 MaxHp.");
+            }
         }
         if(upgradeDeck){
             UpdateAllSeasonalDescription();
-            if( this.relics.get(0) instanceof WanderingWitch){
-                ((WanderingWitch) this.relics.get(0)).UpdateCounter();
+            if( this.relics.get(0) instanceof AbstractBookRelic){
+                ((AbstractBookRelic) this.relics.get(0)).UpdateCounter();
             }
         }
     }

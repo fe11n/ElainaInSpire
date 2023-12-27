@@ -3,6 +3,7 @@ package ElainaMod.orb;
 import ElainaMod.Characters.ElainaC;
 import ElainaMod.cards.AbstractElainaCard;
 import ElainaMod.cards.AbstractSeasonCard;
+import ElainaMod.relics.AbstractBookRelic;
 import ElainaMod.relics.WanderingWitch;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
@@ -94,11 +95,13 @@ public class ConclusionOrb extends AbstractOrb {
         this.c.update();
     }
     private void updateNext(){
-        WanderingWitch wanderingWitch = (WanderingWitch) AbstractDungeon.player.getRelic("Elaina:WanderingWitch");
-        if (wanderingWitch == null || wanderingWitch.cardToRecord == null) {
+        AbstractBookRelic bookRelic = (AbstractBookRelic) (AbstractDungeon.player.hasRelic("Elaina:WanderingWitch")?
+                AbstractDungeon.player.getRelic("Elaina:WanderingWitch")
+                :AbstractDungeon.player.getRelic("Elaina:NicolesAdventure"));
+        if (bookRelic == null || bookRelic.cardToRecord == null) {
             return;
         }
-        cardToRecord = wanderingWitch.cardToRecord;
+        cardToRecord = bookRelic.cardToRecord;
         cardToRecord.target_x = this.tX - this.cardToRecord.hb.width;
         cardToRecord.target_y = this.tY;
         if (cardToRecord.hb.hovered) {

@@ -4,24 +4,24 @@ import ElainaMod.Characters.ElainaC;
 import ElainaMod.cards.*;
 import ElainaMod.relics.*;
 import basemod.BaseMod;
-import basemod.helpers.RelicType;
 import basemod.interfaces.*;
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.graphics.Color;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.google.gson.Gson;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.localization.*;
-import com.badlogic.gdx.graphics.Color;
 
 import java.nio.charset.StandardCharsets;
 
-import static ElainaMod.Characters.ElainaC.Enums.*;
+import static ElainaMod.Characters.ElainaC.Enums.EXAMPLE_COLOR;
+import static ElainaMod.Characters.ElainaC.Enums.MY_CHARACTER;
 import static com.megacrit.cardcrawl.core.Settings.language;
 
 @SpireInitializer
 public class Elaina implements EditStringsSubscriber,EditCardsSubscriber, EditCharactersSubscriber, EditRelicsSubscriber
-, EditKeywordsSubscriber {
+, EditKeywordsSubscriber, AddAudioSubscriber {
    private static final String MY_CHARACTER_BUTTON = "ElainaMod/img/char/Character_Button.png";
    // 人物选择界面的立绘
    private static final String MY_CHARACTER_PORTRAIT = "ElainaMod/img/char/Character_Portrait.png";
@@ -158,6 +158,9 @@ public class Elaina implements EditStringsSubscriber,EditCardsSubscriber, EditCh
       BaseMod.addRelicToCustomPool(new AssociationEmblem(), EXAMPLE_COLOR);
       BaseMod.addRelicToCustomPool(new WitchBracelet(), EXAMPLE_COLOR);
       BaseMod.addRelicToCustomPool(new InscriptedRuins(), EXAMPLE_COLOR);
+      BaseMod.addRelicToCustomPool(new LifePotion(), EXAMPLE_COLOR);
+      BaseMod.addRelicToCustomPool(new TreasureWine(), EXAMPLE_COLOR);
+      BaseMod.addRelicToCustomPool(new GreedyDoll(), EXAMPLE_COLOR);
    }
    public void receiveEditStrings() {
       String lang;
@@ -199,4 +202,8 @@ public class Elaina implements EditStringsSubscriber,EditCardsSubscriber, EditCh
 
    }
 
+   @Override
+   public void receiveAddAudio() {
+      BaseMod.addAudio("ELN_WADASHI", "ElainaMod/audio/sound/eln_wadashi.ogg");
+   }
 }

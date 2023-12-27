@@ -6,9 +6,12 @@ import ElainaMod.cards.IndelibleImprint;
 import basemod.BaseMod;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
+import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
+import com.megacrit.cardcrawl.actions.common.RelicAboveCreatureAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.cards.DamageInfo;
+import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -83,6 +86,10 @@ public class GetDiaryCardAction extends AbstractGameAction {
                     AbstractDungeon.player.hand.refreshHandLayout();
                     AbstractDungeon.player.hand.applyPowers();
                 }
+            }else if(p.hasRelic("Elaina:TreasureWine") && p.getDiarySize()>0){
+                p.getRelic("Elaina:TreasureWine").flash();
+                this.addToBot(new RelicAboveCreatureAction(AbstractDungeon.player, p.getRelic("Elaina:TreasureWine")));
+                this.addToBot(new DamageAllEnemiesAction(null, DamageInfo.createDamageMatrix(p.getDiarySize(), true), DamageInfo.DamageType.THORNS, AttackEffect.BLUNT_HEAVY));
             }
         }
         logger.info("Now Diary size: "+p.getDiarySize());

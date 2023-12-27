@@ -53,7 +53,8 @@ public class ConclusionOrb extends AbstractOrb {
     public void onStartOfTurn(){
         prev_c = null; //这个只是为了移动卡牌的时候好看的。所以开局时清掉
         //实现瞬发机制
-        if(c!= null && c.isInstant){//如果使用tag判断INSTANT会导致更改INSTANT时同类卡牌全部INSTANT被修改
+        if(c!= null && c.isInstant){ //如果使用tag判断INSTANT会导致更改INSTANT时同类卡牌全部INSTANT被修改
+            this.flashConclusion();
             c.InstantUse();
         }
     }

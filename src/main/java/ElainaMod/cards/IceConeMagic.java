@@ -58,7 +58,7 @@ public class IceConeMagic extends AbstractSeasonCard {
     public void BasicEffect(ElainaC p, AbstractMonster m){
         logger.info("Season Num: "+p.getSeason());
         logger.info("Base Damage: "+this.baseDamage);
-        this.addToBot(new DamageAction(m, new DamageInfo(p, damage, DamageType.NORMAL)));
+        this.addToBot(new DamageAction(m, new DamageInfo(p, damage, DamageType.NORMAL),AbstractGameAction.AttackEffect.SMASH));
         switch (this.getSeasonNum()){
             case 0:
                 this.addToBot(new ApplyPowerAction(m, p, new VulnerablePower(m, magicNumber, false), magicNumber, true, AbstractGameAction.AttackEffect.NONE));

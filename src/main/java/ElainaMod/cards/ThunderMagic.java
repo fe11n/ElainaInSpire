@@ -102,7 +102,7 @@ public class ThunderMagic extends AbstractElainaCard {
             }
         }
         if(mo != null  && mo.currentHealth > 0 ){
-            addToBot(new DamageAction(mo, new DamageInfo(p, damage, DamageInfo.DamageType.NORMAL)));
+            addToBot(new DamageAction(mo, new DamageInfo(p, damage, DamageInfo.DamageType.NORMAL),AbstractGameAction.AttackEffect.SMASH));
             this.addToBot( new AbstractGameAction(){
                 public AbstractMonster mo;
                 public AbstractGameAction accept(AbstractMonster m){

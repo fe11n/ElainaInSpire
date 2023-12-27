@@ -19,7 +19,7 @@ import java.util.Iterator;
 public class AssociationEmblem extends CustomRelic {
     public static final String ID = "Elaina:AssociationEmblem";
     public AssociationEmblem() {
-        super(ID, ImageMaster.loadImage("ElainaMod/img/relics/AssociationEmblem.png"), RelicTier.UNCOMMON, LandingSound.FLAT);
+        super(ID, ImageMaster.loadImage("ElainaMod/img/relics/AssociationEmblem.png"), RelicTier.RARE, LandingSound.FLAT);
     }
     public String getUpdatedDescription(){
         return this.DESCRIPTIONS[0];

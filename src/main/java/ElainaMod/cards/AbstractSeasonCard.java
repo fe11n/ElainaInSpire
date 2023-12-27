@@ -60,7 +60,7 @@ public abstract class AbstractSeasonCard extends AbstractElainaCard {
                         logger.info("return BestSeasonNum 1: "+BestSeasonNum);
             return BestSeasonNum;
         }
-        logger.info("return ElainaSeason: "+ElainaC.getSeason());
+        // logger.info("return ElainaSeason: "+ElainaC.getSeason()); 太吵了
         return ElainaC.getSeason();
     }
     public boolean UpdateSeasonalDescription(){

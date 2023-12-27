@@ -1,9 +1,11 @@
 package ElainaMod.cards;
 
 import ElainaMod.Characters.ElainaC;
-import ElainaMod.action.RecordCardAction;
 import ElainaMod.powers.SpellBoostPower;
-import com.megacrit.cardcrawl.actions.common.*;
+import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.actions.common.DamageAction;
+import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.cards.DamageInfo.DamageType;
@@ -47,7 +49,7 @@ public class Outset extends AbstractElainaCard {
      * @param m 指向的怪物类。（无指向时为null，包括攻击所有敌人时）
      */
     public void BasicEffect(ElainaC p, AbstractMonster m){
-        this.addToBot(new DamageAction(m, new DamageInfo(p, damage, DamageType.NORMAL)));
+        this.addToBot(new DamageAction(m, new DamageInfo(p, damage, DamageType.NORMAL), AbstractGameAction.AttackEffect.SMASH));
         this.addToBot(new ApplyPowerAction(p,p,new SpellBoostPower(p,this.magicNumber)));
         Iterator it = p.hand.group.iterator();
         while (it.hasNext()){

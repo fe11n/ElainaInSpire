@@ -41,7 +41,7 @@ public class FlashMagic extends AbstractElainaCard {
      * @param m 指向的怪物类。（无指向时为null，包括攻击所有敌人时）
      */
     public void BasicEffect(ElainaC p, AbstractMonster m){
-        this.addToBot(new DamageAction(m, new DamageInfo(p, damage, DamageInfo.DamageType.NORMAL)));
+        this.addToBot(new DamageAction(m, new DamageInfo(p, damage, DamageInfo.DamageType.NORMAL),AbstractGameAction.AttackEffect.SMASH));
         if(m.hasPower("Strength") && m.getPower("Strength").amount > 0){
             this.addToBot(new ApplyPowerAction(m, p, new WeakPower(m, 1, false), 1, true, AbstractGameAction.AttackEffect.NONE));
             this.addToBot(new GainEnergyAction(1));

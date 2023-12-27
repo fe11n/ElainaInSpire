@@ -3,6 +3,7 @@ package ElainaMod.cards;
 import ElainaMod.Characters.ElainaC;
 import ElainaMod.action.ConvergenceMagicAction;
 import ElainaMod.powers.ConvergenceMagicPower;
+import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
@@ -42,7 +43,7 @@ public class ConvergenceMagic extends AbstractElainaCard {
      * @param m 指向的怪物类。（无指向时为null，包括攻击所有敌人时）
      */
     public void BasicEffect(ElainaC p, AbstractMonster m){
-        this.addToBot(new DamageAction(m, new DamageInfo(p, damage, DamageInfo.DamageType.NORMAL)));
+        this.addToBot(new DamageAction(m, new DamageInfo(p, damage, DamageInfo.DamageType.NORMAL), AbstractGameAction.AttackEffect.SLASH_HEAVY));
         this.addToBot(new ConvergenceMagicAction(p));
         this.addToBot(new ApplyPowerAction(p,p,new ConvergenceMagicPower(p,this.magicNumber)));
     }//基础效果，可以被使用和瞬发

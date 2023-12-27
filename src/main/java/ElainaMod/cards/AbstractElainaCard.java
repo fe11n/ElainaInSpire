@@ -3,11 +3,8 @@ package ElainaMod.cards;
 import ElainaMod.Characters.ElainaC;
 import ElainaMod.action.RecordCardAction;
 import ElainaMod.cardmods.toImageCardMod;
-import ElainaMod.cardmods.toSeasonCardMod;
-import basemod.abstracts.AbstractCardModifier;
 import basemod.abstracts.CustomCard;
 import basemod.helpers.CardModifierManager;
-import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
@@ -16,7 +13,6 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 
 
 public class AbstractElainaCard extends CustomCard {
@@ -58,10 +54,19 @@ public class AbstractElainaCard extends CustomCard {
 
     public void toHandfromDiary(){
         CardModifierManager.addModifier(this,new toImageCardMod());
+        this.current_x = ((ElainaC) AbstractDungeon.player).getConclusionOrb().tX;
+        this.current_y = ((ElainaC) AbstractDungeon.player).getConclusionOrb().tY;
     }
 
+    @Override
+    public AbstractElainaCard makeStatEquivalentCopy() {
+        AbstractElainaCard c = (AbstractElainaCard) super.makeStatEquivalentCopy();
+        c.isInstant = this.isInstant;
+        c.isShorthand = this.isShorthand;
+        return c;
+    }
 
-//    public AbstractElainaCard makeInstanceCopy(){//这个方法不能复制mod
+    //    public AbstractElainaCard makeInstanceCopy(){//这个方法不能复制mod
 //        AbstractElainaCard c = (AbstractElainaCard) this.makeCopy();
 //        if(this.upgraded){
 //            c.upgrade();

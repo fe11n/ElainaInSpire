@@ -3,7 +3,7 @@ package ElainaMod.action;
 import ElainaMod.Characters.ElainaC;
 import ElainaMod.cards.AbstractElainaCard;
 import ElainaMod.cards.IndelibleImprint;
-import ElainaMod.orb.ConclusionOrb;
+import basemod.BaseMod;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -13,28 +13,23 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import java.util.ArrayList;
-
 public class GetDiaryCardAction extends AbstractGameAction {
     public ElainaC p;
     public CardGroup g;
     private boolean toHand;
     public static final Logger logger = LogManager.getLogger(GetDiaryCardAction.class);
     public AbstractCard targetCard = null;
-    int cardIndex;
     public GetDiaryCardAction(ElainaC p){
         this.p = p;
         toHand = true;
         this.actionType = ActionType.CARD_MANIPULATION;
         g = p.DiaryGroup;
-        this.cardIndex = -1;
     }
     public GetDiaryCardAction(ElainaC p, boolean toHand){
         this.p = p;
         this.toHand = toHand;
         this.actionType = ActionType.CARD_MANIPULATION;
         g = p.DiaryGroup;
-        this.cardIndex = -1;//实际update时再赋值，防止同一卡牌的其它动作改变序列
     }
     public GetDiaryCardAction(ElainaC p, boolean toHand, AbstractCard c){
         this.p = p;
@@ -45,7 +40,8 @@ public class GetDiaryCardAction extends AbstractGameAction {
     }
     @Override
     public void update(){//将结语获取到手中，同时更新结语
-        if(g.size()!=0){//如果调用p的方法，如p.getConclusion和p.getDiarySize就会报错Null，神奇
+        if(!g.isEmpty()){//如果调用p的方法，如p.getConclusion和p.getDiarySize就会报错Null，神奇
+            // 不灭印记的特殊情况
             if(p.getConclusion() instanceof IndelibleImprint && !toHand){
                 this.addToBot(
                         new DamageAction(
@@ -57,16 +53,12 @@ public class GetDiaryCardAction extends AbstractGameAction {
                 this.isDone = true;
                 return;
             }
+
+            // 拿结语
             if(targetCard == null || targetCard.equals(p.getConclusion())){
                 targetCard = p.getConclusion();
-                this.cardIndex = g.size()-1;
                 g.removeCard(g.getBottomCard());
-                if(g.size()>0){
-                    p.channelOrb(new ConclusionOrb(p.getConclusion()));
-                }
-                else{
-                    p.removeNextOrb();
-                }
+                p.getConclusionOrb().syncConclusionWithDiary();
             }
             else {
                 g.removeCard(targetCard);
@@ -75,11 +67,21 @@ public class GetDiaryCardAction extends AbstractGameAction {
 
             if(toHand){
                 ((AbstractElainaCard)targetCard).toHandfromDiary();
-                if(p.hand.size()<10){
-                    p.hand.addToHand(targetCard);
-                }
-                else {
-                    p.discardPile.addToTop(targetCard);
+                if (p.hand.size() == BaseMod.MAX_HAND_SIZE) {
+                    g.moveToDiscardPile(targetCard);
+                    this.p.createHandIsFullDialog();
+                } else {
+                    targetCard.untip();
+                    targetCard.unhover();
+                    targetCard.lighten(true);
+                    targetCard.setAngle(0.0F);
+                    targetCard.drawScale = 0.12F;
+                    targetCard.targetDrawScale = 0.75F;
+                    targetCard.current_x = p.getConclusionOrb().tX;
+                    targetCard.current_y = p.getConclusionOrb().tY;
+                    p.hand.addToTop(targetCard);
+                    AbstractDungeon.player.hand.refreshHandLayout();
+                    AbstractDungeon.player.hand.applyPowers();
                 }
             }
         }

@@ -2,20 +2,14 @@ package ElainaMod.action;
 
 import ElainaMod.Characters.ElainaC;
 import ElainaMod.cards.AbstractElainaCard;
-import ElainaMod.cards.IndelibleImprint;
 import ElainaMod.orb.ConclusionOrb;
 import com.evacipated.cardcrawl.mod.stslib.actions.common.FetchAction;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
-import com.megacrit.cardcrawl.cards.DamageInfo;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 import java.util.function.Consumer;
 
@@ -29,20 +23,24 @@ public class GetCertainDiaryCardAction extends AbstractGameAction {
     }
     @Override
     public void update(){//将结语获取到手中，同时更新结语
+        CardGroup g = ElainaC.DiaryGroup;
         Consumer<List<AbstractCard>> toHand = new Consumer<List<AbstractCard>>() {
             @Override
             public void accept(List<AbstractCard> abstractCards) {
                 ((AbstractElainaCard)abstractCards.get(0)).toHandfromDiary();
+
+                if (g.isEmpty()) {
+                    logger.info("g is empty");
+                    ConclusionOrb.removeConclusion();
+                }else if(!g.getBottomCard().equals(p.getConclusionOrb().c)){
+                    logger.info("syncConclusion");
+                    p.getConclusionOrb().syncConclusionWithDiary();
+                }
             }
         };
-        CardGroup g = p.DiaryGroup;
-        if(g.size()!=0){//如果调用p的方法，如p.getConclusion和p.getDiarySize就会报错Null，神奇
+
+        if(!g.isEmpty()){//如果调用p的方法，如p.getConclusion和p.getDiarySize就会报错Null，神奇
             addToBot(new FetchAction(g,toHand));
-            if(g.size()==0){
-                p.removeNextOrb();
-            }else if(g.getBottomCard().equals(p.getConclusion())){
-                p.channelOrb(new ConclusionOrb(p.getConclusion()));
-            }
         }
         logger.info("Now Diary size: "+p.getDiarySize());
         this.isDone=true;

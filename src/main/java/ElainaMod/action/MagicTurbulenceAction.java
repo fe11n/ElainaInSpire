@@ -1,10 +1,7 @@
 package ElainaMod.action;
 
 import ElainaMod.Characters.ElainaC;
-import ElainaMod.cardmods.toInstantCardMod;
 import ElainaMod.cards.AbstractElainaCard;
-import ElainaMod.orb.ConclusionOrb;
-import basemod.helpers.CardModifierManager;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -13,9 +10,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
-import java.util.Iterator;
 
 public class MagicTurbulenceAction extends AbstractGameAction {
     public ElainaC p;
@@ -29,15 +24,13 @@ public class MagicTurbulenceAction extends AbstractGameAction {
     }
     @Override
     public void update(){
-        Iterator it = p.DiaryGroup.group.iterator();
-        while (it.hasNext()){
-            AbstractCard c = (AbstractCard)it.next();
+        for (AbstractCard c : ElainaC.DiaryGroup.group) {
             c.updateCost(-1);
-            logger.info(c.name+" cost:"+c.costForTurn);
+            logger.info(c.name + " cost:" + c.costForTurn);
         }
-        Collections.shuffle(p.DiaryGroup.group,AbstractDungeon.miscRng.random);
-        if(p.DiaryGroup.group.size()>0){
-            p.channelOrb(new ConclusionOrb(p.getConclusion()));
+        Collections.shuffle(ElainaC.DiaryGroup.group,AbstractDungeon.miscRng.random);
+        if(!ElainaC.DiaryGroup.group.isEmpty()){
+            p.getConclusionOrb().syncConclusionWithDiary();
         }
         this.isDone=true;
     }

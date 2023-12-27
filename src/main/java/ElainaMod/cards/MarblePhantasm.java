@@ -28,16 +28,14 @@ public class MarblePhantasm extends AbstractElainaCard {
         // 为了命名规范修改了变量名。这些参数具体的作用见下方
         super(ID, CARD_STRINGS, IMG_PATH, COST, TYPE, RARITY, TARGET);
         this.isShorthand = true;
-        this.isEthereal = true;
+        this.magicNumber = this.baseMagicNumber = 1;
     }
 
     @Override
     public void upgrade() { // 升级调用的方法
         if (!this.upgraded) {
             this.upgradeName(); // 卡牌名字变为绿色并添加“+”，且标为升级过的卡牌，之后不能再升级。
-            this.isEthereal = false;
-            this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
-            this.initializeDescription();
+            this.upgradeMagicNumber(1);
         }
     }
 
@@ -64,10 +62,10 @@ public class MarblePhantasm extends AbstractElainaCard {
                         if(po.type == AbstractPower.PowerType.BUFF){
                             po.flash();
                             if(po instanceof SpellBoostPower){
-                                this.addToBot(new ApplyPowerAction(p,p,new SpellBoostPower(p,po.amount)));
+                                this.addToBot(new ApplyPowerAction(p,p,new SpellBoostPower(p,magicNumber)));
                             }
                             else {
-                                po.amount += po.amount;
+                                po.amount += magicNumber;
                                 po.updateDescription();
                             }
                         }

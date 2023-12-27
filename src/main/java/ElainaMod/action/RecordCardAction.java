@@ -2,21 +2,17 @@ package ElainaMod.action;
 
 import ElainaMod.Characters.ElainaC;
 import ElainaMod.cards.AbstractElainaCard;
-import ElainaMod.cards.AbstractSeasonCard;
 import ElainaMod.cards.IndelibleImprint;
 import ElainaMod.cards.MarblePhantasm;
 import ElainaMod.orb.ConclusionOrb;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
-import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-
-import java.util.ArrayList;
 
 public class RecordCardAction extends AbstractGameAction {
     public ElainaC p=(ElainaC)AbstractDungeon.player;
@@ -36,36 +32,65 @@ public class RecordCardAction extends AbstractGameAction {
             this.c = (AbstractElainaCard)c.makeStatEquivalentCopy();
         }
     }
+    public RecordCardAction(AbstractElainaCard c, boolean make_copy){
+        this.actionType = ActionType.CARD_MANIPULATION;
+        if(c != null){
+            isNotable = c.isNotable();
+        }
+        else {
+            isNotable = false;
+        }
+        if(isNotable){
+            if (make_copy) {
+                this.c = (AbstractElainaCard)c.makeStatEquivalentCopy();
+            } else {
+                this.c = c;
+            }
+        }
+    }
     @Override
     public void update(){
         if(isNotable){
             g = ElainaC.DiaryGroup;
 
-            if(g.size()!= 0 && p.getConclusion() instanceof IndelibleImprint){
+            // 不灭印记的特殊情况，不考虑写出去？
+            if(!g.isEmpty() && p.getConclusion() instanceof IndelibleImprint){
                 c = p.getConclusion();
-                c.flash();
+                ConclusionOrb orb = p.getConclusionOrb();
+                orb.flashConclusion();
+                orb.removeCardToRecord();
                 this.addToBot(
                         new DamageAction(
                                 AbstractDungeon.getRandomMonster(),
                                 new DamageInfo(p,c.magicNumber, DamageInfo.DamageType.THORNS)
                         )
                 );
+
                 this.isDone=true;
                 return;
             }
+
             logger.info("Record in Diary: "+c.name);
+            // 空想具现化的特殊情况，作为结语记录也记录在开头？
             if(c instanceof MarblePhantasm){
                 g.addToTop(c);
                 logger.info("Diary size after record: "+g.size());
+                // 如果是唯一一张
+                ConclusionOrb orb = (ConclusionOrb) p.orbs.get(0);
                 if(g.size()==1){
-                    p.channelOrb(new ConclusionOrb(c));
+                    orb.setCurConclusion(c);
+                } else {
+                    orb.removeCardToRecord(); //清理本来显示的
                 }
                 this.isDone=true;
                 return;
             }
-            g.addToBottom(c);
+
+            // 正常情况。
+            g.addToBottom(c.makeStatEquivalentCopy()); // 这里 make copy 是为了避免日记和结语槽抢卡牌渲染。
+            ConclusionOrb orb = (ConclusionOrb) p.orbs.get(0);
+            orb.pushConclusion(c);
             logger.info("Diary size after record: "+g.size());
-            p.channelOrb(new ConclusionOrb(c));
         }
         this.isDone=true;
     }

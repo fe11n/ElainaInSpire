@@ -4,12 +4,10 @@ import ElainaMod.Elaina.Elaina;
 import ElainaMod.cards.*;
 import ElainaMod.orb.ConclusionOrb;
 import ElainaMod.relics.WanderingWitch;
-import basemod.BaseMod;
 import basemod.abstracts.CustomPlayer;
-import basemod.abstracts.CustomSavable;
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.evacipated.cardcrawl.modthespire.lib.SpireEnum;
-import com.google.gson.reflect.TypeToken;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
@@ -25,7 +23,6 @@ import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.helpers.ScreenShake;
 import com.megacrit.cardcrawl.localization.CharacterStrings;
 import com.megacrit.cardcrawl.screens.CharSelectInfo;
-import com.badlogic.gdx.graphics.Color;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -134,6 +131,8 @@ public class ElainaC extends CustomPlayer{
         UpdateSeasonalDescription(this.drawPile);
         UpdateSeasonalDescription(this.hand);
         UpdateSeasonalDescription(DiaryGroup,true);
+        this.getConclusionOrb().updateSeasonalDecription();
+
     }
     private void UpdateSeasonalDescription(CardGroup g){
         UpdateSeasonalDescription(g,false);
@@ -146,7 +145,8 @@ public class ElainaC extends CustomPlayer{
                 AbstractElainaCard c = (AbstractElainaCard) ca;
                 if(c.hasTag(SEASONAL)){
                     if(((AbstractSeasonCard)c).UpdateSeasonalDescription() && isDiary && !(it.hasNext())){//在Diary结语位置且需要更新时
-                        this.channelOrb(new ConclusionOrb(c));
+                        ConclusionOrb orb = (ConclusionOrb) this.orbs.get(0);
+                        orb.setCurConclusion(c);
                     }
                 }
             }
@@ -154,10 +154,13 @@ public class ElainaC extends CustomPlayer{
     }
 
     public AbstractElainaCard getConclusion(){
-        if(DiaryGroup.size()!=0){
-            return (AbstractElainaCard) DiaryGroup.getBottomCard();
+        if(!DiaryGroup.isEmpty()){
+            return ((AbstractElainaCard) DiaryGroup.getBottomCard()).makeStatEquivalentCopy(); // 避免抢渲染，返回拷贝。
         }
         else return null;
+    }
+    public ConclusionOrb getConclusionOrb(){
+        return (ConclusionOrb)this.orbs.get(0);
     }
     public int getDiarySize(){
         return DiaryGroup.size();
@@ -297,6 +300,13 @@ public class ElainaC extends CustomPlayer{
     @Override
     public AbstractGameAction.AttackEffect[] getSpireHeartSlashEffect() {
         return new AbstractGameAction.AttackEffect[]{AbstractGameAction.AttackEffect.SLASH_HEAVY, AbstractGameAction.AttackEffect.FIRE, AbstractGameAction.AttackEffect.SLASH_DIAGONAL, AbstractGameAction.AttackEffect.SLASH_HEAVY, AbstractGameAction.AttackEffect.FIRE, AbstractGameAction.AttackEffect.SLASH_DIAGONAL};
+    }
+
+    public void doDeltaConclusionCostForTurn(int i) {
+        if(!DiaryGroup.isEmpty()) {
+            AbstractCard c = DiaryGroup.getBottomCard();
+            c.setCostForTurn(c.costForTurn + i);
+        }
     }
 
     // 为原版人物枚举、卡牌颜色枚举扩展的枚举，需要写，接下来要用

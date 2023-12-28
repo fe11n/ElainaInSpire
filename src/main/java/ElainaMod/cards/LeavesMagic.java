@@ -55,13 +55,13 @@ public class LeavesMagic extends AbstractSeasonCard {
         switch (this.getSeasonNum()){
             case 0:
                 for(int i = 0; i < 3; ++i) {
-                    this.addToBot(new AttackDamageRandomEnemyAction(this));
+                    this.addToBot(new AttackDamageRandomEnemyAction(this, AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
                 }
                 break;
             case 1:
             case 2:
                 for(int i = 0; i < 2; ++i) {
-                    this.addToBot(new AttackDamageRandomEnemyAction(this));
+                    this.addToBot(new AttackDamageRandomEnemyAction(this, AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
                 }
                 break;
             case 3:

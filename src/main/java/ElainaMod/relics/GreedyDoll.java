@@ -11,6 +11,7 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
+import com.megacrit.cardcrawl.rooms.AbstractRoom;
 
 public class GreedyDoll extends CustomRelic {
     public static final String ID = "Elaina:GreedyDoll";
@@ -42,7 +43,11 @@ public class GreedyDoll extends CustomRelic {
                 }
             });
         }else {
+            this.grayscale = true;
             this.setCounter(-2);
         }
+    }
+    public void justEnteredRoom(AbstractRoom room) {
+        this.grayscale = false;
     }
 }

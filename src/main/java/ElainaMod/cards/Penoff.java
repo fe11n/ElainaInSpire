@@ -18,7 +18,7 @@ public class Penoff extends AbstractElainaCard {
     public Penoff() {
         // 为了命名规范修改了变量名。这些参数具体的作用见下方
         super(ID, CARD_STRINGS, IMG_PATH, COST, TYPE, RARITY, TARGET);
-        this.baseBlock = 2;
+        this.baseBlock = 3;
         this.exhaust = true;
         this.selfRetain = true;
 
@@ -28,7 +28,7 @@ public class Penoff extends AbstractElainaCard {
     public void upgrade() { // 升级调用的方法
         if (!this.upgraded) {
             this.upgradeName();
-            this.upgradeBlock(1);
+            this.upgradeBlock(2);
         }
     }
     /**

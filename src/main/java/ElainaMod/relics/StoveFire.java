@@ -13,7 +13,7 @@ import java.util.ArrayList;
 public class StoveFire extends CustomRelic {
     public static final String ID = "Elaina:StoveFire";
     public StoveFire() {
-        super(ID, ImageMaster.loadImage("ElainaMod/img/relics/WanderingWitch.png"), RelicTier.UNCOMMON, LandingSound.FLAT);
+        super(ID, ImageMaster.loadImage("ElainaMod/img/relics/StoveFire.png"), RelicTier.UNCOMMON, LandingSound.FLAT);
     }
     public String getUpdatedDescription(){
         return this.DESCRIPTIONS[0];

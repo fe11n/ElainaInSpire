@@ -48,7 +48,7 @@
   },
   "Elaina:GrowUp": {
     "NAME": "成长",
-    "DESCRIPTION": "获得 !M! 点 临时力量 和 临时敏捷 。 elainamod:时节 每循环一次，该数值加1。"
+    "DESCRIPTION": "获得 !M! 点 *临时力量 和 *临时敏捷 。 elainamod:时节 每循环一次，该数值加1。"
   },
   "Elaina:WitnessOfFriendship": {
     "NAME": "友谊的见证",
@@ -94,8 +94,8 @@
   },
   "Elaina:ItsMe": {
     "NAME": "没错，就是我",
-    "DESCRIPTION": " 保留 。 NL elainamod:记录 1张手牌，使随机敌人获得等同于被 elainamod:记录 卡牌费用的 临时力量 。 NL 消耗 。",
-    "UPGRADE_DESCRIPTION": " 保留 。 NL elainamod:记录 1张手牌，使随机敌人获得等同于被 elainamod:记录 卡牌费用-1的 临时力量 。 NL 消耗 。"
+    "DESCRIPTION": " 保留 。 NL elainamod:记录 1张手牌，使随机敌人获得等同于被 elainamod:记录 卡牌费用的 *临时力量 。 NL 消耗 。",
+    "UPGRADE_DESCRIPTION": " 保留 。 NL elainamod:记录 1张手牌，使随机敌人获得等同于被 elainamod:记录 卡牌费用-1的 *临时力量 。 NL 消耗 。"
   },
   "Elaina:Penoff": {
     "NAME": "停笔",
@@ -107,7 +107,7 @@
   },
   "Elaina:Eh": {
     "NAME": "咦！？",
-    "DESCRIPTION": "获得等同于所有敌人 力量 之和的 临时敏捷 和 格挡 。"
+    "DESCRIPTION": "获得等同于所有敌人 力量 之和的 *临时敏捷 和 格挡 。"
   },
   "Elaina:MagicSurging": {
     "NAME": "魔力涌动",
@@ -115,7 +115,7 @@
   },
   "Elaina:CounterMagic": {
     "NAME": "反制魔法",
-    "DESCRIPTION": "应用目标敌人的 力量 加成。造成 !D! 点伤害3次。斩杀时，使所有敌人失去 !M! 点 临时力量 。"
+    "DESCRIPTION": "应用目标敌人的 力量 加成。造成 !D! 点伤害3次。斩杀时，使所有敌人本回合失去 !M! 点力量 。"
   },
   "Elaina:Echo": {
     "NAME": "呼应",
@@ -131,7 +131,7 @@
   },
   "Elaina:FlashMagic": {
     "NAME": "闪光魔法",
-    "DESCRIPTION": "造成 !D! 点伤害。如果目标有 力量 增益，则获得 [E] 并给予1层 虚弱 。"
+    "DESCRIPTION": "造成 !D! 点伤害。如果目标有 力量 增益，则获得 [E] 并给予 !M! 层 虚弱 。"
   },
   "Elaina:FragrantWind": {
     "NAME": "香风",
@@ -157,11 +157,12 @@
   },
   "Elaina:SilentChant": {
     "NAME": "无声咏唱",
-    "DESCRIPTION": "获得 !B! 点 格挡 。增加1张 *释放 到手牌中。"
+    "DESCRIPTION": "获得 !B! 点 格挡 。增加1张 *释放 到手牌中。",
+    "UPGRADE_DESCRIPTION": "获得 !B! 点 格挡 。增加1张 *释放+ 到手牌中。"
   },
   "Elaina:Spell": {
     "NAME": "释放",
-    "DESCRIPTION": "抽取 !M! 张卡牌。 NL 这张卡被 保留 时，该数值加1。 NL 保留 。 NL 消耗 。"
+    "DESCRIPTION": "抽取 !M! 张卡牌。 NL 这张卡被 保留 时，该数值加1（最多为3）。 NL 保留 。 NL 消耗 。"
   },
   "Elaina:Reappear": {
     "NAME": "重现",
@@ -224,7 +225,7 @@
   },
   "Elaina:WitchsCauldron": {
     "NAME": "魔女的坩埚",
-    "DESCRIPTION": "随机增加 !M! 张有保留效果的卡牌到手牌中。消耗 。"
+    "DESCRIPTION": "随机增加 !M! 张有保留效果的卡牌到手牌中。 消耗 。"
   },
   "Elaina:MagicDiffusion": {
     "NAME": "魔力扩散",
@@ -279,12 +280,13 @@
   },
   "Elaina:Reversal": {
     "NAME": "反转",
-    "DESCRIPTION": " 保留 。 NL 击晕所有造成伤害大于等于伊蕾娜当前生命值一半的敌人。 NL 消耗 。"
+    "DESCRIPTION": " 保留 。 NL 击晕所有造成伤害大于等于伊蕾娜当前生命值一半的敌人。 NL 消耗 。",
+    "UPGRADE_DESCRIPTION": " 保留 。 NL 击晕所有造成伤害大于等于伊蕾娜当前生命值三分之一的敌人。 NL 消耗 。"f
   },
   "Elaina:ShowWeakness": {
     "NAME": "示弱",
     "DESCRIPTION": "给予自己1层 易伤 ，增加1张 *反转 到手牌中。 NL 消耗 。",
-    "UPGRADE_DESCRIPTION": "增加1张 *反转 到手牌中。 NL 消耗 。"
+    "UPGRADE_DESCRIPTION": "给予自己1层 易伤 ，增加1张 *反转+ 到手牌中。 NL 消耗 。"
   },
   "Elaina:SelfDefense": {
     "NAME": "自我保护",

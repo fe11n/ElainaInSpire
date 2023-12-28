@@ -118,8 +118,8 @@ public class ElainaC extends CustomPlayer{
                 AbstractDungeon.player.gainGold(50);
                 logger.info("Get 50 gold.");
             }else if(this.hasRelic("Elaina:NicolesAdventure")){
-                AbstractDungeon.player.increaseMaxHp(5,true);
-                logger.info("Get 5 MaxHp.");
+                AbstractDungeon.player.increaseMaxHp(4,true);
+                logger.info("Get 4 MaxHp.");
             }
         }
         if(upgradeDeck){

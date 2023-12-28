@@ -26,14 +26,16 @@ public class Reversal extends AbstractElainaCard {
         super(ID,CARD_STRINGS, IMG_PATH, COST, TYPE, RARITY, TARGET);
         this.exhaust = true;
         this.selfRetain = true;
-
+        this.magicNumber = this.baseMagicNumber = 2;
     }
 
     @Override
     public void upgrade() { // 升级调用的方法
         if (!this.upgraded) {
             this.upgradeName(); // 卡牌名字变为绿色并添加“+”，且标为升级过的卡牌，之后不能再升级。
-            this.upgradeBaseCost(0);
+            this.upgradeMagicNumber(1);
+            this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
+            this.initializeDescription();
         }
     }
     /**
@@ -49,7 +51,7 @@ public class Reversal extends AbstractElainaCard {
             mo = (AbstractMonster)var3.next();
 //            logger.info("Mo IntentDmg: "+mo.getIntentDmg());
 //            logger.info("half current heath: "+p.currentHealth/2);
-            if(mo.getIntentDmg()>=p.currentHealth/2){
+            if(reversalGetMonsterDamage(mo)>=p.currentHealth/magicNumber){
                 addToBot(new StunMonsterAction(mo,p));
             }
         }
@@ -62,7 +64,7 @@ public class Reversal extends AbstractElainaCard {
             mo = (AbstractMonster)var3.next();
 //            logger.info("Mo IntentDmg: "+mo.getIntentDmg());
 //            logger.info("half current heath: "+p.currentHealth/2);
-            if(reversalGetMonsterDamage(mo)>=p.currentHealth/2){
+            if(reversalGetMonsterDamage(mo)>=p.currentHealth/magicNumber){
                 return true;
             }
         }

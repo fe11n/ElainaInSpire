@@ -15,6 +15,7 @@ public class Spell extends AbstractElainaCard {
     private static final CardType TYPE = CardType.SKILL;
     private static final CardRarity RARITY = CardRarity.SPECIAL;
     private static final CardTarget TARGET = CardTarget.SELF;
+    private int limit = 3;
 
     public Spell() {
         // 为了命名规范修改了变量名。这些参数具体的作用见下方
@@ -25,7 +26,9 @@ public class Spell extends AbstractElainaCard {
     }
 
     public void onRetained() {
-        this.upgradeMagicNumber(1);
+        if(this.magicNumber<limit){
+            this.upgradeMagicNumber(1);
+        }
     }
 
     @Override

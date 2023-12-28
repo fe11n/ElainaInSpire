@@ -3,6 +3,7 @@ package ElainaMod.relics;
 import ElainaMod.Characters.ElainaC;
 import ElainaMod.cards.AbstractElainaCard;
 import basemod.abstracts.CustomRelic;
+import com.megacrit.cardcrawl.actions.common.RelicAboveCreatureAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
@@ -23,6 +24,7 @@ public class PortableWand extends CustomRelic {
         ElainaC p = (ElainaC) AbstractDungeon.player;;
         if(p.getConclusion().isInstant){//如果使用tag判断INSTANT会导致更改INSTANT时同类卡牌全部INSTANT被修改
             this.flash();
+            this.addToBot(new RelicAboveCreatureAction(AbstractDungeon.player, this));
             p.getConclusion().InstantUse();
         }
     }

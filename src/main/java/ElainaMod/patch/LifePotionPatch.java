@@ -35,7 +35,7 @@ public class LifePotionPatch {
             powerField.setAccessible(true);
             AbstractPower po = (AbstractPower) powerField.get(a);
 
-            if(a.target.isPlayer
+            if(     a.target!=null && a.target.isPlayer
                     && ((AbstractPlayer)a.target).hasRelic("Elaina:LifePotion")
                     && !a.target.hasPower(po.ID)){
                 AbstractPlayer p = AbstractDungeon.player;

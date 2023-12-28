@@ -24,6 +24,7 @@ public class FlashMagic extends AbstractElainaCard {
         // 为了命名规范修改了变量名。这些参数具体的作用见下方
         super(ID,CARD_STRINGS, IMG_PATH, COST, TYPE, RARITY, TARGET);
         this.damage = this.baseDamage = 9;
+        this.magicNumber = this.baseMagicNumber = 2;
         this.tags.add(ElainaC.Enums.MAGIC);
     }
 
@@ -32,6 +33,7 @@ public class FlashMagic extends AbstractElainaCard {
         if (!this.upgraded) {
             this.upgradeName(); // 卡牌名字变为绿色并添加“+”，且标为升级过的卡牌，之后不能再升级。
             this.upgradeDamage(3); // 将该卡牌的伤害提高2点。
+            this.upgradeMagicNumber(1);
         }
     }
     /**
@@ -43,7 +45,7 @@ public class FlashMagic extends AbstractElainaCard {
     public void BasicEffect(ElainaC p, AbstractMonster m){
         this.addToBot(new DamageAction(m, new DamageInfo(p, damage, DamageInfo.DamageType.NORMAL),AbstractGameAction.AttackEffect.SMASH));
         if(m.hasPower("Strength") && m.getPower("Strength").amount > 0){
-            this.addToBot(new ApplyPowerAction(m, p, new WeakPower(m, 1, false), 1, true, AbstractGameAction.AttackEffect.NONE));
+            this.addToBot(new ApplyPowerAction(m, p, new WeakPower(m, magicNumber, false)));
             this.addToBot(new GainEnergyAction(1));
         }
 

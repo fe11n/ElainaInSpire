@@ -48,11 +48,13 @@ WitchRobe extends AbstractElainaCard {
         this.addToBot(new GainBlockAction(p,p,this.block));
     }
     public void InstantUse(){
+        super.InstantUse();
         this.addToBot(new GainEnergyAction(1));//Orb的回合开始效果获取的cardsPlayedThisTurn是上回合的，无奈只能瞬发和使用分开写。
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
+        super.use(p,m);
         if(AbstractDungeon.actionManager.cardsPlayedThisTurn.size()==1){
             this.addToBot(new GainEnergyAction(1));
         }

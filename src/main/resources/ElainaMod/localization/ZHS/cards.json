@@ -52,9 +52,9 @@
   },
   "Elaina:WitnessOfFriendship": {
     "NAME": "友谊的见证",
-    "DESCRIPTION": "每个循环限1次，获得1个普通遗物。 NL 消耗 。 NL *春 。",
+    "DESCRIPTION": "每个循环限1次，获得1个随机遗物。 NL 消耗 。 NL *春 。",
     "EXTENDED_DESCRIPTION": [
-      "获得1个普通遗物。 NL 消耗 。",
+      "获得1个随机遗物。 NL 消耗 。",
       "获得 !M! 金币。 NL 消耗 。"
     ]
   },

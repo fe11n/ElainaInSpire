@@ -113,7 +113,7 @@ public class WitnessOfFriendship extends AbstractSeasonCard {
                 this.addToBot(new AbstractGameAction() {
                     @Override
                     public void update() {
-                        AbstractRelic r = AbstractDungeon.returnRandomRelic(AbstractRelic.RelicTier.COMMON);
+                        AbstractRelic r = AbstractDungeon.returnRandomRelic(AbstractDungeon.returnRandomRelicTier());
                         logger.info("P get relic: "+ r.name);
                         AbstractDungeon.getCurrRoom().spawnRelicAndObtain((float)Settings.WIDTH / 2.0F, (float)Settings.HEIGHT / 2.0F, r);
                         //r.atBattleStart();

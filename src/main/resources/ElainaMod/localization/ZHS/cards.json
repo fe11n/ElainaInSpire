@@ -281,7 +281,7 @@
   "Elaina:Reversal": {
     "NAME": "反转",
     "DESCRIPTION": " 保留 。 NL 击晕所有造成伤害大于等于伊蕾娜当前生命值一半的敌人。 NL 消耗 。",
-    "UPGRADE_DESCRIPTION": " 保留 。 NL 击晕所有造成伤害大于等于伊蕾娜当前生命值三分之一的敌人。 NL 消耗 。"f
+    "UPGRADE_DESCRIPTION": " 保留 。 NL 击晕所有造成伤害大于等于伊蕾娜当前生命值三分之一的敌人。 NL 消耗 。"
   },
   "Elaina:ShowWeakness": {
     "NAME": "示弱",

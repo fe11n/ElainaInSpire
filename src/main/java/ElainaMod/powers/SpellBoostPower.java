@@ -43,6 +43,10 @@ public class SpellBoostPower extends AbstractPower {
                 return;
             }
             owner.getPower("Elaina:SpellLink").flash();
+            StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
+            for (StackTraceElement element : stackTrace) {
+                System.out.println(element.toString());
+            }
             logger.info("gainblock "+num);
             addToBot(new GainBlockAction(owner,num));
         }
@@ -54,8 +58,7 @@ public class SpellBoostPower extends AbstractPower {
         // Iterate through the stack trace elements
         for (StackTraceElement element : stackTrace) {
             // Check if the calling method is UpdatePowers in P2PPlayer class
-            if (element.getClassName().equals("spireTogether.network.P2P.P2PPlayer") &&
-                element.getMethodName().equals("UpdatePowers")) {
+            if (element.getClassName().equals("spireTogether.network.P2P.P2PPlayer")) {
                 return true; // Caller is UpdatePowers
             }
         }

@@ -44,12 +44,6 @@ public class AbstractElainaCard extends CustomCard {
     public void triggerOnMonthChanged(int num,boolean isBack) {//由ChangeMonthAction调用
     }
 
-    public void toHandfromDiary(){
-        CardModifierManager.addModifier(this,new toImageCardMod());
-        this.current_x = ((ElainaC) AbstractDungeon.player).getConclusionOrb().tX;
-        this.current_y = ((ElainaC) AbstractDungeon.player).getConclusionOrb().tY;
-    }
-
     @Override
     public AbstractElainaCard makeStatEquivalentCopy() {
         AbstractElainaCard c = (AbstractElainaCard) super.makeStatEquivalentCopy();

@@ -22,7 +22,7 @@ import java.util.ArrayList;
 
 public class AbstractBookRelic extends CustomRelic {
     public int NotedMonth;
-    public AbstractElainaCard cardToRecord;
+    public AbstractCard cardToRecord;
     private boolean Rclick = false;
     private boolean RclickStart = false;
 
@@ -87,15 +87,8 @@ public class AbstractBookRelic extends CustomRelic {
     public void onPlayCard(AbstractCard c, AbstractMonster m) {
         ElainaC p = (ElainaC)AbstractDungeon.player;
         // 在这里更新每回合结语卡。
-        if (c instanceof AbstractElainaCard) {
-            AbstractElainaCard ec =(AbstractElainaCard) c;
-            // 考虑在这里判断一下 ec.isShortHand，不然速记一下，结语又记一下太多了。
-            if (ElainaC.isNotable(ec)) {
-                cardToRecord = ec.makeStatEquivalentCopy();
-            }else {
-                cardToRecord = null;
-                p.getConclusionOrb().removeCardToRecord();
-            }
+        if (ElainaC.isNotable(c)) {
+            cardToRecord = c.makeStatEquivalentCopy();
         }else {
             cardToRecord = null;
             p.getConclusionOrb().removeCardToRecord();

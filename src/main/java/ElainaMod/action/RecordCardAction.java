@@ -27,7 +27,7 @@ public class RecordCardAction extends AbstractGameAction {
             this.c = c.makeStatEquivalentCopy();
         }
     }
-    public RecordCardAction(AbstractElainaCard c, boolean make_copy){
+    public RecordCardAction(AbstractCard c, boolean make_copy){
         this.actionType = ActionType.CARD_MANIPULATION;
         isNotable = p.isNotable(c);
         if(isNotable){

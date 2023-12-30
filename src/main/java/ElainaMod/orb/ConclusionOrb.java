@@ -23,7 +23,7 @@ public class ConclusionOrb extends AbstractOrb {
     public static final String ID = "Elaina:ConclusionOrb";
     private AbstractCard prev_c; //这个只是为了移动卡牌的时候好看的。
     public AbstractCard c; //魔力增幅直接用了这个。
-    private AbstractElainaCard cardToRecord;
+    private AbstractCard cardToRecord;
     public static final Logger logger = LogManager.getLogger(ConclusionOrb.class);
     private static final Texture DiarySlotImg = ImageMaster.loadImage("ElainaMod/img/UI/Diary.png");
     public ConclusionOrb() {

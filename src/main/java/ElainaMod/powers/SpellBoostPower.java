@@ -58,7 +58,7 @@ public class SpellBoostPower extends AbstractPower {
         // Iterate through the stack trace elements
         for (StackTraceElement element : stackTrace) {
             // Check if the calling method is UpdatePowers in P2PPlayer class
-            if (element.getClassName().equals("spireTogether.network.P2P.P2PPlayer")) {
+            if (element.getClassName().startsWith("spireTogether")) {
                 return true; // Caller is UpdatePowers
             }
         }

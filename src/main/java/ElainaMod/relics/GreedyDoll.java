@@ -12,9 +12,12 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 public class GreedyDoll extends CustomRelic {
     public static final String ID = "Elaina:GreedyDoll";
+    public static final Logger logger = LogManager.getLogger(GreedyDoll.class);
     public GreedyDoll() {
         super(ID, ImageMaster.loadImage("ElainaMod/img/relics/GreedyDoll.png"), RelicTier.SHOP, LandingSound.FLAT);
     }
@@ -34,7 +37,9 @@ public class GreedyDoll extends CustomRelic {
                 public void update() {
                     AbstractPlayer p = AbstractDungeon.player;
                     for(AbstractCard c : p.hand.group){
-                        if(!c.selfRetain && c instanceof AbstractElainaCard){
+                        logger.info("(1)Card: "+ c.name);
+                        if(!c.selfRetain){
+                            logger.info("(2)Card: "+ c.name);
                             c.flash();
                             CardModifierManager.addModifier(c,new toRetainCardMod());
                         }

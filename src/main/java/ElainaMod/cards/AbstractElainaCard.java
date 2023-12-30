@@ -18,7 +18,6 @@ import java.util.ArrayList;
 public class AbstractElainaCard extends CustomCard {
 
     public CardStrings strings;
-    public ArrayList<String> ModStrings = new ArrayList<>();
     public boolean isInstant = false;
     public boolean isShorthand  = false;
     public static final Logger logger = LogManager.getLogger(AbstractElainaCard.class);

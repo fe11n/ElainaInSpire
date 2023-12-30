@@ -49,7 +49,7 @@ public class Anticipatory extends AbstractElainaCard {
         for(int i = 0;i<magicNumber;i++){
             if(p.drawPile.size()>i){
                 AbstractCard c = p.drawPile.group.get(p.drawPile.size()-1-i);
-                if(c instanceof AbstractElainaCard && ((AbstractElainaCard)c).isNotable()){
+                if(ElainaC.isNotable(c)){
                     this.addToBot(new RecordCardAction(c));
                 }else {
                     this.addToBot(new GainEnergyAction(1));

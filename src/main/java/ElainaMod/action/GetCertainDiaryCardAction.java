@@ -27,7 +27,7 @@ public class GetCertainDiaryCardAction extends AbstractGameAction {
         Consumer<List<AbstractCard>> toHand = new Consumer<List<AbstractCard>>() {
             @Override
             public void accept(List<AbstractCard> abstractCards) {
-                ((AbstractElainaCard)abstractCards.get(0)).toHandfromDiary();
+                ElainaC.toHand(abstractCards.get(0));
 
                 if (g.isEmpty()) {
                     logger.info("g is empty");

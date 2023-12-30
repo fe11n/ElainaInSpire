@@ -1,6 +1,7 @@
 package ElainaMod.cards;
 
 import ElainaMod.Characters.ElainaC;
+import ElainaMod.Elaina.Elaina;
 import ElainaMod.action.ThePerfectMeAction;
 import ElainaMod.cardmods.toInstantCardMod;
 import ElainaMod.powers.IntensifyArrayPower;
@@ -58,12 +59,8 @@ public class ThePerfectMe extends AbstractElainaCard {
     }
     public static ArrayList<AbstractCard> returnProphecy() {
         ArrayList<AbstractCard> list = new ArrayList();
-        Iterator it = AbstractDungeon.player.discardPile.group.iterator();
-        while(it.hasNext()){
-            AbstractCard c = (AbstractCard)it.next();
-            if(c instanceof AbstractElainaCard
-                    && ((AbstractElainaCard)c).isInstant == false
-                    && ((AbstractElainaCard)c).isNotable()){//没有瞬发且可被记录的伊蕾娜卡牌
+        for(AbstractCard c:AbstractDungeon.player.discardPile.group){
+            if(ElainaC.isInstant(c) && ElainaC.isNotable(c)){//没有瞬发且可被记录的伊蕾娜卡牌
                 list.add(c);
             }
         }

@@ -1,5 +1,6 @@
 package ElainaMod.powers;
 
+import ElainaMod.Characters.ElainaC;
 import ElainaMod.action.RecordCardAction;
 import ElainaMod.cards.AbstractElainaCard;
 import basemod.helpers.CardModifierManager;
@@ -41,7 +42,7 @@ public class DeepMemoryPower extends AbstractPower {
         for(int i = 0;i<amount;){
             AbstractElainaCard c = (AbstractElainaCard)AbstractDungeon.returnTrulyRandomCardInCombat().makeCopy();
             logger.info("Show Card Name: "+c.name);
-            if(c.isNotable()){
+            if(ElainaC.isNotable(c)){
                 this.addToBot(new RecordCardAction(c));
                 i++;
             }

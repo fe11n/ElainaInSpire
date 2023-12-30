@@ -69,7 +69,7 @@ public class GetDiaryCardAction extends AbstractGameAction {
             }
 
             if(toHand){
-                ((AbstractElainaCard)targetCard).toHandfromDiary();
+                ElainaC.toHand(targetCard);
                 if (p.hand.size() == BaseMod.MAX_HAND_SIZE) {
                     g.moveToDiscardPile(targetCard);
                     this.p.createHandIsFullDialog();

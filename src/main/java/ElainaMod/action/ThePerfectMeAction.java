@@ -33,17 +33,15 @@ public class ThePerfectMeAction extends AbstractGameAction {
             }
         }
         else {
-            Iterator it = p.DiaryGroup.group.iterator();
-            while(it.hasNext()){
-                AbstractElainaCard c = (AbstractElainaCard) it.next();
-                if(c.isInstant == true){
+            for(AbstractCard c:p.DiaryGroup.group){
+                if(ElainaC.isInstant(c)){
 //                    AbstractCard tmp = c.makeSameInstanceOf();
 //                    AbstractDungeon.player.limbo.addToBottom(tmp);
 //                    tmp.current_x = c.current_x;
 //                    tmp.current_y = c.current_y;
 //                    tmp.target_x = (float) Settings.WIDTH / 2.0F - 300.0F * Settings.scale;
 //                    tmp.target_y = (float)Settings.HEIGHT / 2.0F;
-                    c.InstantUse();
+                    ElainaC.InstantUse(c);
                 }
             }
         }
@@ -51,12 +49,8 @@ public class ThePerfectMeAction extends AbstractGameAction {
     }
     public static ArrayList<AbstractCard> returnProphecy() {
         ArrayList<AbstractCard> list = new ArrayList();
-        Iterator it = AbstractDungeon.player.discardPile.group.iterator();
-        while(it.hasNext()){
-            AbstractCard c = (AbstractCard)it.next();
-            if(c instanceof AbstractElainaCard
-                    && ((AbstractElainaCard)c).isInstant == false
-                    && ((AbstractElainaCard)c).isNotable()){//没有瞬发且可被记录的伊蕾娜卡牌
+        for(AbstractCard c:AbstractDungeon.player.discardPile.group){
+            if(ElainaC.isInstant(c) && ElainaC.isNotable(c)){//没有瞬发且可被记录的伊蕾娜卡牌
                 list.add(c);
             }
         }

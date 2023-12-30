@@ -113,10 +113,15 @@ public class WitnessOfFriendship extends AbstractSeasonCard {
                 this.addToBot(new AbstractGameAction() {
                     @Override
                     public void update() {
-                        AbstractRelic r = AbstractDungeon.returnRandomRelic(AbstractDungeon.returnRandomRelicTier());
+                        AbstractRelic r = null;
+                        while (r == null
+                                || r.relicId.equals("Bottled Flame")
+                                || r.relicId.equals("Bottled Lightning")
+                                || r.relicId.equals("Bottled Tornado")){
+                            r = AbstractDungeon.returnRandomRelic(AbstractDungeon.returnRandomRelicTier());
+                        }
                         logger.info("P get relic: "+ r.name);
                         AbstractDungeon.getCurrRoom().spawnRelicAndObtain((float)Settings.WIDTH / 2.0F, (float)Settings.HEIGHT / 2.0F, r);
-                        //r.atBattleStart();
                         ElainaC.UsedYear.add((ElainaC.Month -1)/12);
                         p.UpdateAllSeasonalDescription();
                         this.isDone = true;

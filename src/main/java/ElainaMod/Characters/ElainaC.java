@@ -1,11 +1,13 @@
 package ElainaMod.Characters;
 
 import ElainaMod.Elaina.Elaina;
+import ElainaMod.cardmods.toImageCardMod;
 import ElainaMod.cards.*;
 import ElainaMod.orb.ConclusionOrb;
 import ElainaMod.relics.AbstractBookRelic;
 import ElainaMod.relics.WanderingWitch;
 import basemod.abstracts.CustomPlayer;
+import basemod.helpers.CardModifierManager;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.evacipated.cardcrawl.modthespire.lib.SpireEnum;
@@ -23,6 +25,7 @@ import com.megacrit.cardcrawl.helpers.CardLibrary;
 import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.helpers.ScreenShake;
 import com.megacrit.cardcrawl.localization.CharacterStrings;
+import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.screens.CharSelectInfo;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -106,6 +109,24 @@ public class ElainaC extends CustomPlayer{
 
     }
 
+    public static boolean isInstant(AbstractCard c){
+        if(c instanceof AbstractElainaCard) return ((AbstractElainaCard) c).isInstant;
+        else return CardModifierManager.hasModifier(c,"toInstantCardMod");
+    }
+    public static boolean isNotable(AbstractCard c){
+        return !(   c.exhaust
+                || c.type == AbstractCard.CardType.POWER
+                || c.hasTag(ElainaC.Enums.UNNOTABLE)
+                || c.cost < 0 );
+    }
+    public static void InstantUse(AbstractCard c){
+        AbstractMonster m = AbstractDungeon.getRandomMonster();
+        c.calculateCardDamage(m);
+        c.use(AbstractDungeon.player,m);
+    }
+    public static void toHand(AbstractCard c){
+        CardModifierManager.addModifier(c, new toImageCardMod());
+    }
     public static int getSeason(){
         return (Month%12)>=0?(Month%12)/3:(Month%12+12)/3;
     }//0，1，2，3分别表示冬，春，夏，秋
@@ -159,9 +180,9 @@ public class ElainaC extends CustomPlayer{
         }
     }
 
-    public AbstractElainaCard getConclusion(){
+    public AbstractCard getConclusion(){
         if(!DiaryGroup.isEmpty()){
-            return ((AbstractElainaCard) DiaryGroup.getBottomCard()).makeStatEquivalentCopy(); // 避免抢渲染，返回拷贝。
+            return (DiaryGroup.getBottomCard()).makeStatEquivalentCopy(); // 避免抢渲染，返回拷贝。
         }
         else return null;
     }

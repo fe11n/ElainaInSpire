@@ -48,7 +48,7 @@ public class Repetition extends AbstractElainaCard {
             public void update() {
                 if(p.getConclusion()!=null){
                     for(int i = 0;i<magicNumber;i++){
-                        p.getConclusion().InstantUse();
+                        p.InstantUse(p.getConclusion());
                     }
                 }
                 this.isDone = true;

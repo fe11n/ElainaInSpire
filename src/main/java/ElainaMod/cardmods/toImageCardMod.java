@@ -11,23 +11,24 @@ import java.util.Iterator;
 
 public class toImageCardMod extends AbstractCardModifier {
     public toImageCardMod(){
-    }//为方便remove，尽量不要使用CardMod直接修改卡牌值，虚弱要修改，也要做好保留方便恢复
+    }//为方便remove，尽量不要使用CardMod直接修改卡牌值，虚无要修改，也要做好保留方便恢复
     private boolean isExhaustBefore = true;
     private boolean isEherealBefore = true;
     private boolean isSelfRetainBefore = true;
+    private String postDescription;
 
     public static final Logger logger = LogManager.getLogger(toImageCardMod.class);
 
-    @Override
-    public String modifyDescription(String rawDescription, AbstractCard card) {//这里不要对rawDescription赋值，方便remove
+//    @Override
+//    public String modifyDescription(String rawDescription, AbstractCard card) {//这里不要对rawDescription赋值，方便remove
 //        logger.info(card.name + ": " + card.rawDescription);
-        String d = card.rawDescription;
-        Iterator<String> it = ((AbstractElainaCard)card).ModStrings.iterator();
-        while (it.hasNext()){
-            d = d + " NL " + it.next();
-        }
-        return d;
-    }
+//        postDescription = card.rawDescription;
+//        String newDescription = postDescription
+//                + " NL "
+//                + CardCrawlGame.languagePack.getUIString("Elaina:Image").TEXT[0];
+//        card.rawDescription = newDescription;
+//        return newDescription;
+//    }
 
 
     @Override
@@ -35,10 +36,15 @@ public class toImageCardMod extends AbstractCardModifier {
         isEherealBefore = card.isEthereal;
         isExhaustBefore = card.exhaust;
         isSelfRetainBefore = card.selfRetain;
-        ((AbstractElainaCard)card).ModStrings.add(CardCrawlGame.languagePack.getUIString("Elaina:Image").TEXT[0]);
         card.isEthereal = true;
         card.exhaust = true;
         card.selfRetain = false;
+        postDescription = card.rawDescription;
+        String newDescription = postDescription
+                + " NL "
+                + CardCrawlGame.languagePack.getUIString("Elaina:Image").TEXT[0];
+        card.rawDescription = newDescription;
+        card.initializeDescription();
     }
 
     @Override
@@ -56,6 +62,6 @@ public class toImageCardMod extends AbstractCardModifier {
         card.exhaust = isExhaustBefore;
         card.isEthereal = isEherealBefore;
         card.selfRetain = isSelfRetainBefore;
-        ((AbstractElainaCard)card).ModStrings.remove(CardCrawlGame.languagePack.getUIString("Elaina:Image").TEXT[0]);
+        card.rawDescription = postDescription;
     }
 }

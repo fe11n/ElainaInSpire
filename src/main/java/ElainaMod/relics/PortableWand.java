@@ -22,10 +22,10 @@ public class PortableWand extends CustomRelic {
     }
     public void atTurnStart() {
         ElainaC p = (ElainaC) AbstractDungeon.player;;
-        if(p.getConclusion()!=null && p.getConclusion().isInstant){//如果使用tag判断INSTANT会导致更改INSTANT时同类卡牌全部INSTANT被修改
+        if(p.getConclusion()!=null && p.isInstant(p.getConclusion())){//如果使用tag判断INSTANT会导致更改INSTANT时同类卡牌全部INSTANT被修改
             this.flash();
             this.addToBot(new RelicAboveCreatureAction(AbstractDungeon.player, this));
-            p.getConclusion().InstantUse();
+            p.InstantUse(p.getConclusion());
         }
     }
 

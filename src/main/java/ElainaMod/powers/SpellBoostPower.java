@@ -2,13 +2,11 @@ package ElainaMod.powers;
 
 import ElainaMod.Characters.ElainaC;
 import ElainaMod.cards.WizardsWell;
-import ElainaMod.orb.ConclusionOrb;
 import com.badlogic.gdx.graphics.Texture;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.actions.common.ReducePowerAction;
-import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
@@ -35,10 +33,33 @@ public class SpellBoostPower extends AbstractPower {
         this.type = PowerType.BUFF;
         this.updateDescription();
         this.img = new Texture("ElainaMod/img/powers/SpellBoostPower.png");
+        spellLinkGainBlock(num);
+    }
+
+    private void spellLinkGainBlock(int num) {
         if(owner.hasPower("Elaina:SpellLink")){
+            if (isCallerTogetherInSpire()) {
+                logger.info("跳过联机模组的调用，避免多次增加防御值");
+                return;
+            }
             owner.getPower("Elaina:SpellLink").flash();
+            logger.info("gainblock "+num);
             addToBot(new GainBlockAction(owner,num));
         }
+    }
+
+    // Together In Spire 会清空所有 power 再重新加上，导致防御被多次添加。这里做判断，如果是那边调用就不加防御。
+    private static boolean isCallerTogetherInSpire() {
+        StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
+        // Iterate through the stack trace elements
+        for (StackTraceElement element : stackTrace) {
+            // Check if the calling method is UpdatePowers in P2PPlayer class
+            if (element.getClassName().equals("spireTogether.network.P2P.P2PPlayer") &&
+                element.getMethodName().equals("UpdatePowers")) {
+                return true; // Caller is UpdatePowers
+            }
+        }
+        return false; // Caller is not UpdatePowers
     }
     public void updateDescription(){this.description = DESCRIPTIONS[0]+amount+DESCRIPTIONS[1];}
     public void onUseCard(AbstractCard card, UseCardAction action){

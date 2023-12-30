@@ -1,6 +1,7 @@
 package ElainaMod.Characters;
 
 import ElainaMod.Elaina.Elaina;
+import ElainaMod.cardmods.toImageCardMod;
 import ElainaMod.cards.*;
 import ElainaMod.orb.ConclusionOrb;
 import ElainaMod.relics.AbstractBookRelic;
@@ -123,7 +124,9 @@ public class ElainaC extends CustomPlayer{
         c.calculateCardDamage(m);
         c.use(AbstractDungeon.player,m);
     }
-
+    public static void toHand(AbstractCard c){
+        CardModifierManager.addModifier(c, new toImageCardMod());
+    }
     public static int getSeason(){
         return (Month%12)>=0?(Month%12)/3:(Month%12+12)/3;
     }//0，1，2，3分别表示冬，春，夏，秋

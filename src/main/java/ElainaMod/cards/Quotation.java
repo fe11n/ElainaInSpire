@@ -47,7 +47,7 @@ public class Quotation extends AbstractElainaCard {
         for(int i = 0;i<this.magicNumber;){
             AbstractElainaCard c = (AbstractElainaCard)AbstractDungeon.returnTrulyRandomCardInCombat().makeCopy();
             logger.info("Show Card Name: "+c.name);
-            if(c.isNotable()){
+            if(ElainaC.isNotable(c)){
                 list.add(c);
                 i++;
             }

@@ -47,7 +47,7 @@ public class CharmMagic extends AbstractElainaCard {
      */
     public void BasicEffect(ElainaC p, AbstractMonster m){
         this.addToBot(new DamageAllEnemiesAction(p, this.multiDamage, this.damageTypeForTurn, AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
-        if(!p.DiaryGroup.isEmpty() && p.getConclusion().isInstant){
+        if(!p.DiaryGroup.isEmpty() && p.isInstant(p.getConclusion())){
             Iterator var3 = AbstractDungeon.getCurrRoom().monsters.monsters.iterator();
             AbstractMonster mo;
             while(var3.hasNext()) {

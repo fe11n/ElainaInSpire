@@ -46,7 +46,7 @@ public class MagicDiffusionAction extends AbstractGameAction {
         while(it.hasNext()){
             AbstractCard c = (AbstractCard) it.next();
             logger.info("Check card: "+c.name);
-            if(c instanceof AbstractElainaCard && !((AbstractElainaCard)c).isInstant && ((AbstractElainaCard)c).isNotable()){
+            if(!ElainaC.isInstant(c) && !ElainaC.isNotable(c)){
                 list.add(c);
             }
         }

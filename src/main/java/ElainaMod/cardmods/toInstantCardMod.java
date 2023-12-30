@@ -14,17 +14,6 @@ public class toInstantCardMod extends AbstractCardModifier {
     public toInstantCardMod(){
     }
 
-//    @Override
-//    public String modifyDescription(String rawDescription, AbstractCard card) {//这里不要对rawDescription赋值，方便remove
-//        postDescription = card.rawDescription;
-//        String newDescription = postDescription
-//                + " NL "
-//                + CardCrawlGame.languagePack.getUIString("Elaina:Instant").TEXT[0];
-//        card.rawDescription = newDescription;
-//        return newDescription;
-//    }
-
-
     @Override
     public void onInitialApplication(AbstractCard card) {
         postDescription = card.rawDescription;
@@ -32,7 +21,9 @@ public class toInstantCardMod extends AbstractCardModifier {
                 + " NL "
                 + CardCrawlGame.languagePack.getUIString("Elaina:Instant").TEXT[0];
         card.rawDescription = newDescription;
-        ((AbstractElainaCard)card).isInstant = true;
+        if(card instanceof AbstractElainaCard){
+            ((AbstractElainaCard)card).isInstant = true;
+        }
         card.initializeDescription();
     }
 
@@ -48,7 +39,9 @@ public class toInstantCardMod extends AbstractCardModifier {
 
     @Override
     public void onRemove(AbstractCard card) {
-        ((AbstractElainaCard)card).isInstant = false;//只允许对不为瞬发的卡添加该mod
+        if(card instanceof AbstractElainaCard){
+            ((AbstractElainaCard)card).isInstant = false;
+        }//只允许对不为瞬发的卡添加该mod
         card.rawDescription = postDescription;
     }
 }

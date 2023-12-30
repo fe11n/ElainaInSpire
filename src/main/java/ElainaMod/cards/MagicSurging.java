@@ -63,7 +63,7 @@ public class MagicSurging extends AbstractElainaCard {
                 for(int i = g.size()-magicNumber>0?g.size()-magicNumber:0;i<g.size();i++){
                     AbstractElainaCard c = (AbstractElainaCard) g.get(i);
                     logger.info("Magic Surging ("+i+") : "+c.name);
-                    c.InstantUse();
+                    ElainaC.InstantUse(c);
                 }
                 this.isDone =true;
             }

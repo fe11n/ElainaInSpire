@@ -16,33 +16,23 @@ import org.apache.logging.log4j.Logger;
 
 public class RecordCardAction extends AbstractGameAction {
     public ElainaC p=(ElainaC)AbstractDungeon.player;
-    public AbstractElainaCard c;
+    public AbstractCard c;
     private boolean isNotable = false;
     public CardGroup g;
     public static final Logger logger = LogManager.getLogger(RecordCardAction.class);
     public RecordCardAction(AbstractCard c){
         this.actionType = ActionType.CARD_MANIPULATION;
-        if(c instanceof AbstractElainaCard){
-            isNotable = ((AbstractElainaCard) c).isNotable();
-        }
-        else {
-            isNotable = false;
-        }
+        isNotable = p.isNotable(c);
         if(isNotable){
-            this.c = (AbstractElainaCard)c.makeStatEquivalentCopy();
+            this.c = c.makeStatEquivalentCopy();
         }
     }
     public RecordCardAction(AbstractElainaCard c, boolean make_copy){
         this.actionType = ActionType.CARD_MANIPULATION;
-        if(c != null){
-            isNotable = c.isNotable();
-        }
-        else {
-            isNotable = false;
-        }
+        isNotable = p.isNotable(c);
         if(isNotable){
             if (make_copy) {
-                this.c = (AbstractElainaCard)c.makeStatEquivalentCopy();
+                this.c = c.makeStatEquivalentCopy();
             } else {
                 this.c = c;
             }

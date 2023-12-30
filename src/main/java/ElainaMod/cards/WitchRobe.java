@@ -47,10 +47,6 @@ WitchRobe extends AbstractElainaCard {
         // AbstractCard中实现了addToBot方法，它的效果和AbstractDungeon.actionManager.addToBottom相同
         this.addToBot(new GainBlockAction(p,p,this.block));
     }
-    public void InstantUse(){
-        super.InstantUse();
-        this.addToBot(new GainEnergyAction(1));//Orb的回合开始效果获取的cardsPlayedThisTurn是上回合的，无奈只能瞬发和使用分开写。
-    }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {

@@ -90,8 +90,8 @@ public class AbstractBookRelic extends CustomRelic {
         if (c instanceof AbstractElainaCard) {
             AbstractElainaCard ec =(AbstractElainaCard) c;
             // 考虑在这里判断一下 ec.isShortHand，不然速记一下，结语又记一下太多了。
-            if (ec.isNotable()) {
-                cardToRecord =(AbstractElainaCard) ec.makeStatEquivalentCopy();
+            if (ElainaC.isNotable(ec)) {
+                cardToRecord = ec.makeStatEquivalentCopy();
             }else {
                 cardToRecord = null;
                 p.getConclusionOrb().removeCardToRecord();

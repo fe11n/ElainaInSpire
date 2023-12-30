@@ -8,6 +8,7 @@ import ElainaMod.relics.WanderingWitch;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
@@ -20,8 +21,8 @@ import static ElainaMod.Characters.ElainaC.Enums.SEASONAL;
 
 public class ConclusionOrb extends AbstractOrb {
     public static final String ID = "Elaina:ConclusionOrb";
-    private AbstractElainaCard prev_c; //这个只是为了移动卡牌的时候好看的。
-    public AbstractElainaCard c; //魔力增幅直接用了这个。
+    private AbstractCard prev_c; //这个只是为了移动卡牌的时候好看的。
+    public AbstractCard c; //魔力增幅直接用了这个。
     private AbstractElainaCard cardToRecord;
     public static final Logger logger = LogManager.getLogger(ConclusionOrb.class);
     private static final Texture DiarySlotImg = ImageMaster.loadImage("ElainaMod/img/UI/Diary.png");
@@ -30,18 +31,18 @@ public class ConclusionOrb extends AbstractOrb {
         this.name="结语槽位";
         this.description="记录当前结语。左边显示回合结束时会记录的结语。";
     }
-    public void pushConclusion(AbstractElainaCard c_) {
+    public void pushConclusion(AbstractCard c_) {
         prev_c = c;
         c = c_;
     }
-    public void setCurConclusion(AbstractElainaCard c_){
+    public void setCurConclusion(AbstractCard c_){
         c = c_;
     }
 
     public void syncConclusionWithDiary(){
         // well, some kind of `popConclusion`
         if(((ElainaC)AbstractDungeon.player).getConclusion()!=null){
-            AbstractElainaCard c_ = ((ElainaC)AbstractDungeon.player).getConclusion();
+            AbstractCard c_ = ((ElainaC)AbstractDungeon.player).getConclusion();
             c_.current_x = c.current_x;
             c_.current_y = c.current_y;
             c = c_;
@@ -54,9 +55,9 @@ public class ConclusionOrb extends AbstractOrb {
     public void onStartOfTurn(){
         prev_c = null; //这个只是为了移动卡牌的时候好看的。所以开局时清掉
         //实现瞬发机制
-        if(c!= null && c.isInstant){ //如果使用tag判断INSTANT会导致更改INSTANT时同类卡牌全部INSTANT被修改
+        if(c!= null && ElainaC.isInstant(c)){ //如果使用tag判断INSTANT会导致更改INSTANT时同类卡牌全部INSTANT被修改
             this.flashConclusion();
-            c.InstantUse();
+            ElainaC.InstantUse(c);
         }
     }
 

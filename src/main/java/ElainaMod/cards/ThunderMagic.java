@@ -1,6 +1,7 @@
 package ElainaMod.cards;
 
 import ElainaMod.Characters.ElainaC;
+import basemod.helpers.CardModifierManager;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -34,6 +35,13 @@ public class ThunderMagic extends AbstractElainaCard {
         }
     }
 
+    public void InstantUse(){
+        AbstractMonster m = AbstractDungeon.getRandomMonster();
+        this.calculateCardDamage(m);
+        BasicEffect((ElainaC) AbstractDungeon.player,m);
+        logger.info("Modifier include toInstantCardMod: "+ CardModifierManager.hasModifier(this,"toInstantCardMod"));
+    }//瞬发
+
     @Override
     public void upgrade() { // 升级调用的方法
         if (!this.upgraded) {
@@ -56,32 +64,6 @@ public class ThunderMagic extends AbstractElainaCard {
             this.setCostForTurn(this.costForTurn-2);
         }
     }
-
-//    public void applyPowers(){//
-//        super.applyPowers();
-//        Iterator var2 = AbstractDungeon.actionManager.cardsPlayedThisTurn.iterator();
-//        int cnum = 0;
-//        if(this.costForTurn > 0){
-//            while(var2.hasNext()) {
-//                AbstractCard c = (AbstractCard)var2.next();
-//                if(c instanceof AbstractElainaCard && c.hasTag(ElainaC.Enums.MAGIC)){
-//                    cnum++;
-//                }
-//            }
-//            int cost = (this.cost-2*cnum)<0?0:(4-2*cnum);
-//            this.setCostForTurn(cost);
-//        }
-//    }
-//    public void triggerOnOtherCardPlayed(AbstractCard c) {
-//        if(this.costForTurn > 0 && c.hasTag(ElainaC.Enums.MAGIC)){
-//            if(this.isCostModifiedForTurn){
-//                this.setCostForTurn(this.costForTurn-2);
-//            }
-//            else {
-//                this.setCostForTurn(this.cost-2);
-//            }
-//        }
-//    }
 
     /**
      * 当卡牌被使用时，调用这个方法。

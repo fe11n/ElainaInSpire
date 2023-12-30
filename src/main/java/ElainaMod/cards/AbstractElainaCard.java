@@ -41,15 +41,8 @@ public class AbstractElainaCard extends CustomCard {
         }
         BasicEffect((ElainaC) p,m);
     }//使用
-    public void InstantUse(){
-        AbstractMonster m = AbstractDungeon.getRandomMonster();
-        this.calculateCardDamage(m);
-        BasicEffect((ElainaC) AbstractDungeon.player,m);
-        logger.info("Modifier include toInstantCardMod: "+CardModifierManager.hasModifier(this,"toInstantCardMod"));
-    }//瞬发
     public void triggerOnMonthChanged(int num,boolean isBack) {//由ChangeMonthAction调用
     }
-    public boolean isNotable(){return !(this.hasTag(ElainaC.Enums.UNNOTABLE) || this.type == CardType.POWER || this.exhaust == true || this.cost<0);}
 
     public void toHandfromDiary(){
         CardModifierManager.addModifier(this,new toImageCardMod());
@@ -64,20 +57,4 @@ public class AbstractElainaCard extends CustomCard {
         c.isShorthand = this.isShorthand;
         return c;
     }
-
-    //    public AbstractElainaCard makeInstanceCopy(){//这个方法不能复制mod
-//        AbstractElainaCard c = (AbstractElainaCard) this.makeCopy();
-//        if(this.upgraded){
-//            c.upgrade();
-//        }
-//        c.NotedSeasonNum=this.NotedSeasonNum;
-//        c.rawDescription=this.rawDescription;
-//        c.exhaust = this.exhaust;
-//        c.isEthereal = this.isEthereal;
-//        c.tags = this.tags;
-//        c.baseDamage = this.baseDamage;
-//        c.baseBlock = this.baseBlock;
-//        c.applyPowers();
-//        return c;
-//    }
 }

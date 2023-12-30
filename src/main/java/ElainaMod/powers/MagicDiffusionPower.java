@@ -45,7 +45,7 @@ public class MagicDiffusionPower extends AbstractPower {
     }
 
     public void atStartOfTurnPostDraw() {
-        if(((ElainaC)owner).getConclusion()!=null && ((ConclusionOrb)(((AbstractPlayer)owner).orbs.get(0))).c.isInstant){
+        if(((ElainaC)owner).getConclusion()!=null && ElainaC.isInstant(((ElainaC)owner).getConclusion())){
             this.flash();
             this.addToBot(new MagicDiffusionAction((AbstractPlayer) owner, amount));
         }

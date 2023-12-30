@@ -2,6 +2,7 @@ package ElainaMod.Elaina;
 
 import ElainaMod.Characters.ElainaC;
 import ElainaMod.cards.*;
+import ElainaMod.events.NoMushroomEvent;
 import ElainaMod.relics.*;
 import basemod.BaseMod;
 import basemod.interfaces.*;
@@ -21,7 +22,7 @@ import static com.megacrit.cardcrawl.core.Settings.language;
 
 @SpireInitializer
 public class Elaina implements EditStringsSubscriber,EditCardsSubscriber, EditCharactersSubscriber, EditRelicsSubscriber
-, EditKeywordsSubscriber, AddAudioSubscriber {
+, EditKeywordsSubscriber, AddAudioSubscriber, PostInitializeSubscriber {
    private static final String MY_CHARACTER_BUTTON = "ElainaMod/img/char/Character_Button.png";
    // 人物选择界面的立绘
    private static final String MY_CHARACTER_PORTRAIT = "ElainaMod/img/char/Character_Portrait.png";
@@ -177,6 +178,7 @@ public class Elaina implements EditStringsSubscriber,EditCardsSubscriber, EditCh
       BaseMod.loadCustomStringsFile(RelicStrings.class, "ElainaMod/localization/" + lang + "/relics.json");
       BaseMod.loadCustomStringsFile(UIStrings.class,"ElainaMod/localization/" + lang + "/UIStrings.json");
       BaseMod.loadCustomStringsFile(PowerStrings.class,"ElainaMod/localization/" + lang + "/powers.json");
+      BaseMod.loadCustomStringsFile(EventStrings.class,"ElainaMod/localization/" + lang + "/events.json");
 
    }
 
@@ -206,5 +208,11 @@ public class Elaina implements EditStringsSubscriber,EditCardsSubscriber, EditCh
    @Override
    public void receiveAddAudio() {
       BaseMod.addAudio("ELN_WADASHI", "ElainaMod/audio/sound/eln_wadashi.ogg");
+   }
+
+
+   @Override
+   public void receivePostInitialize() {
+      BaseMod.addEvent(NoMushroomEvent.ID, NoMushroomEvent.class);
    }
 }

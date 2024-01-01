@@ -43,6 +43,10 @@ public class SpellBoostPower extends AbstractPower {
                 return;
             }
             owner.getPower("Elaina:SpellLink").flash();
+            StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
+            for (StackTraceElement element : stackTrace) {
+                logger.info(element.toString());
+            }
             logger.info("gainblock "+num);
             addToBot(new GainBlockAction(owner,num));
         }

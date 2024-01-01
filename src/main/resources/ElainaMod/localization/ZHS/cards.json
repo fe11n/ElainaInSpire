@@ -72,7 +72,7 @@
   },
   "Elaina:WitchRobe": {
     "NAME": "魔女长袍",
-    "DESCRIPTION": "获得 !B! 点格挡。若本回合没有打出其它卡牌或 elainamod:瞬发 时，获得 [E] 。 NL elainamod:瞬发 。"
+    "DESCRIPTION": "获得 !B! 点格挡。若本回合没有打出其它卡牌或这张卡触发 elainamod:瞬发 效果时，获得 [E] 。 NL elainamod:瞬发 。"
   },
   "Elaina:BombardmentMagic": {
     "NAME": "轰击魔法",

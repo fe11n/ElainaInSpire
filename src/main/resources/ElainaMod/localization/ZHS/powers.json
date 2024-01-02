@@ -2,7 +2,8 @@
   "Elaina:IntensifyArray": {
     "NAME": "激化法阵",
     "DESCRIPTIONS": [
-      "回合开始时，获得 [E] ，额外抽1张牌，使随机1个敌人获得2点力量。"
+      "回合开始时，获得 [E] ，额外抽",
+      "张牌，使随机1个敌人获得1点力量。"
     ]
   },
   "Elaina:BottledHappiness": {

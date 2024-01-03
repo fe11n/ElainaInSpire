@@ -24,6 +24,7 @@ public class SummerExcitement extends AbstractElainaCard {
         this.misc = 1;
         this.magicNumber=this.baseMagicNumber=1;
         this.isInstant = true;
+        this.exhaust = true;
     }
 
     @Override

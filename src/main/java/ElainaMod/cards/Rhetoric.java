@@ -20,7 +20,7 @@ public class Rhetoric extends AbstractElainaCard {
     private static final String IMG_PATH = "ElainaMod/img/cards/Rhetoric.png";
     private static final int COST = 1;
     private static final CardType TYPE = CardType.SKILL;
-    private static final CardRarity RARITY = CardRarity.UNCOMMON;
+    private static final CardRarity RARITY = CardRarity.BASIC;
     private static final CardTarget TARGET = CardTarget.SELF;
 
     public Rhetoric() {
@@ -33,6 +33,7 @@ public class Rhetoric extends AbstractElainaCard {
     public void upgrade() { // 升级调用的方法
         if (!this.upgraded) {
             this.upgradeName();
+            this.upgradeBlock(2);
             this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
             this.initializeDescription();
         }

@@ -27,7 +27,7 @@ public class IntensifyArrayPower extends AbstractPower {
         this.updateDescription();
         this.img = new Texture("ElainaMod/img/powers/IntensifyArrayPower.png");
     }
-    public void updateDescription(){this.description = DESCRIPTIONS[0];}
+    public void updateDescription(){this.description = DESCRIPTIONS[0]+amount+DESCRIPTIONS[1];}
     public void atStartOfTurn(){
         this.addToBot(new GainEnergyAction(1));
         this.addToBot(new DrawCardAction(amount));

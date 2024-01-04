@@ -13,7 +13,7 @@ public class Recall extends AbstractElainaCard {
     private static final String IMG_PATH = "ElainaMod/img/cards/Recall.png";
     private static final int COST = 1;
     private static final CardType TYPE = CardType.SKILL;
-    private static final CardRarity RARITY = CardRarity.BASIC;
+    private static final CardRarity RARITY = CardRarity.COMMON;
     private static final CardTarget TARGET = CardTarget.SELF;
 
     public Recall() {

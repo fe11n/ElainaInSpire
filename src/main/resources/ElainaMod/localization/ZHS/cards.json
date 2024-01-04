@@ -72,7 +72,7 @@
   },
   "Elaina:WitchRobe": {
     "NAME": "魔女长袍",
-    "DESCRIPTION": "获得 !B! 点格挡。若本回合没有打出其它卡牌或 elainamod:瞬发 时，获得 [E] 。 NL elainamod:瞬发 。"
+    "DESCRIPTION": "获得 !B! 点格挡。若本回合没有打出其它卡牌或这张卡触发 elainamod:瞬发 效果时，获得 [E] 。 NL elainamod:瞬发 。"
   },
   "Elaina:BombardmentMagic": {
     "NAME": "轰击魔法",
@@ -195,19 +195,19 @@
   },
   "Elaina:SpringJoy": {
     "NAME": "春之欢喜",
-    "DESCRIPTION": "若没有 再生 ，则获得 !M! 层 再生 。 elainamod:时节 每循环一次，该数值加1。 NL elainamod:瞬发 。"
+    "DESCRIPTION": "若没有 再生 ，则获得 !M! 层 再生 。 elainamod:时节 每循环一次，该数值加1。 NL elainamod:瞬发 。 NL 消耗 。"
   },
   "Elaina:SummerExcitement": {
     "NAME": "夏之振奋",
-    "DESCRIPTION": "若没有 elainamod:魔力增幅 ，获得 !M! 层 elainamod:魔力增幅 。 elainamod:时节 每循环一次，该数值加1。 NL * elainamod:瞬发 。"
+    "DESCRIPTION": "若没有 elainamod:魔力增幅 ，获得 !M! 层 elainamod:魔力增幅 。 elainamod:时节 每循环一次，该数值加1。 NL * elainamod:瞬发 。 NL 消耗 。"
   },
   "Elaina:AutumnVigilance": {
     "NAME": "秋之警惕",
-    "DESCRIPTION": "若没有 荆棘 ，获得 !M! 层 荆棘 。 elainamod:时节 每循环一次，该数值加1。 NL elainamod:瞬发 。"
+    "DESCRIPTION": "若没有 荆棘 ，获得 !M! 层 荆棘 。 elainamod:时节 每循环一次，该数值加1。 NL elainamod:瞬发 。 NL 消耗 。"
   },
   "Elaina:WinterPeace": {
     "NAME": "冬之安详",
-    "DESCRIPTION": "若没有 多层护甲 ，获得 !M! 层 多层护甲 。 elainamod:时节 每循环一次，该数值加1。 NL elainamod:瞬发 。"
+    "DESCRIPTION": "若没有 多层护甲 ，获得 !M! 层 多层护甲 。 elainamod:时节 每循环一次，该数值加1。 NL elainamod:瞬发 。 NL 消耗 。"
   },
   "Elaina:Accumulation": {
     "NAME": "蓄能",

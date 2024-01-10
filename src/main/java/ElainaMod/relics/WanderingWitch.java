@@ -30,6 +30,7 @@ public class WanderingWitch extends AbstractBookRelic {
     }
     public void atPreBattle(){//战斗开始时记录卡牌（这个是遗物描述的），TODO 并且按季节更新所有卡牌描述（这个最好写到能力里）
         super.atPreBattle();
+        logger.info(ElainaC.getSeason());
         switch (ElainaC.getSeason()){
             case 0:
                 this.addToTop(new RecordCardAction(new WinterPeace()));

@@ -22,7 +22,7 @@ public class Deviation extends AbstractElainaCard {
 
     public Deviation() {
         // 为了命名规范修改了变量名。这些参数具体的作用见下方
-        super(ID, CARD_STRINGS, IMG_PATH, COST, TYPE, RARITY, TARGET);
+        super(ID, CARD_STRINGS, IMG_PATH, COST, TYPE, RARITY, TARGET,CardColor.COLORLESS);
         this.damage = this.baseDamage = 9;
         this.magicNumber = this.baseMagicNumber = 12;
         this.exhaust = true;

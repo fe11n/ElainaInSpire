@@ -24,7 +24,7 @@ public class Echo extends AbstractElainaCard {
 
     public Echo() {
         // 为了命名规范修改了变量名。这些参数具体的作用见下方
-        super(ID, CARD_STRINGS, IMG_PATH, COST, TYPE, RARITY, TARGET);
+        super(ID, CARD_STRINGS, IMG_PATH, COST, TYPE, RARITY, TARGET,CardColor.COLORLESS);
         this.selfRetain = true;
         this.block = this.baseBlock = 5;
         this.tags.add(ElainaC.Enums.UNNOTABLE);

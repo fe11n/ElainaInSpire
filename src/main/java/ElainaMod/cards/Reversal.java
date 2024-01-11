@@ -23,7 +23,7 @@ public class Reversal extends AbstractElainaCard {
 
     public Reversal() {
         // 为了命名规范修改了变量名。这些参数具体的作用见下方
-        super(ID,CARD_STRINGS, IMG_PATH, COST, TYPE, RARITY, TARGET);
+        super(ID,CARD_STRINGS, IMG_PATH, COST, TYPE, RARITY, TARGET,CardColor.COLORLESS);
         this.exhaust = true;
         this.selfRetain = true;
         this.magicNumber = this.baseMagicNumber = 2;
@@ -34,8 +34,6 @@ public class Reversal extends AbstractElainaCard {
         if (!this.upgraded) {
             this.upgradeName(); // 卡牌名字变为绿色并添加“+”，且标为升级过的卡牌，之后不能再升级。
             this.upgradeBaseCost(1);
-            this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
-            this.initializeDescription();
         }
     }
     /**

@@ -18,12 +18,12 @@ public class IronWaveMagic extends AbstractElainaCard {
     private static final String IMG_PATH = "ElainaMod/img/cards/IronWaveMagic.png";
     private static final int COST = 1;
     private static final CardType TYPE = CardType.ATTACK;
-    private static final CardRarity RARITY = CardRarity.UNCOMMON;
+    private static final CardRarity RARITY = CardRarity.SPECIAL;
     private static final CardTarget TARGET = CardTarget.ENEMY;
 
     public IronWaveMagic() {
         // 为了命名规范修改了变量名。这些参数具体的作用见下方
-        super(ID, CARD_STRINGS, IMG_PATH, COST, TYPE, RARITY, TARGET);
+        super(ID, CARD_STRINGS, IMG_PATH, COST, TYPE, RARITY, TARGET,CardColor.COLORLESS);
         this.block = this.baseBlock = 5;
         this.damage = this.baseDamage = 5;
         this.misc = 2;

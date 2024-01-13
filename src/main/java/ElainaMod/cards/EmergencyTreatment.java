@@ -28,7 +28,15 @@ public class EmergencyTreatment extends AbstractElainaCard {
         super(ID, CARD_STRINGS, IMG_PATH, COST, TYPE, RARITY, TARGET);
         this.baseBlock = 7;
         this.magicNumber = this.baseMagicNumber = 1;
-        this.cardsToPreview = new EmergencyTreatment();
+        this.cardsToPreview = new EmergencyTreatment(true);
+    }
+    public EmergencyTreatment(boolean noPreviewCard) {
+        super(ID, CARD_STRINGS, IMG_PATH, COST, TYPE, RARITY, TARGET);
+        this.baseBlock = 7;
+        this.magicNumber = this.baseMagicNumber = 1;
+        if (!noPreviewCard) {
+            this.cardsToPreview = new EmergencyTreatment();
+        }
     }
 
     @Override

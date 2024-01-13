@@ -25,7 +25,7 @@
   },
   "Elaina:DestructionMagic": {
     "NAME": "崩坏魔法",
-    "DESCRIPTION": "无 elainamod:结语 时无法打出。对所有敌人造成 !D! 点伤害。失去当前 elainamod:结语 。"
+    "DESCRIPTION": " 无 elainamod:结语 时无法打出。 NL 对所有敌人造成 !D! 点伤害。失去当前 elainamod:结语 。"
   },
   "Elaina:CharmMagic": {
     "NAME": "魅力魔法",
@@ -76,7 +76,7 @@
   },
   "Elaina:BombardmentMagic": {
     "NAME": "轰击魔法",
-    "DESCRIPTION": "造成 !D! 点伤害。 NL elainamod:瞬发 。 NL elainamod:速记 。"
+    "DESCRIPTION": "造成 !D! 点伤害，给予 !M! 层 elainamod:魔力残留 。 NL elainamod:瞬发 。"
   },
   "Elaina:Rummage": {
     "NAME": "翻找",
@@ -183,7 +183,7 @@
   },
   "Elaina:EmergencyTreatment": {
     "NAME": "应急处理",
-    "DESCRIPTION": "获得 !B! 点 格挡 和 !M! 点 敏捷 。 NL 添加1张 *应急处理 。 NL 使所有敌人获得等同于弃牌堆中 *应急处理 / *应急处理+ 张数的 力量 。"
+    "DESCRIPTION": "获得 !B! 点 格挡 和 !M! 点 敏捷 。 NL 添加1张 *应急处理 到手牌中。 NL 使所有敌人获得等同于弃牌堆中 *应急处理 / *应急处理+ 张数的 力量 。"
   },
   "Elaina:FirstImpression": {
     "NAME": "第一印象",

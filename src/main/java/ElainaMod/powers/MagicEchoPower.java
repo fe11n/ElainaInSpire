@@ -2,6 +2,7 @@ package ElainaMod.powers;
 
 import ElainaMod.cards.AbstractElainaCard;
 import com.badlogic.gdx.graphics.Texture;
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.AbstractCreature;
@@ -17,11 +18,12 @@ import java.util.Iterator;
 
 public class MagicEchoPower extends AbstractPower {
     public static final String POWER_ID = "Elaina:MagicEcho";
-    private static final PowerStrings powerstrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);;
+    private static final PowerStrings powerstrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
     public static final String NAME = powerstrings.NAME;
 
     public static final String[] DESCRIPTIONS = powerstrings.DESCRIPTIONS;
     public static final Logger logger = LogManager.getLogger(MagicEchoPower.class);
+    public int cardsDoubledThisTurn = 0;
     public MagicEchoPower(AbstractCreature o){
         this.name = NAME;
         this.ID = POWER_ID;
@@ -32,5 +34,25 @@ public class MagicEchoPower extends AbstractPower {
         this.updateDescription();
         this.img = new Texture("ElainaMod/img/powers/MagicEchoPower.png");
     }
-    public void updateDescription(){this.description = DESCRIPTIONS[0]+amount+DESCRIPTIONS[1];}
+    public void atStartOfTurnPostDraw() {
+        cardsDoubledThisTurn = 0;
+    }
+
+    public boolean isAble(){
+        if(cardsDoubledThisTurn<amount){
+            cardsDoubledThisTurn++;
+            logger.info("Echo Ok!");
+            return true;
+        }
+        logger.info("Echo False!");
+        return false;
+    }
+
+    public void updateDescription() {
+        if (this.amount == 1) {
+            this.description = DESCRIPTIONS[0];
+        } else {
+            this.description = DESCRIPTIONS[1] + this.amount + DESCRIPTIONS[2];
+        }
+    }
 }

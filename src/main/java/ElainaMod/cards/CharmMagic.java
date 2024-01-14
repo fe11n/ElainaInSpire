@@ -4,6 +4,7 @@ import ElainaMod.Characters.ElainaC;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
@@ -24,7 +25,7 @@ public class CharmMagic extends AbstractElainaCard {
     public CharmMagic() {
         // 为了命名规范修改了变量名。这些参数具体的作用见下方
         super(ID,CARD_STRINGS, IMG_PATH, COST, TYPE, RARITY, TARGET);
-        this.damage = this.baseDamage = 7;
+        this.damage = this.baseDamage = 9;
         this.magicNumber = this.baseMagicNumber = 2;
         this.isMultiDamage = true;
         this.tags.add(ElainaC.Enums.MAGIC);
@@ -39,6 +40,16 @@ public class CharmMagic extends AbstractElainaCard {
             this.upgradeMagicNumber(1);
         }
     }
+
+    public void triggerOnGlowCheck() {
+        ElainaC p = (ElainaC) AbstractDungeon.player;
+        if(p.isInstant(p.getConclusion())){
+            this.glowColor = AbstractCard.GOLD_BORDER_GLOW_COLOR.cpy();
+        } else {
+            this.glowColor = AbstractCard.BLUE_BORDER_GLOW_COLOR.cpy();
+        }
+    }
+
     /**
      * 当卡牌被使用时，调用这个方法。
      *

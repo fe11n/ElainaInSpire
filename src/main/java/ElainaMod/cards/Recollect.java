@@ -5,8 +5,10 @@ import ElainaMod.action.GetDiaryCardAction;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
@@ -52,6 +54,15 @@ public class Recollect extends AbstractElainaCard {
             }
         }
         this.addToBot(new GetDiaryCardAction(p,false));
+    }
+
+    public void triggerOnGlowCheck() {
+        ElainaC p = (ElainaC) AbstractDungeon.player;
+        if(p.isInstant(p.getConclusion())){
+            this.glowColor = AbstractCard.GOLD_BORDER_GLOW_COLOR.cpy();
+        } else {
+            this.glowColor = AbstractCard.BLUE_BORDER_GLOW_COLOR.cpy();
+        }
     }
 
     @Override

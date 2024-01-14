@@ -5,6 +5,7 @@ import ElainaMod.action.MagicDiffusionAction;
 import com.badlogic.gdx.graphics.Texture;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.unique.PoisonLoseHpAction;
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -48,9 +49,16 @@ public class ResidualMagicPower extends AbstractPower {
                 && !AbstractDungeon.getMonsters().areMonstersBasicallyDead()) {
             this.flashWithoutSound();
             AbstractPlayer p = (AbstractPlayer)this.source;//这里联机的时候可能出问题？
-            int m = p.hand.size();
-            this.addToBot(new PoisonLoseHpAction(this.owner, this.source,
-                    this.amount*m, AbstractGameAction.AttackEffect.FIRE));
+            int m = 0;
+            for(AbstractCard c:p.hand.group){
+                if(c.selfRetain || c.retain){
+                    m++;
+                }
+            }
+            if(m>0){
+                this.addToBot(new PoisonLoseHpAction(this.owner, this.source,
+                        this.amount*m, AbstractGameAction.AttackEffect.FIRE));
+            }
         }
     }
 }

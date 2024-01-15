@@ -38,6 +38,7 @@ public class ResidualMagicPower extends AbstractPower {
         }
         this.updateDescription();
         this.img = new Texture("ElainaMod/img/powers/ResidualMagicPower.png");
+        this.isTurnBased = true;
     }
 
     public void updateDescription() {
@@ -64,7 +65,6 @@ public class ResidualMagicPower extends AbstractPower {
 
     @Override
     public void playApplyPowerSfx() {
-        CardCrawlGame.sound.play("ATTACK_MAGIC_BEAM", 0.05f);
-
+        CardCrawlGame.sound.play("ATTACK_MAGIC_FAST_1", 0.05f);
     }
 }

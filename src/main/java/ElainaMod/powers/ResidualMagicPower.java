@@ -38,6 +38,7 @@ public class ResidualMagicPower extends AbstractPower {
         }
         this.updateDescription();
         this.img = new Texture("ElainaMod/img/powers/ResidualMagicPower.png");
+        this.isTurnBased = true;
     }
 
     public void updateDescription() {
@@ -51,7 +52,7 @@ public class ResidualMagicPower extends AbstractPower {
             AbstractPlayer p = (AbstractPlayer)this.source;//这里联机的时候可能出问题？
             int m = 0;
             for(AbstractCard c:p.hand.group){
-                if(c.selfRetain || c.retain){
+                if(c.selfRetain){
                     m++;
                 }
             }
@@ -60,5 +61,10 @@ public class ResidualMagicPower extends AbstractPower {
                         this.amount*m, AbstractGameAction.AttackEffect.FIRE));
             }
         }
+    }
+
+    @Override
+    public void playApplyPowerSfx() {
+        CardCrawlGame.sound.play("ATTACK_MAGIC_FAST_1", 0.05f);
     }
 }

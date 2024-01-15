@@ -119,7 +119,7 @@
   },
   "Elaina:Echo": {
     "NAME": "呼应",
-    "DESCRIPTION": "获得 !B! 点 格挡 。 elainamod:记录 本回合已打出的所有卡牌。不可被 elainamod:记录 。 NL 保留 。"
+    "DESCRIPTION": "获得 !B! 点 格挡 。 elainamod:记录 本回合已打出的所有卡牌。 NL 保留 。"
   },
   "Elaina:Drawup": {
     "NAME": "起笔",
@@ -375,8 +375,8 @@
   },
   "Elaina:Sublimation": {
     "NAME": "升华",
-    "DESCRIPTION": "消耗所有保留的手牌。 NL 每消耗一张，获得 [E] ，抽取弃牌堆顶的1张卡牌。 NL 消耗 。",
-    "UPGRADE_DESCRIPTION": "消耗所有保留的手牌。 NL 每消耗一张，获得 [E] ，抽取并 elainamod:记录 弃牌堆顶的1张卡牌。 NL 消耗 。"
+    "DESCRIPTION": "消耗任意张保留的手牌。 NL 每消耗一张，获得 [E] ，抽取弃牌堆顶的1张卡牌。 NL 消耗 。 NL 保留 。",
+    "UPGRADE_DESCRIPTION": "消耗任意张保留的手牌。 NL 每消耗一张，获得 [E] ，抽取并 elainamod:记录 弃牌堆顶的1张卡牌。 NL 消耗 。 NL 保留 。"
   },
   "Elaina:PureMagic": {
     "NAME": "纯净魔法",
@@ -402,5 +402,10 @@
   "Elaina:MagicAttachment": {
     "NAME": "魔力附着",
     "DESCRIPTION": "打出或被 消耗 时，给予 !M! 层 elainamod:魔力残留 。 NL 保留 。"
+  },
+  "Elaina:MagicTrade": {
+    "NAME": "魔法交易",
+    "DESCRIPTION": "丢弃所有保留卡，抽取等量的卡，并给予被抽到的卡 保留 效果。 NL 消耗 。",
+    "UPGRADE_DESCRIPTION":"丢弃所有保留卡，抽取等量的卡，并给予被抽到的卡 保留 效果。"
   }
 }

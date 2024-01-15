@@ -27,7 +27,6 @@ public class Echo extends AbstractElainaCard {
         super(ID, CARD_STRINGS, IMG_PATH, COST, TYPE, RARITY, TARGET,CardColor.COLORLESS);
         this.selfRetain = true;
         this.block = this.baseBlock = 5;
-        this.tags.add(ElainaC.Enums.UNNOTABLE);
     }
 
     @Override

@@ -20,10 +20,10 @@ import javassist.CtBehavior;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import java.lang.reflect.Field;
+import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.HashMap;
-
-import static ElainaMod.patch.HealthBarPatch.renderHealthPatch.*;
 
 public class HealthBarPatch {
     HealthBarPatch() {}
@@ -34,57 +34,81 @@ public class HealthBarPatch {
             paramtypez = {SpriteBatch.class, float.class, float.class}
     )
     public static class renderHealthPatch {
-        @SpirePrefixPatch
-        public static SpireReturn<Void> customHealthBarRender(AbstractCreature __instance, SpriteBatch sb, float x, float y) {
+        @SpirePostfixPatch
+        public static void customHealthBarRender(AbstractCreature __instance, SpriteBatch sb, float x, float y) {
             if (!__instance.hasPower(ResidualMagicPower.POWER_ID)) {
-                return SpireReturn.Continue();
+                return;
             }
             // 为保证兼容性，限制有魔力残留才进入。同时考虑中毒的情况。
             float HEALTH_BAR_HEIGHT = ReflectionHacks.getPrivate(__instance, AbstractCreature.class, "HEALTH_BAR_HEIGHT");
             float targetHealthBarWidth = ReflectionHacks.getPrivate(__instance, AbstractCreature.class, "targetHealthBarWidth");
             float HEALTH_BAR_OFFSET_Y = ReflectionHacks.getPrivate(__instance, AbstractCreature.class, "HEALTH_BAR_OFFSET_Y");
             float healthBarWidth = ReflectionHacks.getPrivate(__instance, AbstractCreature.class, "healthBarWidth");
-
-            int poisonAmt = 0;
-            if (__instance.hasPower(PoisonPower.POWER_ID)) {
-                poisonAmt = __instance.getPower(PoisonPower.POWER_ID).amount;
-            } else {
-                // 没有中毒效果，需要自己画一层底色。
-                sb.setColor(Color.valueOf("dcdbffff"));  // 浅紫
-                if (__instance.currentHealth > 0) {
-                    sb.draw(ImageMaster.HEALTH_BAR_L, x - HEALTH_BAR_HEIGHT, y + HEALTH_BAR_OFFSET_Y, HEALTH_BAR_HEIGHT, HEALTH_BAR_HEIGHT);
-                }
-                sb.draw(ImageMaster.HEALTH_BAR_B, x, y + HEALTH_BAR_OFFSET_Y, targetHealthBarWidth, HEALTH_BAR_HEIGHT);
-                sb.draw(ImageMaster.HEALTH_BAR_R, x + targetHealthBarWidth, y + HEALTH_BAR_OFFSET_Y, HEALTH_BAR_HEIGHT, HEALTH_BAR_HEIGHT);
-
-            }
+            int Num;
             int residualAmt = __instance.getPower(ResidualMagicPower.POWER_ID).amount;
-            // 回合结束洗牌的时候，会把保留牌挪到limbo牌组，导致保留卡数量读0.
-            // 可以在角色内部处理保留卡牌数量获取，但如果要兼容其他角色，就不要这样。
             int selfRetainMult = 0;
             ArrayList<AbstractCard> g = AbstractDungeon.player.hand.group;
             for (AbstractCard card : g) {
                 if (card.selfRetain)
                     selfRetainMult++;
             }
-
-            int damage = poisonAmt + residualAmt * selfRetainMult;
-            if (damage > 0 && __instance.hasPower(IntangiblePower.POWER_ID)) {
-                damage = 1;
+            g = AbstractDungeon.player.limbo.group;
+            for (AbstractCard card : g) {
+                if (card.selfRetain)
+                    selfRetainMult++;
+            }
+            Num = residualAmt*selfRetainMult;
+            if(Num==0){
+                return;
             }
 
-
-            if (__instance.currentHealth > damage) {
-                sb.setColor(Color.valueOf("8b2ad2ff"));  // 受到效果影响后的血条颜色。原版是红色和格挡判断。这里改紫色
-                float w = (1.0f - (((float) (__instance.currentHealth - damage)) / ((float) __instance.currentHealth))) * targetHealthBarWidth;
+            sb.setColor(Color.valueOf("dcdbffff"));
+            if (!__instance.hasPower("Poison")) {
                 if (__instance.currentHealth > 0) {
                     sb.draw(ImageMaster.HEALTH_BAR_L, x - HEALTH_BAR_HEIGHT, y + HEALTH_BAR_OFFSET_Y, HEALTH_BAR_HEIGHT, HEALTH_BAR_HEIGHT);
                 }
-                sb.draw(ImageMaster.HEALTH_BAR_B, x, y + HEALTH_BAR_OFFSET_Y, targetHealthBarWidth - w, HEALTH_BAR_HEIGHT);
-                sb.draw(ImageMaster.HEALTH_BAR_R, (x + targetHealthBarWidth) - w, y + HEALTH_BAR_OFFSET_Y, HEALTH_BAR_HEIGHT, HEALTH_BAR_HEIGHT);
+
+                sb.draw(ImageMaster.HEALTH_BAR_B, x, y + HEALTH_BAR_OFFSET_Y, targetHealthBarWidth, HEALTH_BAR_HEIGHT);
+                sb.draw(ImageMaster.HEALTH_BAR_R, x + targetHealthBarWidth, y + HEALTH_BAR_OFFSET_Y, HEALTH_BAR_HEIGHT, HEALTH_BAR_HEIGHT);
+            } else {
+                int poisonAmt = __instance.getPower("Poison").amount;
+                if (poisonAmt > 0 && __instance.hasPower("Intangible")) {
+                    poisonAmt = 1;
+                }
+
+                if (__instance.currentHealth > poisonAmt) {
+                    float w = 1.0F - (float)(__instance.currentHealth - poisonAmt) / (float)__instance.currentHealth;
+                    w *= targetHealthBarWidth;
+                    if (__instance.currentHealth > 0) {
+                        sb.draw(ImageMaster.HEALTH_BAR_L, x - HEALTH_BAR_HEIGHT, y + HEALTH_BAR_OFFSET_Y, HEALTH_BAR_HEIGHT, HEALTH_BAR_HEIGHT);
+                    }
+
+                    sb.draw(ImageMaster.HEALTH_BAR_B, x, y + HEALTH_BAR_OFFSET_Y, targetHealthBarWidth - w, HEALTH_BAR_HEIGHT);
+                    sb.draw(ImageMaster.HEALTH_BAR_R, x + targetHealthBarWidth - w, y + HEALTH_BAR_OFFSET_Y, HEALTH_BAR_HEIGHT, HEALTH_BAR_HEIGHT);
+                }
             }
 
-            return SpireReturn.Return();
+            if (__instance.currentBlock > 0) {
+                sb.setColor(Color.valueOf("31568cff"));//blue
+            } else {
+                sb.setColor(Color.valueOf("cc0c0cff"));//red
+            }
+            if(__instance.hasPower("Poison")){
+                Num+=__instance.getPower("Poison").amount;
+            }
+            if (Num > 0 && __instance.hasPower("Intangible")) {
+                Num = 1;
+            }
+            if (__instance.currentHealth > Num) {
+                float w = 1.0F - (float)(__instance.currentHealth - Num) / (float)__instance.currentHealth;
+                w *= targetHealthBarWidth;
+                if (__instance.currentHealth > 0) {
+                    sb.draw(ImageMaster.HEALTH_BAR_L, x - HEALTH_BAR_HEIGHT, y + HEALTH_BAR_OFFSET_Y, HEALTH_BAR_HEIGHT, HEALTH_BAR_HEIGHT);
+                }
+
+                sb.draw(ImageMaster.HEALTH_BAR_B, x, y + HEALTH_BAR_OFFSET_Y, targetHealthBarWidth - w, HEALTH_BAR_HEIGHT);
+                sb.draw(ImageMaster.HEALTH_BAR_R, x + targetHealthBarWidth - w, y + HEALTH_BAR_OFFSET_Y, HEALTH_BAR_HEIGHT, HEALTH_BAR_HEIGHT);
+            }
         }
     }
 }

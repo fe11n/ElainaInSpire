@@ -2,6 +2,7 @@ package ElainaMod.cards;
 
 import ElainaMod.Characters.ElainaC;
 import ElainaMod.action.RecordCardAction;
+import ElainaMod.action.SublimationAction;
 import com.evacipated.cardcrawl.mod.stslib.actions.common.FetchAction;
 import com.evacipated.cardcrawl.mod.stslib.actions.tempHp.AddTemporaryHPAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
@@ -32,6 +33,7 @@ public class Sublimation extends AbstractElainaCard {
         // 为了命名规范修改了变量名。这些参数具体的作用见下方
         super(ID, CARD_STRINGS, IMG_PATH, COST, TYPE, RARITY, TARGET);
         this.exhaust = true;
+        this.selfRetain = true;
     }
 
     @Override
@@ -51,27 +53,28 @@ public class Sublimation extends AbstractElainaCard {
      */
     @Override
     public void BasicEffect(ElainaC p, AbstractMonster m) {
-        int num = 0;
-        Iterator it = p.hand.group.iterator();
-        while (it.hasNext()){
-            AbstractCard c = (AbstractCard) it.next();
-            if(c.selfRetain==true){
-                this.addToBot(new ExhaustSpecificCardAction(c,p.hand));
-                num++;
-            }
-        }
-        this.addToBot(new GainEnergyAction(num));
-//        for(int i=0;i<num;i++){
-//            this.addToBot(new FetchAction(p.discardPile,1));
+//        int num = 0;
+//        Iterator it = p.hand.group.iterator();
+//        while (it.hasNext()){
+//            AbstractCard c = (AbstractCard) it.next();
+//            if(c.selfRetain==true){
+//                this.addToBot(new ExhaustSpecificCardAction(c,p.hand));
+//                num++;
+//            }
 //        }
-        for(int i = 0;i<num;i++){
-            if(p.discardPile.size()>i){
-                AbstractCard c = p.discardPile.group.get(p.discardPile.size()-1-i);
-                this.addToBot(new DiscardToHandAction(c));
-                if(upgraded){
-                    this.addToBot(new RecordCardAction(c));
-                }
-            }
-        }
+//        this.addToBot(new GainEnergyAction(num));
+////        for(int i=0;i<num;i++){
+////            this.addToBot(new FetchAction(p.discardPile,1));
+////        }
+//        for(int i = 0;i<num;i++){
+//            if(p.discardPile.size()>i){
+//                AbstractCard c = p.discardPile.group.get(p.discardPile.size()-1-i);
+//                this.addToBot(new DiscardToHandAction(c));
+//                if(upgraded){
+//                    this.addToBot(new RecordCardAction(c));
+//                }
+//            }
+//        }
+        this.addToBot(new SublimationAction(p,this.upgraded));
     }
 }

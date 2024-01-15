@@ -41,23 +41,15 @@ public abstract class AbstractSeasonCard extends AbstractElainaCard {
                     CardCrawlGame.dungeon != null//一局游戏已打开或可继续
                 && AbstractDungeon.currMapNode != null//在一局游戏中
                 && AbstractDungeon.getMonsters()!=null//在战斗房
-                && !AbstractDungeon.getMonsters().monsters.isEmpty()//在战斗中
+                && !AbstractDungeon.getMonsters().areMonstersBasicallyDead()//在战斗中
         ) {
-            Iterator it = AbstractDungeon.getMonsters().monsters.iterator();
-            while (it.hasNext()){
-//                logger.info("Check MonsterHealth...");
-                if(((AbstractMonster)it.next()).currentHealth!=0){
-                    this.UpdateSeasonalDescription();//理想情况：战斗外获得卡不调用这个函数
-                    break;
-                }
-            }
-//            this.UpdateSeasonalDescription();//理想情况：战斗外创建卡不调用这个函数
+            this.UpdateSeasonalDescription();//理想情况：战斗外获得卡不调用这个函数
         }
 
     }
     public int getSeasonNum(){
         if(AbstractDungeon.player.hasPower("Elaina:BestState")||AbstractDungeon.player.hasRelic("Elaina:StoveFire")){
-                        logger.info("return BestSeasonNum 1: "+BestSeasonNum);
+//                        logger.info("return BestSeasonNum 1: "+BestSeasonNum);
             return BestSeasonNum;
         }
         // logger.info("return ElainaSeason: "+ElainaC.getSeason()); 太吵了

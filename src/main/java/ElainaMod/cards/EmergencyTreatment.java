@@ -28,15 +28,6 @@ public class EmergencyTreatment extends AbstractElainaCard {
         super(ID, CARD_STRINGS, IMG_PATH, COST, TYPE, RARITY, TARGET);
         this.baseBlock = 7;
         this.magicNumber = this.baseMagicNumber = 1;
-        this.cardsToPreview = new EmergencyTreatment(true);
-    }
-    public EmergencyTreatment(boolean noPreviewCard) {
-        super(ID, CARD_STRINGS, IMG_PATH, COST, TYPE, RARITY, TARGET);
-        this.baseBlock = 7;
-        this.magicNumber = this.baseMagicNumber = 1;
-        if (!noPreviewCard) {
-            this.cardsToPreview = new EmergencyTreatment();
-        }
     }
 
     @Override
@@ -56,7 +47,7 @@ public class EmergencyTreatment extends AbstractElainaCard {
     public void BasicEffect(ElainaC p, AbstractMonster m) {
         // AbstractCard中实现了addToBot方法，它的效果和AbstractDungeon.actionManager.addToBottom相同
         this.addToBot(new GainBlockAction(p,p,this.block));
-        this.addToBot(new MakeTempCardInHandAction(this.cardsToPreview));
+        this.addToBot(new MakeTempCardInHandAction(new EmergencyTreatment()));
         this.addToBot(new ApplyPowerAction(p,p,new DexterityPower(p,magicNumber)));
         int count = 0;
         Iterator it = p.discardPile.group.iterator();

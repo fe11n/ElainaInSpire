@@ -1,6 +1,7 @@
 package ElainaMod.cards;
 
 import ElainaMod.Characters.ElainaC;
+import ElainaMod.powers.ResidualMagicPower;
 import ElainaMod.relics.WanderingWitch;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
@@ -41,7 +42,7 @@ public class FragrantWind extends AbstractSeasonCard {
         this.isMultiDamage = true;
         this.damageTypeForTurn = DamageType.HP_LOSS;
         this.exhaust = true;
-        this.ExtendDamage[2]=5;
+        this.ExtendDamage[2]=3;
         this.ExtendMagicNum[0]=this.ExtendMagicNum[1]=this.ExtendMagicNum[2]=this.ExtendMagicNum[3]=2;
         this.ExtendExhaust[0]=this.ExtendExhaust[1]=this.ExtendExhaust[2]=this.ExtendExhaust[3]=true;
 //        setPreviewCard(this);
@@ -54,7 +55,7 @@ public class FragrantWind extends AbstractSeasonCard {
             this.upgradeDamage(1); // 将该卡牌的伤害提高3点。
             this.upgradeMagicNumber(1);
             this.ExtendMagicNum[0]=this.ExtendMagicNum[1]=this.ExtendMagicNum[2]=this.ExtendMagicNum[3]=3;
-            this.ExtendDamage[2]=6;
+            this.ExtendDamage[2]=4;
         }
     }
     /**
@@ -79,7 +80,7 @@ public class FragrantWind extends AbstractSeasonCard {
                 it = AbstractDungeon.getCurrRoom().monsters.monsters.iterator();
                 while(it.hasNext()) {
                     mo = (AbstractMonster)it.next();
-                    this.addToBot(new ApplyPowerAction(mo,p,new PoisonPower(mo,p,this.damage)));
+                    this.addToBot(new ApplyPowerAction(mo,p,new ResidualMagicPower(mo,p,this.damage)));
                 }
             case 1:
                 it = AbstractDungeon.getCurrRoom().monsters.monsters.iterator();

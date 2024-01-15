@@ -1,5 +1,6 @@
 package ElainaMod.patch;
 
+import ElainaMod.powers.MagicEchoPower;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePostfixPatch;
@@ -31,8 +32,10 @@ public class MagicEchoPatch {
         @SpirePostfixPatch
         public static void Postfix(MakeTempCardInHandAction a, AbstractCard c,int i){
             if(!(c.type == AbstractCard.CardType.CURSE || c.type == AbstractCard.CardType.STATUS)
-                    && AbstractDungeon.player.hasPower("Elaina:MagicEcho")){
-                a.amount+=AbstractDungeon.player.getPower("Elaina:MagicEcho").amount;
+                    && AbstractDungeon.player.hasPower("Elaina:MagicEcho")
+                    && ((MagicEchoPower)AbstractDungeon.player.getPower("Elaina:MagicEcho")).isAble()
+            ){
+                a.amount+=1;
             }
         }
     }
@@ -45,8 +48,10 @@ public class MagicEchoPatch {
         @SpirePostfixPatch
         public static void Postfix(MakeTempCardInHandAction a, AbstractCard c,boolean b){
             if(!(c.type == AbstractCard.CardType.CURSE || c.type == AbstractCard.CardType.STATUS)
-                    && AbstractDungeon.player.hasPower("Elaina:MagicEcho")){
-                a.amount+=AbstractDungeon.player.getPower("Elaina:MagicEcho").amount;
+                    && AbstractDungeon.player.hasPower("Elaina:MagicEcho")
+                    && ((MagicEchoPower)AbstractDungeon.player.getPower("Elaina:MagicEcho")).isAble()
+            ){
+                a.amount+=1;
             }
         }
     }
@@ -59,37 +64,11 @@ public class MagicEchoPatch {
         @SpirePostfixPatch
         public static void Postfix(MakeTempCardInDrawPileAction a, AbstractCard c,int x1,boolean x2,boolean x3,boolean x4,float x5,float x6){
             if(!(c.type == AbstractCard.CardType.CURSE || c.type == AbstractCard.CardType.STATUS)
-                    && AbstractDungeon.player.hasPower("Elaina:MagicEcho")){
-                a.amount+=AbstractDungeon.player.getPower("Elaina:MagicEcho").amount;
+                    && AbstractDungeon.player.hasPower("Elaina:MagicEcho")
+                    && ((MagicEchoPower)AbstractDungeon.player.getPower("Elaina:MagicEcho")).isAble()
+            ){
+                a.amount+=1;
             }
         }
     }
-
-//    @SpirePatch(
-//            clz = MakeTempCardInHandAction.class,
-//            method = "update"
-//    )
-//    public static class MagicEchoPatchInHand{
-//        @SpirePrefixPatch
-//        public static void Prefix(MakeTempCardInHandAction a){
-//            logger.info("isTarget now: "+isTarget);
-//            if(AbstractDungeon.player.hasPower("Elaina:MagicEcho") && isTarget){
-//                a.amount+=AbstractDungeon.player.getPower("Elaina:MagicEcho").amount;
-//            }
-//        }
-//    }
-
-//    @SpirePatch(
-//            clz = MakeTempCardInDrawPileAction.class,
-//            method = "update"
-//    )
-//    public static class MagicEchoPatchInDrawPile{
-//        @SpirePrefixPatch
-//        public static void Prefix(MakeTempCardInDrawPileAction a){
-//            logger.info("isTarget now: "+isTarget);
-//            if(AbstractDungeon.player.hasPower("Elaina:MagicEcho") && isTarget){
-//                a.amount+=AbstractDungeon.player.getPower("Elaina:MagicEcho").amount;
-//            }
-//        }
-//    }
 }

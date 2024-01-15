@@ -63,16 +63,9 @@ public class HealthBarPatch {
             // 可以在角色内部处理保留卡牌数量获取，但如果要兼容其他角色，就不要这样。
             int selfRetainMult = 0;
             ArrayList<AbstractCard> g = AbstractDungeon.player.hand.group;
-            if (g != null) {
-                for (AbstractCard card : g) {
-                    if (card.selfRetain)
-                        selfRetainMult++;
-                }
-                if (selfRetainMult==0) {
-                    for (AbstractCard card : g) {
-                        logger.info(card);
-                    }
-                }
+            for (AbstractCard card : g) {
+                if (card.selfRetain)
+                    selfRetainMult++;
             }
 
             int damage = poisonAmt + residualAmt * selfRetainMult;

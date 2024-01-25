@@ -226,7 +226,7 @@
   },
   "Elaina:Accumulation": {
     "NAME": "蓄能",
-    "DESCRIPTION": "获得 !M! 层 elainamod:魔力增幅 ，本回合失去5点 力量 。 NL 消耗 。"
+    "DESCRIPTION": "获得 !M! 层 elainamod:魔力增幅 ，本回合失去6点 力量 。 NL 消耗 。"
   },
   "Elaina:Mutation": {
     "NAME": "蝶变",
@@ -404,7 +404,7 @@
   },
   "Elaina:ProtectiveMagic": {
     "NAME": "防护魔法",
-    "DESCRIPTION": "造成 !D! 点伤害。 NL 获得 !B! 点 格挡 。 NL 打出此牌后，本回合每打出1张魔法卡，获得 !M! 点 格挡 。"
+    "DESCRIPTION": "获得 !B! 点 格挡 。 NL 打出此牌后，本回合每打出1张魔法卡，获得 !M! 点 格挡 。"
   },
   "Elaina:IronWaveMagic": {
     "NAME": "铁斩波魔法",

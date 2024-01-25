@@ -1,35 +1,33 @@
 package ElainaMod.cards;
 
 import ElainaMod.Characters.ElainaC;
-import ElainaMod.action.GetDiaryCardAction;
-import com.megacrit.cardcrawl.actions.common.GainBlockAction;
+import ElainaMod.powers.IgnisFatuusPower;
+import ElainaMod.powers.MagicEchoPower;
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
-public class IndelibleImprint extends AbstractElainaCard {
-    public static final String ID = "Elaina:IndelibleImprint";
+public class IgnisFatuus extends AbstractElainaCard {
+    public static final String ID = "Elaina:IgnisFatuus";
     private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID); // 从游戏系统读取本地化资源
-    private static final String IMG_PATH = "ElainaMod/img/cards/IndelibleImprint.png";
-    private static final int COST = 1;
-    private static final CardType TYPE = CardType.SKILL;
-    private static final CardRarity RARITY = CardRarity.RARE;
+    private static final String IMG_PATH = "ElainaMod/img/cards/IgnisFatuus.png";
+    private static final int COST = 2;
+    private static final CardType TYPE = CardType.POWER;
+    private static final CardRarity RARITY = CardRarity.UNCOMMON;
     private static final CardTarget TARGET = CardTarget.SELF;
 
-    public IndelibleImprint() {
+    public IgnisFatuus() {
         // 为了命名规范修改了变量名。这些参数具体的作用见下方
         super(ID, CARD_STRINGS, IMG_PATH, COST, TYPE, RARITY, TARGET);
-        this.magicNumber = this.baseMagicNumber = 5;
-        this.block = this.baseBlock = 5;
-        this.isShorthand = true;
+        this.cardsToPreview = new Ignite();
     }
 
     @Override
     public void upgrade() { // 升级调用的方法
         if (!this.upgraded) {
             this.upgradeName();
-            this.upgradeMagicNumber(2);
-            this.upgradeBlock(2);
+            this.upgradeBaseCost(1);
         }
     }
     /**
@@ -40,7 +38,6 @@ public class IndelibleImprint extends AbstractElainaCard {
      */
     @Override
     public void BasicEffect(ElainaC p, AbstractMonster m) {
-        this.addToBot(new GainBlockAction(p,p,this.block));
-        // 无效果
+        this.addToBot(new ApplyPowerAction(p, p, new IgnisFatuusPower(p,1)));
     }
 }

@@ -64,7 +64,7 @@
   },
   "Elaina:HypotheticalEnemy": {
     "NAME": "假想敌",
-    "DESCRIPTION": "使所有敌人 力量 翻倍。 NL 选择: 使所有敌人的 elainamod:魔力残留 翻倍，时节前进 !M! 或获得 !B! 层 缓冲 。 NL 消耗 。",
+    "DESCRIPTION": "使所有敌人 力量 翻倍。 NL 选择: 使所有敌人的 elainamod:魔力残留 翻倍，时节前进 !M! 或获得 !B! 层 elainamod:缓冲 。 NL 消耗 。",
     "UPGRADE_DESCRIPTION": "使所有敌人 力量 翻倍。 NL 选择: 使所有敌人的 elainamod:魔力残留 变为三倍，时节前进 !M! 或获得 !B! 层 无实体 。 NL 消耗 。"
   },
   "Elaina:Rush": {
@@ -78,7 +78,7 @@
   },
   "Elaina:Asylum": {
     "NAME": "护佑",
-    "DESCRIPTION": "获得 !M! 层 缓冲 。",
+    "DESCRIPTION": "获得 !M! 层 elainamod:缓冲 。",
     "UPGRADE_DESCRIPTION": "获得 !M! 层 无实体 。"
   },
   "Elaina:IntensifyArray": {
@@ -254,7 +254,7 @@
   },
   "Elaina:Continuation": {
     "NAME": "续行",
-    "DESCRIPTION": " elainamod:再现 elainamod:结语 。本回合使用 elainamod:映像 时， elainamod:再现 elainamod:结语 。 NL 回合结束时，手牌中每有1张 elainamod:映像 ，暂时升级 !M! 张卡牌。"
+    "DESCRIPTION": "下个回合使用卡牌后，若手牌数不足6张则 elainamod:再现 elainamod:结语 至手牌数为6。"
   },
   "Elaina:Reconsitution": {
     "NAME": "重构",
@@ -422,5 +422,24 @@
     "NAME": "魔法交易",
     "DESCRIPTION": "丢弃所有保留卡，抽取等量的卡，并给予被抽到的卡 保留 效果。 NL 消耗 。",
     "UPGRADE_DESCRIPTION":"丢弃所有保留卡，抽取等量的卡，并给予被抽到的卡 保留 效果。"
+  },
+  "Elaina:Review": {
+    "NAME": "温习",
+    "DESCRIPTION": "失去日记所有卡牌。每失去1张，获得 !B! 点 格挡 。",
+    "EXTENDED_DESCRIPTION": [
+      " NL （当前日记卡牌数： !M! ）"
+    ]
+  },
+  "Elaina:Ignite": {
+    "NAME": "点燃",
+    "DESCRIPTION": " 保留 。 NL 给予 !M! 层 elainamod:魔力残留 。"
+  },
+  "Elaina:IgnisFatuus": {
+    "NAME": "幻火",
+    "DESCRIPTION": "在每回合开始时，将一张 *点燃 加入你的手牌。"
+  },
+  "Elaina:RuneMagic": {
+    "NAME": "符文魔法",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 每有1个额外词条就再造成1次伤害。"
   }
 }

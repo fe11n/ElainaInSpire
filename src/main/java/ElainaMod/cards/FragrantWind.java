@@ -35,14 +35,14 @@ public class FragrantWind extends AbstractSeasonCard {
     public FragrantWind() {
         // 为了命名规范修改了变量名。这些参数具体的作用见下方
         super(ID, CARD_STRINGS, IMG_PATH, COST, TYPE, RARITY, TARGET);
-        this.damage = this.baseDamage = 5;
+        this.damage = this.baseDamage = 4;
         this.magicNumber = this.baseMagicNumber = 2;
         this.tags.add(ElainaC.Enums.SEASONAL);
         this.NotedSeasonNum = this.BestSeasonNum = 2;
         this.isMultiDamage = true;
         this.damageTypeForTurn = DamageType.HP_LOSS;
         this.exhaust = true;
-        this.ExtendDamage[2]=3;
+        this.ExtendDamage[2]=4;
         this.ExtendMagicNum[0]=this.ExtendMagicNum[1]=this.ExtendMagicNum[2]=this.ExtendMagicNum[3]=2;
         this.ExtendExhaust[0]=this.ExtendExhaust[1]=this.ExtendExhaust[2]=this.ExtendExhaust[3]=true;
 //        setPreviewCard(this);
@@ -55,7 +55,7 @@ public class FragrantWind extends AbstractSeasonCard {
             this.upgradeDamage(1); // 将该卡牌的伤害提高3点。
             this.upgradeMagicNumber(1);
             this.ExtendMagicNum[0]=this.ExtendMagicNum[1]=this.ExtendMagicNum[2]=this.ExtendMagicNum[3]=3;
-            this.ExtendDamage[2]=4;
+            this.ExtendDamage[2]=5;
         }
     }
     /**

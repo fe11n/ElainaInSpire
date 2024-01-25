@@ -17,7 +17,7 @@ import java.util.Iterator;
 public class Eh extends AbstractElainaCard {
     public static final String ID = "Elaina:Eh";
     private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID); // 从游戏系统读取本地化资源
-    private static final String IMG_PATH = "ElainaMod/img/cards/Eh.png";
+    private static final String IMG_PATH = "ElainaMod/img/cards/Countermeasure.png";
     private static final int COST = 1;
     private static final CardType TYPE = CardType.SKILL;
     private static final CardRarity RARITY = CardRarity.COMMON;

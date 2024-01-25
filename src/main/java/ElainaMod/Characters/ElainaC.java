@@ -110,6 +110,9 @@ public class ElainaC extends CustomPlayer{
     }
 
     public static boolean isInstant(AbstractCard c){
+        if (c==null) {
+            return false;
+        }
         if(c instanceof AbstractElainaCard) return ((AbstractElainaCard) c).isInstant;
         else return CardModifierManager.hasModifier(c,"toInstantCardMod");
     }

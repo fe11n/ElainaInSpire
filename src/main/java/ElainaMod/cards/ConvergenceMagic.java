@@ -23,8 +23,8 @@ public class ConvergenceMagic extends AbstractElainaCard {
     public ConvergenceMagic() {
         // 为了命名规范修改了变量名。这些参数具体的作用见下方
         super(ID,CARD_STRINGS, IMG_PATH, COST, TYPE, RARITY, TARGET);
-        this.damage = this.baseDamage = 9;
-        this.magicNumber = this.baseMagicNumber = 3;
+        this.damage = this.baseDamage = 7;
+        this.magicNumber = this.baseMagicNumber = 2;
         this.tags.add(ElainaC.Enums.MAGIC);
     }
 

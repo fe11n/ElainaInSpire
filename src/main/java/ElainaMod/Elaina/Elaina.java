@@ -72,7 +72,7 @@ public class Elaina implements EditStringsSubscriber,EditCardsSubscriber, EditCh
       BaseMod.addCard(new BombardmentMagic());
       BaseMod.addCard(new BottledHappiness());
       BaseMod.addCard(new CharmMagic());
-      BaseMod.addCard(new Continuation());
+      BaseMod.addCard(new StarryShadow());
       BaseMod.addCard(new ConvergenceMagic());
       BaseMod.addCard(new CounterMagic());
       BaseMod.addCard(new Countermeasure());
@@ -112,6 +112,7 @@ public class Elaina implements EditStringsSubscriber,EditCardsSubscriber, EditCh
       BaseMod.addCard(new MagicTurbulence());
       BaseMod.addCard(new MarblePhantasm());
       BaseMod.addCard(new Mutation());
+      BaseMod.addCard(new Nausea());
       BaseMod.addCard(new NewClothes());
       BaseMod.addCard(new Outset());
       BaseMod.addCard(new Penoff());
@@ -173,6 +174,7 @@ public class Elaina implements EditStringsSubscriber,EditCardsSubscriber, EditCh
       BaseMod.addRelicToCustomPool(new TreasureWine(), EXAMPLE_COLOR);
       BaseMod.addRelicToCustomPool(new GreedyDoll(), EXAMPLE_COLOR);
       BaseMod.addRelicToCustomPool(new NicolesAdventure(), EXAMPLE_COLOR);
+      BaseMod.addRelicToCustomPool(new ShinyMushroom(), EXAMPLE_COLOR);
    }
    public void receiveEditStrings() {
       String lang;

@@ -42,15 +42,15 @@
       " 张手牌获得瞬发效果。"
     ]
   },
-  "Elaina:ContinuationPreparation": {
-    "NAME": "续行预备",
+  "Elaina:StarryShadowPreparation": {
+    "NAME": "星影预备",
     "DESCRIPTIONS": [
       "下 #b",
       " 个回合使用卡牌后，若手牌数不足6张则再现结语至手牌数为6。"
     ]
   },
-  "Elaina:Continuation": {
-    "NAME": "续行",
+  "Elaina:StarryShadow": {
+    "NAME": "星影",
     "DESCRIPTIONS": [
       "使用卡牌后，若手牌数不足 #b",
       " 张则再现结语至手牌数为 #b",

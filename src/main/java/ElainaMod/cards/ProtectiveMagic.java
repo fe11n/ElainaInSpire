@@ -18,7 +18,7 @@ public class ProtectiveMagic extends AbstractElainaCard {
     private static final int COST = 1;
     private static final CardType TYPE = CardType.SKILL;
     private static final CardRarity RARITY = CardRarity.COMMON;
-    private static final CardTarget TARGET = CardTarget.ENEMY;
+    private static final CardTarget TARGET = CardTarget.NONE;
 
     public ProtectiveMagic() {
         // 为了命名规范修改了变量名。这些参数具体的作用见下方

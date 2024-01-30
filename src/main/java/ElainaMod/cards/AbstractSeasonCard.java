@@ -48,7 +48,7 @@ public abstract class AbstractSeasonCard extends AbstractElainaCard {
 
     }
     public int getSeasonNum(){
-        if(AbstractDungeon.player.hasPower("Elaina:BestState")||AbstractDungeon.player.hasRelic("Elaina:StoveFire")){
+        if(AbstractDungeon.player.hasPower("Elaina:BestState")){
 //                        logger.info("return BestSeasonNum 1: "+BestSeasonNum);
             return BestSeasonNum;
         }

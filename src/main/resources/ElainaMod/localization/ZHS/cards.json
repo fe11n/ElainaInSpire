@@ -252,8 +252,8 @@
     "DESCRIPTION": "获得 !B! 点 格挡 ，升级 elainamod:结语 ， elainamod:再现 elainamod:结语 。",
     "UPGRADE_DESCRIPTION": "获得 !B! 点 格挡 ，升级日记所有卡牌， elainamod:再现 1张卡牌。"
   },
-  "Elaina:Continuation": {
-    "NAME": "续行",
+  "Elaina:StarryShadow": {
+    "NAME": "星影",
     "DESCRIPTION": "下个回合使用卡牌后，若手牌数不足6张则 elainamod:再现 elainamod:结语 至手牌数为6。"
   },
   "Elaina:Reconsitution": {
@@ -441,5 +441,9 @@
   "Elaina:RuneMagic": {
     "NAME": "符文魔法",
     "DESCRIPTION": "造成 !D! 点伤害。 NL 每有1个额外词条就再造成1次伤害。"
+  },
+  "Elaina:Nausea": {
+    "NAME": "反胃",
+    "DESCRIPTION": " 保留 。"
   }
 }

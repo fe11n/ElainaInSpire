@@ -39,6 +39,7 @@ public class NoMushroomEvent extends AbstractImageEvent {
         EAT_RESULT,
 
         SAYA_EAT_RESULT,
+        LEAVE_RESULT
     }
 
     private static enum opt {
@@ -99,10 +100,18 @@ public class NoMushroomEvent extends AbstractImageEvent {
                         screen = CUR_SCREEN.RESULT;
                         imageEventText.clearAllDialogs();
                         imageEventText.setDialogOption(OPTIONS[opt.LEAVE.ordinal()]); //“离开”
-
                         this.imageEventText.updateBodyText(DESCRIPTIONS[desc.SAYA_EAT_RESULT.ordinal()]);
                         this.imageEventText.loadImage("ElainaMod/img/events/NoMushroom_sayaeat.png");
+                        return;
+                    case 3:
+                        screen = CUR_SCREEN.RESULT;
+                        logMetricIgnored(ID);
+                        this.imageEventText.updateBodyText(DESCRIPTIONS[desc.LEAVE_RESULT.ordinal()]);
+                        this.imageEventText.updateDialogOption(0, OPTIONS[opt.LEAVE.ordinal()]);
+                        break;
                 }
+                this.imageEventText.clearRemainingOptions();
+                return;
             case RESULT:
                 break;
             default:

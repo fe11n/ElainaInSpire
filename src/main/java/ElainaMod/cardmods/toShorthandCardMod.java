@@ -3,6 +3,7 @@ package ElainaMod.cardmods;
 import ElainaMod.action.RecordCardAction;
 import ElainaMod.cards.AbstractElainaCard;
 import basemod.abstracts.AbstractCardModifier;
+import basemod.helpers.CardModifierManager;
 import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.AbstractCreature;
@@ -45,6 +46,14 @@ public class toShorthandCardMod extends AbstractCardModifier {
     }
 
     public void onUse(AbstractCard card, AbstractCreature target, UseCardAction action) {
-        this.addToBot(new RecordCardAction(card));
+        if(!(card instanceof AbstractElainaCard)){
+            this.addToBot(new RecordCardAction(card));
+        }
     }
+
+    public boolean canApplyTo(AbstractCard c){
+        return !CardModifierManager.hasModifier(c,"toShorthandCardMod")
+                && !((c instanceof AbstractElainaCard)&&(((AbstractElainaCard)c).isShorthand));
+    }
+
 }

@@ -2,6 +2,7 @@ package ElainaMod.Elaina;
 
 import ElainaMod.Characters.ElainaC;
 import ElainaMod.cards.*;
+import ElainaMod.events.DisputeEvent;
 import ElainaMod.events.NoMushroomEvent;
 import ElainaMod.relics.*;
 import basemod.BaseMod;
@@ -227,5 +228,6 @@ public class Elaina implements EditStringsSubscriber,EditCardsSubscriber, EditCh
    @Override
    public void receivePostInitialize() {
       BaseMod.addEvent(NoMushroomEvent.ID, NoMushroomEvent.class);
+      BaseMod.addEvent(DisputeEvent.ID, DisputeEvent.class);
    }
 }

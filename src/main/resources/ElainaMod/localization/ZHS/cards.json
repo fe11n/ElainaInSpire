@@ -410,6 +410,11 @@
     "NAME": "铁斩波魔法",
     "DESCRIPTION": "*保留 。 NL 造成 !D! 点伤害。 NL 获得 !B! 点 格挡 。 NL 这张卡被 保留 时，数值增加 !M! 点。（ elainamod:时节 每循环一次，该数值加1。）"
   },
+  "Elaina:PerfectMagic": {
+    "NAME": "完美魔法",
+    "DESCRIPTION": "造成 !D! 点伤害。你每有一张魔法卡，伤害+2。",
+    "UPGRADE_DESCRIPTION": "造成 !D! 点伤害。你每有一张魔法卡，伤害+3。"
+  },
   "Elaina:Countermeasure": {
     "NAME": "对策",
     "DESCRIPTION": "给予 !D! 层魔力残余，使 !M! 张手牌获得保留。 NL 消耗 。"

@@ -1,16 +1,14 @@
 package ElainaMod.cardmods;
 
+import ElainaMod.Characters.ElainaC;
 import ElainaMod.cards.AbstractElainaCard;
 import basemod.abstracts.AbstractCardModifier;
 import basemod.helpers.CardModifierManager;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 
-import java.util.Iterator;
-
-public class toRetainCardMod extends AbstractCardModifier {
-    private String postDescription;
-    public toRetainCardMod(){
+public class toMagicCardMod extends AbstractCardModifier {
+    public toMagicCardMod(){
     }
 
 //    @Override
@@ -26,33 +24,29 @@ public class toRetainCardMod extends AbstractCardModifier {
 
     @Override
     public void onInitialApplication(AbstractCard card) {
-        postDescription = card.rawDescription;
-        String newDescription = postDescription
-                + " NL "
-                + CardCrawlGame.languagePack.getUIString("Elaina:Retain").TEXT[0];
-        card.rawDescription = newDescription;
-        card.selfRetain = true;
-        card.initializeDescription();
+        card.tags.add(ElainaC.Enums.MAGIC);
+    }
+
+    public String modifyName(String cardName, AbstractCard card) {
+        return CardCrawlGame.languagePack.getUIString("Elaina:Magic").TEXT[0]
+                + cardName;
     }
 
     @Override
     public AbstractCardModifier makeCopy() {
-        return new toRetainCardMod();
+        return new toMagicCardMod();
     }
 
     @Override
     public String identifier(AbstractCard card) {
-        return "toRetainCardMod";
+        return "toMagicCardMod";
     }
 
     @Override
     public void onRemove(AbstractCard card) {
-        card.selfRetain = false;//只允许对不保留的卡添加该mod
-        card.rawDescription = postDescription;
     }
 
     public boolean canApplyTo(AbstractCard c){
-        return !CardModifierManager.hasModifier(c,"toRetainCardMod")
-                && !((c instanceof AbstractElainaCard)&&c.selfRetain);
+        return c.hasTag(AbstractCard.CardTags.STARTER_STRIKE)||c.hasTag(AbstractCard.CardTags.STARTER_DEFEND);
     }
 }

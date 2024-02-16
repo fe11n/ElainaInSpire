@@ -254,7 +254,8 @@
   },
   "Elaina:StarryShadow": {
     "NAME": "星影",
-    "DESCRIPTION": "下个回合使用卡牌后，若手牌数不足6张则 elainamod:再现 elainamod:结语 至手牌数为6。"
+    "DESCRIPTION": "下个回合使用卡牌后，若手牌数不足6张则 elainamod:再现 elainamod:结语 至手牌数为6。",
+    "UPGRADE_DESCRIPTION": " 保留 。 NL 下个回合使用卡牌后，若手牌数不足6张则 elainamod:再现 elainamod:结语 至手牌数为6。"
   },
   "Elaina:Reconsitution": {
     "NAME": "重构",
@@ -408,7 +409,7 @@
   },
   "Elaina:IronWaveMagic": {
     "NAME": "铁斩波魔法",
-    "DESCRIPTION": "*保留 。 NL 造成 !D! 点伤害。 NL 获得 !B! 点 格挡 。 NL 这张卡被 保留 时，数值增加 !M! 点。（ elainamod:时节 每循环一次，该数值加1。）"
+    "DESCRIPTION": "*保留 。 NL 造成 !D! 点伤害。 NL 获得 !B! 点 格挡 。"
   },
   "Elaina:PerfectMagic": {
     "NAME": "完美魔法",
@@ -425,8 +426,7 @@
   },
   "Elaina:MagicTrade": {
     "NAME": "魔法交易",
-    "DESCRIPTION": "丢弃所有保留卡，抽取等量的卡，并给予被抽到的卡 保留 效果。 NL 消耗 。",
-    "UPGRADE_DESCRIPTION":"丢弃所有保留卡，抽取等量的卡，并给予被抽到的卡 保留 效果。"
+    "DESCRIPTION": "丢弃所有保留卡，抽取等量的卡，并给予被抽到的卡 保留 效果。 NL 消耗 。"
   },
   "Elaina:Review": {
     "NAME": "温习",
@@ -449,6 +449,6 @@
   },
   "Elaina:Nausea": {
     "NAME": "反胃",
-    "DESCRIPTION": " 保留 。"
+    "DESCRIPTION": " 不能被打出 。 NL 保留 。"
   }
 }

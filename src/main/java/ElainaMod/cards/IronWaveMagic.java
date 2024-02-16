@@ -26,16 +26,8 @@ public class IronWaveMagic extends AbstractElainaCard {
         super(ID, CARD_STRINGS, IMG_PATH, COST, TYPE, RARITY, TARGET,CardColor.COLORLESS);
         this.block = this.baseBlock = 5;
         this.damage = this.baseDamage = 5;
-        this.misc = 2;
-        this.magicNumber=this.baseMagicNumber=2;
         this.selfRetain = true;
         this.tags.add(ElainaC.Enums.MAGIC);
-    }
-    public void applyPowers() {
-        int m = ((ElainaC) AbstractDungeon.player).Month;
-        this.baseMagicNumber = this.magicNumber = this.misc + (m>0?((m-1)/12):0);
-        super.applyPowers();
-        this.initializeDescription();
     }
 
     @Override
@@ -44,13 +36,7 @@ public class IronWaveMagic extends AbstractElainaCard {
             this.upgradeName();
             this.upgradeBlock(2);
             this.upgradeDamage(2);
-            misc+=1;
-            this.upgradeMagicNumber(1);
         }
-    }
-    public void onRetained() {
-        this.upgradeBlock(magicNumber);
-        this.upgradeDamage(magicNumber);
     }
     /**
      * 当卡牌被使用时，调用这个方法。

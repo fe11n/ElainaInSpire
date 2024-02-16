@@ -31,7 +31,7 @@ public class StoveFire extends CustomRelic {
         while(var1.hasNext()) {
             AbstractMonster m = (AbstractMonster)var1.next();
             if (!m.isDead && !m.isDying) {
-                this.addToBot(new ApplyPowerAction(m, AbstractDungeon.player, new ResidualMagicPower(m, AbstractDungeon.player, 2)));
+                this.addToBot(new ApplyPowerAction(m, AbstractDungeon.player, new ResidualMagicPower(m, AbstractDungeon.player, 3)));
             }
         }
 

@@ -48,7 +48,7 @@ public class DisputeEvent extends AbstractImageEvent {
         LEAVE
     }
     public DisputeEvent(){
-        super(NAME, DIALOG_1, "ElainaMod/img/events/NoMushroom_mushroom.png");
+        super(NAME, DIALOG_1, "ElainaMod/img/events/Dispute.png");
 
         this.imageEventText.setDialogOption(OPTIONS[opt.LEFT.ordinal()], CardLibrary.getCopy(IronWaveMagic.ID));
         this.imageEventText.setDialogOption(OPTIONS[opt.RIGHT.ordinal()], CardLibrary.getCopy(PerfectMagic.ID));
@@ -71,7 +71,7 @@ public class DisputeEvent extends AbstractImageEvent {
                         imageEventText.clearAllDialogs();
                         imageEventText.setDialogOption(OPTIONS[opt.LEAVE.ordinal()]); //“离开”
                         this.imageEventText.updateBodyText(DESCRIPTIONS[desc.LEFT_RESULT.ordinal()]);
-                        this.imageEventText.loadImage("ElainaMod/img/events/Dispute_left.png");
+                        this.imageEventText.loadImage("ElainaMod/img/events/Dispute.png");
                         return;
                     case 1:
                         AbstractCard c3 = new PerfectMagic();
@@ -82,7 +82,7 @@ public class DisputeEvent extends AbstractImageEvent {
                         imageEventText.clearAllDialogs();
                         imageEventText.setDialogOption(OPTIONS[opt.LEAVE.ordinal()]); //“离开”
                         this.imageEventText.updateBodyText(DESCRIPTIONS[desc.RIGHT_RESULT.ordinal()]);
-                        this.imageEventText.loadImage("ElainaMod/img/events/Dispute_right.png");
+                        this.imageEventText.loadImage("ElainaMod/img/events/Dispute.png");
                         return;
                     case 2:
                         screen = CUR_SCREEN.RESULT;

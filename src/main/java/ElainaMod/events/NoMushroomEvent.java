@@ -64,7 +64,7 @@ public class NoMushroomEvent extends AbstractImageEvent {
         LEAVE
     }
     public NoMushroomEvent(){
-        super(NAME, DIALOG_1, "ElainaMod/img/events/NoMushroom_mushroom.png");
+        super(NAME, DIALOG_1, "ElainaMod/img/events/NoMushroom_noeat.png");
         healAmt = AbstractDungeon.player.maxHealth / 4;
 
         this.imageEventText.setDialogOption(OPTIONS[opt.EAT0.ordinal()] + healAmt + OPTIONS[opt.EAT1.ordinal()]
@@ -112,7 +112,7 @@ public class NoMushroomEvent extends AbstractImageEvent {
                         imageEventText.clearAllDialogs();
                         imageEventText.setDialogOption(OPTIONS[opt.LEAVE.ordinal()]); //“离开”
                         this.imageEventText.updateBodyText(DESCRIPTIONS[desc.PICK_RESULT.ordinal()]);
-                        this.imageEventText.loadImage("ElainaMod/img/events/NoMushroom_eat.png");
+                        this.imageEventText.loadImage("ElainaMod/img/events/NoMushroom_noeat.png");
                         return;
                     case 2:
                         AbstractDungeon.player.loseRelic(OddMushroom.ID);
@@ -122,7 +122,7 @@ public class NoMushroomEvent extends AbstractImageEvent {
                         imageEventText.clearAllDialogs();
                         imageEventText.setDialogOption(OPTIONS[opt.LEAVE.ordinal()]); //“离开”
                         this.imageEventText.updateBodyText(DESCRIPTIONS[desc.GROW_RESULT.ordinal()]);
-                        this.imageEventText.loadImage("ElainaMod/img/events/NoMushroom_sayaeat.png");
+                        this.imageEventText.loadImage("ElainaMod/img/events/NoMushroom_noeat.png");
                         return;
                     case 3:
                         screen = CUR_SCREEN.RESULT;

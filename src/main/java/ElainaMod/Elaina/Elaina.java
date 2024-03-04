@@ -4,6 +4,9 @@ import ElainaMod.Characters.ElainaC;
 import ElainaMod.cards.*;
 import ElainaMod.events.DisputeEvent;
 import ElainaMod.events.NoMushroomEvent;
+import ElainaMod.potions.FlashPotion;
+import ElainaMod.potions.MagicPotion;
+import ElainaMod.potions.TimePotion;
 import ElainaMod.relics.*;
 import basemod.BaseMod;
 import basemod.interfaces.*;
@@ -178,6 +181,8 @@ public class Elaina implements EditStringsSubscriber,EditCardsSubscriber, EditCh
       BaseMod.addRelicToCustomPool(new NicolesAdventure(), EXAMPLE_COLOR);
       BaseMod.addRelicToCustomPool(new ShinyMushroom(), EXAMPLE_COLOR);
    }
+
+
    public void receiveEditStrings() {
       String lang;
       // 还没做其他语言，就全默认中文。
@@ -193,6 +198,7 @@ public class Elaina implements EditStringsSubscriber,EditCardsSubscriber, EditCh
       BaseMod.loadCustomStringsFile(UIStrings.class,"ElainaMod/localization/" + lang + "/UIStrings.json");
       BaseMod.loadCustomStringsFile(PowerStrings.class,"ElainaMod/localization/" + lang + "/powers.json");
       BaseMod.loadCustomStringsFile(EventStrings.class,"ElainaMod/localization/" + lang + "/events.json");
+      BaseMod.loadCustomStringsFile(PotionStrings.class,"ElainaMod/localization/" + lang + "/potions.json");
 
    }
 
@@ -229,5 +235,9 @@ public class Elaina implements EditStringsSubscriber,EditCardsSubscriber, EditCh
    public void receivePostInitialize() {
       BaseMod.addEvent(NoMushroomEvent.ID, NoMushroomEvent.class);
       BaseMod.addEvent(DisputeEvent.ID, DisputeEvent.class);
+
+      BaseMod.addPotion(MagicPotion.class,Color.BLUE,Color.BLUE,Color.BLUE,"Elaina:MagicPotion", MY_CHARACTER);
+      BaseMod.addPotion(FlashPotion.class,Color.GOLD,Color.GOLD,Color.GOLD,"Elaina:FlashPotion", MY_CHARACTER);
+      BaseMod.addPotion(TimePotion.class,Color.YELLOW,Color.YELLOW,Color.YELLOW,"Elaina:TimePotion", MY_CHARACTER);
    }
 }

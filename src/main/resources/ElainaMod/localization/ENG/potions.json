@@ -1,0 +1,22 @@
+{
+  "Elaina:MagicPotion": {
+    "NAME": "Magic Potion",
+    "DESCRIPTIONS": [
+      "Gain #b",
+      " #ySpell_Boost."
+    ]
+  },
+  "Elaina:TemperamentPotion": {
+    "NAME": "Temperament Potion",
+    "DESCRIPTIONS": [
+      "Add #b",
+      " #yAccelerations to your hand, they cost #b0 this turn."
+    ]
+  },
+  "Elaina:TimePotion": {
+    "NAME": "Time Potion",
+    "DESCRIPTIONS": [
+      "End your turn and gain an additional turn."
+    ]
+  }
+}

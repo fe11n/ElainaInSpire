@@ -26,7 +26,13 @@ public class StarryShadowPreparationPower extends AbstractPower {
         this.updateDescription();
         this.img = new Texture("ElainaMod/img/powers/StarryShadowPreparationPower.png");
     }
-    public void updateDescription(){this.description = DESCRIPTIONS[0]+ amount +DESCRIPTIONS[1];}
+    public void updateDescription(){
+        if(amount==1){
+            this.description = DESCRIPTIONS[2];
+        }else {
+            this.description = DESCRIPTIONS[0]+amount+DESCRIPTIONS[1];
+        }
+    }
     public void atStartOfTurn() {
         this.flash();
         this.addToBot(new ApplyPowerAction(this.owner, this.owner, new StarryShadowPower(this.owner, 6)));

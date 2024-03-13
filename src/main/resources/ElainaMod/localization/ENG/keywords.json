@@ -1,0 +1,111 @@
+[
+  {
+    "DESCRIPTION": "Add a card that not exhausted and are not a Power to Diary.",
+    "NAMES": [
+      "Record",
+      "record",
+      "recorded",
+      "recording"
+    ]
+  },
+  {
+    "DESCRIPTION": "Record to Diary immediately after playing.",
+    "NAMES": [
+      "Shorthand",
+      "shorthand"
+    ]
+  },
+  {
+    "DESCRIPTION": "The last recorded card in Diary.",
+    "NAMES": [
+      "Conclusion",
+      "conclusion"
+    ]
+  },
+  {
+    "DESCRIPTION": "At the start of your turn, if Conclusion has Instant, activate its effect.",
+    "NAMES": [
+      "Instant",
+      "instant"
+    ]
+  },
+  {
+    "DESCRIPTION": "Retrieve a card from Diary into your hand.",
+    "NAMES": [
+      "Reproduce",
+      "reproduce"
+    ]
+  },
+  {
+    "DESCRIPTION": "A state number can be changed by cards and relics. When it's 12, it turns into 1 after being advanced, which is considered to have completed one cycle",
+    "NAMES": [
+      "Month",
+      "month"
+    ]
+  },
+  {
+    "DESCRIPTION": "Season cards have different effects in different seasons.",
+    "NAMES": [
+      "Season Card",
+      "season_card",
+      "season_cards"
+    ]
+  },
+  {
+    "DESCRIPTION": "The card retrieved through reproduction is called an image. An image has ethereal and exhaust.",
+    "NAMES": [
+      "Image",
+      "image",
+      "images"
+    ]
+  },
+  {
+    "DESCRIPTION": "Spell Boost adds additional damage and block to Magic. It will be reduced by half after playing Magic.",
+    "NAMES": [
+      "Spell Boost",
+      "spell_boost"
+    ]
+  },
+  {
+    "DESCRIPTION": "Creatures with residual magic lose HP for every card with retain you have.",
+    "NAMES": [
+      "Magic Residue",
+      "magic_residue"
+    ]
+  },
+  {
+    "DESCRIPTION": "Prevent the next time you would lose HP.",
+    "NAMES": [
+      "Buffer",
+      "buffer"
+    ]
+  },
+  {
+    "DESCRIPTION": "When Month is 3-5, the card has above effect.",
+    "NAMES": [
+      "Spring",
+      "spring"
+    ]
+  },
+  {
+    "DESCRIPTION": "When Month is 6-8, the card has above effect.",
+    "NAMES": [
+      "Summer",
+      "summer"
+    ]
+  },
+  {
+    "DESCRIPTION": "When Month is 9-11, the card has above effect.",
+    "NAMES": [
+      "Autumn",
+      "autumn"
+    ]
+  },
+  {
+    "DESCRIPTION": "When Month is 12-2, the card has above effect.",
+    "NAMES": [
+      "Winter",
+      "winter"
+    ]
+  }
+]

@@ -1,6 +1,6 @@
 package ElainaMod.cards;
 
-import ElainaMod.powers.ResidualMagicPower;
+import ElainaMod.powers.MagicResiduePower;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -34,11 +34,11 @@ public class Fight extends AbstractElainaCard {
     public void onChoseThisOption() {
         AbstractPlayer p = AbstractDungeon.player;
         for(AbstractMonster mo:AbstractDungeon.getCurrRoom().monsters.monsters){
-            if(mo.hasPower(ResidualMagicPower.POWER_ID)){
-                int am = mo.getPower(ResidualMagicPower.POWER_ID).amount;
-                this.addToBot(new ApplyPowerAction(mo,p,new ResidualMagicPower(mo,p,am)));
+            if(mo.hasPower(MagicResiduePower.POWER_ID)){
+                int am = mo.getPower(MagicResiduePower.POWER_ID).amount;
+                this.addToBot(new ApplyPowerAction(mo,p,new MagicResiduePower(mo,p,am)));
                 if(this.upgraded){
-                    this.addToBot(new ApplyPowerAction(mo,p,new ResidualMagicPower(mo,p,am)));
+                    this.addToBot(new ApplyPowerAction(mo,p,new MagicResiduePower(mo,p,am)));
                 }
             }
         }

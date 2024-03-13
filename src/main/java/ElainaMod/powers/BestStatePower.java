@@ -38,7 +38,13 @@ public class BestStatePower extends AbstractPower {
         this.updateDescription();
         this.img = new Texture("ElainaMod/img/powers/BestStatePower.png");
     }
-    public void updateDescription(){this.description = DESCRIPTIONS[0]+ amount + DESCRIPTIONS[1];}
+    public void updateDescription(){
+        if(amount==1){
+            this.description = DESCRIPTIONS[2];
+        }else {
+            this.description = DESCRIPTIONS[0]+amount+DESCRIPTIONS[1];
+        }
+    }
     public void onUseCard(AbstractCard card, UseCardAction action){
         if(card.hasTag(ElainaC.Enums.SEASONAL)){
             this.addToBot(new ReducePowerAction(owner,owner,"Elaina:BestState",1));

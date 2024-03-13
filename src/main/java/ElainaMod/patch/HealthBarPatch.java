@@ -1,6 +1,6 @@
 package ElainaMod.patch;
 
-import ElainaMod.powers.ResidualMagicPower;
+import ElainaMod.powers.MagicResiduePower;
 import basemod.ReflectionHacks;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
@@ -25,7 +25,7 @@ public class HealthBarPatch {
     public static class renderHealthPatch {
         @SpirePostfixPatch
         public static void customHealthBarRender(AbstractCreature __instance, SpriteBatch sb, float x, float y) {
-            if (!__instance.hasPower(ResidualMagicPower.POWER_ID)) {
+            if (!__instance.hasPower(MagicResiduePower.POWER_ID)) {
                 return;
             }
             // 为保证兼容性，限制有魔力残留才进入。同时考虑中毒的情况。
@@ -34,7 +34,7 @@ public class HealthBarPatch {
             float HEALTH_BAR_OFFSET_Y = ReflectionHacks.getPrivate(__instance, AbstractCreature.class, "HEALTH_BAR_OFFSET_Y");
             float healthBarWidth = ReflectionHacks.getPrivate(__instance, AbstractCreature.class, "healthBarWidth");
             int Num;
-            int residualAmt = __instance.getPower(ResidualMagicPower.POWER_ID).amount;
+            int residualAmt = __instance.getPower(MagicResiduePower.POWER_ID).amount;
             int selfRetainMult = 0;
             ArrayList<AbstractCard> g = AbstractDungeon.player.hand.group;
             for (AbstractCard card : g) {

@@ -5,9 +5,9 @@
 
 package ElainaMod.potions;
 
-import ElainaMod.powers.ResidualMagicPower;
-import ElainaMod.powers.SpellBoostPower;
-import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import ElainaMod.cards.Accelerate;
+import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -16,14 +16,13 @@ import com.megacrit.cardcrawl.localization.PotionStrings;
 import com.megacrit.cardcrawl.potions.AbstractPotion;
 import com.megacrit.cardcrawl.rooms.AbstractRoom.RoomPhase;
 
-public class FlashPotion extends AbstractPotion {
-    public static final String POTION_ID = "Elaina:FlashPotion";
-    private static final PotionStrings potionStrings = CardCrawlGame.languagePack.getPotionString("Elaina:FlashPotion");
+public class TemperamentPotion extends AbstractPotion {
+    public static final String POTION_ID = "Elaina:TemperamentPotion";
+    private static final PotionStrings potionStrings = CardCrawlGame.languagePack.getPotionString("Elaina:TemperamentPotion");
 
-    public FlashPotion() {
-        super(potionStrings.NAME, "Elaina:FlashPotion", PotionRarity.COMMON, PotionSize.FAIRY, PotionColor.GREEN);
-        this.isThrown = true;
-        this.targetRequired = true;
+    public TemperamentPotion() {
+        super(potionStrings.NAME, "Elaina:TemperamentPotion", PotionRarity.UNCOMMON, PotionSize.FAIRY, PotionColor.GREEN);
+        this.isThrown = false;
     }
 
     public void initializeData() {
@@ -34,16 +33,19 @@ public class FlashPotion extends AbstractPotion {
     }
 
     public void use(AbstractCreature target) {
+        target = AbstractDungeon.player;
+        AbstractCard tempc = new Accelerate();
+        tempc.setCostForTurn(0);
         if (AbstractDungeon.getCurrRoom().phase == RoomPhase.COMBAT) {
-            this.addToBot(new ApplyPowerAction(target, AbstractDungeon.player, new ResidualMagicPower(target, AbstractDungeon.player,this.potency), this.potency));
+            this.addToBot(new MakeTempCardInHandAction(tempc.makeStatEquivalentCopy(), this.potency));
         }
     }
 
     public int getPotency(int ascensionLevel) {
-        return 5;
+        return 3;
     }
 
     public AbstractPotion makeCopy() {
-        return new FlashPotion();
+        return new TemperamentPotion();
     }
 }

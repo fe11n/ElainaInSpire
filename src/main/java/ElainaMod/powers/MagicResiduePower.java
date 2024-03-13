@@ -1,7 +1,5 @@
 package ElainaMod.powers;
 
-import ElainaMod.Characters.ElainaC;
-import ElainaMod.action.MagicDiffusionAction;
 import com.badlogic.gdx.graphics.Texture;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.unique.PoisonLoseHpAction;
@@ -16,17 +14,17 @@ import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-public class ResidualMagicPower extends AbstractPower {
-    public static final String POWER_ID = "Elaina:ResidualMagic";
+public class MagicResiduePower extends AbstractPower {
+    public static final String POWER_ID = "Elaina:MagicResidue";
     private static final PowerStrings powerstrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
     ;
     public static final String NAME = powerstrings.NAME;
 
     public static final String[] DESCRIPTIONS = powerstrings.DESCRIPTIONS;
-    public static final Logger logger = LogManager.getLogger(ResidualMagicPower.class);
+    public static final Logger logger = LogManager.getLogger(MagicResiduePower.class);
     private AbstractCreature source;
 
-    public ResidualMagicPower(AbstractCreature o, AbstractCreature s ,int num) {
+    public MagicResiduePower(AbstractCreature o, AbstractCreature s , int num) {
         this.name = NAME;
         this.ID = POWER_ID;
         this.owner = o;
@@ -37,7 +35,7 @@ public class ResidualMagicPower extends AbstractPower {
             this.amount = 9999;
         }
         this.updateDescription();
-        this.img = new Texture("ElainaMod/img/powers/ResidualMagicPower.png");
+        this.img = new Texture("ElainaMod/img/powers/MagicResiduePower.png");
         this.isTurnBased = true;
     }
 

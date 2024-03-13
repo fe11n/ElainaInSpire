@@ -4,7 +4,7 @@ import ElainaMod.Characters.ElainaC;
 import ElainaMod.cards.*;
 import ElainaMod.events.DisputeEvent;
 import ElainaMod.events.NoMushroomEvent;
-import ElainaMod.potions.FlashPotion;
+import ElainaMod.potions.TemperamentPotion;
 import ElainaMod.potions.MagicPotion;
 import ElainaMod.potions.TimePotion;
 import ElainaMod.relics.*;
@@ -182,15 +182,23 @@ public class Elaina implements EditStringsSubscriber,EditCardsSubscriber, EditCh
       BaseMod.addRelicToCustomPool(new ShinyMushroom(), EXAMPLE_COLOR);
    }
 
-
-   public void receiveEditStrings() {
+   private String getlang(){
       String lang;
-      // 还没做其他语言，就全默认中文。
       if (language == Settings.GameLanguage.ZHS) {
          lang = "ZHS"; // 如果语言设置为简体中文，则加载ZHS文件夹的资源
-      } else {
-         lang = "ZHS"; // 如果没有相应语言的版本，默认加载中文
       }
+      else if(language == Settings.GameLanguage.ENG){
+         lang = "ENG";
+      }
+      else {
+         lang = "ENG"; // 如果没有相应语言的版本，默认加载英文
+      }
+      return lang;
+   }
+
+
+   public void receiveEditStrings() {
+      String lang = getlang();
       BaseMod.loadCustomStringsFile(CardStrings.class, "ElainaMod/localization/" + lang + "/cards.json"); // 加载相应语言的卡牌本地化内容。
       // 如果是中文，加载的就是"ExampleResources/localization/ZHS/cards.json"
       BaseMod.loadCustomStringsFile(CharacterStrings.class, "ElainaMod/localization/" + lang + "/characters.json");
@@ -205,10 +213,8 @@ public class Elaina implements EditStringsSubscriber,EditCardsSubscriber, EditCh
    @Override
    public void receiveEditKeywords() {
       Gson gson = new Gson();
-      String lang = "ZHS";
-      if (language == Settings.GameLanguage.ZHS) {
-         lang = "ZHS";
-      }
+
+      String lang = getlang();
 
       String json = Gdx.files.internal("ElainaMod/localization/" + lang + "/keywords.json")
               .readString(String.valueOf(StandardCharsets.UTF_8));
@@ -237,7 +243,7 @@ public class Elaina implements EditStringsSubscriber,EditCardsSubscriber, EditCh
       BaseMod.addEvent(DisputeEvent.ID, DisputeEvent.class);
 
       BaseMod.addPotion(MagicPotion.class,Color.BLUE,Color.BLUE,Color.BLUE,"Elaina:MagicPotion", MY_CHARACTER);
-      BaseMod.addPotion(FlashPotion.class,Color.GOLD,Color.GOLD,Color.GOLD,"Elaina:FlashPotion", MY_CHARACTER);
+      BaseMod.addPotion(TemperamentPotion.class,Color.GOLD,Color.GOLD,Color.GOLD,"Elaina:FlashPotion", MY_CHARACTER);
       BaseMod.addPotion(TimePotion.class,Color.YELLOW,Color.YELLOW,Color.YELLOW,"Elaina:TimePotion", MY_CHARACTER);
    }
 }

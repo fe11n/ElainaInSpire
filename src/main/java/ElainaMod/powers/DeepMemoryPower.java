@@ -36,7 +36,13 @@ public class DeepMemoryPower extends AbstractPower {
         this.updateDescription();
         this.img = new Texture("ElainaMod/img/powers/DeepMemoryPower.png");
     }
-    public void updateDescription(){this.description = DESCRIPTIONS[0]+amount+DESCRIPTIONS[1];}
+    public void updateDescription(){
+        if(amount==1){
+            this.description = DESCRIPTIONS[2];
+        }else {
+            this.description = DESCRIPTIONS[0]+amount+DESCRIPTIONS[1];
+        }
+    }
 
     public void atStartOfTurn() {
         for(int i = 0;i<amount;){

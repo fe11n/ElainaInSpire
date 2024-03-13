@@ -6,18 +6,17 @@
       " 层 #y魔力增幅 "
     ]
   },
-  "Elaina:FlashPotion": {
-    "NAME": "闪光药水",
+  "Elaina:TemperamentPotion": {
+    "NAME": "调律药水",
     "DESCRIPTIONS": [
-      "给予 #b",
-      " 层 #y魔力残留 "
+      "增加 #b",
+      " 张本回合费用为 #b0 的 #y加速 到你的手牌"
     ]
   },
   "Elaina:TimePotion": {
     "NAME": "时光药水",
     "DESCRIPTIONS": [
-      "增加 #b",
-      " 张本回合费用为 #b0 的 #y加速+ 到你的手牌"
+      "结束你的回合，并额外获得一回合。"
     ]
   }
 }

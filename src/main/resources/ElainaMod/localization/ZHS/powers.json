@@ -2,78 +2,87 @@
   "Elaina:IntensifyArray": {
     "NAME": "激化法阵",
     "DESCRIPTIONS": [
-      "回合开始时，获得 [E] ，额外抽",
-      "张牌，使随机1个敌人获得1点力量。"
+      "回合开始时，获得 [E] ，额外抽 #b",
+      " 张牌，使随机1个敌人获得1点力量。"
     ]
   },
   "Elaina:BottledHappiness": {
     "NAME": "瓶装的幸福",
     "DESCRIPTIONS": [
-      "回合结束时，使所有敌人失去等于其力量",
-      "倍的生命值。"
+      "回合结束时，使所有敌人失去等于其力量 #b",
+      " 倍的生命值。"
     ]
   },
   "Elaina:MagicEcho": {
     "NAME": "魔力回响",
     "DESCRIPTIONS": [
-      "在战斗中临时增加卡牌时会额外增加",
-      "张。"
+      "每回合第一次临时增加卡牌时会额外增加1张。",
+      "每回合前 #b",
+      " 次临时增加卡牌时会额外增加1张。"
     ]
   },
   "Elaina:SpellReorganization": {
     "NAME": "法术重组",
     "DESCRIPTIONS": [
-      "回合开始时，手牌中每有1张保留牌，获得",
-      "点格挡。"
+      "回合开始时，手牌中每有1张保留牌，获得 #b",
+      " 点格挡。"
     ]
   },
   "Elaina:SpellBoost": {
     "NAME": "魔力增幅",
     "DESCRIPTIONS": [
-      "魔法卡牌伤害增加",
-      "点。打出魔法卡牌后层数减少至原来的一半（向下取整）。"
+      "魔法卡牌伤害和格挡增加 #b",
+      " 点。打出魔法卡牌后层数减少至原来的一半（向下取整）。"
     ]
   },
   "Elaina:MagicDiffusion": {
     "NAME": "魔力扩散",
     "DESCRIPTIONS": [
-      "触发瞬发效果时，使随机",
-      "张手牌获得瞬发效果。"
+      "触发瞬发效果时，使随机 #b",
+      " 张手牌获得瞬发效果。"
     ]
   },
-  "Elaina:Continuation": {
-    "NAME": "续行",
+  "Elaina:StarryShadowPreparation": {
+    "NAME": "星影预备",
     "DESCRIPTIONS": [
-      "本回合使用映像时，再现结语，抽",
-      "张牌。"
+      "下 #b",
+      " 个回合使用卡牌后，若手牌数不足6张则再现结语至手牌数为6。"
+    ]
+  },
+  "Elaina:StarryShadow": {
+    "NAME": "星影",
+    "DESCRIPTIONS": [
+      "使用卡牌后，若手牌数不足 #b",
+      " 张则再现结语至手牌数为 #b",
+      " 。"
     ]
   },
   "Elaina:DeepMemory": {
     "NAME": "深层记忆",
     "DESCRIPTIONS": [
-      "你打出的映像会被打出两次。回合开始时随机记录",
-      "张牌。"
+      "你打出的映像会被打出两次。回合开始时随机记录 #b",
+      " 张牌。"
     ]
   },
   "Elaina:ConvergenceMagic": {
     "NAME": "汇聚魔法",
     "DESCRIPTIONS": [
-      "本回合每打出一张魔法卡牌获得",
-      "层魔力增幅。"
+      "本回合每打出一张魔法卡牌获得 #b",
+      " 层魔力增幅。"
     ]
   },
   "Elaina:SelfDefense": {
     "NAME": "自我保护",
     "DESCRIPTIONS": [
-      "回合开始时使随机1张手牌变为映像。打出映像时获得",
-      "点格挡。"
+      "回合开始时使随机1张手牌变为映像。打出映像时获得 #b",
+      " 点格挡。"
     ]
   },
   "Elaina:GetSpellBoost": {
     "NAME": "魔力增幅增加",
     "DESCRIPTIONS": [
-      "回合开始时获得",
-      "层魔力增幅。"
+      "回合开始时获得 #b",
+      " 层魔力增幅。"
     ]
   },
   "Elaina:SpellResonance": {
@@ -91,29 +100,50 @@
   "Elaina:TimeGoesBack": {
     "NAME": "时光倒流",
     "DESCRIPTIONS": [
-      "回合开始时，时节前进1，随机再现2张卡牌，使其费用变为0。剩余",
-      "回合。"
+      "回合开始时，时节前进1，随机再现2张卡牌，使其费用变为0。剩余 #b",
+      " 回合。"
     ]
   },
   "Elaina:BestState": {
     "NAME": "最佳状态",
     "DESCRIPTIONS": [
-      "接下来的",
-      "张时令卡会以最强效果被打出。"
+      "接下来的 #b",
+      " 张时令卡会以最强效果被打出。"
     ]
   },
   "Elaina:AdvancedMagic": {
     "NAME": "进阶魔法",
     "DESCRIPTIONS": [
-      "本回合魔力增幅不再提供伤害加成，且有魔力增幅时，每打出1张魔法卡，抽",
-      "张牌。"
+      "本回合魔力增幅不再提供伤害加成，且有魔力增幅时，每打出1张魔法卡，抽 #b",
+      " 张牌。"
     ]
   },
   "Elaina:ProtectiveMagic": {
     "NAME": "防护魔法",
     "DESCRIPTIONS": [
-      "本回合每打出1张魔法卡，获得",
-      "点格挡。"
+      "本回合每打出1张魔法卡，获得 #b",
+      " 点格挡。"
+    ]
+  },
+  "Elaina:ResidualMagic": {
+    "NAME": "魔力残余",
+    "DESCRIPTIONS": [
+      "在其回合开始时，失去等同于你手牌中保留牌数 #b",
+      " 倍的生命"
+    ]
+  },
+  "Elaina:RetainCardOneTurn": {
+    "NAME": "保留手牌",
+    "DESCRIPTIONS": [
+      "在本回合结束时，你可以保留 #b",
+      " 张牌。"
+    ]
+  },
+  "Elaina:IgnisFatuus": {
+    "NAME": "幻火",
+    "DESCRIPTIONS": [
+      "在每回合开始时，将 #b",
+      " 张 *点燃 加入你的手牌。"
     ]
   }
 }

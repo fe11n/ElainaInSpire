@@ -2,7 +2,11 @@ package ElainaMod.Elaina;
 
 import ElainaMod.Characters.ElainaC;
 import ElainaMod.cards.*;
+import ElainaMod.events.DisputeEvent;
 import ElainaMod.events.NoMushroomEvent;
+import ElainaMod.potions.FlashPotion;
+import ElainaMod.potions.MagicPotion;
+import ElainaMod.potions.TimePotion;
 import ElainaMod.relics.*;
 import basemod.BaseMod;
 import basemod.interfaces.*;
@@ -64,6 +68,7 @@ public class Elaina implements EditStringsSubscriber,EditCardsSubscriber, EditCh
       BaseMod.addCard(new AdjustPace());
       BaseMod.addCard(new AdvancedMagic());
       BaseMod.addCard(new Anticipatory());
+      BaseMod.addCard(new Asylum());
       BaseMod.addCard(new AutumnVigilance());
       BaseMod.addCard(new Awaken());
       BaseMod.addCard(new BasicMagic());
@@ -71,9 +76,10 @@ public class Elaina implements EditStringsSubscriber,EditCardsSubscriber, EditCh
       BaseMod.addCard(new BombardmentMagic());
       BaseMod.addCard(new BottledHappiness());
       BaseMod.addCard(new CharmMagic());
-//      BaseMod.addCard(new Continuation());
+      BaseMod.addCard(new StarryShadow());
       BaseMod.addCard(new ConvergenceMagic());
       BaseMod.addCard(new CounterMagic());
+      BaseMod.addCard(new Countermeasure());
       BaseMod.addCard(new DeepMemory());
       BaseMod.addCard(new Defend());
       BaseMod.addCard(new DejaVu());
@@ -81,32 +87,40 @@ public class Elaina implements EditStringsSubscriber,EditCardsSubscriber, EditCh
       BaseMod.addCard(new Deviation());
       BaseMod.addCard(new Drawup());
       BaseMod.addCard(new Echo());
-      BaseMod.addCard(new Eh());
+//      BaseMod.addCard(new Eh());
       BaseMod.addCard(new EmergencyTreatment());
       BaseMod.addCard(new Endurance());
       BaseMod.addCard(new Gifts());
       BaseMod.addCard(new ExplosiveMagic());
+      BaseMod.addCard(new Fight());
       BaseMod.addCard(new FirstImpression());
       BaseMod.addCard(new FlashMagic());
       BaseMod.addCard(new FragmentMagic());
       BaseMod.addCard(new FragrantWind());
       BaseMod.addCard(new Glance());
       BaseMod.addCard(new GrowUp());
+      BaseMod.addCard(new HypotheticalEnemy());
       BaseMod.addCard(new IceConeMagic());
+      BaseMod.addCard(new IgnisFatuus());
+      BaseMod.addCard(new Ignite());
       BaseMod.addCard(new IndelibleImprint());
       BaseMod.addCard(new IntensifyArray());
       BaseMod.addCard(new IronWaveMagic());
       BaseMod.addCard(new ItsMe());
       BaseMod.addCard(new LeavesMagic());
+      BaseMod.addCard(new MagicAttachment());
       BaseMod.addCard(new MagicDiffusion());
       BaseMod.addCard(new MagicEcho());
       BaseMod.addCard(new MagicSurging());
+      BaseMod.addCard(new MagicTrade());
       BaseMod.addCard(new MagicTurbulence());
       BaseMod.addCard(new MarblePhantasm());
       BaseMod.addCard(new Mutation());
+      BaseMod.addCard(new Nausea());
       BaseMod.addCard(new NewClothes());
       BaseMod.addCard(new Outset());
       BaseMod.addCard(new Penoff());
+      BaseMod.addCard(new PerfectMagic());
       BaseMod.addCard(new Ponder());
       BaseMod.addCard(new ProtectiveMagic());
       BaseMod.addCard(new PureMagic());
@@ -119,8 +133,10 @@ public class Elaina implements EditStringsSubscriber,EditCardsSubscriber, EditCh
       BaseMod.addCard(new Redistribution());
       BaseMod.addCard(new Repetition());
       BaseMod.addCard(new Reversal());
+      BaseMod.addCard(new Review());
       BaseMod.addCard(new Rhetoric());
       BaseMod.addCard(new Rummage());
+      BaseMod.addCard(new RuneMagic());
       BaseMod.addCard(new Rush());
       BaseMod.addCard(new SelfDefense());
       BaseMod.addCard(new ShowWeakness());
@@ -163,7 +179,10 @@ public class Elaina implements EditStringsSubscriber,EditCardsSubscriber, EditCh
       BaseMod.addRelicToCustomPool(new TreasureWine(), EXAMPLE_COLOR);
       BaseMod.addRelicToCustomPool(new GreedyDoll(), EXAMPLE_COLOR);
       BaseMod.addRelicToCustomPool(new NicolesAdventure(), EXAMPLE_COLOR);
+      BaseMod.addRelicToCustomPool(new ShinyMushroom(), EXAMPLE_COLOR);
    }
+
+
    public void receiveEditStrings() {
       String lang;
       // 还没做其他语言，就全默认中文。
@@ -179,6 +198,7 @@ public class Elaina implements EditStringsSubscriber,EditCardsSubscriber, EditCh
       BaseMod.loadCustomStringsFile(UIStrings.class,"ElainaMod/localization/" + lang + "/UIStrings.json");
       BaseMod.loadCustomStringsFile(PowerStrings.class,"ElainaMod/localization/" + lang + "/powers.json");
       BaseMod.loadCustomStringsFile(EventStrings.class,"ElainaMod/localization/" + lang + "/events.json");
+      BaseMod.loadCustomStringsFile(PotionStrings.class,"ElainaMod/localization/" + lang + "/potions.json");
 
    }
 
@@ -214,5 +234,10 @@ public class Elaina implements EditStringsSubscriber,EditCardsSubscriber, EditCh
    @Override
    public void receivePostInitialize() {
       BaseMod.addEvent(NoMushroomEvent.ID, NoMushroomEvent.class);
+      BaseMod.addEvent(DisputeEvent.ID, DisputeEvent.class);
+
+      BaseMod.addPotion(MagicPotion.class,Color.BLUE,Color.BLUE,Color.BLUE,"Elaina:MagicPotion", MY_CHARACTER);
+      BaseMod.addPotion(FlashPotion.class,Color.GOLD,Color.GOLD,Color.GOLD,"Elaina:FlashPotion", MY_CHARACTER);
+      BaseMod.addPotion(TimePotion.class,Color.YELLOW,Color.YELLOW,Color.YELLOW,"Elaina:TimePotion", MY_CHARACTER);
    }
 }

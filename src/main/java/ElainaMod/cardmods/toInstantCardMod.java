@@ -3,6 +3,7 @@ package ElainaMod.cardmods;
 import ElainaMod.Characters.ElainaC;
 import ElainaMod.cards.AbstractElainaCard;
 import basemod.abstracts.AbstractCardModifier;
+import basemod.helpers.CardModifierManager;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 
@@ -43,5 +44,10 @@ public class toInstantCardMod extends AbstractCardModifier {
             ((AbstractElainaCard)card).isInstant = false;
         }//只允许对不为瞬发的卡添加该mod
         card.rawDescription = postDescription;
+    }
+
+    public boolean canApplyTo(AbstractCard c){
+        return !CardModifierManager.hasModifier(c,"toInstantCardMod")
+                && !((c instanceof AbstractElainaCard)&&(((AbstractElainaCard)c).isInstant));
     }
 }

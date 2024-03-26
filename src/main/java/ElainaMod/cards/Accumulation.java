@@ -31,7 +31,7 @@ public class Accumulation extends AbstractElainaCard {
     public void upgrade() { // 升级调用的方法
         if (!this.upgraded) {
             this.upgradeName();
-            this.upgradeMagicNumber(5);
+            this.upgradeMagicNumber(2);
         }
     }
     /**
@@ -43,7 +43,7 @@ public class Accumulation extends AbstractElainaCard {
     @Override
     public void BasicEffect(ElainaC p, AbstractMonster m) {
         this.addToBot(new ApplyPowerAction(p,p,new SpellBoostPower(p,this.magicNumber),this.magicNumber));
-        this.addToBot(new ApplyPowerAction(p, p, new StrengthPower(p, -5), -5, true, AbstractGameAction.AttackEffect.NONE));
-        this.addToBot(new ApplyPowerAction(p, p, new GainStrengthPower(p, 5), 5, true, AbstractGameAction.AttackEffect.NONE));
+        this.addToBot(new ApplyPowerAction(p, p, new StrengthPower(p, -6), -6, true, AbstractGameAction.AttackEffect.NONE));
+        this.addToBot(new ApplyPowerAction(p, p, new GainStrengthPower(p, 6), 6, true, AbstractGameAction.AttackEffect.NONE));
     }
 }

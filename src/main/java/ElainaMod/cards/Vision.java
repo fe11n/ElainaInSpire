@@ -5,8 +5,10 @@ import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.WeakPower;
@@ -33,6 +35,16 @@ public class Vision extends AbstractElainaCard {
             this.upgradeDamage(4); // 将该卡牌的伤害提高2点。
         }
     }
+
+    public void triggerOnGlowCheck() {
+        ElainaC p = (ElainaC) AbstractDungeon.player;
+        if(p.hasPower("Elaina:SpellBoost")){
+            this.glowColor = AbstractCard.GOLD_BORDER_GLOW_COLOR.cpy();
+        } else {
+            this.glowColor = AbstractCard.BLUE_BORDER_GLOW_COLOR.cpy();
+        }
+    }
+
     /**
      * 当卡牌被使用时，调用这个方法。
      *

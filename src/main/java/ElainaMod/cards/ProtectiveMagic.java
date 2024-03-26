@@ -16,15 +16,14 @@ public class ProtectiveMagic extends AbstractElainaCard {
     private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID); // 从游戏系统读取本地化资源
     private static final String IMG_PATH = "ElainaMod/img/cards/ProtectiveMagic.png";
     private static final int COST = 1;
-    private static final CardType TYPE = CardType.ATTACK;
+    private static final CardType TYPE = CardType.SKILL;
     private static final CardRarity RARITY = CardRarity.COMMON;
-    private static final CardTarget TARGET = CardTarget.ENEMY;
+    private static final CardTarget TARGET = CardTarget.NONE;
 
     public ProtectiveMagic() {
         // 为了命名规范修改了变量名。这些参数具体的作用见下方
         super(ID, CARD_STRINGS, IMG_PATH, COST, TYPE, RARITY, TARGET);
         this.block = this.baseBlock = 6;
-        this.damage = this.baseDamage = 3;
         this.magicNumber = this.baseMagicNumber = 3;
         this.tags.add(ElainaC.Enums.MAGIC);
     }
@@ -33,8 +32,8 @@ public class ProtectiveMagic extends AbstractElainaCard {
     public void upgrade() { // 升级调用的方法
         if (!this.upgraded) {
             this.upgradeName();
-            this.upgradeBlock(1);
-            this.upgradeMagicNumber(2);
+            this.upgradeBlock(2);
+            this.upgradeMagicNumber(1);
         }
     }
     /**
@@ -47,7 +46,6 @@ public class ProtectiveMagic extends AbstractElainaCard {
     public void BasicEffect(ElainaC p, AbstractMonster m) {
         // AbstractCard中实现了addToBot方法，它的效果和AbstractDungeon.actionManager.addToBottom相同
         this.addToBot(new GainBlockAction(p,p,this.block));
-        this.addToBot(new DamageAction(m, new DamageInfo(p, damage, DamageInfo.DamageType.NORMAL), AbstractGameAction.AttackEffect.SMASH));
         this.addToBot(new ApplyPowerAction(p,p,new ProtectiveMagicPower(p,magicNumber)));
 
     }

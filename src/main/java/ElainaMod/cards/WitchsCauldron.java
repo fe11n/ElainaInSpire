@@ -40,21 +40,24 @@ public class WitchsCauldron extends AbstractElainaCard {
     }
     public static ArrayList<AbstractCard> returnProphecy() {
         ArrayList<AbstractCard> list = new ArrayList();
-        list.add(new Penoff());
-        list.add(new Echo());
         list.add(new ItsMe());
         list.add(new Repetition());
-        list.add(new Accelerate());
-        list.add(new Spell());
-        list.add(new Reappear());
+        list.add(new Penoff());
         list.add(new FragmentMagic());
+        list.add(new MagicAttachment());
+        list.add(new Reappear());
+        list.add(new Ignite());
+        list.add(new Spell());
         list.add(new Reversal());
+        list.add(new Accelerate());
+        list.add(new Echo());
         list.add(new Mutation());
-        list.add(new Insight());
-        list.add(new Smite());
-        list.add(new Safety());
-        list.add(new Miracle());
+        list.add(new Sublimation());
         list.add(new ThroughViolence());
+        list.add(new Miracle());
+        list.add(new Safety());
+        list.add(new Smite());
+        list.add(new Insight());
         return list;
     }
 

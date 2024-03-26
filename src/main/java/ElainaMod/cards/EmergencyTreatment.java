@@ -34,8 +34,7 @@ public class EmergencyTreatment extends AbstractElainaCard {
     public void upgrade() { // 升级调用的方法
         if (!this.upgraded) {
             this.upgradeName();
-            this.upgradeBlock(1);
-            this.upgradeMagicNumber(1);
+            this.upgradeBaseCost(0);
         }
     }
     /**
@@ -48,11 +47,7 @@ public class EmergencyTreatment extends AbstractElainaCard {
     public void BasicEffect(ElainaC p, AbstractMonster m) {
         // AbstractCard中实现了addToBot方法，它的效果和AbstractDungeon.actionManager.addToBottom相同
         this.addToBot(new GainBlockAction(p,p,this.block));
-        AbstractCard c = this.makeCopy();
-        if(this.upgraded){
-            c.upgrade();
-        }
-        this.addToBot(new MakeTempCardInHandAction(c));
+        this.addToBot(new MakeTempCardInHandAction(new EmergencyTreatment()));
         this.addToBot(new ApplyPowerAction(p,p,new DexterityPower(p,magicNumber)));
         int count = 0;
         Iterator it = p.discardPile.group.iterator();

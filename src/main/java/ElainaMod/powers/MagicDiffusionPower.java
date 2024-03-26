@@ -35,7 +35,6 @@ public class MagicDiffusionPower extends AbstractPower {
         this.owner = o;
         this.amount = num;
         this.type = PowerType.BUFF;
-        logger.info(DESCRIPTIONS[0]);
         this.updateDescription();
         this.img = new Texture("ElainaMod/img/powers/MagicDiffusionPower.png");
     }

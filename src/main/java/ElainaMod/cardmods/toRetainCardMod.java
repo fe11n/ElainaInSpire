@@ -2,6 +2,7 @@ package ElainaMod.cardmods;
 
 import ElainaMod.cards.AbstractElainaCard;
 import basemod.abstracts.AbstractCardModifier;
+import basemod.helpers.CardModifierManager;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 
@@ -48,5 +49,10 @@ public class toRetainCardMod extends AbstractCardModifier {
     public void onRemove(AbstractCard card) {
         card.selfRetain = false;//只允许对不保留的卡添加该mod
         card.rawDescription = postDescription;
+    }
+
+    public boolean canApplyTo(AbstractCard c){
+        return !CardModifierManager.hasModifier(c,"toRetainCardMod")
+                && !((c instanceof AbstractElainaCard)&&c.selfRetain);
     }
 }

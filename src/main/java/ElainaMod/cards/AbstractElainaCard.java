@@ -27,6 +27,12 @@ public class AbstractElainaCard extends CustomCard {
                 ElainaC.Enums.EXAMPLE_COLOR, RARITY, TARGET);
         this.strings = strings;
     }
+    public AbstractElainaCard(String ID, CardStrings strings, String IMG_PATH, int COST, CardType TYPE,
+                              CardRarity RARITY, CardTarget TARGET,CardColor color){
+        super(ID, strings.NAME, IMG_PATH, COST, strings.DESCRIPTION, TYPE,
+                color, RARITY, TARGET);
+        this.strings = strings;
+    }
 
     @Override
     public void upgrade() {

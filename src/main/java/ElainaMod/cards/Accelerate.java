@@ -22,7 +22,7 @@ public class Accelerate extends AbstractElainaCard {
 
     public Accelerate() {
         // 为了命名规范修改了变量名。这些参数具体的作用见下方
-        super(ID, CARD_STRINGS, IMG_PATH, COST, TYPE, RARITY, TARGET);
+        super(ID, CARD_STRINGS, IMG_PATH, COST, TYPE, RARITY, TARGET,CardColor.COLORLESS);
         this.magicNumber = this.baseMagicNumber = 2;
         this.exhaust = true;
         this.selfRetain = true;

@@ -21,7 +21,6 @@ public class FirstImpressionAction extends AbstractGameAction {
     public ArrayList<AbstractElainaCard> g;
     public static final Logger logger = LogManager.getLogger(FirstImpressionAction.class);
     public static final String[] TEXT = CardCrawlGame.languagePack.getUIString("Elaina:FirstImpressionAction").TEXT;
-    private int num;
     public FirstImpressionAction(ElainaC p){
         this.p = p;
         this.duration = Settings.ACTION_DUR_FAST;

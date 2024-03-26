@@ -65,6 +65,7 @@ public class GetDiaryCardAction extends AbstractGameAction {
             }
             else {
                 g.removeCard(targetCard);
+                p.getConclusionOrb().syncConclusionWithDiary();
                 logger.info("Remove from Diary: "+targetCard.name);
             }
 
@@ -86,10 +87,12 @@ public class GetDiaryCardAction extends AbstractGameAction {
                     AbstractDungeon.player.hand.refreshHandLayout();
                     AbstractDungeon.player.hand.applyPowers();
                 }
-            }else if(p.hasRelic("Elaina:TreasureWine") && p.getDiarySize()>0){
-                p.getRelic("Elaina:TreasureWine").flash();
-                this.addToBot(new RelicAboveCreatureAction(AbstractDungeon.player, p.getRelic("Elaina:TreasureWine")));
-                this.addToBot(new DamageAllEnemiesAction(null, DamageInfo.createDamageMatrix(p.getDiarySize(), true), DamageInfo.DamageType.THORNS, AttackEffect.BLUNT_HEAVY));
+            }else {
+                if(p.hasRelic("Elaina:TreasureWine") && p.getDiarySize()>0){
+                    p.getRelic("Elaina:TreasureWine").flash();
+                    this.addToBot(new RelicAboveCreatureAction(AbstractDungeon.player, p.getRelic("Elaina:TreasureWine")));
+                    this.addToBot(new DamageAllEnemiesAction(null, DamageInfo.createDamageMatrix(p.getDiarySize(), true), DamageInfo.DamageType.THORNS, AttackEffect.BLUNT_HEAVY));
+                }
             }
         }
         logger.info("Now Diary size: "+p.getDiarySize());

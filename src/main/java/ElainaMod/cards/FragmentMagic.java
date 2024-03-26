@@ -20,7 +20,7 @@ public class FragmentMagic extends AbstractElainaCard {
 
     public FragmentMagic() {
         // 为了命名规范修改了变量名。这些参数具体的作用见下方
-        super(ID,CARD_STRINGS, IMG_PATH, COST, TYPE, RARITY, TARGET);
+        super(ID,CARD_STRINGS, IMG_PATH, COST, TYPE, RARITY, TARGET,CardColor.COLORLESS);
         this.damage = this.baseDamage = 3;
         this.tags.add(ElainaC.Enums.MAGIC);
         this.isShorthand = true;

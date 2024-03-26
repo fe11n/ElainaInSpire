@@ -3,6 +3,7 @@ package ElainaMod.cards;
 import ElainaMod.Characters.ElainaC;
 import ElainaMod.action.GetDiaryCardAction;
 import ElainaMod.action.RecordCardAction;
+import basemod.BaseMod;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
@@ -46,12 +47,19 @@ public class Rummage extends AbstractElainaCard {
      */
     @Override
     public void BasicEffect(ElainaC p, AbstractMonster m) {
+        int num = BaseMod.MAX_HAND_SIZE - p.hand.size() - this.magicNumber;
         this.addToBot(new DrawCardAction(this.magicNumber));
         this.addToBot(new AbstractGameAction() {
             @Override
             public void update() {
-                for(int i = 0;i<magicNumber;i++){
-                    this.addToBot(new RecordCardAction(p.hand.group.get(p.hand.group.size()-magicNumber+i)));
+                if(num>=0){
+                    for(int i = 0;i<magicNumber;i++){
+                        this.addToBot(new RecordCardAction(p.hand.group.get(p.hand.group.size()-magicNumber+i)));
+                    }
+                }else {
+                    for(int i = 0;i<magicNumber+num+1;i++){
+                        this.addToBot(new RecordCardAction(p.hand.group.get(p.hand.group.size()-magicNumber+i)));
+                    }
                 }
                 this.isDone = true;
             }

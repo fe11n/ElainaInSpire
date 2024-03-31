@@ -48,11 +48,10 @@ public class toShorthandCardMod extends AbstractCardModifier {
     }
     
     // Github 工作流上编译时找不到父类的 addToBot 符号，这里直接实现以临时解决
-    @Override
     public void addToBot(AbstractGameAction action) {
         AbstractDungeon.actionManager.addToBottom(action);
     }
-    
+
     @Override
     public void onUse(AbstractCard card, AbstractCreature target, UseCardAction action) {
         if(!(card instanceof AbstractElainaCard)){

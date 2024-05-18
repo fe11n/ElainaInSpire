@@ -2,8 +2,10 @@ package ElainaMod.powers;
 
 import com.badlogic.gdx.graphics.Texture;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.unique.PoisonLoseHpAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -42,12 +44,10 @@ public class MagicResiduePower extends AbstractPower {
     public void updateDescription() {
         this.description = DESCRIPTIONS[0] + amount + DESCRIPTIONS[1];
     }
-
-    public void atStartOfTurn() {
+    private void doDamage(AbstractPlayer p) {
         if (AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT
                 && !AbstractDungeon.getMonsters().areMonstersBasicallyDead()) {
             this.flashWithoutSound();
-            AbstractPlayer p = (AbstractPlayer)this.source;//这里联机的时候可能出问题？
             int m = 0;
             for(AbstractCard c:p.hand.group){
                 if(c.selfRetain){
@@ -55,10 +55,28 @@ public class MagicResiduePower extends AbstractPower {
                 }
             }
             if(m>0){
-                this.addToBot(new PoisonLoseHpAction(this.owner, this.source,
-                        this.amount*m, AbstractGameAction.AttackEffect.FIRE));
+//                // 用这个 hp 不会同步。
+//                this.addToBot(new PoisonLoseHpAction(this.owner, p,
+//                        this.amount*m, AbstractGameAction.AttackEffect.FIRE));
+
+                // 如果不同步，不同主机生命值显示会不同
+                this.addToBot(new DamageAction(owner, new DamageInfo(p, this.amount*m,
+                        DamageInfo.DamageType.NORMAL), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
             }
         }
+    }
+
+    public void atStartOfTurn() {
+        // 为了兼容联机模组，区分玩家类
+        if (source.getClass().getName().equals("spireTogether.monsters.playerChars.NetworkDefaultChar")) {
+            // 实际联机的时候能力的 source 只有一个，除了第一个引发效果的人都会进这个分支
+            logger.info("其他的 ResidualMagicPower "+ source);
+            // 现在的逻辑是所有玩家都造成伤害
+            doDamage(AbstractDungeon.player);
+            return;
+        }
+        logger.info("初次引发效果的 ResidualMagicPower: "+ source);
+        doDamage((AbstractPlayer) source);
     }
 
     @Override

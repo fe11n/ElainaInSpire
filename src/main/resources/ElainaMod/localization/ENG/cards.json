@@ -215,7 +215,7 @@
     "DESCRIPTION": "Exhaust 1 card in your hand, add 1 *Mutation to your hand.",
     "UPGRADE_DESCRIPTION": "Exhaust 1 card in your hand, add 1 *Mutation+ to your hand."
   },
-  "Elaina:WitchesCauldron": {
+  "Elaina:WitchsCauldron": {
     "NAME": "Witch's Cauldron",
     "DESCRIPTION": "Add !M! random cards with Retain to your hand. NL Exhaust."
   },

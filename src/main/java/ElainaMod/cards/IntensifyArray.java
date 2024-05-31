@@ -33,6 +33,8 @@ public class IntensifyArray extends AbstractElainaCard {
         if (!this.upgraded) {
             this.upgradeName();
             this.upgradeMagicNumber(1);
+            this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
+            this.initializeDescription();
         }
     }
     /**

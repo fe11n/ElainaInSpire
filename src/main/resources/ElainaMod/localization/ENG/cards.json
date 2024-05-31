@@ -1,0 +1,432 @@
+{
+  "Elaina:Strike": {
+    "NAME": "Strike",
+    "DESCRIPTION": "Deal !D! damage."
+  },
+  "Elaina:Defend": {
+    "NAME": "Defend",
+    "DESCRIPTION": "Gain !B! Block."
+  },
+  "Elaina:Recall": {
+    "NAME": "Recall",
+    "DESCRIPTION": "Gain !B! Block. Add Instant to Conclusion. Cannot be elainamod:Recorded."
+  },
+  "Elaina:RecreateMagic": {
+    "NAME": "RecreateMagic",
+    "DESCRIPTION": "Deal !D! damage. elainamod:Reproduce elainamod:Conclusion, it costs 0 this turn."
+  },
+  "Elaina:DestructionMagic": {
+    "NAME": "DestructionMagic",
+    "DESCRIPTION": "Can only be played if elainamod:Conclusion exists. NL Deal !D! damage to ALL enemies. Lose elainamod:Conclusion."
+  },
+  "Elaina:CharmMagic": {
+    "NAME": "CharmMagic",
+    "DESCRIPTION": "Deal !D! damage to ALL enemies. If elainamod:Conclusion has instant, apply !M! Vulnerable to ALL enemies."
+  },
+  "Elaina:IceConeMagic": {
+    "NAME": "IceConeMagic",
+    "DESCRIPTION": "Deal !D! damage. NL Apply !M! Vulnerable. NL elainamod:Winter."
+  },
+  "Elaina:Recollect": {
+    "NAME": "Recollect",
+    "DESCRIPTION": "Can only be played if elainamod:Conclusion exists. NL Lose elainamod:Conclusion and gain [E]. If the lost elainamod:Conclusion has elainamod:Instant, draw 2 cards.",
+    "UPGRADE_DESCRIPTION": "Can only be played if elainamod:Conclusion exists. NL Lose elainamod:Conclusion and gain [E][E]. If the lost elainamod:Conclusion has elainamod:Instant, draw 2 cards."
+  },
+  "Elaina:GrowUp": {
+    "NAME": "Grow Up",
+    "DESCRIPTION": "Gain !M! *Temporary Strength and *Temporary Dexterity. This value increases by 1 for each cycle of elainamod:Month."
+  },
+  "Elaina:WitnessOfFriendship": {
+    "NAME": "Witness of Friendship",
+    "DESCRIPTION": "Once per cycle, gain 1 random relic. NL Exhaust. NL elainamod:Spring."
+  },
+  "Elaina:IndelibleImprint": {
+    "NAME": "Indelible Imprint",
+    "DESCRIPTION": "elainamod:Shorthand. NL Gain !B! Block. NL When this is elainamod:Conclusion, elainamod:Recording cards and losing elainamod:Conclusion will become dealing !M! damage to a random enemy."
+  },
+  "Elaina:HypotheticalEnemy": {
+    "NAME": "Hypothetical Enemy",
+    "DESCRIPTION": "Double ALL enemies' Strength. NL Choose one: Double ALL enemies' elainamod:Magic_Residue, advance elainamod:Month by !M!, or gain !B! elainamod:Buffer. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Double ALL enemies' Strength. NL Choose one: Triple ALL enemies' elainamod:Magic_Residue, advance elainamod:Month by !M!, or gain !B! Intangible. NL Exhaust."
+  },
+  "Elaina:Rush": {
+    "NAME": "Rush",
+    "DESCRIPTION": "Advance elainamod:Month by !M!."
+  },
+  "Elaina:Fight": {
+    "NAME": "Fight",
+    "DESCRIPTION": "Double ALL enemies' elainamod:Magic_Residue.",
+    "UPGRADE_DESCRIPTION": "Triple ALL enemies' elainamod:Magic_Residue."
+  },
+  "Elaina:Asylum": {
+    "NAME": "Asylum",
+    "DESCRIPTION": "Gain !B! elainamod:Buffer.",
+    "UPGRADE_DESCRIPTION": "Gain !B! Intangible."
+  },
+  "Elaina:IntensifyArray": {
+    "NAME": "Intensify Array",
+    "DESCRIPTION": "At the start of your turn, gain [E], draw !M! additional card, apply 1 Strength to a random enemy.",
+    "UPGRADE_DESCRIPTION": "At the start of your turn, gain [E], draw !M! additional cards, apply 1 Strength to a random enemy."
+  },
+  "Elaina:WitchRobe": {
+    "NAME": "Witch Robe",
+    "DESCRIPTION": "Gain !B! block. If no other cards are played this turn or this card triggers elainamod:instant, gain [E]. NL elainamod:Instant."
+  },
+  "Elaina:BombardmentMagic": {
+    "NAME": "Bombardment Magic",
+    "DESCRIPTION": "Deal !D! damage. NL Apply !M! elainamod:Magic_Residue."
+  },
+  "Elaina:Rummage": {
+    "NAME": "Rummage",
+    "DESCRIPTION": "Draw !M! cards and elainamod:Record these cards."
+  },
+  "Elaina:LeavesMagic": {
+    "NAME": "Leaves Magic",
+    "DESCRIPTION": "Deal !D! damage to ALL enemies 3 times. NL elainamod:Autumn."
+  },
+  "Elaina:ItsMe": {
+    "NAME": "It's Me",
+    "DESCRIPTION": "Retain. NL elainamod:Record 1 card in hand, apply a random enemy *Temporary Strength equal to the cost of the Recorded card. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Retain. NL elainamod:Record 1 card in hand, apply a random enemy *Temporary Strength equal to the cost of the Recorded card minus 1. NL Exhaust."
+  },
+  "Elaina:Penoff": {
+    "NAME": "Pen Off",
+    "DESCRIPTION": "Gain !B! Block. NL Retain. NL Exhaust."
+  },
+  "Elaina:Ponder": {
+    "NAME": "Ponder",
+    "DESCRIPTION": "Gain !B! Block. NL Add !M! Pen Offs to your hand."
+  },
+  "Elaina:Eh": {
+    "NAME": "Eh!?",
+    "DESCRIPTION": "Gain *Temporary Dexterity and Block equal to the sum of ALL enemies' Strength."
+  },
+  "Elaina:MagicSurging": {
+    "NAME": "Magic Surging",
+    "DESCRIPTION": "Play the last !M! cards Recorded by elainamod:Record from Diary. NL Can be Upgraded any number of times. NL Cannot be elainamod:Recorded."
+  },
+  "Elaina:CounterMagic": {
+    "NAME": "Counter Magic",
+    "DESCRIPTION": "Apply the target enemy's Strength bonus. Deal !D! damage 3 times. NL If Fatal, ALL enemies lose !M! Strength this turn."
+  },
+  "Elaina:Echo": {
+    "NAME": "Echo",
+    "DESCRIPTION": "Gain !B! Block. NL elainamod:Record all cards played this turn. NL Retain."
+  },
+  "Elaina:Drawup": {
+    "NAME": "Draw Up",
+    "DESCRIPTION": "Deal !D! damage. NL Add an *Echo to your hand, it costs 0 this turn. NL Exhaust."
+  },
+  "Elaina:BottledHappiness": {
+    "NAME": "Bottled Happiness",
+    "DESCRIPTION": "At the end of your turn, ALL enemies lose HP equal to their Strength multiplied by !M!."
+  },
+  "Elaina:FlashMagic": {
+    "NAME": "Flash Magic",
+    "DESCRIPTION": "Deal !D! damage. If the enemy has Strength bonus, gain [E] and apply !M! Weak."
+  },
+  "Elaina:FragrantWind": {
+    "NAME": "Fragrant Wind",
+    "DESCRIPTION": "Apply ALL enemies !M! Weak and Vulnerable, and !D! elainamod:Magic_Residual. NL Exhaust. NL elainamod:Summer."
+  },
+  "Elaina:Accelerate": {
+    "NAME": "Accelerate",
+    "DESCRIPTION": "Advance elainamod:Month by !M!. NL Retain. NL Exhaust."
+  },
+  "Elaina:AdjustPace": {
+    "NAME": "Adjust Pace",
+    "DESCRIPTION": "Regress elainamod:Month by !M!. NL Add 2 *Accelerates to your hand. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Regress elainamod:Month by !M!. NL Add 2 *Accelerate+s to your hand. NL Exhaust."
+  },
+  "Elaina:MagicEcho": {
+    "NAME": "Magic Echo",
+    "DESCRIPTION": "The first temporary card added each turn will grant an additional copy.",
+    "UPGRADE_DESCRIPTION": "Innate. NL The first temporary card added each turn will grant an additional copy."
+  },
+  "Elaina:ThunderMagic": {
+    "NAME": "Thunder Magic",
+    "DESCRIPTION": "Costs 2 less [E] NL for each Magic played this turn. NL Deal !D! damage to the enemy with the lowest HP. When an enemy is killed, increase damage by !M! and activate the effect again. NL Exhaust."
+  },
+  "Elaina:SilentChant": {
+    "NAME": "Silent Chant",
+    "DESCRIPTION": "Gain !B! Block. NL Add 1 *Release to your hand.",
+    "UPGRADE_DESCRIPTION": "Gain !B! Block. NL Add 1 *Release+ to your hand."
+  },
+  "Elaina:Spell": {
+    "NAME": "Release",
+    "DESCRIPTION": "Draw !M! cards. NL When Retained, increase its value by 1 (up to a maximum of 3). NL Retain. NL Exhaust."
+  },
+  "Elaina:Reappear": {
+    "NAME": "Reappear",
+    "DESCRIPTION": "elainamod:Reproduce 1 card. NL Retain. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "elainamod:Reproduce 1 card. NL Retain."
+  },
+  "Elaina:SpellReorganization": {
+    "NAME": "Spell Reorganization",
+    "DESCRIPTION": "At the start of your turn, gain !M! Block for each Retained card in your hand."
+  },
+  "Elaina:Vibration": {
+    "NAME": "Vibration",
+    "DESCRIPTION": "Deal !D! damage. NL Add !M! Fragment Magics to your hand. NL Exhaust."
+  },
+  "Elaina:FragmentMagic": {
+    "NAME": "Fragment Magic",
+    "DESCRIPTION": "elainamod:Shorthand. NL Deal !D! damage to a random enemy. If you have elainamod:Spell_Boost, draw 1 card. NL Retain."
+  },
+  "Elaina:EmergencyTreatment": {
+    "NAME": "Emergency Treatment",
+    "DESCRIPTION": "Gain !B! Block and !M! Dexterity. NL Add 1 *Emergency_Treatment to your hand. NL Apply all enemies Strength equal to the number of *Emergency_Treatment / *Emergency_Treatment+ in the discard pile."
+  },
+  "Elaina:FirstImpression": {
+    "NAME": "First Impression",
+    "DESCRIPTION": "Draw !M! cards. NL Discard any number of cards from your hand and elainamod:Record them. Cannot be elainamod:Recorded."
+  },
+  "Elaina:Turnback": {
+    "NAME": "Turnback",
+    "DESCRIPTION": "Gain !B! Block and !M! elainamod:Spell_Boost."
+  },
+  "Elaina:SpringJoy": {
+    "NAME": "Spring Joy",
+    "DESCRIPTION": "If you don't have *Regeneration, gain !M! *Regeneration. Increase this value by 1 each cycle. NL elainamod:Instant."
+  },
+  "Elaina:SummerExcitement": {
+    "NAME": "Summer Excitement",
+    "DESCRIPTION": "If you don't have elainamod:Spell_Boost, gain !M! elainamod:Spell_Boost. Increase this value by 1 each cycle. NL elainamod:Instant."
+  },
+  "Elaina:AutumnVigilance": {
+    "NAME": "Autumn Vigilance",
+    "DESCRIPTION": "If you don't have *Thorns, gain !M! *Thorns. Increase this value by 1 each cycle. NL elainamod:Instant."
+  },
+  "Elaina:WinterPeace": {
+    "NAME": "Winter Peace",
+    "DESCRIPTION": "If you don't have *Plated *Armor, gain !M! *Plated *Armor. Increase this value by 1 each cycle. NL elainamod:Instant."
+  },
+  "Elaina:Accumulation": {
+    "NAME": "Accumulation",
+    "DESCRIPTION": "Gain !M! elainamod:Spell_Boost. NL Lose 6 Strength this turn. NL Exhaust."
+  },
+  "Elaina:Mutation": {
+    "NAME": "Mutation",
+    "DESCRIPTION": "Retain. NL When Retained, Exhaust 1 random card in your hand and add 1 *Miracle to your hand.",
+    "UPGRADE_DESCRIPTION": "Retain. NL When Retained, Exhaust 1 random card in your hand and add 1 *Miracle to your hand. NL When this card is Exhausted, add 1 *Miracle to your hand."
+  },
+  "Elaina:Endurance": {
+    "NAME": "Endurance",
+    "DESCRIPTION": "Exhaust 1 card in your hand, add 1 *Mutation to your hand.",
+    "UPGRADE_DESCRIPTION": "Exhaust 1 card in your hand, add 1 *Mutation+ to your hand."
+  },
+  "Elaina:WitchsCauldron": {
+    "NAME": "Witch's Cauldron",
+    "DESCRIPTION": "Add !M! random cards with Retain to your hand. NL Exhaust."
+  },
+  "Elaina:MagicDiffusion": {
+    "NAME": "Magic Diffusion",
+    "DESCRIPTION": "At the start of your turn, if Conclusion has elainamod:Instant, apply elainamod:Instant to random !M! cards in your hand.",
+    "UPGRADE_DESCRIPTION": "Innate. NL At the start of your turn, if Conclusion has elainamod:Instant, apply elainamod:Instant to random !M! cards in your hand."
+  },
+  "Elaina:Rhetoric": {
+    "NAME": "Rhetoric",
+    "DESCRIPTION": "Gain !B! Block. NL Upgrade and elainamod:Reproduce elainamod:Conclusion.",
+    "UPGRADE_DESCRIPTION": "Gain !B! Block. NL Upgrade all cards in Diary, elainamod:Reproduce 1 card."
+  },
+  "Elaina:StarryShadow": {
+    "NAME": "Starry Shadow",
+    "DESCRIPTION": "Next turn, after playing a card, elainamod:Reproduce elainamod:Conclusion until you have 6 in your hand.",
+    "UPGRADE_DESCRIPTION": "Retain. NL Next turn, after playing a card, elainamod:Reproduce elainamod:Conclusion until you have 6 in your hand."
+  },
+  "Elaina:Reconsitution": {
+    "NAME": "Reconstitution",
+    "DESCRIPTION": "Lose all cards in Diary. Gain 1 random power for each card lost. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Lose all cards in Diary. Gain 2 random powers for each card lost. NL Exhaust.",
+    "EXTENDED_DESCRIPTION": [
+      " NL (Current Diary card count: !M! )"
+    ]
+  },
+  "Elaina:MarblePhantasm": {
+    "NAME": "Marble Phantasm",
+    "DESCRIPTION": "elainamod:Shorthand, elainamod:Record at the beginning of Diary. NL elainamod:Reproduce elainamod:Conclusion. NL When played, if this is an elainamod:Image, increase the value of all positive powers by !M!."
+  },
+  "Elaina:DeepMemory": {
+    "NAME": "Deep Memory",
+    "DESCRIPTION": "At the start of your turn, elainamod:Record !M! random cards. NL elainamod:Images you play is played twice."
+  },
+  "Elaina:WizardsWell": {
+    "NAME": "Wizard's Well",
+    "DESCRIPTION": "elainamod:Shorthand. NL Gain !M! elainamod:Spell_Boost. NL When this is elainamod:Conclusion, playing Magics only reduces 1 elainamod:Spell_Boost."
+  },
+  "Elaina:ThePerfectMe": {
+    "NAME": "The Perfect Me",
+    "DESCRIPTION": "Apply elainamod:Instant to all cards in your discard pile. NL If No cards in your discard pile can receive elainamod:Instant, activate all elainamod:Instant effects in Diary. NL Cannot be elainamod:Recorded."
+  },
+  "Elaina:ConvergenceMagic": {
+    "NAME": "Convergence Magic",
+    "DESCRIPTION": "Deal !D! damage. NL elainamod:Reproduce all Magics to your hand. NL Whenever you play a Magic this turn, gain !M! elainamod:Spell_Boost."
+  },
+  "Elaina:BasicMagic": {
+    "NAME": "Basic Magic",
+    "DESCRIPTION": "Deal !D! damage. NL Add !M! *Yes, *It's *Mes to your hand.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Add !M! *Yes, *It's *Me+s to your hand."
+  },
+  "Elaina:NewClothes": {
+    "NAME": "New Outfit",
+    "DESCRIPTION": "Gain !B! Block. NL Whenever you change elainamod:Month, return this from the discard pile to your hand."
+  },
+  "Elaina:Reversal": {
+    "NAME": "Reversal",
+    "DESCRIPTION": "Retain. NL Stun ALL enemies that deal damage greater than or equal to half of your current HP. NL Exhaust."
+  },
+  "Elaina:ShowWeakness": {
+    "NAME": "Show Weakness",
+    "DESCRIPTION": "Gain 1 Vulnerable. Add 1 *Reversal to your hand. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Gain 1 Vulnerable. Add 1 *Reversal+ to your hand. NL Exhaust."
+  },
+  "Elaina:SelfDefense": {
+    "NAME": "Self-Defense",
+    "DESCRIPTION": "At the start of your turn, transform 1 random card in your hand into elainamod:Image. NL Gain !M! Block when playing elainamod:Images."
+  },
+  "Elaina:Awaken": {
+    "NAME": "Awaken",
+    "DESCRIPTION": "Transform cards in your hand, discard pile, and draw pile into elainamod:Images. NL Shuffle copies of Diary cards into your draw pile. NL Exhaust."
+  },
+  "Elaina:SpellLink": {
+    "NAME": "Spell Link",
+    "DESCRIPTION": "Gain !M! elainamod:Spell_Boost at the start of your turn. NL Whenever you gain elainamod:Spell_Boost, gain an equal amount of Block."
+  },
+  "Elaina:SpellResonance": {
+    "NAME": "Spell Resonance",
+    "DESCRIPTION": "Gain !M! elainamod:Spell_Boost at the start of your turn. NL Whenever you lose elainamod:Spell_Boost, ALL enemies lose an equal amount of HP."
+  },
+  "Elaina:TimeGoesBack": {
+    "NAME": "Time Goes Back",
+      "DESCRIPTION": "When played, regress elainamod:Month by X. At the start of your next X turns, advance elainamod:Month by 1, and elainamod:Reproduce 2 random cards, they cost 0 this turn.",
+    "UPGRADE_DESCRIPTION": "When played, regress elainamod:Month by X. At the start of your next X+1 turns, advance elainamod:Month by 1, and elainamod:Reproduce 2 random cards, they cost 0 this turn."
+  },
+  "Elaina:Deviation": {
+    "NAME": "Deviation",
+    "DESCRIPTION": "Deal !D! damage. NL Advance elainamod:Month by 1. NL Whenever you change elainamod:Month, increase damage by !M!. NL Exhaust."
+  },
+  "Elaina:TimeMagic": {
+    "NAME": "Time Magic",
+    "DESCRIPTION": "Deal !D! damage. NL Regress elainamod:Season by 1. NL Add 1 *Deviation to your draw pile.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Regress elainamod:Season by 1. NL Add 1 *Deviation+ to your draw pile."
+  },
+  "Elaina:Glance": {
+    "NAME": "Glance",
+    "DESCRIPTION": "Unplayable and cannot be elainamod:Recorded. NL When you draw this card, draw 1 additional card and elainamod:Record your hand and Exhaust.",
+    "UPGRADE_DESCRIPTION": "Unplayable and cannot be elainamod:Recorded. NL When you draw this card, draw 1 additional card and elainamod:Record your hand."
+  },
+  "Elaina:Quotation": {
+    "NAME": "Quotation",
+    "DESCRIPTION": "elainamod:Record !M! random cards and choose 1 card to be elainamod:Recorded last. NL Exhaust.",
+    "EXTENDED_DESCRIPTION": [
+      "Choose 1 card to be Recorded last."
+    ]
+  },
+  "Elaina:Repetition": {
+    "NAME": "Repetition",
+    "DESCRIPTION": "Retain. NL Can be played when elainamod:Conclusion has elainamod:Instant. NL Activate elainamod:Instant effect of elainamod:Conclusion !M! times. NL Exhaust."
+  },
+  "Elaina:ExplosiveMagic": {
+    "NAME": "Explosive Magic",
+    "DESCRIPTION": "Deal !D! damage. NL elainamod:Spell_Boost affects this card !M! times."
+  },
+  "Elaina:Vision": {
+    "NAME": "Vision",
+    "DESCRIPTION": "Deal !D! damage. NL Gain [E] if the enemy has *Strength bonus. NL Gain [E] if you have elainamod:Spell_Boost."
+  },
+  "Elaina:Gifts": {
+    "NAME": "Gifted Nature",
+    "DESCRIPTION": "Deal damage equal to the number of powers times !M!.",
+    "EXTENDED_DESCRIPTION": [
+      " NL (Deal !D! damage)"
+    ]
+  },
+  "Elaina:Anticipatory": {
+    "NAME": "Anticipatory",
+    "DESCRIPTION": "Deal !D! damage. NL elainamod:Record the top !M! cards of your draw pile. Gain [E] for each card that cannot be elainamod:Recorded."
+  },
+  "Elaina:Redistribution": {
+    "NAME": "Redistribution",
+    "DESCRIPTION": "Transfer ALL other enemies' Strength bonuses to the enemy, gain *Temporary HP equal to its Strength. NL Exhaust."
+  },
+  "Elaina:BestState": {
+    "NAME": "Peak Condition",
+    "DESCRIPTION": "Gain !B! Block. NL Next elainamod:Season_Card will be played with its strongest effect."
+  },
+  "Elaina:AdvancedMagic": {
+    "NAME": "Advanced Magic",
+    "DESCRIPTION": "Deal !D! damage. NL elainamod:Spell_Boost will not be added to damage this turn. When your have elainamod:Spell_Boost, draw 1 card for each Magic played."
+  },
+  "Elaina:DejaVu": {
+    "NAME": "Deja Vu",
+    "DESCRIPTION": "Gain !B! Block. NL elainamod:Record a random card in your discard pile !M! times. NL Add 1 *Reappear to your hand."
+  },
+  "Elaina:MagicTurbulence": {
+    "NAME": "Magic Turbulence",
+    "DESCRIPTION": "Reduce the cost of cards in Diary by 1 and shuffle its order. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Reduce the cost of cards in Diary by 1 and shuffle its order. NL elainamod:Reproduce elainamod:Conclusion. NL Exhaust."
+  },
+  "Elaina:Sublimation": {
+    "NAME": "Sublimation",
+    "DESCRIPTION": "Exhaust any number of cards with Retain in your hand. NL For each card Exhausted, gain [E], and draw 1 card from the top of your discard pile. NL Exhaust. NL Retain.",
+    "UPGRADE_DESCRIPTION": "Exhaust any number of cards with Retain in your hand. NL For each card Exhausted, gain [E], draw, and elainamod:Record 1 card from your top of the discard pile. NL Exhaust. NL Retain."
+  },
+  "Elaina:PureMagic": {
+    "NAME": "Pure Magic",
+    "DESCRIPTION": "Deal !D! damage. NL elainamod:Record and Exhaust all non-Magic cards in your hand, gain !M! elainamod:Spell_Boost for each card Exhausted."
+  },
+  "Elaina:Outset": {
+    "NAME": "Outset",
+    "DESCRIPTION": "Deal !D! damage. NL Gain !M! elainamod:Spell_Boost. NL Gain [E] equal to the number of Magics in your hand. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Gain !M! elainamod:Spell_Boost. NL Gain [E] equal to the number of Magics in your hand."
+  },
+  "Elaina:ProtectiveMagic": {
+    "NAME": "Protective Magic",
+    "DESCRIPTION": "Gain !B! Block. NL Whenever you play a Magic this turn, gain !M! Block."
+  },
+  "Elaina:IronWaveMagic": {
+    "NAME": "Iron Wave Magic",
+    "DESCRIPTION": "*Retain. NL Deal !D! damage. NL Gain !B! Block."
+  },
+  "Elaina:PerfectMagic": {
+    "NAME": "Perfected Magic",
+    "DESCRIPTION": "Deal !D! damage. Deals 2 additional damage for ALL your Magics.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage. Deals 3 additional damage for ALL your Magics."
+  },
+  "Elaina:Countermeasure": {
+    "NAME": "Countermeasure",
+    "DESCRIPTION": "Apply !D! elainamod:Magic_Residue. NL Apply Retain to !M! card in your hand. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Apply !D! elainamod:Magic_Residue. NL Apply Retain to !M! cards in your hand. NL Exhaust."
+  },
+  "Elaina:MagicAttachment": {
+    "NAME": "Magic Attachment",
+    "DESCRIPTION": "When played or Exhausted, apply !M! elainamod:Magic_Residue. NL Retain."
+  },
+  "Elaina:MagicTrade": {
+    "NAME": "Magic Trade",
+    "DESCRIPTION": "Discard all cards with Retain, draw an equal number of cards, and Apply Retain to the drawn cards. NL Exhaust."
+  },
+  "Elaina:Review": {
+    "NAME": "Review",
+    "DESCRIPTION": "Lose all Diary cards. Gain !B! Block for each card lost.",
+    "EXTENDED_DESCRIPTION": [
+      " NL (Current Diary card count: !M!)"
+    ]
+  },
+  "Elaina:Ignite": {
+    "NAME": "Ignite",
+    "DESCRIPTION": "Retain. NL Apply !M! elainamod:Magic_Residue."
+  },
+  "Elaina:IgnisFatuus": {
+    "NAME": "Ignis Fatuus",
+    "DESCRIPTION": "At the start of your turn, add an *Ignite to your hand."
+  },
+  "Elaina:RuneMagic": {
+    "NAME": "Rune Magic",
+    "DESCRIPTION": "Deal !D! damage. NL Deal additionally for each extra keyword on this card."
+  },
+  "Elaina:Nausea": {
+    "NAME": "Nausea",
+    "DESCRIPTION": "Unplayable. NL Retain."
+  }
+}

@@ -1,18 +1,12 @@
 package ElainaMod.relics;
 
-import ElainaMod.Characters.ElainaC;
-import ElainaMod.powers.ResidualMagicPower;
+import ElainaMod.powers.MagicResiduePower;
 import basemod.abstracts.CustomRelic;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
-import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.powers.PoisonPower;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 
-import java.util.ArrayList;
 import java.util.Iterator;
 
 public class StoveFire extends CustomRelic {
@@ -31,7 +25,7 @@ public class StoveFire extends CustomRelic {
         while(var1.hasNext()) {
             AbstractMonster m = (AbstractMonster)var1.next();
             if (!m.isDead && !m.isDying) {
-                this.addToBot(new ApplyPowerAction(m, AbstractDungeon.player, new ResidualMagicPower(m, AbstractDungeon.player, 3)));
+                this.addToBot(new ApplyPowerAction(m, AbstractDungeon.player, new MagicResiduePower(m, AbstractDungeon.player, 3)));
             }
         }
 

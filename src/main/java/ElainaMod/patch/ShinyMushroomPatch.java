@@ -18,6 +18,8 @@ import org.apache.logging.log4j.Logger;
 
 import java.lang.reflect.Field;
 import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 
 
 public class ShinyMushroomPatch {
@@ -35,14 +37,23 @@ public class ShinyMushroomPatch {
         )
         public static void Insertfix(@ByRef ArrayList<AbstractCard>[] retVal2){
             if(!AbstractDungeon.player.hasRelic(ShinyMushroom.ID)) return;
-            for(AbstractCard c : retVal2[0]){
-                if(c.cardsToPreview!=null){
+
+            List<AbstractCard> toRemove = new ArrayList<>();
+            List<AbstractCard> toAdd = new ArrayList<>();
+
+            // 很有深意的二维数组
+            for (AbstractCard c : retVal2[0]) {
+                if (c.cardsToPreview != null) {
                     logger.info("Card changed:" + c.name);
-                    retVal2[0].remove(c);
-                    retVal2[0].add(c.cardsToPreview);
+                    toRemove.add(c);
+                    toAdd.add(c.cardsToPreview);
                     AbstractDungeon.player.gainGold(9);
                 }
             }
+
+            retVal2[0].removeAll(toRemove);
+            retVal2[0].addAll(toAdd);
+
         }
 
         private static class Locator extends SpireInsertLocator {

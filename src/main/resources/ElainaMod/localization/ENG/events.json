@@ -1,0 +1,36 @@
+{
+  "Elaina:NoMushroom": {
+    "NAME": "Mushrooms again",
+    "DESCRIPTIONS": [
+      "You enter a corridor filled with bright mushrooms. You want to leave, but there's a sense of nostalgia…",
+      "You're not sure why you ate it, but it was clearly not a good idea.",
+      "Driven by a strange urge, you take one of the mushrooms with you. NL You notice that your magical skills have been #yaffected…",
+      "You realize they crave the mushrooms you carry… NL After a flash of #bbright light, you feel much clearer.",
+      "You quickly leave."
+    ],
+    "OPTIONS": [
+      "[Eat] #gRecover #g+",
+      "Life #rCursed - Nausea",
+      "[Pick] #rLose 4 life, gain relic #gShiny_Mushroom",
+      "[Cultivate] #rLose #gStrange Mushroom, randomly #gUpgrade 3 cards",
+      "[Lock] Requires #gStrange_Mushroom",
+      "[Lock] No cards to upgrade",
+      "[Leave]"
+    ]
+  },
+
+  "Elaina:Dispute": {
+    "NAME": "Dispute",
+    "DESCRIPTIONS": [
+      "After a moment of dizziness, you see two shadowy figures arguing. NL The figure on the #rleft says: @\"A card that excels in both defense and offense will streamline your deck!\"@ NL The figure on the #bright side says: ~\"A card that can grow indefinitely will be the core of your deck!\"~ NL #yWho do you agree with more?",
+      "The shadowy figure on the #rleft smiles at you, and you sense that you have learned an ancient technique.",
+      "The shadowy figure on the #bright side smiles at you, and you gain an understanding of a powerful magic.",
+      "You ignore them."
+    ],
+    "OPTIONS": [
+      "[Left] Gain #gIron_Wave_Magic",
+      "[Right] Gain #gPerfected_Magic",
+      "[Leave]"
+    ]
+  }
+}

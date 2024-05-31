@@ -50,7 +50,7 @@ public class ThePerfectMeAction extends AbstractGameAction {
     public static ArrayList<AbstractCard> returnProphecy() {
         ArrayList<AbstractCard> list = new ArrayList();
         for(AbstractCard c:AbstractDungeon.player.discardPile.group){
-            if(ElainaC.isInstant(c) && ElainaC.isNotable(c)){//没有瞬发且可被记录的伊蕾娜卡牌
+            if(!ElainaC.isInstant(c) && ElainaC.isNotable(c)){//没有瞬发且可被记录的伊蕾娜卡牌
                 list.add(c);
             }
         }

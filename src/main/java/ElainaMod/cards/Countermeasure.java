@@ -2,12 +2,8 @@ package ElainaMod.cards;
 
 import ElainaMod.Characters.ElainaC;
 import ElainaMod.action.CountermeasureAction;
-import ElainaMod.powers.ResidualMagicPower;
-import ElainaMod.powers.RetainCardOneTurnPower;
-import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import ElainaMod.powers.MagicResiduePower;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
-import com.megacrit.cardcrawl.actions.common.DamageAction;
-import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
@@ -34,6 +30,8 @@ public class Countermeasure extends AbstractElainaCard {
         if (!this.upgraded) {
             this.upgradeName(); // 卡牌名字变为绿色并添加“+”，且标为升级过的卡牌，之后不能再升级。
             this.upgradeMagicNumber(1);
+            this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
+            this.initializeDescription();
         }
     }
     /**
@@ -43,7 +41,7 @@ public class Countermeasure extends AbstractElainaCard {
      * @param m 指向的怪物类。（无指向时为null，包括攻击所有敌人时）
      */
     public void BasicEffect(ElainaC p, AbstractMonster m){
-        this.addToBot(new ApplyPowerAction(m,p,new ResidualMagicPower(m,p,this.damage)));
+        this.addToBot(new ApplyPowerAction(m,p,new MagicResiduePower(m,p,this.damage)));
         this.addToBot(new CountermeasureAction(p,this.magicNumber));
     }//基础效果，可以被使用和瞬发
 }

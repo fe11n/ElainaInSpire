@@ -22,7 +22,7 @@ public class MagicPotion extends AbstractPotion {
     private static final PotionStrings potionStrings = CardCrawlGame.languagePack.getPotionString("Elaina:MagicPotion");
 
     public MagicPotion() {
-        super(potionStrings.NAME, "Elaina:MagicPotion", PotionRarity.UNCOMMON, PotionSize.SPHERE, PotionColor.BLUE);
+        super(potionStrings.NAME, "Elaina:MagicPotion", PotionRarity.COMMON, PotionSize.SPHERE, PotionColor.BLUE);
         this.isThrown = false;
     }
 
@@ -41,7 +41,7 @@ public class MagicPotion extends AbstractPotion {
     }
 
     public int getPotency(int ascensionLevel) {
-        return 7;
+        return 10;
     }
 
     public AbstractPotion makeCopy() {

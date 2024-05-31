@@ -29,7 +29,7 @@ public class StarryShadowPower extends AbstractPower {
         this.updateDescription();
         this.img = new Texture("ElainaMod/img/powers/StarryShadowPower.png");
     }
-    public void updateDescription(){this.description = DESCRIPTIONS[0]+ amount +DESCRIPTIONS[1]+ amount +DESCRIPTIONS[2];}
+    public void updateDescription(){this.description = DESCRIPTIONS[0]+ amount +DESCRIPTIONS[1];}
     public void onAfterUseCard(AbstractCard card, UseCardAction action) {
         ElainaC p = (ElainaC) AbstractDungeon.player;
         for(int i = 0;i<this.amount-p.hand.size();i++){

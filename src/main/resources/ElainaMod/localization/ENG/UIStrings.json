@@ -1,0 +1,135 @@
+{
+  "Elaina:Exhaust":{
+    "TEXT": [
+      "Exhaust."
+    ]
+  },
+  "Elaina:Ethereal":{
+    "TEXT": [
+      "Ethereal."
+    ]
+  },
+  "Elaina:Instant":{
+    "TEXT": [
+      "Instant."
+    ]
+  },
+  "Elaina:IceConeMagic":{
+    "TEXT": [
+      "Deal !D! damage. NL Apply !M! Vulnerable. NL elainamod:Winter.",
+      "Deal !D! damage. NL *Exhaust. NL elainamod:Spring.",
+      "Deal !D! damage. NL *Exhaust. NL elainamod:Summer.",
+      "Deal !D! damage. NL elainamod:Autumn."
+    ]
+  },
+  "Elaina:LeavesMagic":{
+    "TEXT": [
+      "Deal !D! damage to a random enemy 3 times. NL elainamod:Winter.",
+      "Deal !D! damage to a random enemy 2 times. NL elainamod:Spring.",
+      "Deal !D! damage to a random enemy 2 times. NL elainamod:Summer.",
+      "Deal !D! damage to ALL enemies 3 times. NL elainamod:Autumn."
+    ]
+  },
+  "Elaina:WitnessOfFriendship":{
+    "TEXT": [
+      "Once per cycle, gain 1 random relic. NL Exhaust. NL elainamod:Spring.",
+      "Gain !M! Gold. NL Exhaust."
+    ]
+  },
+  "Elaina:ItsMeAction":{
+    "TEXT": [
+      "Record"
+    ]
+  },
+  "Elaina:FragrantWind":{
+    "TEXT": [
+      "Apply ALL enemies !M! Weak. NL Exhaust. NL elainamod:Winter.",
+      "Apply ALL enemies !M! Weak and Vulnerable. NL Exhaust. NL elainamod:Spring.",
+      "Apply ALL enemies !M! Weak and Vulnerable, and !D! elainamod:Magic_Residual. NL Exhaust. NL elainamod:Summer.",
+      "Apply ALL enemies !M! Weak. NL Exhaust. NL elainamod:Autumn."
+    ]
+  },
+  "Elaina:FirstImpressionAction":{
+    "TEXT": [
+      "Discord and Record"
+    ]
+  },
+  "Elaina:Image":{
+    "TEXT": [
+      "elainamod:Image."
+    ]
+  },
+  "Elaina:Retain":{
+    "TEXT": [
+      "Retain."
+    ]
+  },
+  "Elaina:CountermeasureAction":{
+    "TEXT": [
+      "gain Retain"
+    ]
+  },
+  "Elaina:SublimationAction":{
+    "TEXT": [
+      "Exhaust"
+    ]
+  },
+  "Elaina:Shorthand":{
+    "TEXT": [
+      "Shorthand."
+    ]
+  },
+  "Elaina:DuplicatorEvent": {
+    "TEXT": [
+      "You've recorded your observations, and some skills seem to have improved as a result.",
+      "Select a card to add",
+      "Shorthand."
+    ],
+    "EXTRA_TEXT": [
+      "[Record] #Apply a card #Shorthand.",
+      "[Lock] Requires: Cards without Shorthand.",
+      "[Leave]"
+    ]
+  },
+  "Elaina:UpgradeShrineEvent":{
+    "TEXT": [
+      "You've recorded your observations, and some skills seem to have improved as a result.",
+      "Select a card to add",
+      "Retain"
+    ],
+    "EXTRA_TEXT": [
+      "[Record] #Apply a card #Retain.",
+      "[Lock] Requires: Cards without Retain.",
+      "[Leave]"
+    ]
+  },
+  "Elaina:PurifierEvent": {
+    "TEXT": [
+      "You've recorded your observations, and it seems to have purified some of your skills.",
+      "Select a Strike or Defend to convert it to its",
+      "corresponding Magic."
+    ],
+    "EXTRA_TEXT": [
+      "[Record] #gConverts a Strike or Defend to its corresponding Magic.",
+      "[Lock] Requires: A Strike or Defend.",
+      "[Leave]"
+    ]
+  }  ,
+  "Elaina:Magic":{
+    "TEXT": [
+      "Magic"
+    ]
+  },
+  "Elaina:TransmogrifierEvent":{
+    "TEXT": [
+      "You've recorded your observations, and some skills seem to have improved as a result.",
+      "Select a card to add",
+      "Instant"
+    ],
+    "EXTRA_TEXT": [
+      "[Record] #Apply a card #Instant.",
+      "[Lock] Requires: Cards without Instant.",
+      "[Leave]"
+    ]
+  }
+}

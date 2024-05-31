@@ -1,0 +1,94 @@
+{
+  "Elaina:WanderingWitch": {
+    "NAME": "Wandering Witch",
+    "FLAVOR": "A record of the travels and observations of the beautiful witch",
+    "DESCRIPTIONS": [
+      "At the start of each battle, #yRecord a card according to #yMonth. At the end of your turn, #yRecord the last card played this turn. Advance #Month by 1 when entering a new room. Upon completing a cycle, gain 50 Gold.",
+      "At the start of each battle, #yRecord a card according to #yMonth. At the end of your turn, #yRecord the last card played this turn. NL Advance #Month by 1 when entering a new room. Upon completing a cycle, gain 50 Gold. NL Current season: #bWinter",
+      "At the start of each battle, #yRecord a card according to #yMonth. At the end of your turn, #yRecord the last card played this turn. NL Advance #Month by 1 when entering a new room. Upon completing a cycle, gain 50 Gold. NL Current season: #gSpring",
+      "At the start of each battle, #yRecord a card according to #yMonth. At the end of your turn, #yRecord the last card played this turn. NL Advance #Month by 1 when entering a new room. Upon completing a cycle, gain 50 Gold. NL Current season: #rSummer",
+      "At the start of each battle, #yRecord a card according to #yMonth. At the end of your turn, #yRecord the last card played this turn. NL Advance #Month by 1 when entering a new room. Upon completing a cycle, gain 50 Gold. NL Current season: #yAutumn"
+    ]
+  }  ,
+  "Elaina:PortableWand": {
+    "NAME": "Portable Wand",
+    "FLAVOR": "Ideal for the witch's nimble hands.",
+    "DESCRIPTIONS": [
+      "At the start of your turn, activate an additional #yInstant effect."
+    ]
+  },
+  "Elaina:StoveFire": {
+    "NAME": "Stove Fire",
+    "FLAVOR": "Burning steadfastly amidst the wind and snow",
+    "DESCRIPTIONS": [
+      "At the start of each combat, apply ALL enemies 3 #yMagic #yResidue."
+    ]
+  },
+  "Elaina:TimeEngraving": {
+    "NAME": "Time Engraving",
+    "FLAVOR": "Time reveals all, and time buries all",
+    "DESCRIPTIONS": [
+      "When #yMonth is regressed, #yMonth is advanced by 1. NL When #yMonth is advanced, gain [E]."
+    ]
+  },
+  "Elaina:AssociationEmblem": {
+    "NAME": "Association Emblem",
+    "FLAVOR": "A brooch symbolizing the bright moon, belonging to the Magic Integration Association",
+    "DESCRIPTIONS": [
+      "At the start of your turn, evenly distribute all creatures' #yStrength bonuses."
+    ]
+  },
+  "Elaina:WitchBracelet": {
+    "NAME": "Witch Bracelet",
+    "FLAVOR": "A brooch symbolizing the stars belongs to witches in general - but this one, belongs to the lovely Miss Elaina",
+    "DESCRIPTIONS": [
+      "Gain 2 #ySpell #yBoost when playing a Skill."
+    ]
+  },
+  "Elaina:InscriptedRuins": {
+    "NAME": "Inscribed Ruins",
+    "FLAVOR": "A fragment of a wall, inscribed with the name of Elaina by an unknown witch",
+    "DESCRIPTIONS": [
+      "When you play a card that will be #yExhaust (including #yImages) for the first time each turn, gain [E]."
+    ]
+  },
+  "Elaina:LifePotion": {
+    "NAME": "Life Potion",
+    "FLAVOR": "Crafted by the genius witch, Elaina, it possesses incredible powers",
+    "DESCRIPTIONS": [
+      "When you gain a new power, draw cards until your hand size equals the number of powers (up to the maximum hand size)."
+    ]
+  },
+  "Elaina:TreasureWine": {
+    "NAME": "Treasured Wine",
+    "FLAVOR": "It seems one can glimpse its origin from the angry figure of a girl on the packaging",
+    "DESCRIPTIONS": [
+      "When you lose #yConclusion, deal damage to ALL enemies equal to the number of remaining Diary cards."
+    ]
+  },
+  "Elaina:GreedyDoll": {
+    "NAME": "Covetous Doll",
+    "FLAVOR": "A head of beautiful hair possesses a certain charm",
+    "DESCRIPTIONS": [
+      "Every #b4 turns, apply all cards in hand #yRetain."
+    ]
+  },
+  "Elaina:NicolesAdventure": {
+    "NAME": "Nicole's Adventures",
+    "FLAVOR": "Because of this book, the beautiful witch embarked on a journey.",
+    "DESCRIPTIONS": [
+      "Replaces #pWandering #pWitch. At the start of each combat, apply all cards in hand #yInstant and #yRecord them. Advance #yMonth by 2 when entering a combat room. Gain 5 max HP when completing a cycle.",
+      "Replaces #pWandering #pWitch. At the start of each combat, apply all cards in hand #yInstant and #yRecord them. Advance #yMonth by 2 when entering a combat room. Gain 5 max HP when completing a cycle. NL Current Season: #bWinter",
+      "Replaces #pWandering #pWitch. At the start of each combat, apply all cards in hand #yInstant and #yRecord them. Advance #yMonth by 2 when entering a combat room. Gain 5 max HP when completing a cycle. NL Current Season: #bSpring",
+      "Replaces #pWandering #pWitch. At the start of each combat, apply all cards in hand #yInstant and #yRecord them. Advance #yMonth by 2 when entering a combat room. Gain 5 max HP when completing a cycle. NL Current Season: #rSummer",
+      "Replaces #pWandering #pWitch. At the start of each combat, apply all cards in hand #yInstant and #yRecord them. Advance #yMonth by 2 when entering a combat room. Gain 5 max HP when completing a cycle. NL Current Season: #yAutumn"
+    ]
+  },
+  "Elaina:ShinyMushroom": {
+    "NAME": "Shiny Mushroom",
+    "FLAVOR": "It even glows.",
+    "DESCRIPTIONS": [
+      "When a card reward that can grant a temporary card is encountered, transform it into its corresponding temporary card and gain #b9 Gold."
+    ]
+  }
+}

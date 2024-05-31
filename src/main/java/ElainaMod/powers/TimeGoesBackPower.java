@@ -35,7 +35,13 @@ public class TimeGoesBackPower extends AbstractPower {
         this.updateDescription();
         this.img = new Texture("ElainaMod/img/powers/TimeGoesBackPower.png");
     }
-    public void updateDescription(){this.description = DESCRIPTIONS[0]+ this.amount +DESCRIPTIONS[1];}
+    public void updateDescription(){
+        if(amount==1){
+            this.description = DESCRIPTIONS[2];
+        }else {
+            this.description = DESCRIPTIONS[0]+amount+DESCRIPTIONS[1];
+        }
+    }
     public void onEnergyRecharge() {
         this.flash();
         this.addToBot(new ChangeMonthAction((ElainaC)owner,1));

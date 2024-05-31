@@ -346,10 +346,10 @@ public class ElainaC extends CustomPlayer{
         @SpireEnum
         public static PlayerClass MY_CHARACTER;
 
-        @SpireEnum(name = "EXAMPLE_GREEN")
+        @SpireEnum(name = "ELAINA")
         public static AbstractCard.CardColor EXAMPLE_COLOR;
 
-        @SpireEnum(name = "EXAMPLE_GREEN")
+        @SpireEnum(name = "ELAINA")
         public static CardLibrary.LibraryType EXAMPLE_LIBRARY;
         @SpireEnum
         public static AbstractCard.CardTags MAGIC;//魔法

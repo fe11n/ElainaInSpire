@@ -1,19 +1,15 @@
 package ElainaMod.cards;
 
 import ElainaMod.Characters.ElainaC;
-import ElainaMod.powers.ResidualMagicPower;
+import ElainaMod.powers.MagicResiduePower;
 import ElainaMod.relics.WanderingWitch;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
-import com.megacrit.cardcrawl.actions.common.DamageAction;
-import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
-import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.cards.DamageInfo.DamageType;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.powers.PoisonPower;
 import com.megacrit.cardcrawl.powers.VulnerablePower;
 import com.megacrit.cardcrawl.powers.WeakPower;
 import org.apache.logging.log4j.LogManager;
@@ -80,7 +76,7 @@ public class FragrantWind extends AbstractSeasonCard {
                 it = AbstractDungeon.getCurrRoom().monsters.monsters.iterator();
                 while(it.hasNext()) {
                     mo = (AbstractMonster)it.next();
-                    this.addToBot(new ApplyPowerAction(mo,p,new ResidualMagicPower(mo,p,this.damage)));
+                    this.addToBot(new ApplyPowerAction(mo,p,new MagicResiduePower(mo,p,this.damage)));
                 }
             case 1:
                 it = AbstractDungeon.getCurrRoom().monsters.monsters.iterator();

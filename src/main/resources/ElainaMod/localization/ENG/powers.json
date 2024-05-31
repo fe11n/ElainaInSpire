@@ -1,0 +1,148 @@
+{
+  "Elaina:IntensifyArray": {
+    "NAME": "Intensify Array",
+    "DESCRIPTIONS": [
+      "At the start of your turn, gain [E] and draw #b",
+      " additional cards. Apply 1 random enemy 1 Strength.",
+      "At the start of your turn, gain [E] and draw #b1 additional card. Apply 1 random enemy 1 Strength."
+    ]
+  },
+  "Elaina:BottledHappiness": {
+    "NAME": "Bottled Happiness",
+    "DESCRIPTIONS": [
+      "At the end of your turn, ALL enemies lose HP equal to their Strength multiplied by #b",
+      " ."
+    ]
+  },
+  "Elaina:MagicEcho": {
+    "NAME": "Magic Echo",
+    "DESCRIPTIONS": [
+      "The first temporary card added each turn will grant an additional copy.",
+      "The first #b",
+      " temporary cards added each turn will grant an additional copy."
+    ]
+  },
+  "Elaina:SpellReorganization": {
+    "NAME": "Spell Reorganization",
+    "DESCRIPTIONS": [
+      "At the start of your turn, gain #b",
+      " Block for each Retained card in your hand."
+    ]
+  },
+  "Elaina:SpellBoost": {
+    "NAME": "Spell Boost",
+    "DESCRIPTIONS": [
+      "Adds additional #b",
+      " damage and Block to Magic。It will be reduced by half after playing Magic."
+    ]
+  },
+  "Elaina:MagicDiffusion": {
+    "NAME": "Magic Diffusion",
+    "DESCRIPTIONS": [
+      "At the start of your turn, if Conclusion has #yInstant, apply #yInstant to random #b",
+      " cards in your hand."
+    ]
+  },
+  "Elaina:StarryShadowPreparation": {
+    "NAME": "Starry Shadow Preparation",
+    "DESCRIPTIONS": [
+      "Next #b",
+      " turns, after playing a card, #yReproduce #yConclusion until you have 6 in your hand.",
+      "Next turn, after playing a card, #yReproduce #yConclusion until you have 6 in your hand."
+    ]
+  },
+  "Elaina:StarryShadow": {
+    "NAME": "Starry Shadow",
+    "DESCRIPTIONS": [
+      "After playing a card, #yReproduce #yConclusion until you have #b",
+      " in your hand."
+    ]
+  },
+  "Elaina:DeepMemory": {
+    "NAME": "Deep Memory",
+    "DESCRIPTIONS": [
+      "At the start of your turn, #yRecord #b",
+      " random cards. NL #yImages you play is played twice. ",
+      "At the start of your turn, #yRecord #b1 random card. NL #yImages you play is played twice. "
+    ]
+  },
+  "Elaina:ConvergenceMagic": {
+    "NAME": "Convergence Magic",
+    "DESCRIPTIONS": [
+      "Whenever you play a Magic this turn, gain #b",
+      " #ySpell #yBoost."
+    ]
+  },
+  "Elaina:SelfDefense": {
+    "NAME": "Self-Defense",
+    "DESCRIPTIONS": [
+      "At the start of your turn, transform 1 random card in your hand into #yImage. NL Gain #b",
+      " Block when playing #yImages. "
+    ]
+  },
+  "Elaina:GetSpellBoost": {
+    "NAME": "Gain Spell Boost",
+    "DESCRIPTIONS": [
+      "At the start of your turn, gain #b",
+      " #ySpell #yBoost."
+    ]
+  },
+  "Elaina:SpellResonance": {
+    "NAME": "Spell Resonance",
+    "DESCRIPTIONS": [
+      "Whenever you lose #ySpell #yBoost, ALL enemies lose an equal amount of HP."
+    ]
+  },
+  "Elaina:SpellLink": {
+    "NAME": "Spell Link",
+    "DESCRIPTIONS": [
+      "Whenever you gain #ySpell #yBoost, gain an equal amount of Block."
+    ]
+  },
+  "Elaina:TimeGoesBack": {
+    "NAME": "Time Goes Back",
+    "DESCRIPTIONS": [
+      "At the start of your next #b",
+      " turns, advance #yMonth by 1, and #yReproduce 2 random cards, they cost 0 this turn.",
+      "At the start of your next turn, advance #yMonth by 1, and #yReproduce 2 random cards, they cost 0 this turn."
+    ]
+  },
+  "Elaina:BestState": {
+    "NAME": "Peak Condition",
+    "DESCRIPTIONS": [
+      "Next #b",
+      " #ySeason #yCards will be played with its strongest effect.",
+      "Next #ySeason #yCard will be played with its strongest effect."
+    ]
+  },
+  "Elaina:AdvancedMagic": {
+    "NAME": "AdvancedMagic",
+    "DESCRIPTIONS": [
+      "#ySpell #yBoost will not be added to damage this turn. When your have #ySpell #yBoost, draw #b",
+      " cards for each Magic played.",
+      "#ySpell #yBoost will not be added to damage this turn. When your have #ySpell #yBoost, draw #b1 card for each Magic played."
+    ]
+  },
+  "Elaina:ProtectiveMagic": {
+    "NAME": "Protective Magic",
+    "DESCRIPTIONS": [
+      "Whenever you play a Magic this turn, gain #b",
+      " Block."
+    ]
+  },
+  "Elaina:MagicResidue": {
+    "NAME": "Magic Residue",
+    "DESCRIPTIONS": [
+      "At the start of its next, it loses #b",
+      " HP for every card with Retain you have."
+    ]
+  },
+  "Elaina:IgnisFatuus": {
+    "NAME": "IgnisFatuus",
+    "DESCRIPTIONS": [
+      "At the start of your turn, add #b",
+      " *Ignites to your hand. ",
+      "At the start of your turn, add an *Ignite to your hand."
+    ]
+  }
+}

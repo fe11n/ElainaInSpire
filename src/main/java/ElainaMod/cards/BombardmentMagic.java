@@ -1,7 +1,7 @@
 package ElainaMod.cards;
 
 import ElainaMod.Characters.ElainaC;
-import ElainaMod.powers.ResidualMagicPower;
+import ElainaMod.powers.MagicResiduePower;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
@@ -43,6 +43,6 @@ public class BombardmentMagic extends AbstractElainaCard {
      */
     public void BasicEffect(ElainaC p, AbstractMonster m){
         this.addToBot(new DamageAction(m, new DamageInfo(p, damage, DamageInfo.DamageType.NORMAL), AbstractGameAction.AttackEffect.BLUNT_HEAVY));
-        this.addToBot(new ApplyPowerAction(m,p,new ResidualMagicPower(m,p,this.magicNumber)));
+        this.addToBot(new ApplyPowerAction(m,p,new MagicResiduePower(m,p,this.magicNumber)));
     }//基础效果，可以被使用和瞬发
 }

@@ -1,6 +1,7 @@
 package ElainaMod.orb;
 
 import ElainaMod.Characters.ElainaC;
+import ElainaMod.action.RecordCardAction;
 import ElainaMod.cards.AbstractElainaCard;
 import ElainaMod.cards.AbstractSeasonCard;
 import ElainaMod.relics.AbstractBookRelic;
@@ -8,6 +9,7 @@ import ElainaMod.relics.WanderingWitch;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -24,12 +26,21 @@ public class ConclusionOrb extends AbstractOrb {
     private AbstractCard prev_c; //这个只是为了移动卡牌的时候好看的。
     public AbstractCard c; //魔力增幅直接用了这个。
     private AbstractCard cardToRecord;
+    private AbstractCard cardToRecordV;
+
     public static final Logger logger = LogManager.getLogger(ConclusionOrb.class);
     private static final Texture DiarySlotImg = ImageMaster.loadImage("ElainaMod/img/UI/Diary.png");
-    public ConclusionOrb() {
+    private ConclusionOrb() {
         // 结语充能球一直存在，不在战斗中一直 new
         this.name="结语槽位";
         this.description="记录当前结语。左边显示回合结束时会记录的结语。";
+    }
+    private static ConclusionOrb instance = null;
+    public static ConclusionOrb getInstance(){
+        if (instance == null) {
+            instance = new ConclusionOrb();
+        }
+        return instance;
     }
     public void pushConclusion(AbstractCard c_) {
         prev_c = c;
@@ -50,6 +61,7 @@ public class ConclusionOrb extends AbstractOrb {
             c = null;
         }
     }
+
 
     @Override
     public void onStartOfTurn(){
@@ -96,22 +108,21 @@ public class ConclusionOrb extends AbstractOrb {
         this.c.update();
     }
     private void updateNext(){
-        AbstractBookRelic bookRelic = (AbstractBookRelic) (AbstractDungeon.player.hasRelic("Elaina:WanderingWitch")?
-                AbstractDungeon.player.getRelic("Elaina:WanderingWitch")
-                :AbstractDungeon.player.getRelic("Elaina:NicolesAdventure"));
-        if (bookRelic == null || bookRelic.cardToRecord == null) {
+        // cardToRecord 已经置空后，不再强制更新卡牌位置，以获得更好的动画效果
+        if (cardToRecord == null) {
             return;
         }
-        cardToRecord = bookRelic.cardToRecord;
-        cardToRecord.target_x = this.tX - this.cardToRecord.hb.width;
-        cardToRecord.target_y = this.tY;
-        if (cardToRecord.hb.hovered) {
-            cardToRecord.targetDrawScale = 1.0F;
+        // 防止卡牌闪动做的临时存储。
+        cardToRecordV = cardToRecord;
+        cardToRecordV.target_x = this.tX - this.cardToRecordV.hb.width;
+        cardToRecordV.target_y = this.tY;
+        if (cardToRecordV.hb.hovered) {
+            cardToRecordV.targetDrawScale = 1.0F;
         } else {
-            cardToRecord.targetDrawScale = 0.5F;
+            cardToRecordV.targetDrawScale = 0.5F;
         }
-        cardToRecord.applyPowers();
-        cardToRecord.update();
+        cardToRecordV.applyPowers();
+        cardToRecordV.update();
     }
     public void update(){//更新充能球卡图
         super.update();
@@ -134,8 +145,9 @@ public class ConclusionOrb extends AbstractOrb {
         if (prev_c != null) {
             prev_c.render(sb);
         }
-        if (cardToRecord != null) {
-            cardToRecord.render(sb);
+        // 避免 cardToRecord 置空后卡牌闪动，专用于渲染的卡牌
+        if (cardToRecordV != null) {
+            cardToRecordV.render(sb);
         }
         if (c!=null) {
             this.c.render(sb);
@@ -169,10 +181,14 @@ public class ConclusionOrb extends AbstractOrb {
     }
 
 
-    static public void removeConclusion() {
-        AbstractDungeon.player.removeNextOrb();
-        AbstractDungeon.player.channelOrb(new ConclusionOrb());
+    public void removeConclusion() {
+        this.c = null;
+        this.prev_c = null;
+        this.cardToRecord = null;
+        // 如果要清除渲染，调用此函数将 cardToRecordV 置空
+        this.cardToRecordV = null;
     }
+
 
     public void flashConclusion() {
         if(c!=null){
@@ -182,9 +198,11 @@ public class ConclusionOrb extends AbstractOrb {
 
     public void removeCardToRecord() {
         // TODO: 给点 exhuast 特效啊，不灭印记应该给个exhuast。但空想往前面插入。这两特殊情况都用这个来remove
-        if (cardToRecord != null) {
+        if (cardToRecord != null)
             cardToRecord = null;
-        }
+
+        if (cardToRecordV != null)
+            cardToRecordV = null;
     }
 
     public void updateSeasonalDecription() {
@@ -194,8 +212,27 @@ public class ConclusionOrb extends AbstractOrb {
         if(cardToRecord!=null && cardToRecord.hasTag(SEASONAL)){
             ((AbstractSeasonCard)cardToRecord).UpdateSeasonalDescription();
         }
+        if(cardToRecordV!=null && cardToRecordV.hasTag(SEASONAL)){
+            ((AbstractSeasonCard)cardToRecordV).UpdateSeasonalDescription();
+        }
         if(prev_c!=null && prev_c.hasTag(SEASONAL)){
             ((AbstractSeasonCard)prev_c).UpdateSeasonalDescription();
+        }
+    }
+
+    public void setCardToRecord(AbstractCard abstractCard) {
+        cardToRecord = abstractCard;
+    }
+
+    @Override
+    public void onEndOfTurn() {
+        //回合结束时记录打出的最后一张卡牌
+        super.onEndOfTurn();
+        if (cardToRecord != null) {
+            // 不 make_copy，牌的运动更符合直觉。
+            AbstractGameAction a = new RecordCardAction(cardToRecord, false);
+            AbstractDungeon.actionManager.addToTop(a);
+            cardToRecord = null;
         }
     }
 }

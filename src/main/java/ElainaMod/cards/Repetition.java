@@ -59,6 +59,7 @@ public class Repetition extends AbstractElainaCard {
     @Override
     public boolean canUse(AbstractPlayer p, AbstractMonster m) {
         AbstractCard c = ((ElainaC)p).getConclusion();
+        // 这里瞬发判断要改，别直接强转类型。
         if(((ElainaC)p).getConclusion() == null || !((AbstractElainaCard)c).isInstant){
             return false;
         }

@@ -1,6 +1,7 @@
 package ElainaMod.Characters;
 
 import ElainaMod.Elaina.Elaina;
+import ElainaMod.action.RecordCardAction;
 import ElainaMod.cardmods.toImageCardMod;
 import ElainaMod.cards.*;
 import ElainaMod.orb.ConclusionOrb;
@@ -167,14 +168,16 @@ public class ElainaC extends CustomPlayer{
     private void UpdateSeasonalDescription(CardGroup g){
         UpdateSeasonalDescription(g,false);
     }
-    private void UpdateSeasonalDescription(CardGroup g,boolean isDiary){
+
+    private void UpdateSeasonalDescription(CardGroup g, boolean isDiary){
         Iterator it = g.group.iterator();
         while (it.hasNext()){
             AbstractCard ca = (AbstractCard) it.next();
             if(ca instanceof AbstractElainaCard){ //防止状态、诅咒牌引起报错
                 AbstractElainaCard c = (AbstractElainaCard) ca;
                 if(c.hasTag(SEASONAL)){
-                    if(((AbstractSeasonCard)c).UpdateSeasonalDescription() && isDiary && !(it.hasNext())){//在Diary结语位置且需要更新时
+                    if(((AbstractSeasonCard)c).UpdateSeasonalDescription() && isDiary && !(it.hasNext())){
+                        //在Diary结语位置且需要更新时
                         ConclusionOrb orb = (ConclusionOrb) this.orbs.get(0);
                         orb.setCurConclusion(c);
                     }
@@ -183,6 +186,44 @@ public class ElainaC extends CustomPlayer{
         }
     }
 
+    @Override
+    public void applyPreCombatLogic() {
+        ElainaC.DiaryGroup.clear();//战斗开始时清空，不管sl了
+        ElainaC p = (ElainaC)AbstractDungeon.player;
+        ConclusionOrb.getInstance().removeConclusion();
+        p.channelOrb(ConclusionOrb.getInstance());
+        p.UpdateAllSeasonalDescription();
+        super.applyPreCombatLogic();
+    }
+
+    @Override
+    public void useCard(AbstractCard c, AbstractMonster monster, int energyOnUse) {
+        super.useCard(c, monster, energyOnUse);
+        // 在这里更新每回合结语卡。
+        if (ElainaC.isNotable(c)) {
+            ConclusionOrb.getInstance().setCardToRecord(c.makeStatEquivalentCopy());
+        } else {
+            ConclusionOrb.getInstance().removeCardToRecord();
+        }
+    }
+
+    @Override
+    public void applyEndOfTurnTriggers() {
+
+    }
+
+    @Override
+    public void applyStartOfTurnOrbs() {
+        super.applyStartOfTurnOrbs();
+    }
+
+    @Override
+    public void onVictory() {
+        super.onVictory();
+        DiaryGroup.group.clear();
+    }
+
+
     public AbstractCard getConclusion(){
         if(!DiaryGroup.isEmpty()){
             return (DiaryGroup.getBottomCard()).makeStatEquivalentCopy(); // 避免抢渲染，返回拷贝。
@@ -190,7 +231,7 @@ public class ElainaC extends CustomPlayer{
         else return null;
     }
     public ConclusionOrb getConclusionOrb(){
-        return (ConclusionOrb)this.orbs.get(0);
+        return ConclusionOrb.getInstance();
     }
     public int getDiarySize(){
         return DiaryGroup.size();

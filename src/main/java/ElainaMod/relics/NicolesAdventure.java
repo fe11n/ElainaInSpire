@@ -75,7 +75,6 @@ public class NicolesAdventure extends AbstractBookRelic {
         }
     }
 
-    public void onPlayCard(AbstractCard c, AbstractMonster m) {}
     public void obtain() {
         if (AbstractDungeon.player.hasRelic("Elaina:WanderingWitch")) {
             this.instantObtain(AbstractDungeon.player, 0, false);

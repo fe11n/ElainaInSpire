@@ -190,6 +190,7 @@ public class ElainaC extends CustomPlayer{
     public void applyPreCombatLogic() {
         ElainaC.DiaryGroup.clear();//战斗开始时清空，不管sl了
         ElainaC p = (ElainaC)AbstractDungeon.player;
+        ConclusionOrb.getInstance().removeConclusion();
         p.channelOrb(ConclusionOrb.getInstance());
         p.UpdateAllSeasonalDescription();
         super.applyPreCombatLogic();
@@ -220,7 +221,6 @@ public class ElainaC extends CustomPlayer{
     public void onVictory() {
         super.onVictory();
         DiaryGroup.group.clear();
-        ConclusionOrb.getInstance().removeConclusion();
     }
 
 

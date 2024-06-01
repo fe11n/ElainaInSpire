@@ -86,7 +86,6 @@ public class RecordCardAction extends AbstractGameAction {
             g.addToBottom(c.makeStatEquivalentCopy()); // 这里 make copy 是为了避免日记和结语槽抢卡牌渲染。
             ConclusionOrb orb = ConclusionOrb.getInstance();
             orb.pushConclusion(c);
-            orb.removeCardToRecord();
             logger.info("Diary size after record: "+g.size());
         }
         this.isDone=true;

@@ -15,21 +15,20 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 public class RecordCardAction extends AbstractGameAction {
-    public ElainaC p=(ElainaC)AbstractDungeon.player;
     public AbstractCard c;
     private boolean isNotable = false;
     public CardGroup g;
     public static final Logger logger = LogManager.getLogger(RecordCardAction.class);
     public RecordCardAction(AbstractCard c){
         this.actionType = ActionType.CARD_MANIPULATION;
-        isNotable = p.isNotable(c);
+        isNotable = ElainaC.isNotable(c);
         if(isNotable){
             this.c = c.makeStatEquivalentCopy();
         }
     }
     public RecordCardAction(AbstractCard c, boolean make_copy){
         this.actionType = ActionType.CARD_MANIPULATION;
-        isNotable = p.isNotable(c);
+        isNotable = ElainaC.isNotable(c);
         if(isNotable){
             if (make_copy) {
                 this.c = c.makeStatEquivalentCopy();
@@ -39,9 +38,16 @@ public class RecordCardAction extends AbstractGameAction {
         }
     }
     @Override
-    public void update(){
-        if(isNotable){
+    public void update() {
+        if (!(AbstractDungeon.player instanceof ElainaC)) {
+            // 记牌是伊蕾娜的人物能力，其他人不能记牌。
+            this.isDone = true;
+            return;
+        }
+
+        if (isNotable) {
             g = ElainaC.DiaryGroup;
+            ElainaC p=(ElainaC)AbstractDungeon.player;
 
             // 不灭印记的特殊情况，不考虑写出去？
             if(!g.isEmpty() && p.getConclusion() instanceof IndelibleImprint){
@@ -66,7 +72,7 @@ public class RecordCardAction extends AbstractGameAction {
                 g.addToTop(c);
                 logger.info("Diary size after record: "+g.size());
                 // 如果是唯一一张
-                ConclusionOrb orb = (ConclusionOrb) p.orbs.get(0);
+                ConclusionOrb orb = ConclusionOrb.getInstance();
                 if(g.size()==1){
                     orb.setCurConclusion(c);
                 } else {
@@ -78,8 +84,9 @@ public class RecordCardAction extends AbstractGameAction {
 
             // 正常情况。
             g.addToBottom(c.makeStatEquivalentCopy()); // 这里 make copy 是为了避免日记和结语槽抢卡牌渲染。
-            ConclusionOrb orb = (ConclusionOrb) p.orbs.get(0);
+            ConclusionOrb orb = ConclusionOrb.getInstance();
             orb.pushConclusion(c);
+            orb.removeCardToRecord();
             logger.info("Diary size after record: "+g.size());
         }
         this.isDone=true;

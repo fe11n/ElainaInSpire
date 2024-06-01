@@ -1,6 +1,7 @@
 package ElainaMod.orb;
 
 import ElainaMod.Characters.ElainaC;
+import ElainaMod.action.RecordCardAction;
 import ElainaMod.cards.AbstractElainaCard;
 import ElainaMod.cards.AbstractSeasonCard;
 import ElainaMod.relics.AbstractBookRelic;
@@ -26,10 +27,14 @@ public class ConclusionOrb extends AbstractOrb {
     private AbstractCard cardToRecord;
     public static final Logger logger = LogManager.getLogger(ConclusionOrb.class);
     private static final Texture DiarySlotImg = ImageMaster.loadImage("ElainaMod/img/UI/Diary.png");
-    public ConclusionOrb() {
+    private ConclusionOrb() {
         // 结语充能球一直存在，不在战斗中一直 new
         this.name="结语槽位";
         this.description="记录当前结语。左边显示回合结束时会记录的结语。";
+    }
+    private static final ConclusionOrb instance = new ConclusionOrb();
+    public static ConclusionOrb getInstance(){
+        return instance;
     }
     public void pushConclusion(AbstractCard c_) {
         prev_c = c;
@@ -96,13 +101,9 @@ public class ConclusionOrb extends AbstractOrb {
         this.c.update();
     }
     private void updateNext(){
-        AbstractBookRelic bookRelic = (AbstractBookRelic) (AbstractDungeon.player.hasRelic("Elaina:WanderingWitch")?
-                AbstractDungeon.player.getRelic("Elaina:WanderingWitch")
-                :AbstractDungeon.player.getRelic("Elaina:NicolesAdventure"));
-        if (bookRelic == null || bookRelic.cardToRecord == null) {
+        if (cardToRecord == null) {
             return;
         }
-        cardToRecord = bookRelic.cardToRecord;
         cardToRecord.target_x = this.tX - this.cardToRecord.hb.width;
         cardToRecord.target_y = this.tY;
         if (cardToRecord.hb.hovered) {
@@ -169,10 +170,12 @@ public class ConclusionOrb extends AbstractOrb {
     }
 
 
-    static public void removeConclusion() {
-        AbstractDungeon.player.removeNextOrb();
-        AbstractDungeon.player.channelOrb(new ConclusionOrb());
+    public void removeConclusion() {
+        this.c = null;
+        this.prev_c = null;
+        this.cardToRecord = null;
     }
+
 
     public void flashConclusion() {
         if(c!=null){
@@ -196,6 +199,20 @@ public class ConclusionOrb extends AbstractOrb {
         }
         if(prev_c!=null && prev_c.hasTag(SEASONAL)){
             ((AbstractSeasonCard)prev_c).UpdateSeasonalDescription();
+        }
+    }
+
+    public void setCardToRecord(AbstractCard abstractCard) {
+        cardToRecord = abstractCard;
+    }
+
+    @Override
+    public void onEndOfTurn() {
+        //回合结束时记录打出的最后一张卡牌
+        super.onEndOfTurn();
+        if (cardToRecord != null) {
+            // 不 make_copy，牌的运动更符合直觉。
+            AbstractDungeon.actionManager.addToTop(new RecordCardAction(cardToRecord, false));
         }
     }
 }

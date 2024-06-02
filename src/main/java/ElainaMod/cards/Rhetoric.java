@@ -52,7 +52,7 @@ public class Rhetoric extends AbstractElainaCard {
             public void update() {
                 if(!upgraded) {
                     if (p.getConclusion() != null) {
-                        p.getConclusion().upgrade();
+                        p.DiaryGroup.getBottomCard().upgrade();
                     }
                 } else {
                     Iterator it = p.DiaryGroup.group.iterator();

@@ -3,7 +3,7 @@
   "name": "Elaina",
   "author_list": ["Yi"],
   "description": "可爱魔女伊蕾娜",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "sts_version": "12-22-2020",
   "mts_version": "3.23.2",
   "dependencies":  ["basemod", "stslib"]

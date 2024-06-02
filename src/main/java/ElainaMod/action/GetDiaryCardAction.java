@@ -60,6 +60,7 @@ public class GetDiaryCardAction extends AbstractGameAction {
             // 拿结语
             if(targetCard == null || targetCard.equals(p.getConclusion())){
                 targetCard = p.getConclusion();
+                logger.info("If target card upgraded: "+targetCard.upgraded);
                 g.removeCard(g.getBottomCard());
                 p.getConclusionOrb().syncConclusionWithDiary();
             }

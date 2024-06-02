@@ -131,5 +131,12 @@
       "[Lock] Requires: Cards without Instant.",
       "[Leave]"
     ]
+  },
+  "Elaina:DiaryTips":{
+    "TEXT": [
+      "Conclusion Orb",
+      "Record the current Conclusion. The card that will be recorded is displayed on the left.",
+      "Diary"
+    ]
   }
 }

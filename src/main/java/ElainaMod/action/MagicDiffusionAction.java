@@ -44,7 +44,7 @@ public class MagicDiffusionAction extends AbstractGameAction {
         ArrayList<AbstractCard> list = new ArrayList();
         for (AbstractCard c : AbstractDungeon.player.hand.group) {
             logger.info("Check card: " + c.name);
-            if (!ElainaC.isInstant(c) && !ElainaC.isNotable(c)) {
+            if (!ElainaC.isInstant(c) && ElainaC.isNotable(c)) {
                 list.add(c);
             }
         }

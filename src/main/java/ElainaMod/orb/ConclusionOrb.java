@@ -11,10 +11,12 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.helpers.input.InputHelper;
+import com.megacrit.cardcrawl.localization.UIStrings;
 import com.megacrit.cardcrawl.orbs.AbstractOrb;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -23,6 +25,7 @@ import static ElainaMod.Characters.ElainaC.Enums.SEASONAL;
 
 public class ConclusionOrb extends AbstractOrb {
     public static final String ID = "Elaina:ConclusionOrb";
+    public static final String[] TEXT = CardCrawlGame.languagePack.getUIString("Elaina:DiaryTips").TEXT;
     private AbstractCard prev_c; //这个只是为了移动卡牌的时候好看的。
     public AbstractCard c; //魔力增幅直接用了这个。
     private AbstractCard cardToRecord;
@@ -32,8 +35,8 @@ public class ConclusionOrb extends AbstractOrb {
     private static final Texture DiarySlotImg = ImageMaster.loadImage("ElainaMod/img/UI/Diary.png");
     private ConclusionOrb() {
         // 结语充能球一直存在，不在战斗中一直 new
-        this.name="结语槽位";
-        this.description="记录当前结语。左边显示回合结束时会记录的结语。";
+        this.name = TEXT[0];
+        this.description = TEXT[1];
     }
     private static ConclusionOrb instance = null;
     public static ConclusionOrb getInstance(){
@@ -75,7 +78,7 @@ public class ConclusionOrb extends AbstractOrb {
 
     @Override
     public void updateDescription() {
-        this.description="记录当前结语。左边显示回合结束时会记录的结语。";
+        this.description= TEXT[1];
     }
     private void updatePrev(){
         if (prev_c==null) {
@@ -102,7 +105,7 @@ public class ConclusionOrb extends AbstractOrb {
         }
         if(this.hb.hovered && (InputHelper.justClickedLeft || InputHelper.justClickedRight)){
             AbstractDungeon.gridSelectScreen.open(ElainaC.DiaryGroup,0,
-                    "魔女日记", true);
+                    TEXT[2], true);
         }
         this.c.applyPowers();
         this.c.update();

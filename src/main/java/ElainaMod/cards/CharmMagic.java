@@ -42,6 +42,9 @@ public class CharmMagic extends AbstractElainaCard {
     }
 
     public void triggerOnGlowCheck() {
+        if( !(AbstractDungeon.player instanceof ElainaC))
+            return;
+
         ElainaC p = (ElainaC) AbstractDungeon.player;
         if(p.isInstant(p.getConclusion())){
             this.glowColor = AbstractCard.GOLD_BORDER_GLOW_COLOR.cpy();

@@ -38,8 +38,7 @@ public class Vision extends AbstractElainaCard {
     }
 
     public void triggerOnGlowCheck() {
-        ElainaC p = (ElainaC) AbstractDungeon.player;
-        if(p.hasPower("Elaina:SpellBoost")){
+        if(AbstractDungeon.player.hasPower("Elaina:SpellBoost")){
             this.glowColor = AbstractCard.GOLD_BORDER_GLOW_COLOR.cpy();
         } else {
             this.glowColor = AbstractCard.BLUE_BORDER_GLOW_COLOR.cpy();

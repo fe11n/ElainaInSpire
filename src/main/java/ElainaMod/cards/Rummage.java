@@ -46,7 +46,7 @@ public class Rummage extends AbstractElainaCard {
      * @param m 指向的怪物类。（无指向时为null，包括攻击所有敌人时）
      */
     @Override
-    public void BasicEffect(ElainaC p, AbstractMonster m) {
+    public void BasicEffect(AbstractPlayer p, AbstractMonster m) {
         int num = BaseMod.MAX_HAND_SIZE - p.hand.size() - this.magicNumber;
         this.addToBot(new DrawCardAction(this.magicNumber));
         this.addToBot(new AbstractGameAction() {

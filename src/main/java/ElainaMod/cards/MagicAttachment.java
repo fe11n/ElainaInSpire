@@ -44,7 +44,7 @@ public class MagicAttachment extends AbstractElainaCard {
      * @param p 你的玩家实体类。
      * @param m 指向的怪物类。（无指向时为null，包括攻击所有敌人时）
      */
-    public void BasicEffect(ElainaC p, AbstractMonster m){
+    public void BasicEffect(AbstractPlayer p, AbstractMonster m){
         this.addToBot(new ApplyPowerAction(m,p,new MagicResiduePower(m,p,this.magicNumber)));
     }//基础效果，可以被使用和瞬发
 }

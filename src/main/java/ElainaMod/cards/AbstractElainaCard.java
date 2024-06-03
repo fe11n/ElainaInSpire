@@ -37,15 +37,25 @@ public class AbstractElainaCard extends CustomCard {
     @Override
     public void upgrade() {
     }
+    // 只有伊蕾娜能用的牌，重载这个函数。目前是过渡阶段，以后应考虑在具体的action中判断角色类型并进行保护
     public void BasicEffect(ElainaC p, AbstractMonster m){
-    }//基础效果，可以被使用和瞬发
+    }
+    // 伊蕾娜之外的角色可以用的牌，重载这个函数
+    public void BasicEffect(AbstractPlayer p, AbstractMonster m) {
+        if (p instanceof ElainaC) {
+            BasicEffect((ElainaC) p, m);
+        }
+        else {
+            logger.info("Player is not ElainaC");
+        }
+    }
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        if(this.isShorthand){
+        if (this.isShorthand) {
             logger.info("Record by shorthand: " + this.name);
             this.addToBot(new RecordCardAction(this));
         }
-        BasicEffect((ElainaC) p,m);
+        BasicEffect(p, m);
     }//使用
     public void triggerOnMonthChanged(int num,boolean isBack) {//由ChangeMonthAction调用
     }

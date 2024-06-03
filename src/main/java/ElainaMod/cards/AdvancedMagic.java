@@ -6,6 +6,7 @@ import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
+import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
@@ -39,7 +40,7 @@ public class AdvancedMagic extends AbstractElainaCard {
      * @param p 你的玩家实体类。
      * @param m 指向的怪物类。（无指向时为null，包括攻击所有敌人时）
      */
-    public void BasicEffect(ElainaC p, AbstractMonster m){
+    public void BasicEffect(AbstractPlayer p, AbstractMonster m){
         this.addToBot(new DamageAction(m, new DamageInfo(p, damage, DamageInfo.DamageType.NORMAL) ,
                 AbstractGameAction.AttackEffect.SMASH));
         this.addToBot(new ApplyPowerAction(p,p,new AdvancedMagicPower(p)));

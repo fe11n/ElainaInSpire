@@ -3,6 +3,7 @@ package ElainaMod.cards;
 import ElainaMod.Characters.ElainaC;
 import ElainaMod.powers.MagicResiduePower;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
@@ -37,7 +38,7 @@ public class Ignite extends AbstractElainaCard {
      * @param p 你的玩家实体类。
      * @param m 指向的怪物类。（无指向时为null，包括攻击所有敌人时）
      */
-    public void BasicEffect(ElainaC p, AbstractMonster m){
+    public void BasicEffect(AbstractPlayer p, AbstractMonster m){
         this.addToBot(new ApplyPowerAction(m,p,new MagicResiduePower(m,p,this.magicNumber)));
     }//基础效果，可以被使用和瞬发
 }

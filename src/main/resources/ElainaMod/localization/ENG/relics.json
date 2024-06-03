@@ -3,7 +3,7 @@
     "NAME": "Wandering Witch",
     "FLAVOR": "A record of the travels and observations of the beautiful witch",
     "DESCRIPTIONS": [
-      "At the start of each battle, #yRecord a card according to #yMonth. At the end of your turn, #yRecord the last card played this turn. Advance #Month by 1 when entering a new room. Upon completing a cycle, gain 50 Gold.",
+      "At the start of each battle, #yRecord a card according to #yMonth. At the end of your turn, #yRecord the last card played this turn. NL Advance #Month by 1 when entering a new room. Upon completing a cycle, gain 50 Gold.",
       "At the start of each battle, #yRecord a card according to #yMonth. At the end of your turn, #yRecord the last card played this turn. NL Advance #Month by 1 when entering a new room. Upon completing a cycle, gain 50 Gold. NL Current season: #bWinter",
       "At the start of each battle, #yRecord a card according to #yMonth. At the end of your turn, #yRecord the last card played this turn. NL Advance #Month by 1 when entering a new room. Upon completing a cycle, gain 50 Gold. NL Current season: #gSpring",
       "At the start of each battle, #yRecord a card according to #yMonth. At the end of your turn, #yRecord the last card played this turn. NL Advance #Month by 1 when entering a new room. Upon completing a cycle, gain 50 Gold. NL Current season: #rSummer",

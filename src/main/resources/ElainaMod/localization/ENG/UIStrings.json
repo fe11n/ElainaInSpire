@@ -11,7 +11,7 @@
   },
   "Elaina:Instant":{
     "TEXT": [
-      "Instant."
+      "elainamod:Instant."
     ]
   },
   "Elaina:IceConeMagic":{
@@ -76,7 +76,7 @@
   },
   "Elaina:Shorthand":{
     "TEXT": [
-      "Shorthand."
+      "elainamod:Shorthand."
     ]
   },
   "Elaina:DuplicatorEvent": {
@@ -86,7 +86,7 @@
       "Shorthand."
     ],
     "EXTRA_TEXT": [
-      "[Record] #Apply a card #Shorthand.",
+      "[Record] #gApply #ga #gcard #yShorthand.",
       "[Lock] Requires: Cards without Shorthand.",
       "[Leave]"
     ]
@@ -98,7 +98,7 @@
       "Retain"
     ],
     "EXTRA_TEXT": [
-      "[Record] #Apply a card #Retain.",
+      "[Record] #gApply #ga #gcard #yRetain.",
       "[Lock] Requires: Cards without Retain.",
       "[Leave]"
     ]
@@ -110,7 +110,7 @@
       "corresponding Magic."
     ],
     "EXTRA_TEXT": [
-      "[Record] #gConverts a Strike or Defend to its corresponding Magic.",
+      "[Record] #gConverts #ga #gStrike #gor #gDefend #gto #gits #gcorresponding #gMagic.",
       "[Lock] Requires: A Strike or Defend.",
       "[Leave]"
     ]
@@ -127,7 +127,7 @@
       "Instant"
     ],
     "EXTRA_TEXT": [
-      "[Record] #Apply a card #Instant.",
+      "[Record] #gApply #ga #gcard #yInstant.",
       "[Lock] Requires: Cards without Instant.",
       "[Leave]"
     ]

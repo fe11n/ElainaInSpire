@@ -73,17 +73,19 @@ public class AbstractBookRelic extends CustomRelic {
         logger.info("Month after enter: " + (AbstractDungeon.player != null ? ElainaC.Month : "null"));
         this.isDone = true;
     }
-    public void atPreBattle(){//战斗开始时记录卡牌（这个是遗物描述的），TODO 并且按季节更新所有卡牌描述（这个最好写到能力里）
-        // 已经移动到 ElainaC applyPreCombatLogic 实现
-    }
 
-    @Override
-    public void onPlayCard(AbstractCard c, AbstractMonster m) {
-        // 已经移动到 ElainaC useCard 实现
-    }
-    public void onPlayerEndTurn(){
-        // 移动到 ConclusionOrb onEndOfTurn 实现
-    }
+//    public void atPreBattle(){//战斗开始时记录卡牌（这个是遗物描述的），TODO 并且按季节更新所有卡牌描述（这个最好写到能力里）
+//        // 已经移动到 ElainaC applyPreCombatLogic 实现
+//    }
+//
+//    @Override
+//    public void onPlayCard(AbstractCard c, AbstractMonster m) {
+//        // 已经移动到 ElainaC useCard 实现
+//    }
+//    public void onPlayerEndTurn(){
+//        // 移动到 ConclusionOrb onEndOfTurn 实现
+//    }
+
 
     public void UpdateCounter(){//更新计数器
         logger.info("Changing RelicCounter...");

@@ -210,16 +210,6 @@ public class ElainaC extends CustomPlayer{
     }
 
     @Override
-    public void applyEndOfTurnTriggers() {
-
-    }
-
-    @Override
-    public void applyStartOfTurnOrbs() {
-        super.applyStartOfTurnOrbs();
-    }
-
-    @Override
     public void onVictory() {
         super.onVictory();
         DiaryGroup.group.clear();

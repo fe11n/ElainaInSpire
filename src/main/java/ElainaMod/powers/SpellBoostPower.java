@@ -69,7 +69,9 @@ public class SpellBoostPower extends AbstractPower {
         int  los;
         if(card.hasTag(ElainaC.Enums.MAGIC)){
             this.flash();
-            if(!(((ElainaC)AbstractDungeon.player).getConclusion()!=null && ((ElainaC)AbstractDungeon.player).getConclusion() instanceof WizardsWell)){
+            if(AbstractDungeon.player instanceof ElainaC &&
+                    !(((ElainaC)AbstractDungeon.player).getConclusion()!=null &&
+                    ((ElainaC)AbstractDungeon.player).getConclusion() instanceof WizardsWell)){
                 los = this.amount - this.amount /2;
             }
             else {

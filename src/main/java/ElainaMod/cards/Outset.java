@@ -9,6 +9,7 @@ import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.cards.DamageInfo.DamageType;
+import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
@@ -48,13 +49,11 @@ public class Outset extends AbstractElainaCard {
      * @param p 你的玩家实体类。
      * @param m 指向的怪物类。（无指向时为null，包括攻击所有敌人时）
      */
-    public void BasicEffect(ElainaC p, AbstractMonster m){
+    public void BasicEffect(AbstractPlayer p, AbstractMonster m){
         this.addToBot(new DamageAction(m, new DamageInfo(p, damage, DamageType.NORMAL), AbstractGameAction.AttackEffect.SMASH));
         this.addToBot(new ApplyPowerAction(p,p,new SpellBoostPower(p,this.magicNumber)));
-        Iterator it = p.hand.group.iterator();
-        while (it.hasNext()){
-            AbstractCard c = (AbstractCard) it.next();
-            if(c.hasTag(ElainaC.Enums.MAGIC)){
+        for (AbstractCard c : p.hand.group) {
+            if (c.hasTag(ElainaC.Enums.MAGIC)) {
                 this.addToBot(new GainEnergyAction(1));
             }
         }

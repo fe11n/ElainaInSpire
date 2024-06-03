@@ -42,7 +42,7 @@ public class Reversal extends AbstractElainaCard {
      * @param p 你的玩家实体类。
      * @param m 指向的怪物类。（无指向时为null，包括攻击所有敌人时）
      */
-    public void BasicEffect(ElainaC p, AbstractMonster m){
+    public void BasicEffect(AbstractPlayer p, AbstractMonster m){
         Iterator var3 = AbstractDungeon.getCurrRoom().monsters.monsters.iterator();
         AbstractMonster mo;
         while(var3.hasNext()) {

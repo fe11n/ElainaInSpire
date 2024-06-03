@@ -43,7 +43,7 @@ WitchRobe extends AbstractElainaCard {
      * @param m 指向的怪物类。（无指向时为null，包括攻击所有敌人时）
      */
     @Override
-    public void BasicEffect(ElainaC p, AbstractMonster m) {
+    public void BasicEffect(AbstractPlayer p, AbstractMonster m) {
         // AbstractCard中实现了addToBot方法，它的效果和AbstractDungeon.actionManager.addToBottom相同
         this.addToBot(new GainBlockAction(p,p,this.block));
     }

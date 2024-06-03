@@ -32,11 +32,9 @@ public class SpellReorganizationPower extends AbstractPower {
     public void updateDescription(){this.description = DESCRIPTIONS[0]+amount+DESCRIPTIONS[1];}
 
     public void atStartOfTurn(){
-        Iterator it = AbstractDungeon.player.hand.group.iterator();
-        while(it.hasNext()){
-            AbstractCard c = (AbstractCard) it.next();
-            if(c.selfRetain==true || c.retain == true){
-                this.addToBot(new GainBlockAction(owner,owner,this.amount));
+        for (AbstractCard c : AbstractDungeon.player.hand.group) {
+            if (c.selfRetain == true || c.retain == true) {
+                this.addToBot(new GainBlockAction(owner, owner, this.amount));
             }
         }
     }

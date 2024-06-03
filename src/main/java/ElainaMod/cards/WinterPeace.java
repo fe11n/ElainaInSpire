@@ -2,6 +2,7 @@ package ElainaMod.cards;
 
 import ElainaMod.Characters.ElainaC;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
@@ -37,7 +38,7 @@ public class WinterPeace extends AbstractElainaCard {
 
     @Override
     public void applyPowers() {
-        int m = ((ElainaC)AbstractDungeon.player).Month;
+        int m = ElainaC.Month;
         this.baseMagicNumber = this.magicNumber = this.misc + (m>0?((m-1)/12):0);
         super.applyPowers();
         this.initializeDescription();
@@ -50,7 +51,7 @@ public class WinterPeace extends AbstractElainaCard {
      * @param m 指向的怪物类。（无指向时为null，包括攻击所有敌人时）
      */
     @Override
-    public void BasicEffect(ElainaC p, AbstractMonster m) {
+    public void BasicEffect(AbstractPlayer p, AbstractMonster m) {
         applyPowers();
         if(!p.hasPower("Plated Armor")) {
             this.addToBot(new ApplyPowerAction(p, p, new PlatedArmorPower(p, this.magicNumber), this.magicNumber));

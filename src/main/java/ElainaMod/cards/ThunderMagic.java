@@ -39,7 +39,7 @@ public class ThunderMagic extends AbstractElainaCard {
     public void InstantUse(){
         AbstractMonster m = AbstractDungeon.getRandomMonster();
         this.calculateCardDamage(m);
-        BasicEffect((ElainaC) AbstractDungeon.player,m);
+        BasicEffect(AbstractDungeon.player,m);
         logger.info("Modifier include toInstantCardMod: "+ CardModifierManager.hasModifier(this,"toInstantCardMod"));
     }//瞬发
 

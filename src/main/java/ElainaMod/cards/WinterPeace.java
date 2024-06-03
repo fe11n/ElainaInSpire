@@ -38,7 +38,7 @@ public class WinterPeace extends AbstractElainaCard {
 
     @Override
     public void applyPowers() {
-        int m = ((ElainaC)AbstractDungeon.player).Month;
+        int m = ElainaC.Month;
         this.baseMagicNumber = this.magicNumber = this.misc + (m>0?((m-1)/12):0);
         super.applyPowers();
         this.initializeDescription();

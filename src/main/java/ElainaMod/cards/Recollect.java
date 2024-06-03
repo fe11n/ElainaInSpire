@@ -70,6 +70,8 @@ public class Recollect extends AbstractElainaCard {
 
     @Override
     public boolean canUse(AbstractPlayer p, AbstractMonster m) {
+        if(!(p instanceof ElainaC))
+            return false;
         if(((ElainaC)p).getConclusion()==null){
            return false;
         }

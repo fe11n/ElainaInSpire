@@ -45,7 +45,7 @@ public class Review extends AbstractElainaCard {
     }
     @Override
     public void applyPowers() {
-        this.baseMagicNumber = this.magicNumber = ((ElainaC)AbstractDungeon.player).DiaryGroup.size();
+        this.baseMagicNumber = this.magicNumber = ElainaC.DiaryGroup.size();
         this.rawDescription = CARD_STRINGS.DESCRIPTION + CARD_STRINGS.EXTENDED_DESCRIPTION[0];
         super.applyPowers();
         this.initializeDescription();

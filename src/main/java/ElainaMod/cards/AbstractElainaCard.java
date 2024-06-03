@@ -7,8 +7,10 @@ import basemod.abstracts.CustomCard;
 import basemod.helpers.CardModifierManager;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.vfx.ThoughtBubble;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -47,8 +49,12 @@ public class AbstractElainaCard extends CustomCard {
         }
         else {
             logger.info("Player is not ElainaC");
+            AbstractDungeon.effectList.add(new ThoughtBubble(AbstractDungeon.player.dialogX,
+                    AbstractDungeon.player.dialogY, 3.0f, "I don't have enough MAGIC as Elaina!", true));
+
         }
     }
+
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         if (this.isShorthand) {

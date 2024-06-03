@@ -63,8 +63,9 @@ public class ConclusionOrb extends AbstractOrb {
             c_.current_x = c.current_x;
             c_.current_y = c.current_y;
             c = c_;
-        }else {
+        } else {
             c = null;
+            prev_c = null;
         }
     }
 

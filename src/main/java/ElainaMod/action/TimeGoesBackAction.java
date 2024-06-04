@@ -1,5 +1,6 @@
 package ElainaMod.action;
 
+import ElainaMod.Characters.ElainaC;
 import ElainaMod.cardmods.toInstantCardMod;
 import ElainaMod.cards.AbstractElainaCard;
 import ElainaMod.powers.TimeGoesBackPower;
@@ -46,7 +47,8 @@ public class TimeGoesBackAction extends AbstractGameAction {
             this.p.getRelic("Chemical X").flash();
         }
         if(effect > 0){
-            this.addToBot(new ChangeMonthAction(p,effect,true));
+            if (p instanceof ElainaC)
+                this.addToBot(new ChangeMonthAction((ElainaC) p,effect,true));
         }
 
         if (this.upgraded) {

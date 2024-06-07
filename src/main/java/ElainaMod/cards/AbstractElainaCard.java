@@ -61,6 +61,9 @@ public class AbstractElainaCard extends CustomCard {
             logger.info("Record by shorthand: " + this.name);
             this.addToBot(new RecordCardAction(this));
         }
+        if(!(p instanceof ElainaC)){
+
+        }
         BasicEffect(p, m);
     }//使用
     public void triggerOnMonthChanged(int num,boolean isBack) {//由ChangeMonthAction调用

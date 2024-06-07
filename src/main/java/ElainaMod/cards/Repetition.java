@@ -62,8 +62,7 @@ public class Repetition extends AbstractElainaCard {
             return false;
 
         AbstractCard c = ((ElainaC)p).getConclusion();
-        // 这里瞬发判断要改，别直接强转类型。
-        if(((ElainaC)p).getConclusion() == null || !((AbstractElainaCard)c).isInstant){
+        if(((ElainaC)p).getConclusion() == null || !ElainaC.isInstant(c)){
             return false;
         }
         else return super.canUse(p,m);

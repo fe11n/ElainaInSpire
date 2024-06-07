@@ -199,8 +199,7 @@ public class ElainaC extends CustomPlayer{
     @Override
     public void useCard(AbstractCard c, AbstractMonster monster, int energyOnUse) {
         super.useCard(c, monster, energyOnUse);
-        ElainaC p = (ElainaC)AbstractDungeon.player;
-        if(p.hasRelic("Elaina:NicolesAdventure"))return;
+        if(AbstractDungeon.player.hasRelic("Elaina:NicolesAdventure"))return;
         // 在这里更新每回合结语卡。
         if (ElainaC.isNotable(c)) {
             ConclusionOrb.getInstance().setCardToRecord(c.makeStatEquivalentCopy());

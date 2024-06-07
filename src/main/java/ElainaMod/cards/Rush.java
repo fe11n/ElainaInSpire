@@ -41,7 +41,8 @@ public class Rush extends AbstractElainaCard {
 
     public void onChoseThisOption() {
         AbstractPlayer p = AbstractDungeon.player;
-        this.addToBot(new ChangeMonthAction(p,this.magicNumber));
+        if (p instanceof ElainaC)
+            this.addToBot(new ChangeMonthAction((ElainaC) p,this.magicNumber));
     }
 
 }

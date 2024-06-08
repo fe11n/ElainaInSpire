@@ -22,7 +22,6 @@ import java.util.ArrayList;
 
 public class AbstractBookRelic extends CustomRelic {
     public int NotedMonth;
-    public AbstractCard cardToRecord;
     private boolean Rclick = false;
     private boolean RclickStart = false;
 
@@ -74,39 +73,7 @@ public class AbstractBookRelic extends CustomRelic {
         logger.info("Month after enter: " + (AbstractDungeon.player != null ? ElainaC.Month : "null"));
         this.isDone = true;
     }
-    public void atPreBattle(){//战斗开始时记录卡牌（这个是遗物描述的），TODO 并且按季节更新所有卡牌描述（这个最好写到能力里）
-        ElainaC.DiaryGroup.clear();//战斗开始时清空，不管sl了
-        cardToRecord = null;
-        ElainaC p = (ElainaC)AbstractDungeon.player;
-        p.channelOrb(new ConclusionOrb());
-        p.UpdateAllSeasonalDescription();
-    }
 
-
-    @Override
-    public void onPlayCard(AbstractCard c, AbstractMonster m) {
-        ElainaC p = (ElainaC)AbstractDungeon.player;
-        // 在这里更新每回合结语卡。
-        if (ElainaC.isNotable(c)) {
-            cardToRecord = c.makeStatEquivalentCopy();
-        }else {
-            cardToRecord = null;
-            p.getConclusionOrb().removeCardToRecord();
-        }
-    }
-    public void onPlayerEndTurn(){//回合结束时记录打出的最后一张卡牌
-        // EndTurn在胜利或者结束战斗时不会被调用，所以 preBattle需要清空 cardToRecord
-        if (cardToRecord != null) {
-            this.addToTop(new RecordCardAction(cardToRecord, false)); // 不 make_copy，牌的运动更符合直觉。
-            cardToRecord = null;
-        }
-    }
-
-
-
-    public void onVictory(){
-        g.clear();
-    }//TODO 战斗结束时清空日记，这个也最好写到能力里
     public void UpdateCounter(){//更新计数器
         logger.info("Changing RelicCounter...");
         NotedMonth = (ElainaC.Month %12)<=0?(ElainaC.Month %12)+12:(ElainaC.Month %12);

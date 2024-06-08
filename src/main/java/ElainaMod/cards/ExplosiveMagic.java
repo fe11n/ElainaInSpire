@@ -4,6 +4,7 @@ import ElainaMod.Characters.ElainaC;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
+import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
@@ -69,7 +70,7 @@ public class ExplosiveMagic extends AbstractElainaCard {
      * @param m 指向的怪物类。（无指向时为null，包括攻击所有敌人时）
      */
     @Override
-    public void BasicEffect(ElainaC p, AbstractMonster m) {
+    public void BasicEffect(AbstractPlayer p, AbstractMonster m) {
         this.addToBot(new DamageAction(m, new DamageInfo(p, damage, DamageInfo.DamageType.NORMAL), AbstractGameAction.AttackEffect.SMASH));
     }
 }

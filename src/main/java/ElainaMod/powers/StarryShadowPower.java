@@ -31,8 +31,11 @@ public class StarryShadowPower extends AbstractPower {
     }
     public void updateDescription(){this.description = DESCRIPTIONS[0]+ amount +DESCRIPTIONS[1];}
     public void onAfterUseCard(AbstractCard card, UseCardAction action) {
+        if( !(AbstractDungeon.player instanceof ElainaC))
+            return;
+
         ElainaC p = (ElainaC) AbstractDungeon.player;
-        for(int i = 0;i<this.amount-p.hand.size();i++){
+        for(int i = 0;i<this.amount-AbstractDungeon.player.hand.size();i++){
             if(p.getConclusion()==null) break;
             this.addToBot(new GetDiaryCardAction(p));
         }

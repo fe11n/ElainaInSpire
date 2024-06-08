@@ -20,14 +20,14 @@ public class ChangeMonthAction extends AbstractGameAction {
     public ElainaC p;
     public int num;
     boolean isBack;
-    public ChangeMonthAction(AbstractPlayer p, int num, boolean isBack){
-        this.p = (ElainaC) p;
+    public ChangeMonthAction(ElainaC p, int num, boolean isBack){
+        this.p = p;
         this.num = num;
         this.isBack = isBack;
         this.actionType = ActionType.CARD_MANIPULATION;
     }
-    public ChangeMonthAction(AbstractPlayer p, int num){//默认向前
-        this.p = (ElainaC) p;
+    public ChangeMonthAction(ElainaC p, int num){//默认向前
+        this.p = p;
         this.num = num;
         this.isBack = false;
         this.actionType = ActionType.CARD_MANIPULATION;

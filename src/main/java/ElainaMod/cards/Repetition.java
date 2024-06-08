@@ -58,8 +58,11 @@ public class Repetition extends AbstractElainaCard {
 
     @Override
     public boolean canUse(AbstractPlayer p, AbstractMonster m) {
+        if (!(p instanceof ElainaC))
+            return false;
+
         AbstractCard c = ((ElainaC)p).getConclusion();
-        if(((ElainaC)p).getConclusion() == null || !((AbstractElainaCard)c).isInstant){
+        if(((ElainaC)p).getConclusion() == null || !ElainaC.isInstant(c)){
             return false;
         }
         else return super.canUse(p,m);

@@ -7,8 +7,10 @@ import basemod.abstracts.CustomCard;
 import basemod.helpers.CardModifierManager;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.vfx.ThoughtBubble;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -37,15 +39,32 @@ public class AbstractElainaCard extends CustomCard {
     @Override
     public void upgrade() {
     }
+    // 只有伊蕾娜能用的牌，重载这个函数。目前是过渡阶段，以后应考虑在具体的action中判断角色类型并进行保护
     public void BasicEffect(ElainaC p, AbstractMonster m){
-    }//基础效果，可以被使用和瞬发
+    }
+    // 伊蕾娜之外的角色可以用的牌，重载这个函数
+    public void BasicEffect(AbstractPlayer p, AbstractMonster m) {
+        if (p instanceof ElainaC) {
+            BasicEffect((ElainaC) p, m);
+        }
+        else {
+            logger.info("Player is not ElainaC");
+            AbstractDungeon.effectList.add(new ThoughtBubble(AbstractDungeon.player.dialogX,
+                    AbstractDungeon.player.dialogY, 3.0f, "I don't have enough MAGIC as Elaina!", true));
+
+        }
+    }
+
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        if(this.isShorthand){
+        if (this.isShorthand) {
             logger.info("Record by shorthand: " + this.name);
             this.addToBot(new RecordCardAction(this));
         }
-        BasicEffect((ElainaC) p,m);
+        if(!(p instanceof ElainaC)){
+
+        }
+        BasicEffect(p, m);
     }//使用
     public void triggerOnMonthChanged(int num,boolean isBack) {//由ChangeMonthAction调用
     }

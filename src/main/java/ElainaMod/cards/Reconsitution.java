@@ -51,7 +51,7 @@ public class Reconsitution extends AbstractElainaCard {
     }
     @Override
     public void applyPowers() {
-        this.baseMagicNumber = this.magicNumber = ((ElainaC)AbstractDungeon.player).DiaryGroup.size();
+        this.baseMagicNumber = this.magicNumber = ElainaC.DiaryGroup.size();
         this.rawDescription = (this.upgraded?CARD_STRINGS.UPGRADE_DESCRIPTION:CARD_STRINGS.DESCRIPTION)
                 + CARD_STRINGS.EXTENDED_DESCRIPTION[0];
         super.applyPowers();

@@ -31,8 +31,8 @@ public class GetCertainDiaryCardAction extends AbstractGameAction {
 
                 if (g.isEmpty()) {
                     logger.info("g is empty");
-                    ConclusionOrb.removeConclusion();
-                }else if(!g.getBottomCard().equals(p.getConclusionOrb().c)){
+                    ConclusionOrb.getInstance().removeConclusion();
+                } else if (!g.getBottomCard().equals(p.getConclusionOrb().c)){
                     logger.info("syncConclusion");
                     p.getConclusionOrb().syncConclusionWithDiary();
                 }

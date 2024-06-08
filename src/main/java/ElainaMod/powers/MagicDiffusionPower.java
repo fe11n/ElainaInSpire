@@ -18,6 +18,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import java.util.ArrayList;
+import java.util.EventListener;
 import java.util.Iterator;
 
 public class MagicDiffusionPower extends AbstractPower {
@@ -44,7 +45,9 @@ public class MagicDiffusionPower extends AbstractPower {
     }
 
     public void atStartOfTurnPostDraw() {
-        if(((ElainaC)owner).getConclusion()!=null && ElainaC.isInstant(((ElainaC)owner).getConclusion())){
+        if(owner instanceof ElainaC &&
+                ((ElainaC)owner).getConclusion()!=null &&
+                ElainaC.isInstant(((ElainaC)owner).getConclusion())){
             this.flash();
             this.addToBot(new MagicDiffusionAction((AbstractPlayer) owner, amount));
         }

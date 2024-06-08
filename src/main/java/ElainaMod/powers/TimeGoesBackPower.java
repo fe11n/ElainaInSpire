@@ -44,6 +44,8 @@ public class TimeGoesBackPower extends AbstractPower {
     }
     public void onEnergyRecharge() {
         this.flash();
+        if (!(owner instanceof ElainaC))
+            return;
         this.addToBot(new ChangeMonthAction((ElainaC)owner,1));
         ElainaC p = (ElainaC)AbstractDungeon.player;
         if(p.getDiarySize()<=0){

@@ -4,6 +4,7 @@ import ElainaMod.Characters.ElainaC;
 import ElainaMod.action.GetDiaryCardAction;
 import com.badlogic.gdx.graphics.Texture;
 import com.megacrit.cardcrawl.actions.utility.UseCardAction;
+import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -39,5 +40,9 @@ public class StarryShadowPower extends AbstractPower {
             if(p.getConclusion()==null) break;
             this.addToBot(new GetDiaryCardAction(p));
         }
+    }
+
+    public void atEndOfTurn(boolean isPlayer) {
+        this.addToBot(new RemoveSpecificPowerAction(this.owner, this.owner, StarryShadowPower.POWER_ID));
     }
 }

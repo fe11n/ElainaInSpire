@@ -61,7 +61,7 @@ public class MagicResiduePower extends AbstractPower {
 
                 // 如果不同步，不同主机生命值显示会不同
                 this.addToBot(new DamageAction(owner, new DamageInfo(p, this.amount*m,
-                        DamageInfo.DamageType.NORMAL), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
+                        DamageInfo.DamageType.HP_LOSS), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
             }
         }
     }

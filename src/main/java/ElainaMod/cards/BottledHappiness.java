@@ -13,8 +13,8 @@ public class BottledHappiness extends AbstractElainaCard {
     public static final String ID = "Elaina:BottledHappiness";
     private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID); // 从游戏系统读取本地化资源
     private static final String IMG_PATH = "ElainaMod/img/cards/BottledHappiness.png";
-    private static final int COST = 2;
-    private static final CardType TYPE = CardType.POWER;
+    private static final int COST = 1;
+    private static final CardType TYPE = CardType.SKILL;
     private static final CardRarity RARITY = CardRarity.UNCOMMON;
     private static final CardTarget TARGET = CardTarget.SELF;
 
@@ -22,6 +22,7 @@ public class BottledHappiness extends AbstractElainaCard {
         // 为了命名规范修改了变量名。这些参数具体的作用见下方
         super(ID, CARD_STRINGS, IMG_PATH, COST, TYPE, RARITY, TARGET);
         this.baseMagicNumber = this.magicNumber = 10;
+        this.shuffleBackIntoDrawPile = true;
     }
 
     @Override

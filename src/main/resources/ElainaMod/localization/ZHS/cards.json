@@ -58,8 +58,8 @@
   },
   "Elaina:HypotheticalEnemy": {
     "NAME": "假想敌",
-    "DESCRIPTION": "使所有敌人 力量 翻倍。 NL 选择: 使所有敌人的 elainamod:魔力残留 翻倍， elainamod:时节 前进 !M! 或获得 !B! 层 elainamod:缓冲 。 NL 消耗 。",
-    "UPGRADE_DESCRIPTION": "使所有敌人 力量 翻倍。 NL 选择: 使所有敌人的 elainamod:魔力残留 变为三倍， elainamod:时节 前进 !M! 或获得 !B! 层 无实体 。 NL 消耗 。"
+    "DESCRIPTION": "使所有敌人 力量 翻倍。 NL 获得 !M! 层 无实体 。 NL 敌人有力量增益时，额外获得1层，并向弃牌堆洗入一张本牌耗能+1的复制。 NL 消耗 。",
+    "UPGRADE_DESCRIPTION": "使所有敌人 力量 翻倍。 NL 获得 !M! 层 无实体 。 NL 敌人有力量增益时，额外获得1层，并向弃牌堆洗入一张本牌耗能+1的复制。 NL 消耗 。"
   },
   "Elaina:Rush": {
     "NAME": "急行",
@@ -137,7 +137,7 @@
   },
   "Elaina:BottledHappiness": {
     "NAME": "瓶装的幸福",
-    "DESCRIPTION": "回合结束时，使所有敌人失去等于其 力量 !M! 倍的生命值。"
+    "DESCRIPTION": "回合结束时，使所有敌人失去等于其 力量 !M! 倍的生命值。 NL 将这张牌放入你的抽牌堆。"
   },
   "Elaina:FlashMagic": {
     "NAME": "闪光魔法",

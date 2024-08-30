@@ -39,7 +39,7 @@ public class GreedyDoll extends CustomRelic {
             ++this.counter;
         }
         if (this.counter == NUM_TURNS) {
-            ++this.counter;
+            this.counter = 0;
             this.flash();
             this.addToBot(new RelicAboveCreatureAction(AbstractDungeon.player, this));
             this.addToBot(new AbstractGameAction() {

@@ -46,8 +46,8 @@
   },
   "Elaina:HypotheticalEnemy": {
     "NAME": "Hypothetical Enemy",
-    "DESCRIPTION": "Double ALL enemies' Strength. NL Choose one: Double ALL enemies' elainamod:Magic_Residue, advance elainamod:Month by !M!, or gain !B! elainamod:Buffer. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Double ALL enemies' Strength. NL Choose one: Triple ALL enemies' elainamod:Magic_Residue, advance elainamod:Month by !M!, or gain !B! Intangible. NL Exhaust."
+    "DESCRIPTION": "Double ALL enemies' Strength. NL Gain !M! Intangible. NL If one enemy has Strength, gain 1 layer again, and shuffle a copy of this card that cost +1 into your discard pile. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Double ALL enemies' Strength. NL Gain !M! Intangible. NL If one enemy has Strength, gain 1 layer again, and shuffle a copy of this card that cost +1 into your draw pile. NL Exhaust."
   },
   "Elaina:Rush": {
     "NAME": "Rush",
@@ -119,7 +119,7 @@
   },
   "Elaina:BottledHappiness": {
     "NAME": "Bottled Happiness",
-    "DESCRIPTION": "At the end of your turn, ALL enemies lose HP equal to their Strength multiplied by !M!."
+    "DESCRIPTION": "At the end of your turn, ALL enemies lose HP equal to their Strength multiplied by !M!. NL Shuffle this card into your draw pile."
   },
   "Elaina:FlashMagic": {
     "NAME": "Flash Magic",

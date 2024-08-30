@@ -54,7 +54,7 @@ public class RecordCardAction extends AbstractGameAction {
                 c = p.getConclusion();
                 ConclusionOrb orb = p.getConclusionOrb();
                 orb.flashConclusion();
-                orb.removeCardToRecord();
+//                orb.removeCardToRecord();
                 this.addToBot(
                         new DamageAction(
                                 AbstractDungeon.getRandomMonster(),
@@ -76,7 +76,7 @@ public class RecordCardAction extends AbstractGameAction {
                 if(g.size()==1){
                     orb.setCurConclusion(c);
                 } else {
-                    orb.removeCardToRecord(); //清理本来显示的
+//                    orb.removeCardToRecord(); //清理本来显示的
                 }
                 this.isDone=true;
                 return;

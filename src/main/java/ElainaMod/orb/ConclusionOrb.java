@@ -239,7 +239,7 @@ public class ConclusionOrb extends AbstractOrb {
             // 不 make_copy，牌的运动更符合直觉。
             AbstractGameAction a = new RecordCardAction(cardToRecord, false);
             AbstractDungeon.actionManager.addToTop(a);
-            cardToRecord = null;
+            removeCardToRecord();
         }
     }
 }

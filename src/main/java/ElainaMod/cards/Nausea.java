@@ -17,7 +17,7 @@ public class Nausea extends AbstractElainaCard {
     public Nausea() {
         // 为了命名规范修改了变量名。这些参数具体的作用见下方
         super(ID, CARD_STRINGS, IMG_PATH, COST, TYPE, RARITY, TARGET,CardColor.CURSE);
-        this.exhaust = true;
+        this.retain = true;
     }
 
     public boolean canUse(AbstractPlayer p, AbstractMonster m) {

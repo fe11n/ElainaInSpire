@@ -42,5 +42,6 @@ public class BottledHappinessPower extends AbstractPower {
                 }
             }
         }
+        this.addToBot(new RemoveSpecificPowerAction(this.owner, this.owner, "Elaina:BottledHappiness"));
     }
 }

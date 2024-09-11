@@ -313,7 +313,7 @@
   "Elaina:Glance": {
     "NAME": "Glance",
     "DESCRIPTION": "Unplayable and cannot be elainamod:Recorded. NL When you draw this card, draw 1 additional card and elainamod:Record your hand and Exhaust.",
-    "UPGRADE_DESCRIPTION": "Unplayable and cannot be elainamod:Recorded. NL When you draw this card, draw 1 additional card and elainamod:Record your hand."
+    "UPGRADE_DESCRIPTION": "Unplayable and cannot be elainamod:Recorded. NL When you draw this card, draw 1 additional card and elainamod:Record your hand and discard."
   },
   "Elaina:Quotation": {
     "NAME": "Quotation",

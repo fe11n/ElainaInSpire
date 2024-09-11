@@ -331,7 +331,7 @@
   "Elaina:Glance": {
     "NAME": "惊鸿",
     "DESCRIPTION": "不能被打出和 elainamod:记录 。 NL 抽到这张牌时，再抽1张牌， elainamod:记录 所有的手牌，然后 消耗 。",
-    "UPGRADE_DESCRIPTION": "不能被打出和 elainamod:记录 。 NL 抽到这张牌时，再抽1张牌， elainamod:记录 所有的手牌。"
+    "UPGRADE_DESCRIPTION": "不能被打出和 elainamod:记录 。 NL 抽到这张牌时，再抽1张牌， elainamod:记录 所有的手牌，然后丢弃。"
   },
   "Elaina:Quotation": {
     "NAME": "引用",

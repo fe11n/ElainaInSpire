@@ -35,8 +35,8 @@ public class LifePotionPatch {
             powerField.setAccessible(true);
             AbstractPower po = (AbstractPower) powerField.get(a);
 
-            if(     a.target!=null && a.target.isPlayer
-                    && ((AbstractPlayer)a.target).hasRelic("Elaina:LifePotion")
+            if(     a.target!=null && a.target instanceof AbstractPlayer
+                    && AbstractDungeon.player.hasRelic("Elaina:LifePotion")
                     && !a.target.hasPower(po.ID)){
                 AbstractPlayer p = AbstractDungeon.player;
                 int num = ((p.powers.size()+1) > BaseMod.MAX_HAND_SIZE?BaseMod.MAX_HAND_SIZE:(p.powers.size()+1)) - p.hand.size();

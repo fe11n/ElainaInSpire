@@ -59,7 +59,7 @@
   "Elaina:HypotheticalEnemy": {
     "NAME": "假想敌",
     "DESCRIPTION": "使所有敌人 力量 翻倍。 NL 获得 !M! 层 无实体 。 NL 敌人有力量增益时，额外获得1层，并向弃牌堆洗入一张本牌耗能+1的复制。 NL 消耗 。",
-    "UPGRADE_DESCRIPTION": "使所有敌人 力量 翻倍。 NL 获得 !M! 层 无实体 。 NL 敌人有力量增益时，额外获得1层，并向弃牌堆洗入一张本牌耗能+1的复制。 NL 消耗 。"
+    "UPGRADE_DESCRIPTION": "使所有敌人 力量 翻倍。 NL 获得 !M! 层 无实体 。 NL 敌人有力量增益时，额外获得1层，并向抽牌堆洗入一张本牌耗能+1的复制。 NL 消耗 。"
   },
   "Elaina:Rush": {
     "NAME": "急行",

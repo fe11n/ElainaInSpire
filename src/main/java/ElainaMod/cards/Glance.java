@@ -41,6 +41,8 @@ public class Glance extends AbstractElainaCard {
     public void triggerWhenDrawn() {
         if(!upgraded){
             this.addToTop(new ExhaustSpecificCardAction(this, AbstractDungeon.player.hand));
+        }else{
+            this.addToBot(new DiscardSpecificCardAction(this,AbstractDungeon.player.hand));
         }
         this.addToBot(new AbstractGameAction() {
             @Override

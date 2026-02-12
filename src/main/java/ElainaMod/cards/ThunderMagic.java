@@ -1,4 +1,4 @@
-package ElainaMod.cards;
+﻿package ElainaMod.cards;
 
 import ElainaMod.Characters.ElainaC;
 import basemod.helpers.CardModifierManager;
@@ -11,21 +11,18 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-
 import java.util.Iterator;
 
 public class ThunderMagic extends AbstractElainaCard {
     public static final String ID = "Elaina:ThunderMagic";
-    private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID); // 从游戏系统读取本地化资源
+    private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID);
     private static final String IMG_PATH = "ElainaMod/img/cards/ThunderMagic.png";
     private static final int COST = 4;
     private static final CardType TYPE = CardType.ATTACK;
     private static final CardRarity RARITY = CardRarity.RARE;
     private static final CardTarget TARGET = CardTarget.ALL_ENEMY;
 
-
     public ThunderMagic() {
-        // 为了命名规范修改了变量名。这些参数具体的作用见下方
         super(ID,CARD_STRINGS, IMG_PATH, COST, TYPE, RARITY, TARGET);
         this.tags.add(ElainaC.Enums.MAGIC);
         this.damage = this.baseDamage = 25;
@@ -41,16 +38,16 @@ public class ThunderMagic extends AbstractElainaCard {
         this.calculateCardDamage(m);
         BasicEffect(AbstractDungeon.player,m);
         logger.info("Modifier include toInstantCardMod: "+ CardModifierManager.hasModifier(this,"toInstantCardMod"));
-    }//瞬发
+    }
 
     @Override
-    public void upgrade() { // 升级调用的方法
+    public void upgrade() {
         if (!this.upgraded) {
-            this.upgradeName(); // 卡牌名字变为绿色并添加“+”，且标为升级过的卡牌，之后不能再升级。
+            this.upgradeName();
             this.upgradeDamage(5);
-//            this.upgradeMagicNumber(5);
         }
     }
+
     public void configureCostsOnNewCard() {
         Iterator var2 = AbstractDungeon.actionManager.cardsPlayedThisTurn.iterator();
         while(var2.hasNext()) {
@@ -60,18 +57,13 @@ public class ThunderMagic extends AbstractElainaCard {
             }
         }
     }
+
     public void triggerOnCardPlayed(AbstractCard c) {
-        if(c instanceof AbstractElainaCard && c.hasTag(ElainaC.Enums.MAGIC)){
+        if(c instanceof AbstractElainaCard && c.hasTag(ElainaC.Enums.MAGIC) && c != this){
             this.setCostForTurn(this.costForTurn-2);
         }
     }
 
-    /**
-     * 当卡牌被使用时，调用这个方法。
-     *
-     * @param p 你的玩家实体类。
-     * @param m 指向的怪物类。（无指向时为null，包括攻击所有敌人时）
-     */
     public void BasicEffect(AbstractPlayer p, AbstractMonster m){
         Iterator it = AbstractDungeon.getMonsters().monsters.iterator();
         AbstractMonster mo = null;
@@ -90,7 +82,7 @@ public class ThunderMagic extends AbstractElainaCard {
                 public AbstractMonster mo;
                 public AbstractGameAction accept(AbstractMonster m){
                     mo = m;
-                    return this;//向内部匿名类传参
+                    return this;
                 }
                 @Override
                 public void update() {

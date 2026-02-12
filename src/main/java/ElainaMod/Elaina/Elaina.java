@@ -1,4 +1,4 @@
-package ElainaMod.Elaina;
+﻿package ElainaMod.Elaina;
 
 import ElainaMod.Characters.ElainaC;
 import ElainaMod.cards.*;
@@ -28,30 +28,30 @@ import static com.megacrit.cardcrawl.core.Settings.language;
 public class Elaina implements EditStringsSubscriber,EditCardsSubscriber, EditCharactersSubscriber, EditRelicsSubscriber
 , EditKeywordsSubscriber, AddAudioSubscriber, PostInitializeSubscriber {
    private static final String MY_CHARACTER_BUTTON = "ElainaMod/img/char/Character_Button.png";
-   // 人物选择界面的立绘
+   // 娴滆櫣澧块柅澶嬪閻ｅ矂娼伴惃鍕彌缂?
    private static final String MY_CHARACTER_PORTRAIT = "ElainaMod/img/char/Character_Portrait.png";
-   // 攻击牌的背景（小尺寸）
+   // 閺€璇插毊閻楀瞼娈戦懗灞炬珯閿涘牆鐨亸鍝勵嚟閿?
    private static final String BG_ATTACK_512 = "ElainaMod/img/512/bg_attack_512.png";
-   // 能力牌的背景（小尺寸）
+   // 閼宠棄濮忛悧宀€娈戦懗灞炬珯閿涘牆鐨亸鍝勵嚟閿?
    private static final String BG_POWER_512 = "ElainaMod/img/512/bg_power_512.png";
-   // 技能牌的背景（小尺寸）
+   // 閹垛偓閼崇晫澧濋惃鍕剹閺咁垽绱欑亸蹇撴槀鐎甸潻绱?
    private static final String BG_SKILL_512 = "ElainaMod/img/512/bg_skill_512.png";
-   // 在卡牌和遗物描述中的能量图标
+   // 閸︺劌宕遍悧灞芥嫲闁澧块幓蹇氬牚娑擃厾娈戦懗浠嬪櫤閸ョ偓鐖?
    private static final String SMALL_ORB = "ElainaMod/img/char/small_orb.png";
-   // 攻击牌的背景（大尺寸）
+   // 閺€璇插毊閻楀瞼娈戦懗灞炬珯閿涘牆銇囩亸鍝勵嚟閿?
    private static final String BG_ATTACK_1024 = "ElainaMod/img/1024/bg_attack.png";
-   // 能力牌的背景（大尺寸）
+   // 閼宠棄濮忛悧宀€娈戦懗灞炬珯閿涘牆銇囩亸鍝勵嚟閿?
    private static final String BG_POWER_1024 = "ElainaMod/img/1024/bg_power.png";
-   // 技能牌的背景（大尺寸）
+   // 閹垛偓閼崇晫澧濋惃鍕剹閺咁垽绱欐径褍鏄傜€甸潻绱?
    private static final String BG_SKILL_1024 = "ElainaMod/img/1024/bg_skill.png";
-   // 在卡牌预览界面的能量图标
+   // 閸︺劌宕遍悧宀勵暕鐟欏牏鏅棃銏㈡畱閼充粙鍣洪崶鐐垼
    private static final String BIG_ORB = "ElainaMod/img/char/card_orb.png";
-   // 小尺寸的能量图标（战斗中，牌堆预览）
+   // 鐏忓繐鏄傜€靛摜娈戦懗浠嬪櫤閸ョ偓鐖ｉ敍鍫熷灛閺傛ぞ鑵戦敍宀€澧濋崼鍡涱暕鐟欏牞绱?
    private static final String ENERGY_ORB = "ElainaMod/img/char/cost_orb.png";
    public static final Color MY_COLOR = new Color(79.0F / 255.0F, 185.0F / 255.0F, 9.0F / 255.0F, 1.0F);
    public Elaina(){
       BaseMod.subscribe(this);
-      // 这里注册颜色
+      // 鏉╂瑩鍣峰▔銊ュ斀妫版粏澹?
       BaseMod.addColor(EXAMPLE_COLOR, MY_COLOR, MY_COLOR, MY_COLOR, MY_COLOR, MY_COLOR, MY_COLOR, MY_COLOR,
               BG_ATTACK_512,BG_SKILL_512,BG_POWER_512, ENERGY_ORB,BG_ATTACK_1024,BG_SKILL_1024,BG_POWER_1024,
               BIG_ORB,SMALL_ORB);
@@ -62,13 +62,12 @@ public class Elaina implements EditStringsSubscriber,EditCardsSubscriber, EditCh
 
    @Override
    public void receiveEditCards(){
-      //TODO 写添加卡牌的代码
+      //TODO 閸愭瑦鍧婇崝鐘插幢閻楀瞼娈戞禒锝囩垳
       BaseMod.addCard(new Accelerate());
       BaseMod.addCard(new Accumulation());
       BaseMod.addCard(new AdjustPace());
       BaseMod.addCard(new AdvancedMagic());
       BaseMod.addCard(new Anticipatory());
-      BaseMod.addCard(new Asylum());
       BaseMod.addCard(new AutumnVigilance());
       BaseMod.addCard(new Awaken());
       BaseMod.addCard(new BasicMagic());
@@ -92,7 +91,6 @@ public class Elaina implements EditStringsSubscriber,EditCardsSubscriber, EditCh
       BaseMod.addCard(new Endurance());
       BaseMod.addCard(new Gifts());
       BaseMod.addCard(new ExplosiveMagic());
-      BaseMod.addCard(new Fight());
       BaseMod.addCard(new FirstImpression());
       BaseMod.addCard(new FlashMagic());
       BaseMod.addCard(new FragmentMagic());
@@ -137,7 +135,6 @@ public class Elaina implements EditStringsSubscriber,EditCardsSubscriber, EditCh
       BaseMod.addCard(new Rhetoric());
       BaseMod.addCard(new Rummage());
       BaseMod.addCard(new RuneMagic());
-      BaseMod.addCard(new Rush());
       BaseMod.addCard(new SelfDefense());
       BaseMod.addCard(new ShowWeakness());
       BaseMod.addCard(new SilentChant());
@@ -168,7 +165,7 @@ public class Elaina implements EditStringsSubscriber,EditCardsSubscriber, EditCh
    }
    @Override
    public void receiveEditRelics() {
-      BaseMod.addRelicToCustomPool(new WanderingWitch(), EXAMPLE_COLOR); // RelicType表示是所有角色都能拿到的遗物，还是一个角色的独有遗物
+      BaseMod.addRelicToCustomPool(new WanderingWitch(), EXAMPLE_COLOR); // RelicType鐞涖劎銇氶弰顖涘閺堝顫楅懝鏌ュ厴閼宠姤瀣侀崚鎵畱闁澧块敍宀冪箷閺勵垯绔存稉顏囶潡閼硅尙娈戦悪顒佹箒闁澧?
       BaseMod.addRelicToCustomPool(new PortableWand(), EXAMPLE_COLOR);
       BaseMod.addRelicToCustomPool(new StoveFire(), EXAMPLE_COLOR);
       BaseMod.addRelicToCustomPool(new TimeEngraving(), EXAMPLE_COLOR);
@@ -185,13 +182,13 @@ public class Elaina implements EditStringsSubscriber,EditCardsSubscriber, EditCh
    private String getlang(){
       String lang;
       if (language == Settings.GameLanguage.ZHS) {
-         lang = "ZHS"; // 如果语言设置为简体中文，则加载ZHS文件夹的资源
+         lang = "ZHS"; // 婵″倹鐏夌拠顓♀枅鐠佸墽鐤嗘稉铏圭暆娴ｆ挷鑵戦弬鍥风礉閸掓瑥濮炴潪绲慔S閺傚洣娆㈡径鍦畱鐠у嫭绨?
       }
       else if(language == Settings.GameLanguage.ENG){
          lang = "ENG";
       }
       else {
-         lang = "ENG"; // 如果没有相应语言的版本，默认加载英文
+         lang = "ENG"; // 婵″倹鐏夊▽鈩冩箒閻╃绨茬拠顓♀枅閻ㄥ嫮澧楅張顒婄礉姒涙顓婚崝鐘烘祰閼昏鲸鏋?
       }
       return lang;
    }
@@ -199,8 +196,8 @@ public class Elaina implements EditStringsSubscriber,EditCardsSubscriber, EditCh
 
    public void receiveEditStrings() {
       String lang = getlang();
-      BaseMod.loadCustomStringsFile(CardStrings.class, "ElainaMod/localization/" + lang + "/cards.json"); // 加载相应语言的卡牌本地化内容。
-      // 如果是中文，加载的就是"ExampleResources/localization/ZHS/cards.json"
+      BaseMod.loadCustomStringsFile(CardStrings.class, "ElainaMod/localization/" + lang + "/cards.json"); // 閸旂姾娴囬惄绋跨安鐠囶叀鈻堥惃鍕幢閻楀本婀伴崷鏉垮閸愬懎顔愰妴?
+      // 婵″倹鐏夐弰顖欒厬閺傚浄绱濋崝鐘烘祰閻ㄥ嫬姘ㄩ弰?ExampleResources/localization/ZHS/cards.json"
       BaseMod.loadCustomStringsFile(CharacterStrings.class, "ElainaMod/localization/" + lang + "/characters.json");
       BaseMod.loadCustomStringsFile(RelicStrings.class, "ElainaMod/localization/" + lang + "/relics.json");
       BaseMod.loadCustomStringsFile(UIStrings.class,"ElainaMod/localization/" + lang + "/UIStrings.json");
@@ -221,7 +218,7 @@ public class Elaina implements EditStringsSubscriber,EditCardsSubscriber, EditCh
       Keyword[] keywords = gson.fromJson(json, Keyword[].class);
       if (keywords != null) {
          for (Keyword keyword : keywords) {
-            // 这个id要全小写
+            // 鏉╂瑤閲渋d鐟曚礁鍙忕亸蹇撳晸
             BaseMod.addKeyword("elainamod",
                     keyword.NAMES[0],
                     keyword.NAMES,
@@ -239,11 +236,11 @@ public class Elaina implements EditStringsSubscriber,EditCardsSubscriber, EditCh
 
    @Override
    public void receivePostInitialize() {
-      BaseMod.addEvent(NoMushroomEvent.ID, NoMushroomEvent.class);
-      BaseMod.addEvent(DisputeEvent.ID, DisputeEvent.class);
+      BaseMod.addEvent("Elaina:NoMushroom", NoMushroomEvent.class);
+      BaseMod.addEvent("Elaina:Dispute", DisputeEvent.class);
 
       BaseMod.addPotion(MagicPotion.class,Color.BLUE,Color.BLUE,Color.BLUE,"Elaina:MagicPotion", MY_CHARACTER);
-      BaseMod.addPotion(TemperamentPotion.class,Color.GOLD,Color.GOLD,Color.GOLD,"Elaina:FlashPotion", MY_CHARACTER);
+      BaseMod.addPotion(TemperamentPotion.class,Color.GOLD,Color.GOLD,Color.GOLD,"Elaina:TemperamentPotion", MY_CHARACTER);
       BaseMod.addPotion(TimePotion.class,Color.YELLOW,Color.YELLOW,Color.YELLOW,"Elaina:TimePotion", MY_CHARACTER);
    }
 }

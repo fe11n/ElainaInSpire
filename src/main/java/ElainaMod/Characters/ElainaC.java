@@ -375,7 +375,7 @@ public class ElainaC extends CustomPlayer{
     // 为原版人物枚举、卡牌颜色枚举扩展的枚举，需要写，接下来要用
     // ***填在SpireEnum中的name需要一致***
     public static class Enums {
-        @SpireEnum
+        @SpireEnum(name = "ELAINA")
         public static PlayerClass MY_CHARACTER;
 
         @SpireEnum(name = "ELAINA")
@@ -391,4 +391,3 @@ public class ElainaC extends CustomPlayer{
         public static AbstractCard.CardTags UNNOTABLE;//不可被记录
     }
 }
-
